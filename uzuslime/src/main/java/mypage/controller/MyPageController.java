@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="mypage")
 public class MyPageController {
 	
-	//로그인 창
-	@RequestMapping(value="myPage", method=RequestMethod.GET)
+	//濡쒓렇�씤 李�
+	@RequestMapping(value="myPageOrder", method=RequestMethod.GET)
 	public String myPage() {
-		return "/mypage/myPage";
+		return "/mypage/myPageOrder";
 	}
 	
 }
