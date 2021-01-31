@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../css/member.css">
 </head>
 <body>
-<form id="checkPostForm">
+<form id="memberCheckPostForm">
 <table id="checkPostTable" border="1" width="100%" cellpadding="2" cellspacing="0">
 <tr>
 	<td width="100" align="center">시도</td>

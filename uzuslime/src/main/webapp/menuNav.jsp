@@ -9,14 +9,14 @@
    <!-- 비 로그인 메뉴 -->
     <c:if test="${sessionScope.memId == null }">	
 	 <li><a href="/slime/member/memberLoginForm" rel="modal:open">로그인</a></li>
-	 <li><a href="/slime/member/writeForm" rel="modal:open">회원가입</a></li>    
+	 <li><a href="/slime/member/memberWriteForm" rel="modal:open">회원가입</a></li>    
 	</c:if>
        
     <!-- 로그인 메뉴 -->
     <c:if test="${memId != null }">
 	<h4>${memName }님 반갑습니다.</h4>
 	<li><a href="/slime/member/logout">로그아웃</a></li>
-	 <li><a href="/slime/mypage/myPage">마이페이지</a></li>
+	 <li><a href="/slime/mypage/myPageOrder">마이페이지</a></li>
 	 <li><a href="#">장바구니</a></li>  	
 	</c:if>
    

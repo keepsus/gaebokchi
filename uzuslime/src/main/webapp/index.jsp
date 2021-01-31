@@ -23,7 +23,7 @@
     <!---------------------->
     <header>
         <nav id="nav">
-        	<jsp:include page="menu.jsp"/>           
+        	<jsp:include page="menuNav.jsp"/>           
         </nav>
     </header>
 

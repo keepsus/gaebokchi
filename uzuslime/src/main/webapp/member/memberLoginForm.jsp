@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <div class="modal-header">
         <h2 class="login-header">로그인</h2>
@@ -46,7 +47,7 @@
         </form>
         
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
-	<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
+		<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
         
 </body>
 </html>

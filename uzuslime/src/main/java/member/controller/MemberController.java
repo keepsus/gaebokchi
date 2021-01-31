@@ -47,9 +47,9 @@ public class MemberController {
 	}
 	
 	//회원가입 창
-	@RequestMapping(value="writeForm", method=RequestMethod.GET)
-	public String writeForm() {		
-		return "/member/writeForm";
+	@RequestMapping(value="memberWriteForm", method=RequestMethod.GET)
+	public String memberWriteForm() {		
+		return "/member/memberWriteForm";
 	}
 	
 	//회원가입
@@ -70,9 +70,9 @@ public class MemberController {
 	
 	
 	//우편번호
-	@RequestMapping(value="checkPost", method=RequestMethod.GET)
-	public String checkPost() {
-		return "/member/checkPost";
+	@RequestMapping(value="memberCheckPost", method=RequestMethod.GET)
+	public String memberCheckPost() {
+		return "/member/memberCheckPost";
 	}
 	
 	
@@ -89,13 +89,13 @@ public class MemberController {
 	
 	
 	//회원정보 수정 창 -> BD 에서 데이터 가지고 옴
-	@RequestMapping(value="modifyForm", method=RequestMethod.GET)
-	public String modifyForm(HttpSession session, Model model) {
+	@RequestMapping(value="memberModifyForm", method=RequestMethod.GET)
+	public String memberModifyForm(HttpSession session, Model model) {
 		String member_id = (String) session.getAttribute("memId");
 		MemberDTO memberDTO = memberService.getMember(member_id);
 		
 		model.addAttribute("memberDTO", memberDTO);
-		model.addAttribute("display", "/member/modifyForm.jsp");
+		model.addAttribute("display", "/member/memberModifyForm.jsp");
 		return "/index";
 	}
 	

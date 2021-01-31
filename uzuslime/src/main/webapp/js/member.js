@@ -79,7 +79,7 @@ $('#writeBtn').click(function(){
 		$('#idDiv').css('font-weight','bold');
 	
 	}else{
-		$('form[name=writeForm]').submit();		
+		$('form[name=memberWriteForm]').submit();		
 	}
 });
 
@@ -119,14 +119,14 @@ $('#member_id').focusout(function(){
 
 //우편번호
 $('#checkPostBtn').click(function(){
-	window.open("/slime/member/checkPost", "zipcode", "width=700 height=500 scrollbars=yes");
+	window.open("/slime/member/memberCheckPost", "zipcode", "width=700 height=500 scrollbars=yes");
 });
 
 $('#checkPostSearchBtn').click(function(){
 	$.ajax({
 		type: 'post',
 		url: '/slime/member/checkPostSearch',
-		data: $('#checkPostForm').serialize(),	//serialize : '변수=값&변수=값'
+		data: $('#memberCheckPostForm').serialize(),	//serialize : '변수=값&변수=값'
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));

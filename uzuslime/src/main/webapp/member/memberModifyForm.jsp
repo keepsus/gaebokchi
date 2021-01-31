@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<form name="modifyForm" id="modifyForm">
+<form name="memberModifyForm" id="memberModifyForm">
 <h3>회원정보수정</h3>
 <hr>
 <table border="1" cellpadding="3" cellspacing="0">
