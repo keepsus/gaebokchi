@@ -16,13 +16,12 @@
     <c:if test="${memId != null }">
 	<h4>${memName }님 반갑습니다.</h4>
 	<li><a href="/slime/member/logout">로그아웃</a></li>
-	 <li><a href="/slime/mypage/myPage">마이페이지</a></li>
+	 <li><a href="/slime/mypage/myPageOrder">마이페이지</a></li>
 	 <li><a href="#">장바구니</a></li>  	
 	</c:if>
    
     
   	<!-- 비 로그인, 로그인 공통 메뉴 -->    
-        <li><a href="/slime/qna/qnaBoardList">Q & A</a></li>
         <li><a href="#"><ion-icon name="search-outline"></ion-icon></a></li>
     </ul>
 </div>
