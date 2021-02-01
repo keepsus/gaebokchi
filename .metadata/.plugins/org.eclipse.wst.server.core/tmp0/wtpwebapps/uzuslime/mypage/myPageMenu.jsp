@@ -9,7 +9,7 @@
          <li><a href="myPageCoupon.jsp">쿠폰</a></li>
          <li><a href="myPagePoint.jsp">포인트</a></li>
          <li><a href="myPageQuestion.jsp">1:1 문의</a></li>
-         <li><a href="#">정보 수정</a></li>
+         <li><a href="/slime/member/memberModifyForm" rel="modal:open">정보 수정</a></li>
          <li><a href="#">회원탈퇴</a></li>
      </ul>
  </div>

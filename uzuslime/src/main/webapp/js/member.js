@@ -179,19 +179,19 @@ $('#modifyBtn').click(function(){
 	$('#pwdDiv').empty();
 	$('#repwdDiv').empty();
 	
-	if($('#name').val()==''){
+	if($('#member_name').val()==''){
 		$('#nameDiv').text('이름을 입력하세요');
 		$('#nameDiv').css('color','red');
 		$('#nameDiv').css('font-size','8pt');
 		$('#nameDiv').css('font-weight','bold');
 		
-	}else if($('input[name=pwd]').val()==''){
+	}else if($('input[name=member_pw]').val()==''){
 		$('#pwdDiv').text('비밀번호를 입력하세요')
 		$('#pwdDiv').css('color','red')
 		$('#pwdDiv').css('font-size','8pt')
 		$('#pwdDiv').css('font-weight','bold');
 		
-	}else if($('input[name=repwd]').val() != $('input[name=pwd]').val()){
+	}else if($('input[name=repw]').val() != $('input[name=member_pw]').val()){
 		$('#repwdDiv').text('비밀번호가 맞지 않습니다')
 		$('#repwdDiv').css('color','red')
 		$('#repwdDiv').css('font-size','8pt')
@@ -201,10 +201,10 @@ $('#modifyBtn').click(function(){
 		$.ajax({
 			type: 'post',
 			url: '/slime/member/modify',
-			data: $('#modifyForm').serialize(),	//serialize : '변수=값&변수=값'
+			data: $('#memberModifyForm').serialize(),	//serialize : '변수=값&변수=값'
 			success: function(){
 				alert('회원정보수정 완료');
-				location.href='/slime/index.jsp';
+				location.href='/slime/mypage/myPageOrder.jsp';
 			},
 			error: function(err){
 				console.log(err);

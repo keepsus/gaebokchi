@@ -17,12 +17,13 @@
         <h2 class="login-header">로그인</h2>
     </div>
 
-        <form action="" name="loginForm" class="loginForm">
+        <form action="" name="memberLoginForm" class="loginForm">
             <div class="box-login">    
                 <div class="input-text">
                     <input type="text" id="loginId" name="loginId" placeholder="아이디 입력">
                     <div id="loginIdDiv"></div>
                 </div>
+                
                 <div class="input-text">
                     <input type="password" id="loginPwd" name="loginPwd" placeholder="비밀번호 입력">
                     <div id="loginPwdDiv"></div>

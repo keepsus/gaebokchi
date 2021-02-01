@@ -11,17 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <div class="modal-header">
         <h2 class="login-header">로그인</h2>
     </div>
 
-        <form action="" name="loginForm" class="loginForm">
+        <form action="" name="memberLoginForm" class="loginForm">
             <div class="box-login">    
                 <div class="input-text">
                     <input type="text" id="loginId" name="loginId" placeholder="아이디 입력">
                     <div id="loginIdDiv"></div>
                 </div>
+                
                 <div class="input-text">
                     <input type="password" id="loginPwd" name="loginPwd" placeholder="비밀번호 입력">
                     <div id="loginPwdDiv"></div>
@@ -46,7 +48,7 @@
         </form>
         
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
-	<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
+		<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
         
 </body>
 </html>

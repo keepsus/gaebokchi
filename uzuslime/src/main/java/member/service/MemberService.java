@@ -18,7 +18,7 @@ public interface MemberService {
 
 	public int write(MemberDTO memberDTO);
 
-	public MemberDTO getMember(String id);
+	public MemberDTO getMember(String member_id);
 
 	public void modify(MemberDTO memberDTO);
 
