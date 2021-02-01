@@ -3,104 +3,82 @@
 
 <form name="memberModifyForm" id="memberModifyForm">
 <h3>회원정보수정</h3>
-<hr>
-<table border="1" cellpadding="3" cellspacing="0">
-<tr>
-	<td width="100" align="center">이름</td>
-	<td>
-		<input type="text" id="name" name="name" value="${memberDTO.name }" placeholder="이름입력">
-		<div id="nameDiv"></div>
-	</td>
-</tr>
 
-<tr>
-	<td align="center">아이디</td>
-	<td>
-		<input type="text" id="id" name="id" value="${memberDTO.id }" size="25" readonly>
-	</td>
-</tr>
+<article class="signUp-main">
+    <div class="signUp-name-form">
+        <input type="text" class="sign-name" id="signName" value="${memberDTO.member_name }" name="member_name" size="25" placeholder="이름">
+        <div id="nameDiv"></div>
+    </div>
 
-<tr>
-	<td align="center">비밀번호</td>
-	<td>
-		<input type="password" name="pwd" id="pwd" size="30">
-		<div id="pwdDiv"></div>
-	</td>
-</tr>
 
-<tr>
-	<td align="center">재확인</td>
-	<td>
-		<input type="password" name="repwd" id="repwd" size="30">
-		<div id="repwdDiv"></div>
-	</td>
-</tr>
+	<div class="signUp-id-form">
+	    <input type="text" class="member_id" id="member_id" name="member_id" value="${memberDTO.member_id }" size="25" placeholder="아이디">
+	<div id="idDiv"></div>
 
-<tr>
-	<td align="center">성별</td>
-	<td>
-		<input type="radio" name="gender" value="0">남
-		<input type="radio" name="gender" value="1">여
-	</td>
-</tr>
 
-<tr>
-	<td align="center">이메일</td>
-	<td>
-		<input type="text" name="email1" value="${memberDTO.email1 }" size="15">
-		@
-		<input type="email" name="email2" list="email2" placeholder="직접입력">
-		<datalist id="email2">
-			<option value="gmail.com">
-			<option value="naver.com">
-			<option value="hanmail.net">
-		</datalist>
-	</td>
-</tr>
+    <div class="signUp-pwd-form">
+        <input type="password" class="sign-pwd" id="signPwd" name="member_pw" size="25" placeholder="비밀번호">
+        <div id="pwdDiv"></div>
+    </div>
 
-<tr>
-	<td align="center">핸드폰</td>
-	<td>
-	<select name="tel1" style="width: 60px;">
-		<option value="010">010
-		<option value="011">011
-		<option value="019">019
-	</select>
-	 -
-	 <input type="text" name="tel2" value="${memberDTO.tel2 }" size="5">
-	 -
-	 <input type="text" name="tel3" value="${memberDTO.tel3 }" size="5"></td>
-</tr>
 
-<tr>
-	<td align="center">주소</td>
-	<td>
-		<input type="text" id="postcode" name="zipcode" value="${memberDTO.zipcode }" size="5" readonly>
-		<input type="button" value="우편번호검색" id="checkPostBtn"><br>
-		<input type="text" id="address" name="addr1" value="${memberDTO.addr1 }" size="50"  readonly placeholder="주소"><br>
-		<input type="text" id="detailAddress" name="addr2" value="${memberDTO.addr2 }" size="50" placeholder="상세주소">
-	</td>
-</tr>
+    <div class="signUp-rePwd-form">
+        <input type="password" class="sign-repwd" id="signRePwd" name="repw" size="25" placeholder="비밀번호 재입력">
+        <div id="repwdDiv"></div>
+    </div>
 
-<tr>
-	<td colspan="2" align="center">
-	<input type="button" value="회원정보수정" id="modifyBtn">
-	<input type="reset" value="다시작성">
-</tr>
-</table>
+
+    <div class="signUp-email-form">
+        <input type="text" class="sign-email1" name="email1" value="${memberDTO.email1 }" size="15">
+        @
+        <input type="email" class="sign-email2" name="email2" list="email2" value="${memberDTO.email2 }" placeholder="직접입력">
+        <datalist id="email2">
+            <option value="gmail.com">
+            <option value="naver.com">
+            <option value="hanmail.net">
+        </datalist>
+        <input type="button" class="email-Btn" value="이메일인증" id="emailBtn"><br>
+         <input type="text" class="check-email" name="check-email" placeholder="인증번호 입력">
+        <input type="button" class="email-check-Btn" value="인증번호확인" id="emailCheckBtn"><br>
+    </div>
+
+
+    <div class="signUp-phone-form">
+        <select name="tel1" class="sign-tel1" style="width: 60px;">
+            <option value="010">010
+            <option value="011">011
+            <option value="019">019
+        </select>
+         -
+         <input type="text" class="sign-tel2" name="tel2" value="${memberDTO.tel2}" size="5">
+         -
+         <input type="text" class="sign-tel3" name="tel3" value="${memberDTO.tel3}" size="5">
+    </div>
+
+
+    <div class="signUp-address-form">
+        <input type="text" class="sign-post" id="postcode" name="zipcode" value="${memberDTO.zipcode}" size="5" readonly >
+        <input type="button" class="check-Post-Btn" value="우편번호검색" id="checkPostBtn"><br>
+        <input type="text" class="sign-address" id="address" name="addr1" value="${memberDTO.addr1}" size="40"  readonly placeholder="주소"><br>
+        <input type="text" class="sign-detail" id="detailAddress" name="addr2" value="${memberDTO.addr2}" size="40" placeholder="상세주소">
+    </div>
+
+
+    <div class="signUp-btn-box">
+        <input type="button" id="modifyBtn" value="회원정보수정">
+        <input type="reset" value="다시작성">
+    </div>
+</article>
 </form>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../js/member.js"></script>
 <script type="text/javascript">
 window.onload=function(){
-	document.modifyForm.gender['${memberDTO.gender }'].checked = true;
-	document.modifyForm.email2.value = "${memberDTO.email2 }";
-	document.modifyForm.tel1.value = "${memberDTO.tel1 }";
+	document.memberModifyForm.email2.value = "${memberDTO.email2 }";
+	document.memberModifyForm.tel1.value = "${memberDTO.tel1 }";
 }
 </script>
-
-
 
 
 

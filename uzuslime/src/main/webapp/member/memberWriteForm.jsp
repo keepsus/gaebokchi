@@ -8,13 +8,13 @@
 	</div>
 	<article class="signUp-main">
 	    <div class="signUp-name-form">
-	        <input type="text" class="sign-name" id="signName" name="member_name" size="25" placeholder="이름">
+	        <input type="text" class="sign-name" name="member_name" size="25" placeholder="이름">
 	        <div id="nameDiv"></div>
 	    </div>
 	
 	
 	    <div class="signUp-id-form">
-	        <input type="text" class="member_id" id="member_id" size="25" placeholder="아이디">
+	        <input type="text" class="member_id" id="member_id" name="member_id" size="25" placeholder="아이디">
 	        <input type="button" class="check-Btn" value="중복체크" id="checkBtn"><br>
 	        <input type="hidden" id="check" value="">
 	      <div id="idDiv"></div>
@@ -23,13 +23,13 @@
 	
 	
 	    <div class="signUp-pwd-form">
-	        <input type="password" class="sign-pwd" id="signPwd" name="member_pw" size="25" placeholder="비밀번호">
+	        <input type="password" class="sign-pwd" name="member_pw" size="25" placeholder="비밀번호">
 	        <div id="pwdDiv"></div>
 	    </div>
 	
 	
 	    <div class="signUp-rePwd-form">
-	        <input type="password" class="sign-repwd" id="signRePwd" name="repw" size="25" placeholder="비밀번호 재입력">
+	        <input type="password" class="sign-repwd" name="repw" size="25" placeholder="비밀번호 재입력">
 	        <div id="repwdDiv"></div>
 	    </div>
 	
@@ -76,6 +76,9 @@
 	    </div>
 	</article>
 
+	<input type="hidden" name="email_key" value="0">	<!— 일단 0으로 처리 —>
+	<input type="hidden" name="admin_yn" value="0">		<!— 관리자는 1, 그 외는 0 —>	
+
 </form>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
-<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!-- 위아래 순서가 바뀌면 안된다 -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	<!— 위아래 순서가 바뀌면 안된다 —>
+<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!— 위아래 순서가 바뀌면 안된다 —>

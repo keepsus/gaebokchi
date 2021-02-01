@@ -95,10 +95,9 @@ public class MemberController {
 		MemberDTO memberDTO = memberService.getMember(member_id);
 		
 		model.addAttribute("memberDTO", memberDTO);
-		model.addAttribute("display", "/member/memberModifyForm.jsp");
-		return "/index";
+		return "/member/memberModifyForm";
 	}
-	
+
 	
 	//회원정보 수정기능
 	@RequestMapping(value="modify", method=RequestMethod.POST)
