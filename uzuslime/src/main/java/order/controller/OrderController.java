@@ -1,5 +1,8 @@
 package order.controller;
 
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import order.bean.OrderDTO;
@@ -18,7 +21,7 @@ import order.service.OrderService;
 
 
 @Controller
-@RequestMapping(value="order")
+@RequestMapping(value="/order")
 public class OrderController{
 	
 	@Autowired
@@ -30,10 +33,9 @@ public class OrderController{
 	
 	//상품 상세 페이지나 장바구니에서 한 개의 상품을 주문하는 경우 주문페이지 표시
 	@RequestMapping(value="orderOneGoodsForm", method=RequestMethod.GET)
-	public String orderOneGoodsForm(Model model) {
+	public String orderOneGoodsForm() {
 		
-		model.addAttribute("display", "/order/order.jsp");
-		return "/index";
+		return "/order/order";
 
 		//로그인 기능과 조합 후 하기
 		//1. GoodsDTO 매개변수 추가 및 @ModelAttribute 선언 - 주문하는 상품 정보 받기
@@ -42,13 +44,15 @@ public class OrderController{
 		//HttpSession session = request.getSession();
 		
 	}
-	
+	 
 	//상품 상세 페이지나 장바구니에서 한 개의 상품을 주문하는 경우 주문페이지 표시
 	@RequestMapping(value="orderOneGoods", method=RequestMethod.POST)
 	public String orderOneGoods(@ModelAttribute OrderDTO orderDTO) {
 		
 		int su = orderService.orderOneGoods(orderDTO);
 		System.out.println("orderController - orderDTO" + orderDTO.getOrderer_name());
+		
+		return "/index";
 		
 		//로그인 기능과 조합 후 하기
 		//1. 매개변수에 OrderDTO _orderDTO, HttpServletRequest request, HttpServletResponse response로그인 화면에서 로그인 후, 다시 주문페이지로 돌아오기
@@ -59,12 +63,6 @@ public class OrderController{
 		//데이터 값 정상 입력 확인용(나중에 삭제)
 		//System.out.println(_orderDTO.getGoods_id());
 		
-		if(su == 1) {
-			return "입력성공";
-		}else{
-			return "입력실패";
-		}
-		
 	}
 	
 
@@ -72,7 +70,7 @@ public class OrderController{
 	//★★★★★ 중간 발표 이후 구현 ★★★★★
 	//장바구니에 담긴 상품 주문하기
 
-	public ModelAndView orderAllCartGoods(String[] cart_goods_qty, HttpServletRequest request,
+	public ModelAndView orderFromCartGoods(String[] cart_goods_qty, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
@@ -80,10 +78,10 @@ public class OrderController{
 
 	
 	//주문결과 표시
-
-	public ModelAndView payToOrderGoods(Map<String, String> orderMap, HttpServletRequest request,
+	@RequestMapping(value="payToOrderGoods", method=RequestMethod.POST)
+	public ModelAndView payToOrderGoods(@RequestParam Map<String, String> payMap, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		//List<OrderDTO> myOrderList = 세션값 받아오기
 		return null;
 	}
 	

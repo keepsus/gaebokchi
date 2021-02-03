@@ -12,7 +12,7 @@
 		<result property="goods_id" column="goods_id" />
 		<result property="goods_title" column="goods_title" />
 		<result property="order_goods_qty" column="order_goods_qty" />
-		<result property="goods_fileName" column="goods_fileName" />
+		<result property="goods_filename" column="goods_filename" />
 
 		<result property="orderer_name" column="orderer_name" />
 		<result property="orderer_hp" column="orderer_hp" />
@@ -42,6 +42,9 @@
 		<result property="pay_orderer_hp_num" column="pay_orderer_hp_num" />
 		<result property="pay_order_time" column="pay_order_time" />
 		<result property="delivery_state" column="delivery_state" />
+		
+		<result property="user_order_status" column="user_order_status" />
+		<result property="order_status_reply" column="order_status_reply"/>
 	</resultMap>
 
 <insert id="orderOneGoods" parameterType="order"><!-- 나중에 파라미터 입력 -->
@@ -55,7 +58,7 @@
 									    goods_id,
 									    goods_title,
 									    order_goods_qty,
-									    goods_fileName,
+									    goods_filename,
 									    orderer_name,
 									    orderer_hp,
 									    orderer_email,
@@ -76,14 +79,16 @@
 						                gift_wrapping,
 						                card_com_name,
 						                card_pay_month,
-						                pay_orderer_hp_num)
+						                pay_orderer_hp_num,
+						                user_order_status,
+						                order_status_reply)
 							     values(#{order_seq_num},
 							            #{order_id},
 									    #{member_id, jdbcType=VARCHAR},
 									    #{goods_id},
 									    #{goods_title, jdbcType=VARCHAR},
 									    #{order_goods_qty},
-									    #{goods_fileName, jdbcType=VARCHAR},
+									    #{goods_filename, jdbcType=VARCHAR},
 									    #{orderer_name},
 									    #{orderer_hp},
 									    #{orderer_email},
@@ -104,7 +109,9 @@
 						                #{gift_wrapping, jdbcType=VARCHAR},
 						                #{card_com_name, jdbcType=VARCHAR},
 						                #{card_pay_month, jdbcType=VARCHAR },
-						                #{pay_orderer_hp_num, jdbcType=VARCHAR})
+						                #{pay_orderer_hp_num, jdbcType=VARCHAR},
+						                #{user_order_status, jdbcType=VARCHAR},
+						                #{order_status_reply, jdbcType=VARCHAR})
     	]]>
 	</insert>
 
