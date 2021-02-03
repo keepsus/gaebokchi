@@ -4,7 +4,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,15 +11,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import order.bean.OrderDTO;
 import order.service.OrderService;
 
 
-@Controller("orderController")
-@RequestMapping(value="/order")
+@Controller
+@RequestMapping(value="order")
 public class OrderController{
 	
 	@Autowired
@@ -34,7 +32,7 @@ public class OrderController{
 	@RequestMapping(value="orderOneGoodsForm", method=RequestMethod.GET)
 	public String orderOneGoodsForm(Model model) {
 		
-		model.addAttribute("display", "/order/orderOneGoodsForm.jsp");
+		model.addAttribute("display", "/order/order.jsp");
 		return "/index";
 
 		//로그인 기능과 조합 후 하기
@@ -88,6 +86,15 @@ public class OrderController{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	//myPageOrder에 뿌려주기
+	@RequestMapping(value="orderListMypage", method=RequestMethod.GET)
+	public String orderListMypage(Model model) {
+		model.addAttribute("display", "/order/orderListMypage.jsp");
+		return "/mypage/myPageOrder";
+	}
+	
+
 
 
 	

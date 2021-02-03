@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<div class="box-wrap">
+        <div class="member-box">
+        <c:if test="${memId != null }">
+            
+        </c:if>
+</div>

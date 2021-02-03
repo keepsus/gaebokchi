@@ -1,51 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <link rel="stylesheet" href="/slime/css/memberWriteForm.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 
 
 <form name="memberWriteForm" method="post" action="/slime/member/write">
 	<div>
-	    <h2 class="signUp-header">회원가입</h2>
+	    <h2 class="modal-header">회원가입</h2>
 	</div>
-	<article class="signUp-main">
-	    <div class="signUp-name-form">
-	        <input type="text" class="sign-name" name="member_name" size="25" placeholder="이름">
+	
+	
+	<article name="memberSignUpForm" class="signUpForm" >
+	    <div class="input-text">
+	        <input type="text" name="member_name" size="25" placeholder="이름">
 	        <div id="nameDiv"></div>
 	    </div>
 	
 	
-	    <div class="signUp-id-form">
+	    <div class="input-text">
 	        <input type="text" class="member_id" id="member_id" name="member_id" size="25" placeholder="아이디">
-	        <input type="button" class="check-Btn" value="중복체크" id="checkBtn"><br>
 	        <input type="hidden" id="check" value="">
 	      <div id="idDiv"></div>
 	      
 	    </div>
 	
 	
-	    <div class="signUp-pwd-form">
+	    <div class="input-text">
 	        <input type="password" class="sign-pwd" name="member_pw" size="25" placeholder="비밀번호">
 	        <div id="pwdDiv"></div>
 	    </div>
 	
 	
-	    <div class="signUp-rePwd-form">
+	    <div class="input-text">
 	        <input type="password" class="sign-repwd" name="repw" size="25" placeholder="비밀번호 재입력">
 	        <div id="repwdDiv"></div>
 	    </div>
 	
 	
 	    <div class="signUp-email-form">
-	        <input type="text" class="sign-email1" name="email1" size="15">
+	        <input type="text" class="sign-email1" name="email1" size="10">
 	        @
-	        <input type="email" class="sign-email2" name="email2" list="email2" placeholder="직접입력">
+	        <input type="email" class="sign-email2" name="email2" list="email2" placeholder="직접입력" size="10">
 	        <datalist id="email2">
 	            <option value="gmail.com">
 	            <option value="naver.com">
 	            <option value="hanmail.net">
 	        </datalist>
-	        <input type="button" class="email-Btn" value="이메일인증" id="emailBtn"><br>
-	         <input type="text" class="check-email" name="check-email" placeholder="인증번호 입력">
-	        <input type="button" class="email-check-Btn" value="인증번호확인" id="emailCheckBtn"><br>
+	        <input type="button" id="emailBtn" class="emailBtn" value="이메일인증"><br>
+	         <input type="text" class="checkEmail" name="checkEmail" placeholder="인증번호 입력">
+	        <input type="button" id="emailCheckBtn" class="emailCheckBtn" value="인증번호확인" ><br>
 	    </div>
 	
 	
@@ -64,14 +69,14 @@
 	
 	    <div class="signUp-address-form">
 	        <input type="text" class="sign-post" id="postcode" name="zipcode" size="5" readonly>
-	        <input type="button" class="check-Post-Btn" value="우편번호검색" id="checkPostBtn"><br>
+	        <input type="button" id="checkPostBtn" class="checkPostBtn" value="우편번호검색"><br>
 	        <input type="text" class="sign-address" id="address" name="addr1" size="40"  readonly placeholder="주소"><br>
 	        <input type="text" class="sign-detail" id="detailAddress" name="addr2" size="40" placeholder="상세주소">
 	    </div>
 	
 	
 	    <div class="signUp-btn-box">
-	        <input type="button" id="writeBtn" value="회원가입">
+	        <input type="button" id="writeBtn" class="writeBtn" value="회원가입">
 	        <input type="reset" value="다시작성">
 	    </div>
 	</article>

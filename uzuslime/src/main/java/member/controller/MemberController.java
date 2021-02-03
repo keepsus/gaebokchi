@@ -35,8 +35,8 @@ public class MemberController {
 	//로그인 기능
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	@ResponseBody
-	public String login(@RequestParam Map<String, String> map, HttpSession session) {
-		return memberService.login(map, session);
+	public String login(@RequestParam Map<String, String> map) {
+		return memberService.login(map);
 	}
 	
 	//로그아웃
@@ -105,6 +105,7 @@ public class MemberController {
 	public void modify(@ModelAttribute MemberDTO memberDTO) {
 		memberService.modify(memberDTO);
 	}
+	
 	
 }//end of MemberController
 

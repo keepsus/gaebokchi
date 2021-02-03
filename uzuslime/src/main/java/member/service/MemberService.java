@@ -10,7 +10,7 @@ import member.bean.ZipcodeDTO;
 
 public interface MemberService {
 
-	public String login(Map<String, String> map, HttpSession session);
+	public String login(Map<String, String> map);
 
 	public String checkId(String member_id);
 
