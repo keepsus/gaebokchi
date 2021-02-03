@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -23,7 +22,7 @@
     <!---------------------->
     <header>
         <nav id="nav">
-        	<jsp:include page="menuNav.jsp"/>           
+        	<jsp:include page="indexNav.jsp"/>           
         </nav>
     </header>
 
