@@ -1,0 +1,37 @@
+.qnaFix{
+	margin-top: 2%;
+	margin-bottom:2%;
+}
+
+.viewOutSpan {
+	margin-top:2%;
+}
+.qna_content {
+	padding:10px;
+}
+
+.view_wrap {
+	padding:10px;
+}
+
+.qnaHeader {
+	padding:10px;
+
+}
+
+input[type="button"] {
+	color : black;
+	border: none;
+	background-color:white;
+	cursor:pointer;
+}
+
+.qnaContent{
+	margin-left:10%;
+	margin-right:10%;  
+}
+
+
+/* -------------*/
+/* 모달 관련 부분 */
+/* ------------*/
