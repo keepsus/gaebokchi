@@ -63,7 +63,7 @@
 				<jsp:include page="/mypage/myPageBox.jsp"/>	<!-- myPageMenu 불러오기 -->            	
             
             	<c:if test="${not empty display }">
-					<div>주문 내역이 없습니다.</div>
+					<div>주문 내역이 없습니다.aaaaaa</div>
 				</c:if>
 				<c:if test="${empty display }">
 					<jsp:include page="../order/orderListMypage.jsp" />
