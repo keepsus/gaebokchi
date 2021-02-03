@@ -41,4 +41,21 @@ public class QnaDAOMybatis implements QnaDAO {
 		return sqlSession.selectOne("qnaSQL.getBoardSearchTotalA", map);
 	}
 
+	@Override
+	public void hitUpdate(String seq) {
+		sqlSession.update("qnaSQL.hitUpdate", Integer.parseInt(seq));
+		
+	}
+
+	@Override
+	public QnaDTO getBoard(String seq) {
+		System.out.println(seq);
+		return sqlSession.selectOne("qnaSQL.getBoard", Integer.parseInt(seq));
+	}
+
+	@Override
+	public void qnaModify(Map<String, String> map) {
+		sqlSession.update("qnaSQL.qnaModify", map);
+	}
+
 }

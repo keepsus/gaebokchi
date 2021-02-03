@@ -7,9 +7,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<context:component-scan base-package="imageboard.bean"/>
-	<context:component-scan base-package="imageboard.dao"/>
-	<context:component-scan base-package="imageboard.service"/>
 	
 	<context:component-scan base-package="member.bean"/>	
 	<context:component-scan base-package="member.dao"/>
