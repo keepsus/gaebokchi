@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="UTF-8">
@@ -22,7 +21,7 @@
     <!--------HAEDER-------->
     <!---------------------->
     <header>
-        <nav>
+        <nav id="nav">
         	<jsp:include page="indexNav.jsp"/>           
         </nav>
     </header>
