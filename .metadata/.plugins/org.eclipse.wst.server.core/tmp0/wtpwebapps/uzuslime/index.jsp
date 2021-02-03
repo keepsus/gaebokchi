@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -20,6 +25,7 @@
     <!--------HAEDER-------->
     <!---------------------->
     <header>
+<<<<<<< HEAD
         <nav id="nav">
         	<jsp:include page="menu.jsp"/>           
         </nav>
@@ -51,6 +57,20 @@
     </div>
 
     <!---------------------->
+=======
+        <nav>
+        	<jsp:include page="indexNav.jsp"/>           
+        </nav>
+    </header>
+	
+	<!--------------------------->
+	<!--------SIDEBAR-MENU------->
+	<!--------------------------->
+	<jsp:include page="sideMenu.jsp"/>      
+
+
+    <!---------------------->
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
     <!-------SECTION------->
     <!---------------------->
     <section class="section-features1">
@@ -491,5 +511,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script><!---->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script><!---->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 </body>
 </html>

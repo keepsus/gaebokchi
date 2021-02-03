@@ -11,8 +11,15 @@
 	
 	
 	<context:component-scan base-package="member.controller"/>
+<<<<<<< HEAD
 	<context:component-scan base-package="qna.controller"/>
 	<context:component-scan base-package="mypage.controller"/>
+=======
+	<context:component-scan base-package="imageboard.controller"/>
+	<context:component-scan base-package="qna.controller"/>
+	<context:component-scan base-package="mypage.controller"/>
+	<context:component-scan base-package="order.controller"/>
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 	
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
@@ -23,7 +30,13 @@
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/image/**" location="/image/" />
 	<resources mapping="/js/**" location="/js/" />	<!-- Dispatcher로 가지말고 바로 .jsp 로 가라고 설정함!! -->
+<<<<<<< HEAD
 	<resources mapping="/storage/**" location="/storage/" /> 
+=======
+	<resources mapping="/storage/**" location="/storage/" />
+	<resources mapping="/mypage/**" location="/mypage/" /> 
+	<resources mapping="/admin/**" location="/admin/" />
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 
 
 	<!-- json -->

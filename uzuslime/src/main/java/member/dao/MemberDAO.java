@@ -10,13 +10,13 @@ public interface MemberDAO {
 
 	public MemberDTO login(Map<String, String> map);
 
-	public MemberDTO checkId(String id);
+	public MemberDTO checkId(String member_id);
 
 	public List<ZipcodeDTO> checkPostSearch(Map<String, String> map);
 
 	public int write(MemberDTO memberDTO);
 
-	public MemberDTO getMember(String id);
+	public MemberDTO getMember(String member_id);
 
 	public void modify(MemberDTO memberDTO);
 

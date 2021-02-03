@@ -46,15 +46,14 @@
 	
 	<!-- 1사람의 글 -->
 	<select id="getMember" parameterType="String" resultType="member">
-		select * from member where member_id=#{member_id}
+		select * from t_shopping_member where member_id=#{member_id}
 	</select>
 	
 	
 	<!-- 회원정보수정 -->
 	<update id="modify" parameterType="member">
-		update member set name=#{name}
-						, pwd=#{pwd}
-						, gender=#{gender}
+		update t_shopping_member set member_name=#{member_name}
+						, member_pw=#{member_pw}
 						, email1=#{email1}
 						, email2=#{email2}
 						, tel1=#{tel1}
@@ -63,7 +62,7 @@
 						, zipcode=#{zipcode}
 						, addr1=#{addr1}
 						, addr2=#{addr2}
-						, logtime=sysdate where id=#{id}
+						, logtime=sysdate where member_id=#{member_id}
 	</update>
 	
 </mapper> 

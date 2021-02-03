@@ -18,7 +18,7 @@ public class MemberDTO {
 	private String zipcode;
 	private String addr1;
 	private String addr2;
-	private String admin_yn;
+	private int admin_yn;
 	
 }//end of MemberDTO class
 

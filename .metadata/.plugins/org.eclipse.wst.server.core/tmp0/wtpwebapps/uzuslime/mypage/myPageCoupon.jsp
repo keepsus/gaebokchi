@@ -23,6 +23,7 @@
         <nav>
             <div class="row">
                 <a href="../index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
+<<<<<<< HEAD
                 <ul class="main-nav">
                     
                     <!-- <li><a href="#">로그인</a></li> -->
@@ -33,10 +34,14 @@
                     <!-- <li><a href="#">검색</a></li> -->
                     <li><a href="#"><ion-icon name="search-outline"></ion-icon></a></li>
                 </ul>
+=======
+				<jsp:include page="myPageNav.jsp"/>
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
             </div>
         </nav>
     </header>
     
+<<<<<<< HEAD
     <!---------------------->
     <!---------MENU--------->
     <!---------------------->
@@ -60,11 +65,18 @@
         <a href="#" style="margin-top: 20px; font-size: 150%;"><ion-icon name="rocket-outline"></ion-icon></a>
         <a href="../index.jsp" style="margin-top: 20px;">크리스탈 슬라임</a>
     </div>
+=======
+	<!--------------------------->
+	<!--------SIDEBAR-MENU------->
+	<!--------------------------->
+	<jsp:include page="../sideMenu.jsp"/>       
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 
 
     <!-- SECTION -->
     <section>
         <div class="row">
+<<<<<<< HEAD
             <div class="list-wrap">
                 <ul class="menu-links">
                     <li><a href="#">주문 조회</a></li>
@@ -92,6 +104,10 @@
                         <span>[]</span>
                     </div>
             </div>
+=======
+				<jsp:include page="myPageMenu.jsp"/>	<!-- myPageMenu 불러오기 -->
+				<jsp:include page="myPageBox.jsp"/>	<!-- myPageMenu 불러오기 -->  
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 
             <div class="coupon-wrap">
                 <h6>

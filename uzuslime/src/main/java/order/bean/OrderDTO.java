@@ -10,7 +10,7 @@ import lombok.Data;
 public class OrderDTO {
 	
 	private int order_seq_num;
-	private int order_id;
+	private String order_id;
 	private String member_id;
 	private int goods_id;
 	private String goods_title;
@@ -40,5 +40,6 @@ public class OrderDTO {
 	private String pay_orderer_hp_num;  //휴대폰 결제 전화번호
 	private String pay_order_time;
 	private String delivery_state;  //현재 주문 상품 배송 상태
-	
+	private String user_order_status;  //(관리자페이지용)주문 교환,반품,취소 신청현황 (exchange, refund, cancle)
+	private String order_status_reply;  //(관리자페이지용)해당 내용에 대한 관리자 응답현황 (prepared, delivery, complete...)
 }

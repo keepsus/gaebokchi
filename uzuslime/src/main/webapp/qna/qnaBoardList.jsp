@@ -18,17 +18,25 @@
      
 </head>
 <body>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
     <!---------------------->
     <!--------HAEDER-------->
     <!---------------------->
     <header>
+<<<<<<< HEAD
         <nav id="nav">
         	<jsp:include page="../menu.jsp"/>           
+=======
+        <nav>
+        	<jsp:include page="../indexNav.jsp"/>           
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
         </nav>
-    </header>
+    </header>   
 
- <!---------------------->
+   <!---------------------->
    <!------QnA목차------->
    <!---------------------->
 
@@ -82,10 +90,23 @@
     </section>
 </div>
 
+<<<<<<< HEAD
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
+=======
+<script>
+	function openNav() {
+		document.getElementById('mySideNav').style.width = '250px';
+	}
+	function closeNav() {
+		document.getElementById('mySideNav').style.width = '0';
+	}
+</script>
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../js/qnaBoardList.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script><!---->
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
 <script>
 function boardPaging(pg){
 	var keyword = document.getElementById("keyword").value;

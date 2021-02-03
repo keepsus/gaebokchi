@@ -1,17 +1,18 @@
 package mypage.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="mypage")
 public class MyPageController {
 	
-	//로그인 창
-	@RequestMapping(value="myPage", method=RequestMethod.GET)
+	@RequestMapping(value="myPageOrder", method=RequestMethod.GET)
 	public String myPage() {
-		return "/mypage/myPage";
+		return "/mypage/myPageOrder";
 	}
 	
 }

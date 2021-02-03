@@ -21,7 +21,11 @@ $('#loginBtn').click(function(){
 			data: {'member_id': $('#loginId').val(), 'pwpwpw': $('#loginPwd').val()},
 		        	
 			dataType: 'text',			
+<<<<<<< HEAD
 			success: function(data){					
+=======
+			success: function(data){
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 				if(data == 'success'){
 					location.href = '/slime/index.jsp';
 					
@@ -79,7 +83,11 @@ $('#writeBtn').click(function(){
 		$('#idDiv').css('font-weight','bold');
 	
 	}else{
+<<<<<<< HEAD
 		$('form[name=writeForm]').submit();		
+=======
+		$('form[name=memberWriteForm]').submit();		
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 	}
 });
 
@@ -119,14 +127,22 @@ $('#member_id').focusout(function(){
 
 //우편번호
 $('#checkPostBtn').click(function(){
+<<<<<<< HEAD
 	window.open("/slime/member/checkPost", "zipcode", "width=700 height=500 scrollbars=yes");
+=======
+	window.open("/slime/member/memberCheckPost", "zipcode", "width=700 height=500 scrollbars=yes");
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 });
 
 $('#checkPostSearchBtn').click(function(){
 	$.ajax({
 		type: 'post',
 		url: '/slime/member/checkPostSearch',
+<<<<<<< HEAD
 		data: $('#checkPostForm').serialize(),	//serialize : '변수=값&변수=값'
+=======
+		data: $('#memberCheckPostForm').serialize(),	//serialize : '변수=값&변수=값'
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 		dataType: 'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
@@ -179,19 +195,31 @@ $('#modifyBtn').click(function(){
 	$('#pwdDiv').empty();
 	$('#repwdDiv').empty();
 	
+<<<<<<< HEAD
 	if($('#name').val()==''){
+=======
+	if($('#member_name').val()==''){
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 		$('#nameDiv').text('이름을 입력하세요');
 		$('#nameDiv').css('color','red');
 		$('#nameDiv').css('font-size','8pt');
 		$('#nameDiv').css('font-weight','bold');
 		
+<<<<<<< HEAD
 	}else if($('input[name=pwd]').val()==''){
+=======
+	}else if($('input[name=member_pw]').val()==''){
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 		$('#pwdDiv').text('비밀번호를 입력하세요')
 		$('#pwdDiv').css('color','red')
 		$('#pwdDiv').css('font-size','8pt')
 		$('#pwdDiv').css('font-weight','bold');
 		
+<<<<<<< HEAD
 	}else if($('input[name=repwd]').val() != $('input[name=pwd]').val()){
+=======
+	}else if($('input[name=repw]').val() != $('input[name=member_pw]').val()){
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 		$('#repwdDiv').text('비밀번호가 맞지 않습니다')
 		$('#repwdDiv').css('color','red')
 		$('#repwdDiv').css('font-size','8pt')
@@ -201,10 +229,17 @@ $('#modifyBtn').click(function(){
 		$.ajax({
 			type: 'post',
 			url: '/slime/member/modify',
+<<<<<<< HEAD
 			data: $('#modifyForm').serialize(),	//serialize : '변수=값&변수=값'
 			success: function(){
 				alert('회원정보수정 완료');
 				location.href='/slime/index.jsp';
+=======
+			data: $('#memberModifyForm').serialize(),	//serialize : '변수=값&변수=값'
+			success: function(){
+				alert('회원정보수정 완료');
+				location.href='/slime/mypage/myPageOrder.jsp';
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 			},
 			error: function(err){
 				console.log(err);

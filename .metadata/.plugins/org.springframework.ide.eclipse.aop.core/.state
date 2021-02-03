@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<<<<<<< HEAD
+=======
+<aop-project name="spring"/>
+>>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 <aop-project name="uzuslime"/>
 </aop-reference-model>

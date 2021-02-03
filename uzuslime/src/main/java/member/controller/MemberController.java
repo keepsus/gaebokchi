@@ -35,8 +35,8 @@ public class MemberController {
 	//로그인 기능
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	@ResponseBody
-	public String login(@RequestParam Map<String, String> map, HttpSession session) {
-		return memberService.login(map, session);
+	public String login(@RequestParam Map<String, String> map) {
+		return memberService.login(map);
 	}
 	
 	//로그아웃
@@ -47,9 +47,9 @@ public class MemberController {
 	}
 	
 	//회원가입 창
-	@RequestMapping(value="writeForm", method=RequestMethod.GET)
-	public String writeForm() {		
-		return "/member/writeForm";
+	@RequestMapping(value="memberWriteForm", method=RequestMethod.GET)
+	public String memberWriteForm() {		
+		return "/member/memberWriteForm";
 	}
 	
 	//회원가입
@@ -70,9 +70,9 @@ public class MemberController {
 	
 	
 	//우편번호
-	@RequestMapping(value="checkPost", method=RequestMethod.GET)
-	public String checkPost() {
-		return "/member/checkPost";
+	@RequestMapping(value="memberCheckPost", method=RequestMethod.GET)
+	public String memberCheckPost() {
+		return "/member/memberCheckPost";
 	}
 	
 	
@@ -89,16 +89,15 @@ public class MemberController {
 	
 	
 	//회원정보 수정 창 -> BD 에서 데이터 가지고 옴
-	@RequestMapping(value="modifyForm", method=RequestMethod.GET)
-	public String modifyForm(HttpSession session, Model model) {
+	@RequestMapping(value="memberModifyForm", method=RequestMethod.GET)
+	public String memberModifyForm(HttpSession session, Model model) {
 		String member_id = (String) session.getAttribute("memId");
 		MemberDTO memberDTO = memberService.getMember(member_id);
 		
 		model.addAttribute("memberDTO", memberDTO);
-		model.addAttribute("display", "/member/modifyForm.jsp");
-		return "/index";
+		return "/member/memberModifyForm";
 	}
-	
+
 	
 	//회원정보 수정기능
 	@RequestMapping(value="modify", method=RequestMethod.POST)
@@ -106,6 +105,7 @@ public class MemberController {
 	public void modify(@ModelAttribute MemberDTO memberDTO) {
 		memberService.modify(memberDTO);
 	}
+	
 	
 }//end of MemberController
 

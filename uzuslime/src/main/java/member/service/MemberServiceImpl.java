@@ -16,9 +16,11 @@ import member.dao.MemberDAO;
 public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
+	@Autowired
+	private HttpSession session;
 
 	@Override
-	public String login(Map<String, String> map, HttpSession session) {
+	public String login(Map<String, String> map) {
 		MemberDTO memberDTO = memberDAO.login(map);
 		
 		if(memberDTO == null) {
@@ -27,9 +29,9 @@ public class MemberServiceImpl implements MemberService {
 		}else {
 			//세션
 			session.setAttribute("memName", memberDTO.getMember_name());
-			session.setAttribute("memId", map.get("member_id"));
+			session.setAttribute("memId", memberDTO.getMember_id());
+			session.setAttribute("memAdmin", memberDTO.getAdmin_yn());
 			session.setAttribute("memEmail", memberDTO.getEmail1()+"@"+memberDTO.getEmail2());
-			System.out.println();
 			return "success";
 		}
 	}
@@ -55,8 +57,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberDTO getMember(String id) {
-		return memberDAO.getMember(id);
+	public MemberDTO getMember(String member_id) {
+		return memberDAO.getMember(member_id);
 	}
 
 	@Override
