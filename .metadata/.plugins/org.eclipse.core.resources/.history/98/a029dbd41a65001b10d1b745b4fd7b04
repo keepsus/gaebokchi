@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* -------------------------------------- */
+/* BASIC SETUP (기본 설정) */
+/* -------------------------------------- */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    color: rgba(85, 85, 85, 0.897);
+    font-family: 'Raleway','Noto Sans Korean','Apple SD Gothic Neo', 'Malgun Gothic','Nanum Gothic', 'Noto Sans','sans-serif';
+    font-weight: 300px;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    /* 반응형 웹사이트를 만드려고 기준으로 두었다. 폰트사이즈를 20px을 기본으로 주면 다른 태그에서 %를 사용해서 변경해주면 
+    폰트 사이즈를 바꿔줄때마다 웹사이트의 폰트 사이즈가 자동으로 바뀔 것이다. */
+}
+
+.box-wrap{
+     
+}
+
+
+.orderList-row1{
+	width : 1000px;
+	margin-left : 10px;
+	magin-right : 0px;
+}
+
+.orderList-orderId{
+	padding-left : 10px;
+}
+
+.orderList-orderFormBtn{
+	float : down;
+}
+
+.orderList-orderDate{
+	margin-left : 590px;
+}
+
+.orderList-row2{
+	width : 900px;
+	padding : 40px;
+	height : 40px;
+}
+
+.orderList-orderFileName{
+	padding-left: 10px;
+}
+
+.orderList-goodsTitle{
+	padding-left : 70px;
+	font-size : 20px;
+}
+
+.orderList-totalGoodsPrice{
+	padding-left : 100px;
+}
+
+.orderList-state{
+	margin-top : 10px;
+}
+
+.orderList-deliveryState{
+	padding-left : 300px;
+	padding-top : 0px;
+}
+
+.orderList-cancleBtn{
+	padding-left: 100px;
+}

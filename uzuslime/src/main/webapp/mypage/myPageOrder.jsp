@@ -61,9 +61,13 @@
         <div class="row">
 				<jsp:include page="myPageMenu.jsp"/>	<!-- myPageMenu 불러오기 -->
 				<jsp:include page="myPageBox.jsp"/>	<!-- myPageMenu 불러오기 -->            	
-            <div class="order-history">
-                <div>${00}주문 내역이 없습니다.</div>
-            </div>
+            
+            	<c:if test="${not empty display }">
+					<div>주문 내역이 없습니다.</div>
+				</c:if>
+				<c:if test="${empty display }">
+					<jsp:include page="../order/orderListMypage.jsp" />
+				</c:if>
         </div>
     </section>
     

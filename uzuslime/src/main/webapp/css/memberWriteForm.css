@@ -17,7 +17,11 @@ html {
 }
 
 .modal-header{
-    margin-bottom: 8%;
+	margin-botton: 8%;
+}
+
+.memberSignUpForm{
+	text-align: center;
 }
 
 .input-text input{
@@ -29,35 +33,17 @@ html {
     font-size: 80%;
 }
 
-.email-input-text input{
-	
-}
-
-.sign-email1,.sign-email2,.check-email{
-    width:20%;
-	padding: 1% 2%;
-    line-height: 1.2;
-    border-radius: 3px 3px 0 0;
-    border: 1px solid #e0e0e0;
-    font-size: 80%;
-}
-
-.email-Btn,.email-check-Btn,.check-Post-Btn,.writeBtn,.resetBtn{
+.emailBtn,.emailCheckBtn,.checkPostBtn{
     background-color: #fff;
     color: rgba(85, 85, 85, 0.897);
-    width: 20%;
     border: 1px solid #e0e0e0;
-    padding: 1% 2%;
     text-decoration: none;
     cursor: pointer;
-    font-size: 80%;
     border-radius: 3px 3px 0 0;
 }
 
-
-
-.email-Btn,.email-check-Btn,.check-Post-Btn,.writeBtn:hover{
+.emailBtn,.emailCheckBtn,.checkPostBtn,.writeBtn:hover{
     transition: 0.4s;
     background-color: rgba(78, 76, 76, 0.678);
-    color: white;
+    color: white;	
 }

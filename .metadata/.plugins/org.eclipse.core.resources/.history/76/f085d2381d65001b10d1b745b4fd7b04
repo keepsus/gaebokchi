@@ -1,0 +1,11 @@
+package admin.controller;
+
+@Controller
+@RequestMapping(value="admin")
+public class AdminController {
+
+	@RequestMapping(value="adminPage", method=RequestMethod.GET)
+	public String adminPage() {
+		return "/admin/adminPage";
+	}
+}

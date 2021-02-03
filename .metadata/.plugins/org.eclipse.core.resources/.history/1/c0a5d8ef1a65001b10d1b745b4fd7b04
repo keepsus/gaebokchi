@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* -------------------------------------- */
+/* BASIC SETUP (기본 설정) */
+/* -------------------------------------- */
+
+
+.orderList-row1{
+	width : 1000px;
+	margin-left : 10px;
+	magin-right : 0px;
+}
+
+.orderList-orderId{
+	padding-left : 10px;
+}
+
+.orderList-orderFormBtn{
+	float : down;
+}
+
+.orderList-orderDate{
+	margin-left : 590px;
+}
+
+.orderList-row2{
+	width : 900px;
+	padding : 40px;
+	height : 40px;
+}
+
+.orderList-orderFileName{
+	padding-left: 10px;
+}
+
+.orderList-goodsTitle{
+	padding-left : 70px;
+	font-size : 20px;
+}
+
+.orderList-totalGoodsPrice{
+	padding-left : 100px;
+}
+
+.orderList-state{
+	margin-top : 10px;
+}
+
+.orderList-deliveryState{
+	padding-left : 300px;
+	padding-top : 0px;
+}
+
+.orderList-cancleBtn{
+	padding-left: 100px;
+}

@@ -1,0 +1,68 @@
+body{
+    background-color :#f3f3f3;  
+}
+
+
+.orderList-row1{
+	width : 1000px;
+	margin-left : 10px;
+	magin-right : 0px;
+	margin-top : 30px;
+}
+
+.orderList-orderId{
+	padding-left : 10px;
+}
+
+.aa{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.bb{
+	display: inline-block;
+		width: 20px;
+	height: 20px;
+}
+
+.orderList-orderFormBtn{
+	
+}
+
+.orderList-orderDate{
+	margin-left : 590px;
+}
+
+.orderList-row2{
+	width : 900px;
+	padding : 40px;
+	background-color : white;
+	height : 40px;
+}
+
+.orderList-orderFileName{
+	padding-left: 10px;
+}
+
+.orderList-goodsTitle{
+	padding-left : 70px;
+	font-size : 20px;
+}
+
+.orderList-totalGoodsPrice{
+	padding-left : 100px;
+}
+
+.orderList-state{
+	margin-top : 10px;
+}
+
+.orderList-deliveryState{
+	padding-left : 300px;
+	padding-top : 0px;
+}
+
+.orderList-cancleBtn{
+	padding-left: 100px;
+}

@@ -21,7 +21,7 @@ $('#loginBtn').click(function(){
 			data: {'member_id': $('#loginId').val(), 'pwpwpw': $('#loginPwd').val()},
 		        	
 			dataType: 'text',			
-			success: function(data){					
+			success: function(data){
 				if(data == 'success'){
 					location.href = '/slime/index.jsp';
 					
