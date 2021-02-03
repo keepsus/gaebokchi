@@ -2,7 +2,6 @@
 <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="imageboard.bean.ImageboardDTO" alias="imageboard"/>
 		<typeAlias type="qna.bean.QnaDTO" alias="qna"/>
 		<typeAlias type="order.bean.OrderDTO" alias="order"/>
 		<typeAlias type="member.bean.MemberDTO" alias="member"/>
