@@ -4,8 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:useBean id="now" class="java.util.Date" />
-<fmt:formatDate value="${now}" pattern="yyyyMMddHHmmss" var="use_order_id_String" />
-<fmt:parseNumber value="${use_order_id_String}" var="use_order_id" />
+<fmt:formatDate var="date" value="${now}" pattern="yyyyMMddHHmmss" />
+<fmt:formatNumber var="number" value="${date}"/>
+
 
 
 <!-- 로그인 및 제품상세페이지 에서 받아올 데이터-->
@@ -33,6 +34,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="vendors/css/grid.css"> -->
     <link rel="stylesheet" href="/slime/css/order.css">
+    <link rel="stylesheet" href="/slime/css/member.css">
     <!-- <link rel="stylesheet" href="resources/css/index.css"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -49,7 +51,7 @@
 
 <!-- 입력란이 없으므로 hidden으로 받아주기 -->
 <input type="hidden" id="member_id" name="member_id" value="${member_id}">
-<input type="hidden" id="order_id" name="order_id" value="${use_order_id}">
+<input type="hidden" id="order_id" name="order_id" value=" S${date}">
 <input type="hidden" id="goods_id" name="goods_id" value="${goods_id}">
 <input type="hidden" id="order_sales_price" name="order_sales_price" value="${order_sales_price}">
 <input type="hidden" id="gift_wrapping" name="gift_wrapping" value="${gift_wrapping}">
@@ -120,16 +122,16 @@
                         </div>
                     
                         <div class="delivery_zipcode"style="padding-bottom : 15px;">
-                            <input class="delivery_zipcode" id="delivery_zipcode" name="delivery_zipcode" type="text" placeholder="우편번호" >
+                            <input class="delivery_zipcode" id="postcode" name="delivery_zipcode" type="text" placeholder="우편번호" readonly>
                             <div id="delivery_zipcodeDiv"></div>
-                            <input type="button" value="주소찾기" id="zipcodeBtn"><br>
+                            <input type="button" value="주소찾기" id="checkPostBtn"><br>
                         </div>
                         <div class="delivery_addr1" style="padding-bottom : 15px;">
-                            <input class="delivery_addr1" id="delivery_addr1" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
+                            <input class="delivery_addr1" id="address" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
                         	<div id="delivery_addr1Div"></div>
                         </div>
                         <div class="delivery_addr2">
-                            <input class="delivery_addr2" id="delivery_addr2" name="delivery_addr2" type="text" placeholder="상세주소" style="width:80%">
+                            <input class="delivery_addr2" id="detailAddress" name="delivery_addr2" type="text" placeholder="상세주소" style="width:80%">
                         	<div id="delivery_addr2Div"></div>
                         </div>
                         
@@ -137,10 +139,10 @@
                     <div class="delivery_message">
                         <h4>배송메모</h4>
                         <select class="delivery_message" id="delivery_message" name="delivery_message">
-                            <option value="0" disabled>배송 메모를 선택해 주세요</option>
-                            <option value="1">배송 전에 미리 연락 바랍니다.</option>
-                            <option value="2">부재시 경비실에 맡겨주세요</option>
-                            <option value="3" >부재시 전화나 문자를 남겨주세요</option>
+                            <option value="없음" disabled>배송 메모를 선택해 주세요</option>
+                            <option value="배송 전에 미리 연락 바랍니다">배송 전에 미리 연락 바랍니다</option>
+                            <option value="부재시 경비실에 맡겨주세요">부재시 경비실에 맡겨주세요</option>
+                            <option value="부재시 전화나 문자를 남겨주세요" >부재시 전화나 문자를 남겨주세요</option>
                             <!-- <option value="4">직접입력</option> --> <!-- ★★★★★ 직접입력 클릭 시 입력창 생성하기 -->
                         </select>
                     </div>
