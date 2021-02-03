@@ -9,7 +9,7 @@
    <!-- 비 로그인 메뉴 -->
     <c:if test="${sessionScope.memId == null }">	
 	 <li><a href="/slime/member/memberLoginForm" rel="modal:open">로그인</a></li>
-	 <li><a href="/slime/member/writeForm" rel="modal:open">회원가입</a></li>    
+	 <li><a href="/slime/member/writeForm" rel="modal:open">회원가입</a></li>
 	</c:if>
        
     <!-- 로그인 메뉴 -->

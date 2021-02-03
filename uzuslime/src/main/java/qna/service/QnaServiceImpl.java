@@ -24,8 +24,7 @@ public class QnaServiceImpl implements QnaService{
 	
 	@Override
 	public void qnaWrite(Map<String, String> map) {
-//		map.put("member_id",(String)session.getAttribute("memId"));//id 세션에서 받았을때 이걸로 바꾸기
-		map.put("member_id","min22");
+		map.put("member_id",(String)session.getAttribute("memId"));//id 세션에서 받았을때 이걸로 바꾸기
 		qnaDAO.qnaWrite(map);		
 	}
 
@@ -78,6 +77,22 @@ public class QnaServiceImpl implements QnaService{
 		boardPaging.setTotalA(totalA);
 		boardPaging.makePagingHTML();
 		return boardPaging;
+	}
+
+	@Override
+	public void hitUpdate(String seq) {
+		qnaDAO.hitUpdate(seq);
+		
+	}
+
+	@Override
+	public QnaDTO getBoard(String seq) {
+		return qnaDAO.getBoard(seq);
+	}
+
+	@Override
+	public void qnaModify(Map<String, String> map) {
+		qnaDAO.qnaModify(map);
 	}
 
 }
