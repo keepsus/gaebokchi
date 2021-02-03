@@ -1,10 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.CookieValue"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
-=======
-<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

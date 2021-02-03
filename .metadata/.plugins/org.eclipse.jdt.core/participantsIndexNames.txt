@@ -1,6 +1,7 @@
 INDEX VERSION 1.131
-<<<<<<< HEAD
 D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3892254211.index
+\uzuslime\src\main\java
+D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2920503265.index
 \uzuslime\src\main\java
 D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3543451919.index
 \uzuslime\src\main\java
@@ -13,13 +14,4 @@ D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\
 D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1623737451.index
 \uzuslime\src\main\java
 D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2120800911.index
-=======
-C:\Users\cksrb\OneDrive\Desktop\workproject\main\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3543451919.index
-\uzuslime\src\main\java
-C:\Users\cksrb\OneDrive\Desktop\workproject\main\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1032779297.index
-\uzuslime\src\main\java
-C:\Users\cksrb\OneDrive\Desktop\workproject\main\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2859027736.index
-\uzuslime\src\main\java
-C:\Users\cksrb\OneDrive\Desktop\workproject\main\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2920503265.index
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 \uzuslime\src\main\java
