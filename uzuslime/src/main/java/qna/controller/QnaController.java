@@ -39,12 +39,12 @@ public class QnaController {
 		return "/qna/qnaBoardList";
 	}
 	
-	@RequestMapping(value="qnaView", method=RequestMethod.GET)
-	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
-		model.addAttribute("seq", seq);
-		model.addAttribute("pg", pg);
-		return "/qna/qnaView";
-	}
+//	@RequestMapping(value="qnaView", method=RequestMethod.GET)
+//	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
+//		model.addAttribute("seq", seq);
+//		model.addAttribute("pg", pg);
+//		return "/qna/qnaView";
+//	}
 	
 	@RequestMapping(value="getBoardList", method=RequestMethod.POST)
 	public ModelAndView getBoardList(@RequestParam(required=false, defaultValue="1") String pg,
@@ -93,19 +93,18 @@ public class QnaController {
 	
 	@RequestMapping(value="getBoard", method=RequestMethod.POST)
 	public ModelAndView getBoard(@RequestParam String seq,
-								 @CookieValue(value="memHit", required=false) Cookie cookie,
+								 @CookieValue(value="memHit", required=false) Cookie cookie,//??
 								 HttpServletResponse response,
 								 HttpSession session) {
 		//조회수 - 새로고침 방지
-//		if(cookie != null) {
-//			qnaService.hitUpdate(seq); //조회수 증가
-//			cookie.setMaxAge(0); //쿠키 삭제
-//			cookie.setPath("/"); //모든 경로에서 삭제 되었음을 알림
-//			response.addCookie(cookie); //쿠키 삭제된걸 클라이언트에게 보내주기.
-//		}
+		if(cookie != null) {//이 쿠키는 어디서 받아오는거지??
+			qnaService.hitUpdate(seq); //조회수 증가
+			cookie.setMaxAge(0); //쿠키 삭제
+			cookie.setPath("/"); //모든 경로에서 삭제 되었음을 알림
+			response.addCookie(cookie); //쿠키 삭제된걸 클라이언트에게 보내주기.
+		}
 		
 		QnaDTO qnaDTO = qnaService.getBoard(seq);
-		System.out.println(qnaDTO);//얘부터 가조
 		String memId = (String)session.getAttribute("memId");
 
 		ModelAndView mav = new ModelAndView();
@@ -117,8 +116,24 @@ public class QnaController {
 	
 	@RequestMapping(value="qnaModify", method=RequestMethod.POST)
 	@ResponseBody
-	public void boardModify(@RequestParam Map<String, String> map) {
+	public void qnaModify(@RequestParam Map<String, String> map) {
 		qnaService.qnaModify(map);		
+	}
+	
+	@RequestMapping(value="qnaModifyForm", method=RequestMethod.POST)
+	public String qnaModifyForm(@RequestParam String seq,
+								  @RequestParam String pg,
+								  Model model) {
+		model.addAttribute("seq", seq);
+		model.addAttribute("pg", pg);
+		return "/qna/qnaModifyForm";
+	}
+	
+	@RequestMapping(value="qnaDeleteForm", method=RequestMethod.POST)
+	public String qnaDeleteForm(@RequestParam String seq, Model model) {
+		qnaService.qnaDelete(seq);
+		model.addAttribute("seq", seq);
+		return "/qna/qnaBoardList";
 	}
 
 }

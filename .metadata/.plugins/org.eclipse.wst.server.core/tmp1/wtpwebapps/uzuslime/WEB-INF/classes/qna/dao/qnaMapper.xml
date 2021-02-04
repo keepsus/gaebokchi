@@ -54,4 +54,15 @@
 		update t_shopping_qna set subject=#{subject}, content=#{content}, logtime=sysdate where seq=#{seq}
 	</update>
 	
+		<!-- 글삭제 -->
+	<delete id="qnaDelete" parameterType="int">
+		begin
+			update t_shopping_qna set reply=reply-1 where seq = (select pseq from t_shopping_qna where seq=#{seq});
+			
+			update t_shopping_qna set subject=concat('[삭제된 질문 답변]',subject) where pseq=#{seq};
+			
+			delete from t_shopping_qna where seq=#{seq};
+		end;
+	</delete>
+	
  </mapper>

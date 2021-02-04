@@ -24,7 +24,7 @@ public class QnaServiceImpl implements QnaService{
 	
 	@Override
 	public void qnaWrite(Map<String, String> map) {
-		map.put("member_id",(String)session.getAttribute("memId"));//id 세션에서 받았을때 이걸로 바꾸기
+		map.put("member_id",(String)session.getAttribute("memId"));
 		qnaDAO.qnaWrite(map);		
 	}
 
@@ -87,12 +87,18 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public QnaDTO getBoard(String seq) {
+//		System.out.println("여기는 서비스seq :" +seq);
 		return qnaDAO.getBoard(seq);
 	}
 
 	@Override
 	public void qnaModify(Map<String, String> map) {
 		qnaDAO.qnaModify(map);
+	}
+
+	@Override
+	public void qnaDelete(String seq) {
+		qnaDAO.qnaDelete(seq);
 	}
 
 }

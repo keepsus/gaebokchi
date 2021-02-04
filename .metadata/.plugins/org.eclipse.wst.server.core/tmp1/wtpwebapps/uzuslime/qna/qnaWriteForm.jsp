@@ -22,14 +22,13 @@
                     </div>
                 </div>
             </div>
-    </div>
 
     <!---------------------->
     <!------글 작성 Form------>
     <!---------------------->
     <section id="qnaWriteSection">
         <hr>
-        <div calss="qnaWriteForm">
+        <div class="qnaWriteForm">
                 <div class="editor_box">
                     <div class="title_box">
                             <!-- <div class="member_Info">
