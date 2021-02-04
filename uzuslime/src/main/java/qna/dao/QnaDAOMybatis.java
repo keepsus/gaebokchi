@@ -63,4 +63,10 @@ public class QnaDAOMybatis implements QnaDAO {
 		
 	}
 
+	@Override
+	public void qnaReply(Map<String, String> map) {//이 map안에 들은것은 서비스를 통해 확인
+		sqlSession.insert("qnaSQL.qnaReply", map);
+		
+	}
+
 }

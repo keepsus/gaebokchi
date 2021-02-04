@@ -17,7 +17,8 @@
 
 <body>
 
-    <!---------------------->    <!--------HAEDER-------->
+    <!---------------------->    
+    <!--------HAEDER-------->
     <!---------------------->
     <header>
         <nav>
@@ -79,7 +80,7 @@
  function mode(num){
 	if(num==1){//글수정
 		document.qnaViewForm.method="post";
-		document.qnaViewForm.action="qnaModifyForm";/*여기는 컨트롤러로 가는 건가?컨트롤러의 value값 으로 아니면 메소드이름?*/
+		document.qnaViewForm.action="qnaModifyForm";//컨트롤러로
 		document.qnaViewForm.submit();
 	
  	}else if(num==2){//글삭제
@@ -88,12 +89,12 @@
 			document.qnaViewForm.action="qnaDeleteForm";//얼럿이 떳을때 확인을 누르면 전송
 			document.qnaViewForm.submit();
 		}
- 	}
-/* 	}else if(num==3){//답글
-		document.boardViewForm.method="post";
-		document.boardViewForm.action="boardReplyForm";
-		document.boardViewForm.submit();
-	} */
+ 	
+ 	}else if(num==3){//답글
+		document.qnaViewForm.method="post";
+		document.qnaViewForm.action="qnaReplyForm";
+		document.qnaViewForm.submit();
+	}
 }
 </script>
 <script> /* 여기의 스크립트가 같아서 이 두줄을 지우니까 글이 불러와지지 않았다. */

@@ -31,14 +31,6 @@
         <div class="qnaWriteForm">
                 <div class="editor_box">
                     <div class="title_box">
-                            <!-- <div class="member_Info">
-                                <span class="qna_name">
-                                    <input type="text" class="qna_name" id="qna_name" placeholder="작성자 이름">
-                                </span>
-                                <span class="qna_pwd">
-                                    <input type="password" class="qna_pwd" id="qna_pwd" placeholder="비밀번호">
-                                </span>
-                            </div> 이부분은 상의하고 및 회의하고 넣기-->
                             <div class="qna_subject">
                                 <input type="text" class="qna_subject" id="subject" name="subject" placeholder="제목" autocomplete="off">
                                 <div id="subjectDiv"></div>
