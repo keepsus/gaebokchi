@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ 	<mapper namespace="goodsSQL">
+ 
+ 
+ 
+ 	<!-- 이미지게시글 쓰기 -->
+	<insert id="goodsWrite" parameterType="goods">
+		insert into t_shopping_goods values(seq_t_shopping_goods.nextval
+									, #{goods_id}
+									, #{goods_title}
+									, #{goods_country}
+									, #{goods_price}
+									, #{goods_sales_price}
+									, #{goods_qty}
+									, #{goods_point}
+									, #{goods_status}
+									, #{goods_deli_price}
+									, #{goods_deli_extra}
+									, #{goods_deli_free}
+									, #{goods_image0}
+									, #{goods_image1}
+									, #{goods_image2}
+									, #{goods_image3}
+									, #{goods_content}
+									, sysdate)
+	</insert>
+ 
+ 	
+ 	
+ 	<select id="getGoodsList" parameterType="java.util.Map" resultType="goods">
+		select * from
+		(select rownum rn, tt.* from
+		(select * from t_shopping_goods order by seq desc)tt
+		)where rn between #{startNum} and #{endNum}
+	</select>
+ 
+ 
+ 	<select id="getGoodsIndexList" resultType="goods">
+		select * from t_shopping_goods order by seq desc
+	</select>
+  
+ 	
+ 	<select id="getGoodsTotalA" resultType="int">
+ 		select count(*) from t_shopping_goods
+ 	</select>
+ 
+ 
+ 
+ 	<select id="getGoodsView" parameterType="int" resultType="goods">
+ 		select * from t_shopping_goods where seq=#{seq}
+ 	</select>
+ 
+ 	
+ 	
+ 	<delete id="goodsDelete" parameterType="java.util.Map">
+ 		delete t_shopping_goods where seq in
+ 			
+ 			<foreach collection="array" item="data" index="i" open="(" close=")" separator=",">
+ 				<!-- ${array[i]} -->
+ 				#{data}
+ 			</foreach>
+ 		
+ 	</delete>
+ 
+ </mapper>
