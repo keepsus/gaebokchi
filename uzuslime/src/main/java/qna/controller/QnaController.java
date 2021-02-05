@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,9 +34,16 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value="qnaBoardList", method=RequestMethod.GET)
-	public String boardList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {//기본값 1페이지로 인식해라
+	public String qnaBoardList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {//기본값 1페이지로 인식해라
 		model.addAttribute("pg", pg);
 		return "/qna/qnaBoardList";
+	}
+	
+	@RequestMapping(value="qnaView", method=RequestMethod.GET)
+	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
+		model.addAttribute("seq", seq);
+		model.addAttribute("pg", pg);
+		return "/qna/qnaView";
 	}
 	
 	@RequestMapping(value="getBoardList", method=RequestMethod.POST)
@@ -62,7 +70,7 @@ public class QnaController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
-//		mav.addObject("member_Id", member_Id);
+		mav.addObject("memId", memId);
 		mav.addObject("boardPaging", boardPaging);
 		mav.setViewName("jsonView");
 		return mav;		
