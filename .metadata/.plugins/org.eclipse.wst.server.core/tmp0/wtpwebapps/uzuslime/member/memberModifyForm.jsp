@@ -74,6 +74,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../js/member.js"></script>
 <script type="text/javascript">
+
 window.onload=function(){
 	document.memberModifyForm.email2.value = "${memberDTO.email2 }";
 	document.memberModifyForm.tel1.value = "${memberDTO.tel1 }";

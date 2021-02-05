@@ -1,0 +1,149 @@
+.paymentHead{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin:0px;
+}
+
+input {
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    border : 1px solid #ccc;
+}
+
+body {
+    background-color :#f3f3f3;  
+}
+
+.order_row{
+    display : inline-block;
+}
+
+.productImg {
+    float:left;
+}
+
+.shop_item {
+    float : left;
+}
+.paymentAll{
+    margin-left: 20%;
+    margin-right :20px;
+    margin-bottom: 10px;
+}
+
+.paymentView{
+    margin: 20px;
+}
+
+#order_goods_price{
+    display:inline-block;
+}
+
+.orderInfo{
+    width: 520px;
+    height: 180px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 16px;
+    padding : 20px;
+    border:1px solid #e7e7e7;
+    background-color: white;
+}
+
+.userInfo{
+    width: 520px;
+    height: 200px;
+    margin-bottom: 16px;
+    margin-left: 20px;
+    padding : 20px;
+    border:1px solid  #e7e7e7;
+    background-color: white;
+}
+
+.deliveryInfo{
+    width: 520px;
+    height: 480px;
+    margin-left: 20px;
+    margin-bottom: 16px;
+    padding : 20px;
+    border:1px solid #e7e7e7;
+    background-color: white;
+}
+
+.finalPay{
+    width: 320px;
+    height: 200px;
+    margin-left: 20px;
+    margin-bottom: 16px;
+    padding : 20px;
+    border:1px solid  #e7e7e7;
+    background-color: white;
+}
+
+.totalInfo {
+    display : inline-block;
+    height:25px;
+}
+
+.goods_gty {
+    float: left;
+}
+
+.order_price {
+    float :right;
+    margin-left: 30px;
+}
+
+.payType{
+    width: 325px;
+    height: 190px;
+    margin-left: 20px;
+    margin-bottom: 16px;
+    padding : 10px;
+    border:1px solid  #e7e7e7;
+    background-color: white;
+}
+
+.pay_method {
+    width: 320px;
+    height: 130px;
+    margin-left: 20px;
+    padding : 20px;
+    border:1px solid  #e7e7e7;
+    background-color: white;
+}
+.delivery_message {
+    padding: 10px 6px 12px;
+    line-height: 1.42857143;
+    width: 90%;
+}
+.order_payBtn {
+    width:364px;
+    height: 40px;
+    margin : 5px;
+    margin-left: 20px;
+    background-color:#212121E3;
+    color :white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.totalPay{
+    float:left;
+    margin-top :20px;
+}
+
+.orderTotal{
+    float: left;
+}
+
+.agreeCheck {
+    width: 320px;
+    height: 90px;
+    margin-left: 20px;
+    margin-top: 16px;
+    padding : 20px;
+    border:1px solid #e7e7e7;
+    background-color: white;
+}
