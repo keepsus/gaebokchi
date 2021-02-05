@@ -39,12 +39,12 @@ public class QnaController {
 		return "/qna/qnaBoardList";
 	}
 	
-	@RequestMapping(value="qnaView", method=RequestMethod.GET)
-	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
-		model.addAttribute("seq", seq);
-		model.addAttribute("pg", pg);
-		return "/qna/qnaView";
-	}
+//	@RequestMapping(value="qnaView", method=RequestMethod.GET)
+//	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
+//		model.addAttribute("seq", seq);
+//		model.addAttribute("pg", pg);
+//		return "/qna/qnaView";
+//	}
 	
 	@RequestMapping(value="getBoardList", method=RequestMethod.POST)
 	public ModelAndView getBoardList(@RequestParam(required=false, defaultValue="1") String pg,

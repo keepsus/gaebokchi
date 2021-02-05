@@ -18,7 +18,8 @@
 	    
 	    <!-- 관리자 -->
 	    <c:if test="${memId != '' && memAdmin == 1 }">
-	         <li><a href="#">제품등록</a></li>
+	         <li><a href="/slime/goods/goodsWriteForm">제품등록</a></li>
+	         <li><a href="/slime/goods/goodsList">등록제품 조회</a></li>
 	         <li><a href="#">주문정보</a></li>
 	         <li><a href="#">회원정보</a></li>
 	    </c:if>

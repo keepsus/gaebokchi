@@ -71,7 +71,7 @@ $(document).ready(function(){ //window.onload 와 같음
 				}else{
 					let seq = $(this).parent().prev().text();
 					let pg = data.pg;
-					location.href = '/slime/qna/qnaView?seq='+seq+"&pg="+pg;
+					location.href = '/slime/qna/qnaView.jsp?seq='+seq+"&pg="+pg;
 				}
 			});
 			
