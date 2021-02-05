@@ -17,4 +17,17 @@ public interface QnaDAO {
 
 	public int getBoardSearchTotalA(Map<String, String> map);
 
+<<<<<<< HEAD
+=======
+	public void hitUpdate(String seq);
+
+	public QnaDTO getBoard(String seq);
+
+	public void qnaModify(Map<String, String> map);
+
+	public void qnaDelete(String seq);
+
+	public void qnaReply(Map<String, String> map);
+
+>>>>>>> gaeB
 }

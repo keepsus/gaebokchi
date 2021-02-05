@@ -41,4 +41,35 @@ public class QnaDAOMybatis implements QnaDAO {
 		return sqlSession.selectOne("qnaSQL.getBoardSearchTotalA", map);
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public void hitUpdate(String seq) {
+		sqlSession.update("qnaSQL.hitUpdate", Integer.parseInt(seq));
+		
+	}
+
+	@Override
+	public QnaDTO getBoard(String seq) {
+		return sqlSession.selectOne("qnaSQL.getBoard", Integer.parseInt(seq));
+	}
+
+	@Override
+	public void qnaModify(Map<String, String> map) {
+		sqlSession.update("qnaSQL.qnaModify", map);
+	}
+
+	@Override
+	public void qnaDelete(String seq) {
+		sqlSession.delete("qnaSQL.qnaDelete", Integer.parseInt(seq));
+		
+	}
+
+	@Override
+	public void qnaReply(Map<String, String> map) {//이 map안에 들은것은 서비스를 통해 확인
+		sqlSession.insert("qnaSQL.qnaReply", map);
+		
+	}
+
+>>>>>>> gaeB
 }

@@ -54,4 +54,36 @@
 		update t_shopping_qna set subject=#{subject}, content=#{content}, logtime=sysdate where seq=#{seq}
 	</update>
 	
+	<!-- 답글쓰기 -->
+	<insert id="qnaReply" parameterType="java.util.Map">
+		begin
+			update t_shopping_qna set step=step+1 where ref=#{ref} and step>#{step};
+			
+			insert into t_shopping_qna values(seq_qna.nextval
+								, #{member_id}<!--이 id값을 qnaService로부터 받나?? -->
+								, #{subject}
+								, #{content}
+								, #{ref} <!-- 원글ref -->
+								, #{lev} <!-- 원글lev+1 -->
+								, #{step} <!-- 원글step+1 -->
+								, #{pseq} <!-- 원글번호 -->
+								, 0 <!-- 답글수  -->
+								, 0 <!-- 조회수 -->
+								, sysdate);
+								
+			update t_shopping_qna set reply=reply+1 where seq=#{pseq}; <!-- 원글번호 -->							
+		end;
+	</insert>
+	
+		<!-- 글삭제 -->
+	<delete id="qnaDelete" parameterType="int">
+		begin
+			update t_shopping_qna set reply=reply-1 where seq = (select pseq from t_shopping_qna where seq=#{seq});
+			
+			update t_shopping_qna set subject=concat('[삭제된 질문의 답변]',subject) where pseq=#{seq};
+			
+			delete from t_shopping_qna where seq=#{seq};
+		end;
+	</delete>
+	
  </mapper>

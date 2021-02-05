@@ -18,4 +18,17 @@ public interface QnaService {
 
 	public BoardPaging boardPaging(Map<String, String> map);
 
+<<<<<<< HEAD
+=======
+	public void hitUpdate(String seq);//조회수증가
+
+	public QnaDTO getBoard(String seq);//글상세보기
+
+	public void qnaModify(Map<String, String> map);
+
+	public void qnaDelete(String seq);
+
+	public void qnaReply(Map<String, String> map);
+
+>>>>>>> gaeB
 }

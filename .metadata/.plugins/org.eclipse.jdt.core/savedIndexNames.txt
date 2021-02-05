@@ -18,6 +18,7 @@ INDEX VERSION 1.131+C:\Users\cksrb\OneDrive\Desktop\workproject\main\.metadata\.
 >>>>>>> 0725df15c08039d96679d10f62d2f3f2dd8dce6f
 2270713507.index
 3862868720.index
+<<<<<<< HEAD
 3807938403.index
 1652128983.index
 2749753719.index
@@ -33,6 +34,19 @@ INDEX VERSION 1.131+C:\Users\cksrb\OneDrive\Desktop\workproject\main\.metadata\.
 3760687129.index
 301630388.index
 2445094619.index
+=======
+4167196667.index
+3480718714.index
+1705862096.index
+2232951013.index
+1915490230.index
+874798761.index
+1630177039.index
+444357459.index
+1497411148.index
+2008041569.index
+1179236693.index
+>>>>>>> gaeB
 1330774489.index
 1481432206.index
 299002297.index

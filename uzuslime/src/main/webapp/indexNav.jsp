@@ -5,7 +5,7 @@
 
 
 <div class="row">
-<img src="/slime/image/logo.jpg" alt="slime logo" class="logo">
+	<a href="/slime/index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
 <ul class="main-nav">
    
    <!-- 비 로그인 메뉴 -->

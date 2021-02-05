@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/slime/css/qnaWriteForm.css">
-    <title>QnA</title>
+    <title>QnA_글수정</title>
 </head>
 <body>
 <form id="qnaModifyForm">
@@ -32,7 +32,7 @@
     <!---------------------->
     <section id="qnaWriteSection">
         <hr>
-        <div calss="qnaWriteForm">
+        <div class="qnaWriteForm">
                 <div class="editor_box">
                     <div class="title_box">
                             <div class="qna_subject">
@@ -59,10 +59,10 @@ $(document).ready(function(){
 		data: 'seq='+$('#seq').val(),
 		dataType: 'json',
 		success : function(data){
-			alert(JSON.stringify(data));
+			//alert(JSON.stringify(data));
 			
-			$('#subject').val(data.boardDTO.subject);
-			$('#content').val(data.boardDTO.content);
+			$('#subject').val(data.qnaDTO.subject);
+			$('#content').val(data.qnaDTO.content);
 		},
 		error: function(err){
 			console.log(err);
@@ -76,13 +76,13 @@ $('#qnaModifyBtn').click(function(){
 
 	if($('#subject').val()==''){
 		$('#subjectDiv').text('제목을 입력하세요');
-		$('#subjectDiv').css('color','red');
+		$('#subjectDiv').css('color','black');
 		$('#subjectDiv').css('font-size','8pt');
 		$('#subjectDiv').css('font-weight','bold');
 		
 	}else if($('#content').val()==''){
-		$('#contentDiv').text('내용을 입력하세요')
-		$('#contentDiv').css('color','red')
+		$('#contentDiv').text('수정할 내용을 입력하세요')
+		$('#contentDiv').css('color','black')
 		$('#contentDiv').css('font-size','8pt')
 		$('#contentDiv').css('font-weight','bold');
 		
@@ -93,7 +93,7 @@ $('#qnaModifyBtn').click(function(){
 			data: $('#qnaModifyForm').serialize(),
 			success: function(){
 				alert('글수정 완료');
-				location.href='/slime/qna/qnaList?pg='+$('#pg').val();
+				location.href='/slime/qna/qnaBoardList?pg='+$('#pg').val();//여기 pg값을 못주고 있다.
 			},
 			error: function(err){
 				console.log(err);

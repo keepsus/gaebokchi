@@ -30,14 +30,14 @@ $(document).ready(function(){ //window.onload 와 같음
 				})).appendTo($('#boardListTable'));
 				
 //				//답글
-//				for(i=0; i<items.lev; i++){
-//					$('.'+items.seq).before('&emsp;');
-//				}
-//				if(items.pseq!=0){
-//					$('.'+items.seq).before($('<img/>',{
-//						src: '../image/reply.gif'
-//					}));
-//				}
+				for(i=0; i<items.lev; i++){
+					$('.'+items.seq).before('&emsp;');//$emsp가 세칸 공백 , &nbsp;
+				}
+				if(items.pseq!=0){
+					$('.'+items.seq).before($('<img/>',{//이미지넣기
+						src: '/slime/image/reply.jpg', width : '20px', height: '20px' 
+					}));
+				}
 			
 				//로그인 여부
 				//각각 다른 이름의 class 속성을 지정하면 이벤트가 따로 불러진다
@@ -128,14 +128,14 @@ $('#boardSearchBtn').click(function(event, str){
 					})).appendTo($('#boardListTable'));
 					
 					//답글
-//					for(i=0; i<items.lev; i++){
-//						$('.'+items.seq).before('&emsp;');
-//					}
-//					if(items.pseq!=0){
-//						$('.'+items.seq).before($('<img/>',{
-//							src: '../image/reply.gif'
-//						}));
-//					}
+					for(i=0; i<items.lev; i++){
+						$('.'+items.seq).before('&emsp;');
+					}
+					if(items.pseq!=0){
+						$('.'+items.seq).before($('<img/>',{
+							src: '../image/reply.gif'
+						}));
+					}
 				});//each
 				
 				//페이징 처리

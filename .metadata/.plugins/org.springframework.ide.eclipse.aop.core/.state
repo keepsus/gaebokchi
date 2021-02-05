@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<<<<<<< HEAD
 <aop-project name="spring"/>
+=======
+>>>>>>> gaeB
 <aop-project name="uzuslime"/>
 </aop-reference-model>

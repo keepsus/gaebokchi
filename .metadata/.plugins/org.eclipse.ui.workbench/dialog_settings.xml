@@ -9,7 +9,10 @@
 	<section name="NewWizardAction">
 		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jst.jsp.ui.internal.wizard.NewJSPWizard"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+<<<<<<< HEAD
 			<item value="org.eclipse.pde.userAssistance"/>
+=======
+>>>>>>> gaeB
 			<item value="org.eclipse.wst.web.ui"/>
 		</list>
 	</section>
