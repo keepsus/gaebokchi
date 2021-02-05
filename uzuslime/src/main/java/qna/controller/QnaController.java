@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,16 +39,13 @@ public class QnaController {
 		return "/qna/qnaBoardList";
 	}
 	
-<<<<<<< HEAD
-=======
-//	@RequestMapping(value="qnaView", method=RequestMethod.GET)
-//	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
-//		model.addAttribute("seq", seq);
-//		model.addAttribute("pg", pg);
-//		return "/qna/qnaView";
-//	}
+	@RequestMapping(value="qnaView", method=RequestMethod.GET)
+	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
+		model.addAttribute("seq", seq);
+		model.addAttribute("pg", pg);
+		return "/qna/qnaView";
+	}
 	
->>>>>>> B1
 	@RequestMapping(value="getBoardList", method=RequestMethod.POST)
 	public ModelAndView getBoardList(@RequestParam(required=false, defaultValue="1") String pg,
 									 HttpSession session,

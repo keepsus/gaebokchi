@@ -68,18 +68,13 @@ $(document).ready(function(){ //window.onload 와 같음
 			$('#boardListTable').on('click', '#subjectA', function(){
 				//alert($(this).prop('tagName'));
 				
-				if(data.member_id == null){
+				if(data.memId == null){
 					alert('먼저 로그인하세요');
 				}else{
 					//alert($(this).parent().prev().text());
 					let seq = $(this).parent().prev().text();
 					let pg = data.pg;
-<<<<<<< HEAD
-					location.href = '#';
-//					location.href = '/slime/qna/qnaView?seq='+seq+"&pg="+pg;//나중에 이걸로 다시 바꾸기
-=======
-					location.href = '/slime/qna/qnaView.jsp?seq='+seq+"&pg="+pg;
->>>>>>> B1
+					location.href = '/slime/qna/qnaView?seq='+seq+"&pg="+pg;
 				}
 			});
 			//----------------

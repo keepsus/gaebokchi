@@ -22,13 +22,9 @@
     <!--------HAEDER-------->
     <!---------------------->
     <header>
-<<<<<<< HEAD
-        <nav>
-=======
         <nav id="nav">       			
        		<a href="/slime/goods/goodsIndexList"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
        		<!-- <a href="./index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a> -->
->>>>>>> B1
         	<jsp:include page="indexNav.jsp"/>           
         </nav>
     </header>

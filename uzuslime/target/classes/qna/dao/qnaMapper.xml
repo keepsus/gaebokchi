@@ -39,8 +39,6 @@
 		select count(*) from t_shopping_qna where ${searchType} like '%'||#{keyword}||'%'
 	</select>
 	
-<<<<<<< HEAD
-=======
 		<!-- 작성한 글 확인 -->
 	<select id="getBoard" parameterType="int" resultType="qna">
 		select * from t_shopping_qna where seq=#{seq}
@@ -88,5 +86,4 @@
 		end;
 	</delete>
 	
->>>>>>> gaeB
  </mapper>
