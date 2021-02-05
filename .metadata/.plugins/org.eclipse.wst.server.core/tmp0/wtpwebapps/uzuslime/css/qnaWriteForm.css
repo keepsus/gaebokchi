@@ -42,7 +42,7 @@
 }
 
 /* <---------------------->
-<!------±Û ÀÛ¼º Form------>
+<!------ï¿½ï¿½ ï¿½Û¼ï¿½ Form------>
 <!----------------------> */
 .editor_box{
     margin-top: 5%;
@@ -84,10 +84,15 @@ div {
     height: 40px;
 }
 
+.qnaReplySection{
+    background-color:slategray;
+}
+
 #qnaWriteSection{
     background-image: url("/slime/image/qna.jpg");
     background-size:cover;
 }
+
 
 a , a:visited {
    text-decoration: none;

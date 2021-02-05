@@ -34,7 +34,7 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value="qnaBoardList", method=RequestMethod.GET)
-	public String boardList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {//기본값 1페이지로 인식해라
+	public String qnaBoardList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {//기본값 1페이지로 인식해라
 		model.addAttribute("pg", pg);
 		return "/qna/qnaBoardList";
 	}
@@ -70,7 +70,7 @@ public class QnaController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
-//		mav.addObject("member_Id", member_Id);
+		mav.addObject("memId", memId);
 		mav.addObject("boardPaging", boardPaging);
 		mav.setViewName("jsonView");
 		return mav;		
