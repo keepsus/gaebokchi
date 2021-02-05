@@ -80,7 +80,7 @@
 		begin
 			update t_shopping_qna set reply=reply-1 where seq = (select pseq from t_shopping_qna where seq=#{seq});
 			
-			update t_shopping_qna set subject=concat('[삭제된 질문 답변]',subject) where pseq=#{seq};
+			update t_shopping_qna set subject=concat('[삭제된 질문의 답변]',subject) where pseq=#{seq};
 			
 			delete from t_shopping_qna where seq=#{seq};
 		end;

@@ -39,12 +39,12 @@ public class QnaController {
 		return "/qna/qnaBoardList";
 	}
 	
-//	@RequestMapping(value="qnaView", method=RequestMethod.GET)
-//	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
-//		model.addAttribute("seq", seq);
-//		model.addAttribute("pg", pg);
-//		return "/qna/qnaView";
-//	}
+	@RequestMapping(value="qnaView", method=RequestMethod.GET)
+	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
+		model.addAttribute("seq", seq);
+		model.addAttribute("pg", pg);
+		return "/qna/qnaView";
+	}
 	
 	@RequestMapping(value="getBoardList", method=RequestMethod.POST)
 	public ModelAndView getBoardList(@RequestParam(required=false, defaultValue="1") String pg,
@@ -58,7 +58,7 @@ public class QnaController {
 		//애는 조회수 클릭했을때 같은사람이 클릭하면 한번 증가하도록		
 		//조회수 - 새로고침 방지
 		if(session.getAttribute("memId") != null) {
-    		Cookie cookie = new Cookie("memHit", "0");//생성
+    		Cookie cookie = new Cookie("memHit", "0");//쿠키생성
     		cookie.setMaxAge(30*60);//초 단위 생존기간
     		cookie.setPath("/"); //모든 경로에서 접근 가능 하도록 설정
     		response.addCookie(cookie);//클라이언트에게 보내기
@@ -93,7 +93,7 @@ public class QnaController {
 	
 	@RequestMapping(value="getBoard", method=RequestMethod.POST)//qnaView.jsp아래 ajax에서 호출/근데 보내주는거 seq밖에 없는데..?
 	public ModelAndView getBoard(@RequestParam String seq,
-								 @CookieValue(value="memHit", required=false) Cookie cookie,//??이 쿠키는 어디서 받아오지, getBoardList랑 관련이 되어있는 건가
+								 @CookieValue(value="memHit", required=false) Cookie cookie,
 								 HttpServletResponse response,
 								 HttpSession session) {
 		//조회수 - 새로고침 방지
@@ -101,7 +101,7 @@ public class QnaController {
 			qnaService.hitUpdate(seq); //조회수 증가
 			cookie.setMaxAge(0); //쿠키 삭제
 			cookie.setPath("/"); //모든 경로에서 삭제 되었음을 알림//이게 왜 필요하지????
-			response.addCookie(cookie); //쿠키 삭제된걸 클라이언트에게 보내주기.
+			response.addCookie(cookie); //쿠키 삭제된걸 클라이언트에게 보내주기.//내컴퓨터
 		}
 		
 		QnaDTO qnaDTO = qnaService.getBoard(seq);

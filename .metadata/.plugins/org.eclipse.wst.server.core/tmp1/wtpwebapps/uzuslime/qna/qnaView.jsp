@@ -28,8 +28,8 @@
 
 <form name="qnaViewForm">
 <section id="qnaViewSection">
-<input type="hidden" name="seq" id="seq" value="${param.seq}">
-<input type="hidden" name="pg" id="pg" value="${param.pg}">
+<input type="hidden" name="seq" id="seq" value="${seq}">
+<input type="hidden" name="pg" id="pg" value="${pg}">
 <div class="viewModal" id="qnaViewTotal">
 	 <div class="qnaView">
                 <div class="qnaContent">
@@ -65,7 +65,7 @@
                                     <input type="button" id="qnaReply" value="답글" onclick="mode(3)">
                              </span>
 							<span class="qnaList">
-                                    <input type="button" id="qnaList" value="목록" onclick="location.href='/slime/qna/qnaBoardList.jsp'">
+                                    <input type="button" id="qnaList" value="목록" onclick="location.href='/slime/qna/qnaBoardList'">
                              </span>
                              </div><!--viewOutSpan-->
                          </div><!--viewOut-->
@@ -81,7 +81,7 @@
 	if(num==1){//글수정
 		document.qnaViewForm.method="post";
 		document.qnaViewForm.action="qnaModifyForm";//컨트롤러로
-		document.qnaViewForm.submit();
+		document.qnaViewForm.submit();//seq랑 pg들구가는 거
 	
  	}else if(num==2){//글삭제
 		if(confirm("정말로 삭제하시겠습니까?")){
@@ -106,7 +106,7 @@ $(document).ready(function(){
 		dataType : 'json',//컨트롤러에서 돌아오는 데이터는 json타입이다
 		success : function(data){
 			//alert(JSON.stringify(data));
-			console.log("여기는 qnaView"+data);//이거는 f12번 눌러서의 console
+			//console.log("여기는 qnaView"+data);//이거는 f12번 눌러서의 console
 			$('#subjectSpan').text(data.qnaDTO.subject);
 /* 			$('#seqSpan').text(data.boardDTO.seq); */
 			$('#idSpan').text(data.qnaDTO.member_id);
