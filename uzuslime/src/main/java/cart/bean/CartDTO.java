@@ -11,5 +11,5 @@ public class CartDTO {
 	private int goods_id; //상품번호(foreign key)
 	private String member_id; //회원아이디(foreign key)
 	private int cart_goods_qty; //상품 개수
-	private String creData; //해당 장바구니 생성 일자?
+	private String creData; //해당 장바구니 생성 일자
 }
