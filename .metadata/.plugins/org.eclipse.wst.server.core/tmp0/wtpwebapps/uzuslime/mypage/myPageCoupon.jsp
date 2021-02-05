@@ -23,91 +23,22 @@
         <nav>
             <div class="row">
                 <a href="../index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
-<<<<<<< HEAD
-                <ul class="main-nav">
-                    
-                    <!-- <li><a href="#">로그인</a></li> -->
-                    <li><a href="../member/memberLoginForm.jsp" rel="modal:open">로그인</a></li>
-                    <!-- <li><a href="#">회원가입</a></li> -->
-                    <li><a href="#">회원가입</a></li>
-                    <li><a href="#">장바구니</a></li>
-                    <!-- <li><a href="#">검색</a></li> -->
-                    <li><a href="#"><ion-icon name="search-outline"></ion-icon></a></li>
-                </ul>
-=======
 				<jsp:include page="myPageNav.jsp"/>
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
             </div>
         </nav>
     </header>
     
-<<<<<<< HEAD
-    <!---------------------->
-    <!---------MENU--------->
-    <!---------------------->
-    <section class="sidebar-section">
-        <div class="menu-left">
-            <span class="openMenu" onclick="openNav()"><ion-icon name="menu-outline"></ion-icon></span>
-        </div>
-        <div class="menu-center">
-            <a href="../index.jsp">크리스탈 슬라임</a>
-        </div>
-    </section>
-
-
-
-
-    <!---------------------->
-    <!--------SIDEBAR------->
-    <!---------------------->
-    <div id="mySideNav" class="sideNav">
-        <a href="" class="closeBtn" onclick="closeNav()">X</a>
-        <a href="#" style="margin-top: 20px; font-size: 150%;"><ion-icon name="rocket-outline"></ion-icon></a>
-        <a href="../index.jsp" style="margin-top: 20px;">크리스탈 슬라임</a>
-    </div>
-=======
 	<!--------------------------->
 	<!--------SIDEBAR-MENU------->
 	<!--------------------------->
 	<jsp:include page="../sideMenu.jsp"/>       
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 
 
     <!-- SECTION -->
     <section>
         <div class="row">
-<<<<<<< HEAD
-            <div class="list-wrap">
-                <ul class="menu-links">
-                    <li><a href="#">주문 조회</a></li>
-                    <li><a href="#">위시 리스트</a></li>
-                    <li><a href="#">취소/교환/반품</a></li>
-                    <li><a href="#">쿠폰</a></li>
-                    <li><a href="#">포인트</a></li>
-                    <li><a href="#">1:1 문의</a></li>
-                    <li><a href="#">정보 수정</a></li>
-                    <li><a href="#">회원탈퇴</a></li>
-                </ul>
-            </div>
-
-            <div class="box-wrap">
-                    <div class="member-box">
-                        <span>[] 님 안녕하세요.</span>
-                        <div>누적 구매금액 : []원</div>
-                    </div>
-                    <div class="point-box">
-                        <p>포인트</p>
-                        <span>[]</span>
-                    </div>
-                    <div class="coupon-box">
-                        <p>쿠폰</p>
-                        <span>[]</span>
-                    </div>
-            </div>
-=======
 				<jsp:include page="myPageMenu.jsp"/>	<!-- myPageMenu 불러오기 -->
 				<jsp:include page="myPageBox.jsp"/>	<!-- myPageMenu 불러오기 -->  
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 
             <div class="coupon-wrap">
                 <h6>

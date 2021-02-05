@@ -39,19 +39,4 @@
 		select count(*) from t_shopping_qna where ${searchType} like '%'||#{keyword}||'%'
 	</select>
 	
-		<!-- 작성한 글 확인 -->
-	<select id="getBoard" parameterType="int" resultType="qna">
-		select * from t_shopping_qna where seq=#{seq}
-	</select>
-	
-		<!-- 조회수 증가 -->
-	<update id="hitUpdate" parameterType="int">
-		update t_shopping_qna set hit=hit+1 where seq=#{seq}
-	</update>
-	
-		<!-- 글수정 -->
-	<update id="qnaModify" parameterType="java.util.Map">
-		update t_shopping_qna set subject=#{subject}, content=#{content}, logtime=sysdate where seq=#{seq}
-	</update>
-	
  </mapper>

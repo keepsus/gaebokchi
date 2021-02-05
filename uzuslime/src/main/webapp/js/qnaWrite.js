@@ -22,7 +22,7 @@ $('#saveQna').click(function(){//name의 값만 넘어옴
 				   'content': $('#content').val()},
 			success: function(){
 				alert('글쓰기 완료');
-				location.href='/slime/qna/qnaBoardList.jsp';
+				location.href='/slime/qna/qnaBoardList.jsp'; //컨트롤러에서 만들어줘야함 + 나중에 메인으로 가도록
 			},
 			error: function(err){
 				console.log(err);

@@ -7,49 +7,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="/slime/css/grid.css">
-    <link rel="stylesheet" href="/slime/css/qnaBoard.css">
-=======
      <link rel="stylesheet" href="/slime/css/qnaBoard.css">
     <link rel="stylesheet" href="/slime/css/grid.css">
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
     <link rel="stylesheet" href="/slime/css/normalize.css">
     <link rel="stylesheet" href="/slime/css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-<<<<<<< HEAD
-
-    <title>우주슬라임</title>   
-     
-</head>
-<body>
-
-=======
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
     <title>우주슬라임</title>    
 </head>
 <body>
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
     <!---------------------->
     <!--------HAEDER-------->
     <!---------------------->
     <header>
-<<<<<<< HEAD
-        <nav id="nav">
-        	<jsp:include page="../menu.jsp"/>           
-        </nav>
-    </header>
-
- <!---------------------->
-=======
         <nav>
         	<jsp:include page="../indexNav.jsp"/>           
         </nav>
     </header>   
 
    <!---------------------->
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
    <!------QnA목차------->
    <!---------------------->
 
@@ -69,13 +46,8 @@
          </table>
         </div>
     </section>
-<<<<<<< HEAD
-    
-    <!---------------------->
-=======
 
      <!---------------------->
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
     <!------글쓰기 버튼------->
     <!---------------------->
     <div id="QnaWriteBtn">
@@ -90,11 +62,7 @@
     </section>
 
     <!---------------------->
-<<<<<<< HEAD
-    <!------QnA검색---------->
-=======
     <!------QnA검색------->
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
     <!---------------------->
     <section class="qnaSearch">
         <form id="boardSearchForm">
@@ -112,12 +80,6 @@
     </section>
 </div>
 
-<<<<<<< HEAD
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="../js/qnaBoardList.js"></script>
-=======
 <script>
 	function openNav() {
 		document.getElementById('mySideNav').style.width = '250px';
@@ -130,7 +92,6 @@
 <script type="text/javascript" src="../js/qnaBoardList.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script><!---->
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 <script>
 function boardPaging(pg){
 	var keyword = document.getElementById("keyword").value;
@@ -146,10 +107,7 @@ function boardPaging(pg){
 	}
 }
 </script>
-<<<<<<< HEAD
-=======
 
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 </body>
 
 </html>

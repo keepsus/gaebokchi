@@ -11,15 +11,10 @@
 	
 	
 	<context:component-scan base-package="member.controller"/>
-<<<<<<< HEAD
-	<context:component-scan base-package="qna.controller"/>
-	<context:component-scan base-package="mypage.controller"/>
-=======
 	<context:component-scan base-package="imageboard.controller"/>
 	<context:component-scan base-package="qna.controller"/>
 	<context:component-scan base-package="mypage.controller"/>
 	<context:component-scan base-package="order.controller"/>
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 	
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
@@ -30,28 +25,26 @@
 	<resources mapping="/css/**" location="/css/" />
 	<resources mapping="/image/**" location="/image/" />
 	<resources mapping="/js/**" location="/js/" />	<!-- Dispatcher로 가지말고 바로 .jsp 로 가라고 설정함!! -->
-<<<<<<< HEAD
-	<resources mapping="/storage/**" location="/storage/" /> 
-=======
-	<resources mapping="/storage/**" location="/storage/" />
 	<resources mapping="/mypage/**" location="/mypage/" /> 
 	<resources mapping="/admin/**" location="/admin/" />
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 
-
-	<!-- json -->
-   <beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-      <beans:property name="contentType" value="text/html;charset=UTF-8"/>
-   </beans:bean>
    
    <!-- Resolves views -->
    <beans:bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
       <beans:property name="order" value="0"/>
    </beans:bean>
    
+   
    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">   
       <beans:property name="suffix" value=".jsp" />
    </beans:bean>
+   
+   
+	<!-- json -->
+   <beans:bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+      <beans:property name="contentType" value="text/html;charset=UTF-8"/>
+   </beans:bean>
+   
    
    <!-- fileupload -->
    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

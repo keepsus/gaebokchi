@@ -88,7 +88,7 @@ public class MemberController {
 	}
 	
 	
-	//회원정보 수정 창 -> BD 에서 데이터 가지고 옴
+	//회원정보 수정 창 -> DB 에서 데이터 가지고 옴
 	@RequestMapping(value="memberModifyForm", method=RequestMethod.GET)
 	public String memberModifyForm(HttpSession session, Model model) {
 		String member_id = (String) session.getAttribute("memId");
@@ -106,6 +106,14 @@ public class MemberController {
 		memberService.modify(memberDTO);
 	}
 	
+	
+	//회원정보 조회
+	@RequestMapping(value="memberList",  method=RequestMethod.GET)
+	public String memberList(Model model) {
+		List<MemberDTO> list = memberService.memberList();
+		model.addAttribute("list", list);
+		return "/member/memberList";
+	}
 	
 }//end of MemberController
 

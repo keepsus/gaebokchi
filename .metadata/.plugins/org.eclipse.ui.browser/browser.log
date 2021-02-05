@@ -1,49 +1,4 @@
 
-<<<<<<< HEAD
-2월 01, 2021 12:45:43.24 NEW SESSION
-2월 01, 2021 12:45:43.24 [3216:18028:0201/124543.243:ERROR:device_event_log_impl.cc(211)] [12:45:43.243] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
-2월 01, 2021 15:50:49.00 [3216:18028:0201/155049.002:ERROR:device_event_log_impl.cc(211)] [15:50:49.001] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
-
-2월 02, 2021 11:44:26.72 NEW SESSION
-2월 02, 2021 11:44:26.72 [22240:6452:0202/114426.717:ERROR:device_event_log_impl.cc(211)] [11:44:26.716] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
-
-2월 02, 2021 20:10:33.92 NEW SESSION
-2월 02, 2021 20:10:33.92 [9488:11592:0202/201033.897:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:10:59.27 [9488:11592:0202/201059.275:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:11:42.82 [9488:11592:0202/201142.821:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:13:20.91 [9488:11592:0202/201320.913:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:16:14.65 [9488:11592:0202/201614.655:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:24:06.44 [9488:11592:0202/202406.442:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:32:10.07 [9488:15748:0202/203210.069:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 20:33:25.07 [9488:14256:0202/203325.073:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 20:34:06.44 [9488:11592:0202/203406.444:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:36:32.07 [9488:14256:0202/203632.078:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 20:41:13.08 [9488:14256:0202/204113.084:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 20:44:06.44 [9488:11592:0202/204406.447:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:48:15.08 [9488:9208:0202/204815.089:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 20:54:06.45 [9488:11592:0202/205406.451:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 20:58:15.09 [9488:14256:0202/205815.092:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 21:04:06.45 [9488:11592:0202/210406.453:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 21:08:15.09 [9488:9208:0202/210815.098:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 21:14:06.45 [9488:11592:0202/211406.456:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 21:18:15.10 [9488:14256:0202/211815.101:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 21:24:06.46 [9488:11592:0202/212406.459:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 21:28:15.10 [9488:14256:0202/212815.106:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 21:34:06.46 [9488:11592:0202/213406.463:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 02, 2021 21:38:15.11 [9488:9552:0202/213815.111:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 02, 2021 21:43:47.21 [9488:2728:0202/214347.211:ERROR:get_updates_processor.cc(256)] PostClientToServerMessage() failed during GetUpdates with error 2
-2월 03, 2021 09:29:32.80 [9488:12340:0203/092932.803:ERROR:device_event_log_impl.cc(211)] [09:29:32.716] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
-
-2월 03, 2021 13:03:23.40 NEW SESSION
-2월 03, 2021 13:03:23.40 [19144:16496:0203/130323.398:ERROR:device_event_log_impl.cc(211)] [13:03:23.398] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
-2월 03, 2021 13:36:33.28 [18248:2144:0203/133633.282:ERROR:device_event_log_impl.cc(211)] [13:36:33.282] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
-2월 03, 2021 15:36:10.70 [18248:12892:0203/153610.709:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 03, 2021 15:36:30.95 [18248:12892:0203/153630.956:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 03, 2021 15:37:15.84 [18248:12892:0203/153715.841:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 03, 2021 15:38:38.73 [18248:12892:0203/153838.733:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 03, 2021 15:42:04.36 [18248:12892:0203/154204.360:ERROR:connection_factory_impl.cc(428)] Failed to connect to MCS endpoint with error -106
-2월 03, 2021 15:50:03.68 [18248:2144:0203/155003.681:ERROR:device_event_log_impl.cc(211)] [15:50:03.686] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
-=======
 1월 30, 2021 22:26:48.66 NEW SESSION
 1월 30, 2021 22:26:48.66 [3932:6860:0130/222648.659:ERROR:device_event_log_impl.cc(211)] [22:26:48.659] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 1월 30, 2021 22:26:48.67 [3932:6860:0130/222648.663:ERROR:device_event_log_impl.cc(211)] [22:26:48.664] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
@@ -105,4 +60,9 @@
 2월 02, 2021 18:26:16.91 [8656:6776:0202/182616.914:ERROR:device_event_log_impl.cc(211)] [18:26:16.914] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
 2월 02, 2021 18:26:16.92 [8656:6776:0202/182616.922:ERROR:device_event_log_impl.cc(211)] [18:26:16.922] USB: usb_service_win.cc:281 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
 2월 02, 2021 19:42:12.60 [8656:6776:0202/194212.605:ERROR:device_event_log_impl.cc(211)] [19:42:12.604] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
+
+2월 05, 2021 13:10:42.76 NEW SESSION
+2월 05, 2021 13:10:42.76 [14176:5224:0205/131042.759:ERROR:device_event_log_impl.cc(211)] [13:10:42.758] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 05, 2021 13:10:42.77 [14176:5224:0205/131042.761:ERROR:device_event_log_impl.cc(211)] [13:10:42.761] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 05, 2021 13:30:39.24 [14176:5224:0205/133039.240:ERROR:device_event_log_impl.cc(211)] [13:30:39.238] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+2월 05, 2021 13:30:39.26 [14176:5224:0205/133039.251:ERROR:device_event_log_impl.cc(211)] [13:30:39.250] USB: usb_service_win.cc:281 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
