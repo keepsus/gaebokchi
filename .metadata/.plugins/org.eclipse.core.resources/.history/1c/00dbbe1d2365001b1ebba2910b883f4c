@@ -11,11 +11,7 @@
    <!-- 비 로그인 메뉴 -->
     <c:if test="${sessionScope.memId == null }">	
 	 <li><a href="/slime/member/memberLoginForm" rel="modal:open">로그인</a></li>
-<<<<<<< HEAD:uzuslime/src/main/webapp/menu.jsp
-	 <li><a href="/slime/member/writeForm" rel="modal:open">회원가입</a></li>
-=======
 	 <li><a href="/slime/member/memberWriteForm" rel="modal:open">회원가입</a></li>    
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758:.metadata/.plugins/org.eclipse.core.resources/.history/1c/00dbbe1d2365001b1ebba2910b883f4c
 	</c:if>
        
     <!-- 로그인 메뉴 -->

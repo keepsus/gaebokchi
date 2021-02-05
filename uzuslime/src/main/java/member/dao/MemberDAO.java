@@ -20,4 +20,6 @@ public interface MemberDAO {
 
 	public void modify(MemberDTO memberDTO);
 
+	public List<MemberDTO> memberList();
+
 }

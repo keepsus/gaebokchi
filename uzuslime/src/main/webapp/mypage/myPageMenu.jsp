@@ -20,7 +20,7 @@
 	    <c:if test="${memId != '' && memAdmin == 1 }">
 	         <li><a href="#">제품등록</a></li>
 	         <li><a href="#">주문정보</a></li>
-	         <li><a href="#">회원정보</a></li>
+	         <li><a href="/slime/member/memberList" >회원정보</a></li>
 	    </c:if>
      </ul>
  </div>

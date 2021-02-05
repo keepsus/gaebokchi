@@ -65,6 +65,15 @@
 						, logtime=sysdate where member_id=#{member_id}
 	</update>
 	
+	
+	
+	<!-- 회원정보보기 -->
+	<select id="memberList" resultType="member">
+		select member_id, member_name, email1
+				, email2, tel1, tel2, tel3
+				, addr1, addr2 from t_shopping_member
+	</select>
+	
 </mapper> 
 
 
