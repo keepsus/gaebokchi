@@ -5,19 +5,22 @@ $(document).ready(function(){ //window.onload 와 같음
 		url: '/slime/qna/getBoardList',
 		data: {'pg': $('#pg').val()},
 		dataType: 'json',
-		success: function(data){//여기로 mv가 들어옴		
+		success: function(data){//여기로 mv가 들어옴
+			console.log(JSON.stringify(data));
+			
 			$.each(data.list, function(index, items){
 				$('<tr/>').append($('<td/>',{
 					align: 'center',
-					text: items.seq //글번호
-				})).append($('<td/>',{//제목
+					text: items.seq
+				})).append($('<td/>',{
 					
 					}).append($('<a/>',{
-						href:'#',
+						href: '#',
 						text: items.subject,
 						id: 'subjectA',//이게 css속성값
 						class: items.seq+''
-					}))				
+					}))
+				
 				).append($('<td/>',{
 					align: 'center',
 					text: items.member_id//items가 데이터를 하나씩 받아오는거
@@ -30,18 +33,18 @@ $(document).ready(function(){ //window.onload 와 같음
 				})).appendTo($('#boardListTable'));
 				
 //				//답글
-//				for(i=0; i<items.lev; i++){
-//					$('.'+items.seq).before('&emsp;');
-//				}
-//				if(items.pseq!=0){
-//					$('.'+items.seq).before($('<img/>',{
-//						src: '../image/reply.gif'
-//					}));
-//				}
+				for(i=0; i<items.lev; i++){
+					$('.'+items.seq).before('&emsp;');//$emsp가 세칸 공백 , &nbsp;
+				}
+				if(items.pseq!=0){
+					$('.'+items.seq).before($('<img/>',{//이미지넣기
+						src: '/slime/image/reply.jpg', width : '20px', height: '20px' 
+					}));
+				}
 			
 				//로그인 여부
 				//각각 다른 이름의 class 속성을 지정하면 이벤트가 따로 불러진다
-/*				$('.'+items.seq).click(function(){
+				/*$('.'+items.seq).click(function(){
 					//alert($(this).prop('tagName'));
 					
 					if(data.memId == null){
@@ -51,7 +54,6 @@ $(document).ready(function(){ //window.onload 와 같음
 						let seq = $(this).parent().prev().text();
 					}
 				});*/
-				
 				
 			});//each
 			
@@ -66,15 +68,16 @@ $(document).ready(function(){ //window.onload 와 같음
 			$('#boardListTable').on('click', '#subjectA', function(){
 				//alert($(this).prop('tagName'));
 				
-				if(data.memId == null){
+				if(data.member_id == null){
 					alert('먼저 로그인하세요');
 				}else{
+					//alert($(this).parent().prev().text());
 					let seq = $(this).parent().prev().text();
 					let pg = data.pg;
-					location.href = '/slime/qna/qnaView?seq='+seq+"&pg="+pg;
+					location.href = '#';
+//					location.href = '/slime/qna/qnaView?seq='+seq+"&pg="+pg;//나중에 이걸로 다시 바꾸기
 				}
 			});
-			
 			//----------------
 			
 			//페이징 처리
@@ -128,14 +131,14 @@ $('#boardSearchBtn').click(function(event, str){
 					})).appendTo($('#boardListTable'));
 					
 					//답글
-//					for(i=0; i<items.lev; i++){
-//						$('.'+items.seq).before('&emsp;');
-//					}
-//					if(items.pseq!=0){
-//						$('.'+items.seq).before($('<img/>',{
-//							src: '../image/reply.gif'
-//						}));
-//					}
+					for(i=0; i<items.lev; i++){
+						$('.'+items.seq).before('&emsp;');
+					}
+					if(items.pseq!=0){
+						$('.'+items.seq).before($('<img/>',{
+							src: '../image/reply.gif'
+						}));
+					}
 				});//each
 				
 				//페이징 처리

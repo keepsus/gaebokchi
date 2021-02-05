@@ -111,13 +111,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-<<<<<<< HEAD
 			<item value="D:\SlimeProject\gaebokchi\uzuslime"/>
-=======
-			<item value="C:\Users\cksrb\OneDrive\Desktop\workproject\main\spring"/>
-			<item value="D:\spring\workspace\SpringMVC"/>
-			<item value="C:\Users\cksrb\OneDrive\Desktop\workproject\main\uzuslime"/>
->>>>>>> 44eacd0cd9469808ac8916311408f828229b7758
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>

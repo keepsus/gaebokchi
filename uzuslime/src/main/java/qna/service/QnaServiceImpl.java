@@ -24,7 +24,7 @@ public class QnaServiceImpl implements QnaService{
 	
 	@Override
 	public void qnaWrite(Map<String, String> map) {
-		map.put("member_id",(String)session.getAttribute("memId"));//id 세션에서 받았을때 이걸로 바꾸기
+		map.put("member_id",(String)session.getAttribute("memId"));
 		qnaDAO.qnaWrite(map);		
 	}
 
@@ -87,12 +87,35 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public QnaDTO getBoard(String seq) {
+//		System.out.println("여기는 서비스seq :" +seq);
 		return qnaDAO.getBoard(seq);
 	}
 
 	@Override
 	public void qnaModify(Map<String, String> map) {
 		qnaDAO.qnaModify(map);
+	}
+
+	@Override
+	public void qnaDelete(String seq) {
+		qnaDAO.qnaDelete(seq);
+	}
+
+	@Override
+	public void qnaReply(Map<String, String> map) {
+		//원글
+		QnaDTO pDTO = qnaDAO.getBoard(map.get("pseq"));
+				
+		//map안에는 pseq, suject, content있다...추가 하자
+		map.put("member_id", (String)session.getAttribute("memId"));
+//		map.put("name", (String)session.getAttribute("memName"));
+//		map.put("email", (String)session.getAttribute("memEmail"));
+		map.put("ref", pDTO.getRef()+""); //ref = 원글ref
+		map.put("lev", pDTO.getLev()+1 +""); //lev = 원글lev + 1
+		map.put("step", pDTO.getStep()+1 +""); //step = 원글step + 1
+				
+		qnaDAO.qnaReply(map);
+		
 	}
 
 }

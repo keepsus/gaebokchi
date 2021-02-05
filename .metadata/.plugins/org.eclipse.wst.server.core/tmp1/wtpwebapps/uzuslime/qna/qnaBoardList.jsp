@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,15 +8,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="/slime/css/qnaBoard.css">
     <link rel="stylesheet" href="/slime/css/grid.css">
-    <link rel="stylesheet" href="/slime/css/qnaBoard.css">
     <link rel="stylesheet" href="/slime/css/normalize.css">
     <link rel="stylesheet" href="/slime/css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
-
-    <title>우주슬라임</title>   
-     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
+    <title>우주슬라임</title>    
 </head>
 <body>
     <!---------------------->
@@ -47,8 +47,8 @@
          </table>
         </div>
     </section>
-    
-    <!---------------------->
+
+     <!---------------------->
     <!------글쓰기 버튼------->
     <!---------------------->
     <div id="QnaWriteBtn">
@@ -63,7 +63,7 @@
     </section>
 
     <!---------------------->
-    <!------QnA검색---------->
+    <!------QnA검색------->
     <!---------------------->
     <section class="qnaSearch">
         <form id="boardSearchForm">
@@ -81,14 +81,15 @@
     </section>
 </div>
 
-<script>
+<!-- <script>
 	function openNav() {
 		document.getElementById('mySideNav').style.width = '250px';
 	}
 	function closeNav() {
 		document.getElementById('mySideNav').style.width = '0';
 	}
-</script>
+</script> -->
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../js/qnaBoardList.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script><!---->
@@ -108,6 +109,7 @@ function boardPaging(pg){
 	}
 }
 </script>
+
 </body>
 
 </html>

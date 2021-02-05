@@ -1,0 +1,105 @@
+.saveQna{
+    margin-left: 3px;
+    background-color: rgba(33,33,33, 0.89);
+    border-color:  rgba(33,33,33, 0.89);
+    color :white;
+    width: 90px;
+    height: 38px;
+    font-size: 12px;
+    cursor: pointer;
+}
+.cancleQna{
+    background-color: white;
+    border-color :hsla(0, 5%, 88%, 0.829);
+    color : rgba(33,33,33, 0.89);
+    width: 90px;
+    height: 38px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btns{
+    margin-left: 30%;
+    float:right;
+    margin-right: 40px;
+}
+
+.border_name{
+    float: left;
+}
+#savebtn{
+    float: right;
+}
+
+.header_line{
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+}
+
+.qnaHeader{
+    padding:10px;
+}
+
+/* <---------------------->
+<!------�� �ۼ� Form------>
+<!----------------------> */
+.editor_box{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-sizing: border-box;
+    padding : 20px;
+}
+
+div {
+    display: block;
+}
+
+.qna_content{
+    width : 80%;
+    height: 300px; 
+    font-size :15px;
+    margin-top: 10px;
+    padding-left: 10px;
+    margin-left: 0px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.qna_name{
+    width :30%;
+    height: 30px;
+    margin-right: 0px;
+}
+
+.qna_pwd{
+    width :30%;
+    height: 30px;
+    margin-left: 0px;
+}
+
+.qna_subject{
+    width :78.5%;
+    height: 40px;
+}
+
+#qnaWriteSection{
+    background-image: url("/slime/image/qna.jpg");
+    background-size:cover;
+}
+
+#qnaReplySection{
+    background-image: url("/slime/image/qna.jpg");
+    background-size:cover;
+}
+
+a , a:visited {
+   text-decoration: none;
+   color : black;
+}
+
+a:hover {color : pink;}
+
+
+

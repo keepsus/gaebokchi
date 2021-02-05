@@ -23,4 +23,8 @@ public interface QnaDAO {
 
 	public void qnaModify(Map<String, String> map);
 
+	public void qnaDelete(String seq);
+
+	public void qnaReply(Map<String, String> map);
+
 }

@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,16 +33,9 @@ public class QnaController {
 	}
 	
 	@RequestMapping(value="qnaBoardList", method=RequestMethod.GET)
-	public String qnaBoardList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {//기본값 1페이지로 인식해라
+	public String boardList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {//기본값 1페이지로 인식해라
 		model.addAttribute("pg", pg);
 		return "/qna/qnaBoardList";
-	}
-	
-	@RequestMapping(value="qnaView", method=RequestMethod.GET)
-	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
-		model.addAttribute("seq", seq);
-		model.addAttribute("pg", pg);
-		return "/qna/qnaView";
 	}
 	
 	@RequestMapping(value="getBoardList", method=RequestMethod.POST)
@@ -52,13 +44,13 @@ public class QnaController {
 									 HttpServletResponse response) {
 		
 		List<QnaDTO> list = qnaService.getQnaList(pg);
-		System.out.println(list);
+		//System.out.println("Controller의 getBoardList="+list);
 		String memId = (String)session.getAttribute("memId");//세션연결되면 이걸로 하기
-		//String member_Id ="mk";//애는 조회수 클릭했을때 같은사람이 클릭하면 한번 증가하도록
 		
+		//애는 조회수 클릭했을때 같은사람이 클릭하면 한번 증가하도록		
 		//조회수 - 새로고침 방지
 		if(session.getAttribute("memId") != null) {
-    		Cookie cookie = new Cookie("memHit", "0");//생성
+    		Cookie cookie = new Cookie("memHit", "0");//쿠키생성
     		cookie.setMaxAge(30*60);//초 단위 생존기간
     		cookie.setPath("/"); //모든 경로에서 접근 가능 하도록 설정
     		response.addCookie(cookie);//클라이언트에게 보내기
@@ -70,7 +62,7 @@ public class QnaController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg", pg);
 		mav.addObject("list", list);
-		mav.addObject("memId", memId);
+//		mav.addObject("member_Id", member_Id);
 		mav.addObject("boardPaging", boardPaging);
 		mav.setViewName("jsonView");
 		return mav;		
@@ -91,21 +83,20 @@ public class QnaController {
 		return mav;
 	}
 	
-	@RequestMapping(value="getBoard", method=RequestMethod.POST)
+	@RequestMapping(value="getBoard", method=RequestMethod.POST)//qnaView.jsp아래 ajax에서 호출/근데 보내주는거 seq밖에 없는데..?
 	public ModelAndView getBoard(@RequestParam String seq,
 								 @CookieValue(value="memHit", required=false) Cookie cookie,
 								 HttpServletResponse response,
 								 HttpSession session) {
 		//조회수 - 새로고침 방지
-//		if(cookie != null) {
-//			qnaService.hitUpdate(seq); //조회수 증가
-//			cookie.setMaxAge(0); //쿠키 삭제
-//			cookie.setPath("/"); //모든 경로에서 삭제 되었음을 알림
-//			response.addCookie(cookie); //쿠키 삭제된걸 클라이언트에게 보내주기.
-//		}
+		if(cookie != null) {//이 쿠키는 위에 있는 getBoardList 속 쿠키에서 가져오는건가?
+			qnaService.hitUpdate(seq); //조회수 증가
+			cookie.setMaxAge(0); //쿠키 삭제
+			cookie.setPath("/"); //모든 경로에서 삭제 되었음을 알림//이게 왜 필요하지????
+			response.addCookie(cookie); //쿠키 삭제된걸 클라이언트에게 보내주기.//내컴퓨터
+		}
 		
 		QnaDTO qnaDTO = qnaService.getBoard(seq);
-		System.out.println(qnaDTO);//얘부터 가조
 		String memId = (String)session.getAttribute("memId");
 
 		ModelAndView mav = new ModelAndView();
@@ -117,8 +108,40 @@ public class QnaController {
 	
 	@RequestMapping(value="qnaModify", method=RequestMethod.POST)
 	@ResponseBody
-	public void boardModify(@RequestParam Map<String, String> map) {
+	public void qnaModify(@RequestParam Map<String, String> map) {
 		qnaService.qnaModify(map);		
 	}
+	
+	@RequestMapping(value="qnaModifyForm", method=RequestMethod.POST)
+	public String qnaModifyForm(@RequestParam String seq,
+								  @RequestParam String pg,
+								  Model model) {
+		model.addAttribute("seq", seq);
+		model.addAttribute("pg", pg);
+		return "/qna/qnaModifyForm";
+	}
+	
+	@RequestMapping(value="qnaDeleteForm", method=RequestMethod.POST)
+	public String qnaDeleteForm(@RequestParam String seq, Model model) {
+		qnaService.qnaDelete(seq);
+		model.addAttribute("seq", seq);
+		return "/qna/qnaBoardList";
+	}
+	
+	@RequestMapping(value="qnaReplyForm", method=RequestMethod.POST)//얘는 replyForm.jsp부르기
+	public String qnaReplyForm(@RequestParam String seq, 
+							   @RequestParam String pg, 
+								Model model) {
+		model.addAttribute("pseq", seq); //원글번호
+		model.addAttribute("pg", pg);
+		return "/qna/qnaReplyForm";
+	}
+	
+	@RequestMapping(value="qnaReply", method=RequestMethod.POST)//qnaReplyForm.jsp ajax에서 부른다.(데이터뿌리기?)
+	@ResponseBody
+	public void qnaReply(@RequestParam Map<String, String> map) {
+		qnaService.qnaReply(map);
+	}
+	
 
 }
