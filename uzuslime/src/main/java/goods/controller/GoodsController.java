@@ -55,7 +55,7 @@ public class GoodsController {
 						   @RequestParam MultipartFile[] img) {
 		
 		//storage : 가상폴더
-		String filePath = "/Users/jeonghunpark/Desktop/workspace/gaebokchi/uzuslime/src/main/webapp/storage";	//가상폴더 위치 가져온다.
+		String filePath = "D:\\workproject\\main\\uzuslime\\src\\main\\webapp\\storage";	//가상폴더 위치 가져온다.
 		String fileName;	//원래 이름으로 바꾸어줌!
 		File file;			//파일 생성!
 		
