@@ -121,11 +121,7 @@ public class OrderController{
 		//데이터 값 정상 입력 확인용(나중에 삭제)
 		//System.out.println(_orderDTO.getGoods_id());
 		
-		if(su == 1) {
-			return "입력성공";
-		}else{
-			return "입력실패";
-		}
+		
 		
 	}
 	
