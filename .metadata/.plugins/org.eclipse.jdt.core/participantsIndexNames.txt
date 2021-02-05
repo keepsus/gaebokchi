@@ -1,17 +1,3 @@
 INDEX VERSION 1.131
-D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3892254211.index
-\uzuslime\src\main\java
 D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2920503265.index
-\uzuslime\src\main\java
-D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3543451919.index
-\uzuslime\src\main\java
-D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2859027736.index
-\uzuslime\src\main\java
-D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\514449861.index
-\uzuslime\src\main\java
-D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1032779297.index
-\uzuslime\src\main\java
-D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1623737451.index
-\uzuslime\src\main\java
-D:\SlimeProject\gaebokchi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2120800911.index
 \uzuslime\src\main\java

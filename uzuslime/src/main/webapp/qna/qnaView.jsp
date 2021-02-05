@@ -28,8 +28,8 @@
 
 <form name="qnaViewForm">
 <section id="qnaViewSection">
-<input type="hidden" name="seq" id="seq" value="${param.seq}">
-<input type="hidden" name="pg" id="pg" value="${param.pg}">
+<input type="hidden" name="seq" id="seq" value="${seq}">
+<input type="hidden" name="pg" id="pg" value="${pg}">
 <div class="viewModal" id="qnaViewTotal">
 	 <div class="qnaView">
                 <div class="qnaContent">
