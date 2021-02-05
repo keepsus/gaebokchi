@@ -23,6 +23,8 @@ public class MemberServiceImpl implements MemberService {
 	public String login(Map<String, String> map) {
 		MemberDTO memberDTO = memberDAO.login(map);
 		
+		System.out.println(memberDTO);
+		
 		if(memberDTO == null) {
 			return "fail";
 			

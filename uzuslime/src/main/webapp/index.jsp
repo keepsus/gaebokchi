@@ -22,11 +22,18 @@
     <!--------HAEDER-------->
     <!---------------------->
     <header>
+<<<<<<< HEAD
         <nav>
+=======
+        <nav id="nav">       			
+       		<a href="/slime/goods/goodsIndexList"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
+       		<!-- <a href="./index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a> -->
+>>>>>>> B1
         	<jsp:include page="indexNav.jsp"/>           
         </nav>
     </header>
-	
+		
+		
 	<!--------------------------->
 	<!--------SIDEBAR-MENU------->
 	<!--------------------------->
@@ -47,6 +54,21 @@
     <!---------------------->
     <section class="section-features2">
         <div class="row">
+        
+	        
+	        <!-- 제품리스트 삽입 구간, 시작 -->
+	        <c:if test="${not empty display }">			
+				<jsp:include page="${display }"/>
+			</c:if>
+			<c:if test="${empty display }">
+			<h1>홈페이지 방문 감사합니다.<br>
+				Greatings~!				 
+			</h1>
+				<img alt="망상토끼_풍악을울려라" src="/slime/image/1.png">
+			</c:if>
+        	<!-- 제품리스트 삽입 구간,끝 -->
+        
+        
             <p class="md-choice"><strong>MD추천</strong></p>
         </div>
         
