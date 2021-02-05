@@ -168,3 +168,4 @@
 0:0:0:0:0:0:0:1 - - [05/Feb/2021:15:57:35 +0900] "GET /slime/qna/qnaBoardList?pg=1 HTTP/1.1" 200 4418
 0:0:0:0:0:0:0:1 - - [05/Feb/2021:15:57:35 +0900] "GET /slime/js/qnaBoardList.js HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [05/Feb/2021:15:57:35 +0900] "POST /slime/qna/getBoardList HTTP/1.1" 200 1029
+127.0.0.1 - - [05/Feb/2021:16:45:29 +0900] "GET / HTTP/1.1" 404 807
