@@ -44,32 +44,17 @@ public class QnaController {
 									 HttpServletResponse response) {
 		
 		List<QnaDTO> list = qnaService.getQnaList(pg);
-<<<<<<< HEAD
-		System.out.println(list);
-		//String member_Id = (String)session.getAttribute("member_Id");//세션연결되면 이걸로 하기
-		//String member_Id ="mk";//애는 조회수 클릭했을때 같은사람이 클릭하면 한번 증가하도록
-=======
 		//System.out.println("Controller의 getBoardList="+list);
 		String memId = (String)session.getAttribute("memId");//세션연결되면 이걸로 하기
->>>>>>> gaeB
 		
 		//애는 조회수 클릭했을때 같은사람이 클릭하면 한번 증가하도록		
 		//조회수 - 새로고침 방지
-<<<<<<< HEAD
-//		if(session.getAttribute("member_Id") != null) {
-//    		Cookie cookie = new Cookie("memHit", "0");//생성
-//    		cookie.setMaxAge(30*60);//초 단위 생존기간
-//    		cookie.setPath("/"); //모든 경로에서 접근 가능 하도록 설정
-//    		response.addCookie(cookie);//클라이언트에게 보내기
-//    	}
-=======
 		if(session.getAttribute("memId") != null) {
     		Cookie cookie = new Cookie("memHit", "0");//쿠키생성
     		cookie.setMaxAge(30*60);//초 단위 생존기간
     		cookie.setPath("/"); //모든 경로에서 접근 가능 하도록 설정
     		response.addCookie(cookie);//클라이언트에게 보내기
     	}
->>>>>>> gaeB
 		
 		//페이징처리
 		BoardPaging boardPaging = qnaService.boardPaging(pg);
@@ -98,9 +83,6 @@ public class QnaController {
 		return mav;
 	}
 	
-<<<<<<< HEAD
-	
-=======
 	@RequestMapping(value="getBoard", method=RequestMethod.POST)//qnaView.jsp아래 ajax에서 호출/근데 보내주는거 seq밖에 없는데..?
 	public ModelAndView getBoard(@RequestParam String seq,
 								 @CookieValue(value="memHit", required=false) Cookie cookie,
@@ -162,5 +144,4 @@ public class QnaController {
 	}
 	
 
->>>>>>> gaeB
 }

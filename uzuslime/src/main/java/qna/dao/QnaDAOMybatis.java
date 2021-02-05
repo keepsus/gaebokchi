@@ -41,8 +41,6 @@ public class QnaDAOMybatis implements QnaDAO {
 		return sqlSession.selectOne("qnaSQL.getBoardSearchTotalA", map);
 	}
 
-<<<<<<< HEAD
-=======
 	@Override
 	public void hitUpdate(String seq) {
 		sqlSession.update("qnaSQL.hitUpdate", Integer.parseInt(seq));
@@ -71,5 +69,4 @@ public class QnaDAOMybatis implements QnaDAO {
 		
 	}
 
->>>>>>> gaeB
 }
