@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="cartSQL">
+ 
+ <!-- 장바구니에 정보 입력 전, 이미 있는 정보인지 확인 -->
+ <!-- good_id와 member_id 두가지 항목이 이미 장바구니DB에 들어있는지 비교하여 0이면 false, 그 외의 값이면 true표시-->
+ <!-- ★★★★★★★★resultType Boolean 되는지 확인, 안되면 String으로 바꾸기 -->
+ <select id="checkGoodsInCart" resultType="Boolean" parameterType="cart">
+    <![CDATA[
+	    select decode(count(*), 0, 'false', 'true') from t_shopping_cart
+		where goods_id=#{goods_id} and member_id=#{member_id} 
+   	]]>
+</select>
+ 
+ 
+ <!-- 장바구니DB에 상품 추가 -->
+ <!--  -->
+ <insert id="addGoodsInCart" parameterType="cart">
+ 	<selectKey resultType="String" keyProperty="cart_id" order="BEFORE">
+	    	select nvl(max(cart_id), 0) + 1 from t_shopping_cart
+	</selectKey>
+ 	<![CDATA[
+ 		insert into t_shopping_cart(cart_id,
+ 									goods_id,
+ 									member_id,
+ 									cart_goods_qty,
+ 									creDate)
+ 							 values(#{cart_id},
+ 							 		#{goods_id},
+ 							 		#{member_id},
+ 							 		#{cart_goods_qty},
+ 							 		sysdate)								 	
+   	]]>	 
+ </insert>
+ 
+ </mapper>
