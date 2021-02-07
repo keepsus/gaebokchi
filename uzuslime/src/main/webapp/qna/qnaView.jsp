@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <head>
     <meta charset="UTF-8">
@@ -39,7 +40,7 @@
                             <div class="subject" id="subjectSpan">제목들어가는 곳
                             </div>
                             <div class="qnaFix">
-                            		<!-- 작성자 -->	
+                            	<!-- 작성자 -->	
                             	<span class="idSpan" id="idSpan" >작성자</span>
                                 <span class="qnaModify" id="qnaModify">
                                     <input type="button" id="qnaModify" value="수정" onclick="mode(1)">
@@ -67,13 +68,44 @@
 							<span class="qnaList">
                                     <input type="button" id="qnaList" value="목록" onclick="location.href='/slime/qna/qnaBoardList'">
                              </span>
+                             
                              </div><!--viewOutSpan-->
                          </div><!--viewOut-->
                      </div><!--view_wrap-->
+                     
+                    
                 </div><!--qnaContent-->
             </div>
-</div><!--modal -->
-</section>
+</div><!--modal -->          
+<%-- 	<input type="hidden" id="page" name="page" value="${scri.page}"> 
+  <input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
+  <input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
+  <input type="hidden" id="keyword" name="keyword" value="${scri.keyword}">  --%>
+	
+ <div class="reply"><!--댓글 내용 보이는 부분-->
+	 <div class="replyWrite">
+	                     	<div class="writer_reply">
+	                     		<input type="text" class="writer_reply" id="writer_reply" name="writer" placeholder="작성자 아이디" style="width=30px;"><br/>
+	                     		<input type="text" class="content_reply" id="content_reply" name="content" placeholder="댓글 내용">
+	                     	</div><!--writer_reply-->
+	                     	<div id="buttons">
+ 	 							<button type="reset" class="replyresetBtn">취소</button>
+ 	 							<button type="button" class="replyWriteBtn" onclick="mode(4)">댓글 남기기</button>
+  							</div>
+	</div><!--replyWrite -->
+	                 	<ul class="replyList" style="list-style:none;">
+                 		<c:forEach items="${replyList}" var="replyList">
+                 			<li>
+    							<hr style="margin-top:12px; margin-bottom:10px;">
+    								<span class="replyWriter"> ${replyList.writer}</span>
+    								<span class="replyDate"><fmt:formatDate value="${replyList.regdate}" pattern="yyyy-MM-dd"/>
+    								</span>
+    								<div class="replyContent">${replyList.content}</div>
+  							</li>
+                 		</c:forEach>
+                 	</ul>
+</div><!--reply-->
+</section><!--qnaViewSection-->
 </form>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -94,10 +126,15 @@
 		document.qnaViewForm.method="post";
 		document.qnaViewForm.action="qnaReplyForm";
 		document.qnaViewForm.submit();
+	}else if(num==4){//댓글
+		document.qnaViewForm.method="post";
+		document.qnaViewForm.action="replyWrite";
+		document.qnaViewForm.submit();
+		/*여기서 */
 	}
 }
 </script>
-<script> /* 여기의 스크립트가 같아서 이 두줄을 지우니까 글이 불러와지지 않았다. */
+<script>
 $(document).ready(function(){
 	$.ajax({
 		type: 'post',
@@ -124,3 +161,4 @@ $(document).ready(function(){
 	});
 });
 </script>
+

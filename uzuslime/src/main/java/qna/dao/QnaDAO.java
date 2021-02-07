@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import qna.bean.QnaDTO;
+import qna.bean.ReplyDTO;
 
 public interface QnaDAO {
 
@@ -26,5 +27,11 @@ public interface QnaDAO {
 	public void qnaDelete(String seq);
 
 	public void qnaReply(Map<String, String> map);
+	
+	//댓글 조회
+	public List<ReplyDTO> readReply(int seq);
+	
+	//댓글 작성
+	public void writeReply(ReplyDTO replyDTO);
 
 }

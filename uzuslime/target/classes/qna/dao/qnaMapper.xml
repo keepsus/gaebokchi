@@ -86,4 +86,19 @@
 		end;
 	</delete>
 	
+	<!--댓글 조회-->
+	<select id="readReply" resultType="reply">
+    	SELECT
+    		  RNO, CONTENT, WRITER, REGDATE
+    	 FROM QNA_REPLY
+    	WHERE SEQ = #{SEQ}
+	</select>
+	
+	<!--댓글 작성-->
+	<insert id="writeReply">
+		insert into qna_reply(seq, rno, content, writer) values(#{seq}
+																,qna_reply_seq.nextval
+																,#{content}
+																,#{writer})
+	</insert>
  </mapper>
