@@ -4,45 +4,6 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="orderSQL">
-<!-- 리절트 맵 정의 -->	
-	<resultMap id="orderGoodsResult" type="order">
-	    <result property="order_seq_num" column="order_seq_num" />
-		<result property="order_id" column="order_id" />
-		<result property="member_id" column="member_id" />
-		<result property="goods_id" column="goods_id" />
-		<result property="goods_title" column="goods_title" />
-		<result property="order_goods_qty" column="order_goods_qty" />
-		<result property="goods_fileName" column="goods_fileName" />
-
-		<result property="orderer_name" column="orderer_name" />
-		<result property="orderer_hp" column="orderer_hp" />
-		<result property="orderer_email" column="orderer_email" />
-		
-		<result property="receiver_name" column="receiver_name" />
-		<result property="receiver_hp" column="receiver_hp" />
-		<result property="delivery_zipcode" column="delivery_zipcode" />
-		<result property="delivery_addr1" column="delivery_addr1" />
-		<result property="delivery_addr2" column="delivery_addr2" />
-		<result property="delivery_message" column="delivery_message" />
-		
-		<result property="order_goods_price" column="order_goods_price" />
-		<result property="order_delivery_price" column="order_delivery_price" />
-		<result property="goods_sales_price" column="goods_sales_price" />
-		<result property="total_order_price" column="total_order_price" />
-		
-		<result property="order_agreement_info" column="order_agreement_info" />
-		<result property="order_agreement_order" column="order_agreement_order" />
-		
-		<result property="pay_method" column="pay_method" />
-		<result property="delivery_method" column="delivery_method" />
-		<result property="gift_wrapping" column="gift_wrapping" />
-		<result property="card_com_name" column="card_com_name" />
-		<result property="card_pay_month" column="card_pay_month" />
-		
-		<result property="pay_orderer_hp_num" column="pay_orderer_hp_num" />
-		<result property="pay_order_time" column="pay_order_time" />
-		<result property="delivery_state" column="delivery_state" />
-	</resultMap>
 
 <insert id="orderOneGoods" parameterType="order"><!-- 나중에 파라미터 입력 -->
 	    <selectKey resultType="int" keyProperty="order_seq_num" order="BEFORE">
