@@ -19,5 +19,6 @@ public interface GoodsService {
 
 	public void goodsDelete(String[] check);
 
+	public GoodsDTO getGoods(String seq);
 
 }

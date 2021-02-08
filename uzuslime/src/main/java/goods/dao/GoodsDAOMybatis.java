@@ -47,6 +47,11 @@ public class GoodsDAOMybatis implements GoodsDAO {
 		return sqlSession.selectOne("goodsSQL.getGoodsTotalA");
 	}
 
+	@Override
+	public GoodsDTO getGoods(String seq) {
+		return sqlSession.selectOne("goodsSQL.getGoods", Integer.parseInt(seq));
+	}
+
 	
 	
 }

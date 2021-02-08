@@ -31,7 +31,7 @@
 	</insert>
  
  	
- 	
+ 	<!-- myPage 에서 제품 리스트 보기 -->
  	<select id="getGoodsList" parameterType="java.util.Map" resultType="goods">
 		select * from
 		(select rownum rn, tt.* from
@@ -39,24 +39,24 @@
 		)where rn between #{startNum} and #{endNum}
 	</select>
  
- 
+	<!-- index 화면에서 제품 리스트 보기 -->
  	<select id="getGoodsIndexList" resultType="goods">
 		select * from t_shopping_goods order by seq desc
 	</select>
   
- 	
+	<!-- 등록제품 전체수량 확인 -->
  	<select id="getGoodsTotalA" resultType="int">
  		select count(*) from t_shopping_goods
  	</select>
  
  
- 
+ 	<!-- 제품정보 상세확인 -->
  	<select id="getGoodsView" parameterType="int" resultType="goods">
  		select * from t_shopping_goods where seq=#{seq}
  	</select>
  
  	
- 	
+	<!-- 제품정보 수정 -->
  	<delete id="goodsDelete" parameterType="java.util.Map">
  		delete t_shopping_goods where seq in
  			
@@ -64,7 +64,17 @@
  				<!-- ${array[i]} -->
  				#{data}
  			</foreach>
- 		
  	</delete>
+ 
+ 
+ 	<!-- 작성된 제품정보 확인 -->
+	<select id="getGoods" parameterType="int" resultType="goods">
+		select * from t_shopping_goods where seq=#{seq}
+	</select>
+ 
+ 
+ 
+ 
+ 
  
  </mapper>
