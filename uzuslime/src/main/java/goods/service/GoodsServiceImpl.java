@@ -78,6 +78,12 @@ public class GoodsServiceImpl implements GoodsService {
 		goodsDAO.goodsDelete(map);
 	}
 
+
+	@Override
+	public GoodsDTO getGoods(String seq) {
+		return goodsDAO.getGoods(seq);
+	}
+
 	
 	
 	
