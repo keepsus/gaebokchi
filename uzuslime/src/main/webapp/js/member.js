@@ -214,9 +214,81 @@ $('#modifyBtn').click(function(){
 });
 
 
+//이메일 인증 보내기
+$('#emailBtn').click(function(){
+	$('#emailDiv').empty();
+	
+	if($('input[id=email1]').val()==''||$('input[id=email2]').val()==''){//여기에 datalist안에 있는 email2를 어떻게 넣어주지	
+		$('#emailDiv').text('이메일을 입력하세요');
+		$('#emailDiv').css('color','red');
+		$('#emailDiv').css('font-size','8pt');
+		$('#emailDiv').css('font-weight','bold');
+		
+	}else{
+		$.ajax({
+			type: 'post',
+			url: '/slime/member/sendEmail',
+			data: 'e_mail='+$('#email1').val()+'@'+$('#email2').val(),//얘가 문제가 있다는 거다..
+//			data: 'e_mail=puppe316@naver.com',//이걸로 설정하고 버튼 누르면 메일 발송됌
+			dataType: 'text',
+			success: function(data){
+				alert('이메일 data ='+ data);//data가 들어오는것인가?이상한게 찍힌다.
+				if(data != 'exist'){//??
+					$('#emailDiv').text('이메일 인증번호를 입력해주세요 ')
+					$('#emailDiv').css('color','magenta')
+					$('#emailDiv').css('font-size','8pt')
+					$('#emailDiv').css('font-weight','bold');	
+				}
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	}
+	
+});
 
 
+//이메일 인증번호 확인
+$('#emailCheckBtn').click(function(){
+	$('#emailDiv').empty();
+	
+	if($('input[id=checkEmail]').val()==''){
+		$('#emailDiv').text('인증번호를 입력하세요');
+		$('#emailDiv').css('color','red');
+		$('#emailDiv').css('font-size','8pt');
+		$('#emailDiv').css('font-weight','bold');
+		
+	}else{
+		$.ajax({
+			type: 'post',
+			url: '/slime/member/checkEmail',
+			data: 'checkEmail='+$('#checkEmail').val(),
+			dataType: 'text',
+			success: function(data){
+				alert('이메일인증관련 data ='+ data);
+				if(data == 'exist'){//이부분에서 dice와 checkEmail을 비교할 수 있을까?
+						$('#emailDiv').text('인증이 완료 되었습니다')
+						$('#emailDiv').css('color','magenta')
+						$('#emailDiv').css('font-size','8pt')
+						$('#emailDiv').css('font-weight','bold');
+				}else if(data == 'non_exist'){
+					$('#emailDiv').val($('#member_id').val());					
+					
+					$('#emailDiv').text('인증 번호를 다시 확인해 주세요')
+					$('#emailDiv').css('color','blue')
+					$('#emailDiv').css('font-size','8pt')
+					$('#emailDiv').css('font-weight','bold');
+				}
+			},
+			error: function(err){
+				console.log(err);
+			}
 
+		});
+	}
+	
+});
 
 
 

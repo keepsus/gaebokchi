@@ -18,7 +18,7 @@ public class MemberDTO {
 	private String zipcode;
 	private String addr1;
 	private String addr2;
-	private int admin_yn;
+	private int admin_yn;//관리자여부확인
 	
 }//end of MemberDTO class
 

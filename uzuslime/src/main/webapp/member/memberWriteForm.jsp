@@ -48,11 +48,11 @@
 	            <option value="naver.com">
 	            <option value="hanmail.net">
 	        </datalist>
-	        <input type="button" id="emailBtn" class="emailBtn" value="이메일인증"><br>
-	         <input type="text" class="checkEmail" name="checkEmail" placeholder="인증번호 입력">
+	        <input type="button" id="emailBtn" name="emailBtn" class="emailBtn" value="이메일인증"><br>
+	         <input type="text" class="checkEmail" id="checkEmail" name="checkEmail" placeholder="인증번호 입력">
 	        <input type="button" id="emailCheckBtn" class="emailCheckBtn" value="인증번호확인" ><br>
 	    </div>
-	
+		<div class="emailDiv"></div>
 	
 	    <div class="signUp-phone-form">
 	        <select name="tel1" class="sign-tel1" style="width: 60px;">
