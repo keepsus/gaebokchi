@@ -4,6 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="orderSQL">
+<<<<<<< HEAD
 <!-- 리절트 맵 정의 -->	
 	<resultMap id="orderGoodsResult" type="order">
 	    <result property="order_seq_num" column="order_seq_num" />
@@ -43,6 +44,9 @@
 		<result property="pay_order_time" column="pay_order_time" />
 		<result property="delivery_state" column="delivery_state" />
 	</resultMap>
+=======
+
+>>>>>>> chobranch
 
 <insert id="orderOneGoods" parameterType="order"><!-- 나중에 파라미터 입력 -->
 	    <selectKey resultType="int" keyProperty="order_seq_num" order="BEFORE">

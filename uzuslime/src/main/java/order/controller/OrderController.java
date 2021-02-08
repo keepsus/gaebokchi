@@ -26,12 +26,11 @@ public class OrderController{
 	@Autowired
 	private OrderService orderService;
 	
-	
-
-	
+	@Autowired
+	private MemberDTO memberDTO;
 	
 	//[Controller1] 상품 상세 페이지에서 한 개의 상품을 주문하는 경우 주문페이지 표시
-	@RequestMapping(value="orderOneGoodsForm", method=RequestMethod.POST)
+	@RequestMapping(value="/orderOneGoodsForm", method=RequestMethod.POST)
 	public ModelAndView orderOneGoodsForm(@ModelAttribute GoodsDTO goodsDTO, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		//로그인 시 session에 담은 회원아이디를 가지고 로그아웃상태인지 로그인 상태인지 확인
@@ -73,7 +72,7 @@ public class OrderController{
 			
 			
 			//로그인한 회원정보를 담을 그릇 ★★★★★ 그냥 session에 담긴 내용 사용할지?
-			MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
+			memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
 			ModelAndView mav = new ModelAndView();
 			mav.addObject(goodsDTO);
 			mav.addObject(memberDTO);
@@ -94,7 +93,7 @@ public class OrderController{
 	
 	
 	//[Controller2] 결제창에서 결제하기 버튼을 누르면 해당 컨트롤이 호출되어 DB에 주문내역이 저장됨
-	@RequestMapping(value="orderOneGoods", method=RequestMethod.POST)
+	@RequestMapping(value="/orderOneGoods", method=RequestMethod.POST)
 	public ModelAndView orderOneGoods(@ModelAttribute OrderDTO orderDTO) {
 		
 		orderService.orderOneGoods(orderDTO); //결체창에서 넘어온 값들이 담긴 orderDTO객체
@@ -135,8 +134,8 @@ public class OrderController{
 
 	
 	//주문결과 표시
-
-	public ModelAndView payToOrderGoods(Map<String, String> orderMap, HttpServletRequest request,
+	@RequestMapping(value="/payToOrderGoods", method=RequestMethod.POST)
+	public ModelAndView payToOrderGoods(@RequestParam Map<String, String> payMap, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
