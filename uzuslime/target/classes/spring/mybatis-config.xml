@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-<<<<<<< HEAD
-	<typeAliases>		
-		<typeAlias type="qna.bean.QnaDTO" alias="qna"/>
-		<typeAlias type="order.bean.OrderDTO" alias="order"/>
-		<typeAlias type="member.bean.MemberDTO" alias="member"/>
-		<typeAlias type="member.bean.ZipcodeDTO" alias="zipcode"/>
-		<typeAlias type="goods.bean.GoodsDTO" alias="goods"/>
-=======
 	<typeAliases>
 		<typeAlias type="cart.bean.CartDTO" alias="cart"/>
 		<typeAlias type="goods.bean.GoodsDTO" alias="goods"/>
@@ -16,6 +8,5 @@
 		<typeAlias type="member.bean.ZipcodeDTO" alias="zipcode"/>
 		<typeAlias type="order.bean.OrderDTO" alias="order"/>
 		<typeAlias type="qna.bean.QnaDTO" alias="qna"/>
->>>>>>> chobranch
 	</typeAliases>
 </configuration>
