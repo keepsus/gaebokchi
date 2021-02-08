@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import goods.bean.GoodsDTO;
@@ -25,10 +26,7 @@ public class OrderController{
 	
 	@Autowired
 	private OrderService orderService;
-	
-	@Autowired
-	private MemberDTO memberDTO;
-	
+		
 	//[Controller1] 상품 상세 페이지에서 한 개의 상품을 주문하는 경우 주문페이지 표시
 	@RequestMapping(value="/orderOneGoodsForm", method=RequestMethod.POST)
 	public ModelAndView orderOneGoodsForm(@ModelAttribute GoodsDTO goodsDTO, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -72,7 +70,7 @@ public class OrderController{
 			
 			
 			//로그인한 회원정보를 담을 그릇 ★★★★★ 그냥 session에 담긴 내용 사용할지?
-			memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
+			MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
 			ModelAndView mav = new ModelAndView();
 			mav.addObject(goodsDTO);
 			mav.addObject(memberDTO);
