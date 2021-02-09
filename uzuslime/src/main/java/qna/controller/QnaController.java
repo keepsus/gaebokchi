@@ -153,6 +153,14 @@ public class QnaController {
 		return "/qna/qnaReplyForm";
 	}
 	
+	
+	//답글
+	@RequestMapping(value="qnaReply", method=RequestMethod.POST)
+	@ResponseBody
+	public void qnaReply(@RequestParam Map<String, String> map) {
+		qnaService.qnaReply(map);
+	}
+	
 	//댓글작성
 	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
 	public String replyWrite(ReplyDTO replyDTO,RedirectAttributes rttr) throws Exception {
