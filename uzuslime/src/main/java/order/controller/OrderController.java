@@ -26,7 +26,9 @@ public class OrderController{
 	
 	@Autowired
 	private OrderService orderService;
-		
+	
+	
+	
 	//[Controller1] 상품 상세 페이지에서 한 개의 상품을 주문하는 경우 주문페이지 표시
 	@RequestMapping(value="/orderOneGoodsForm", method=RequestMethod.POST)
 	public ModelAndView orderOneGoodsForm(@ModelAttribute GoodsDTO goodsDTO, HttpServletRequest request, HttpServletResponse response) throws Exception {
