@@ -2,6 +2,49 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/slime/css/grid.css">
+    <link rel="stylesheet" href="/slime/css/normalize.css">
+    <link rel="stylesheet" href="/slime/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
+    <title>우주슬라임</title>   
+     
+</head>
+<body>
+
+    <!---------------------->
+    <!--------HAEDER-------->
+    <!---------------------->
+    <header>      			
+       		<a href="index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
+       		<!-- <a href="./index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a> -->
+        	<jsp:include page="indexNav.jsp"/>           
+    </header>
+		
+		
+	<!--------------------------->
+	<!--------SIDEBAR-MENU------->
+	<!--------------------------->
+	<jsp:include page="sideMenu.jsp"/>      
+
+
+    <!---------------------->
+    <!-------SECTION------->
+    <!---------------------->
+    <section class="section-features1">
+        <div class="hero-text-box">
+            <h1>enjoy staying at home <br>with slime</h1>
+        </div>
+    </section>
+>>>>>>> B2
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -471,6 +514,7 @@
     </div>
 </footer>
 
+<<<<<<< HEAD
 
 <script>
 function openNav() {
@@ -548,3 +592,21 @@ $(document).ready(function(){
 });//ready
 
 </script>
+=======
+    <script>
+		function openNav() {
+			document.getElementById('mySideNav').style.width = '250px';
+		}
+		function closeNav() {
+			document.getElementById('mySideNav').style.width = '0';
+		}
+	</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script><!---->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script><!---->
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
+    <script type="text/javascript" src="../js/member.js"></script>
+    
+</body>
+</html>
+>>>>>>> B2

@@ -30,6 +30,19 @@
 	<context:component-scan base-package="qna.dao"/>
 	<context:component-scan base-package="qna.service"/>
 	
+<<<<<<< HEAD
+=======
+	<context:component-scan base-package="mypage.bean"/>	
+	<context:component-scan base-package="mypage.dao"/>
+	<context:component-scan base-package="mypage.service"/>
+	
+	<context:component-scan base-package="goods.bean"/>	
+	<context:component-scan base-package="goods.dao"/>
+	<context:component-scan base-package="goods.service"/>
+	
+	
+	
+>>>>>>> B2
 	<context:component-scan base-package="spring.conf"/>
 		
 </beans>

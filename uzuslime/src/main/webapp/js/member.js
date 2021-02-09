@@ -214,7 +214,21 @@ $('#modifyBtn').click(function(){
 });
 
 
-
+$('#searchBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: '/slime/member/memberIdSearch',
+		data: $('#memberSearch').serialize(),
+		dataType: 'text',
+		success: function(data){
+			alert("회원님의 ID는"+data+"입니다");
+			location.href='/slime/index.jsp';
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
 
 
 

@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-<<<<<<< HEAD
-=======
-		<item key="selection" value="sysdate"/>
->>>>>>> gaeB
+		<item key="selection" value="JSON"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-<<<<<<< HEAD
-		<item key="selection" value="row"/>
 		<list key="findhistory">
-			<item value="memberDTO"/>
-			<item value="get"/>
-			<item value="body"/>
-			<item value="disp"/>
-			<item value="btn"/>
+			<item value="json"/>
+			<item value="form"/>
+			<item value="mem"/>
+			<item value="email1"/>
+			<item value="inputEmail_2"/>
+			<item value="inputEmail"/>
+			<item value="inputEmail_"/>
+			<item value="inputPhone_1"/>
+			<item value="inputPhone"/>
+			<item value="member_id_"/>
+			<item value="inputId"/>
+			<item value="inputName_1"/>
+			<item value="side"/>
+			<item value="nav"/>
 			<item value="modal"/>
-=======
-		<list key="findhistory">
-			<item value="sysdate"/>
-			<item value="hit"/>
->>>>>>> gaeB
 		</list>
 		<list key="replacehistory">
-			<item value="row"/>
+			<item value="email1"/>
+			<item value="tel1"/>
+			<item value="member_id"/>
+			<item value="member_name"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-<<<<<<< HEAD
-		<item key="DIALOG_X_ORIGIN" value="799"/>
-		<item key="DIALOG_Y_ORIGIN" value="222"/>
-=======
-		<item key="DIALOG_X_ORIGIN" value="1621"/>
-		<item key="DIALOG_Y_ORIGIN" value="272"/>
->>>>>>> gaeB
+		<item key="DIALOG_X_ORIGIN" value="1568"/>
+		<item key="DIALOG_Y_ORIGIN" value="129"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

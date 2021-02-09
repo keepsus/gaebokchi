@@ -23,6 +23,13 @@ public interface MemberService {
 	public void modify(MemberDTO memberDTO);
 
 	public List<MemberDTO> memberList(); //걸린다
+
+	public MemberDTO getId(Map<String, String> map);
+
+
+
+
+	
 	
 	
 
