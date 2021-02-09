@@ -1,7 +1,0 @@
-package order.controller;
-
-@Controller
-@RequestMapping(value="order")
-public class OrderController {
-
-}
