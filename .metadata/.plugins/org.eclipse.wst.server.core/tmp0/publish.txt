@@ -1,3 +1,2 @@
 #Tomcat publish data
-#Tue Feb 09 20:08:40 KST 2021
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\cksrb\\.m2\\repository\\org\\springframework\\spring-web\\5.2.8.RELEASE\\spring-web-5.2.8.RELEASE.jar=WEB-INF/lib/spring-web-5.2.8.RELEASE.jar
+#Tue Feb 09 20:22:29 KST 2021
