@@ -19,6 +19,15 @@
         <td rowspan="4">
             <img id="goods_image0" width="200" height="200">
         </td>
+        <td rowspan="4">
+            <img id="goods_image1" width="200" height="200">
+        </td>
+        <td rowspan="4">
+            <img id="goods_image2" width="200" height="200">
+        </td>
+        <td rowspan="4">
+            <img id="goods_image3" width="200" height="200">
+        </td>
         <td width = "250">
                         상품명: <span id="goods_titleSpan"></span>
         </td>
@@ -61,6 +70,9 @@ $(document).ready(function(){
 			
 			let total = data.goodsDTO.goods_price * data.goodsDTO.goods_qty;
 			$('#goods_image0').attr('src', '../storage/'+data.goodsDTO.goods_image0);
+			$('#goods_image1').attr('src', '../storage/'+data.goodsDTO.goods_image1);
+			$('#goods_image2').attr('src', '../storage/'+data.goodsDTO.goods_image2);
+			$('#goods_image3').attr('src', '../storage/'+data.goodsDTO.goods_image3);
 			$('#goods_titleSpan').text(data.goodsDTO.goods_title);			
 			$('#goods_priceSpan').text(data.goodsDTO.goods_price.toLocaleString());
 			$('#goods_qtySpan').text(data.goodsDTO.goods_qty);

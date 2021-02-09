@@ -205,20 +205,18 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/m
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
-		
 	
 	
 	
+		<!-- commons codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.10</version>
+		</dependency>
 	
 	
-	
-	
-	
-	
-	
-	
-	
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>

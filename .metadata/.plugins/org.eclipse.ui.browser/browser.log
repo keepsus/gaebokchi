@@ -86,3 +86,21 @@
 2월 05, 2021 13:18:53.39 [17216:3792:0205/131853.399:ERROR:device_event_log_impl.cc(211)] [13:18:53.400] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 2월 05, 2021 13:18:53.40 [17216:3792:0205/131853.399:ERROR:device_event_log_impl.cc(211)] [13:18:53.400] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 >>>>>>> gaeB
+
+2월 05, 2021 17:39:01.28 NEW SESSION
+2월 05, 2021 17:39:01.29 [16424:1240:0205/173901.287:ERROR:device_event_log_impl.cc(211)] [17:39:01.287] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 05, 2021 17:39:01.29 [16424:1240:0205/173901.289:ERROR:device_event_log_impl.cc(211)] [17:39:01.289] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+2월 07, 2021 17:01:40.80 NEW SESSION
+2월 07, 2021 17:01:40.80 [9092:11432:0207/170140.799:ERROR:device_event_log_impl.cc(211)] [17:01:40.799] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 07, 2021 17:01:40.81 [9092:11432:0207/170140.800:ERROR:device_event_log_impl.cc(211)] [17:01:40.800] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+2월 09, 2021 14:23:36.28 NEW SESSION
+2월 09, 2021 14:23:36.28 [7628:7476:0209/142336.278:ERROR:device_event_log_impl.cc(211)] [14:23:36.278] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 09, 2021 14:23:36.29 [7628:7476:0209/142336.284:ERROR:device_event_log_impl.cc(211)] [14:23:36.284] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 09, 2021 16:48:37.86 [7628:7476:0209/164837.867:ERROR:device_event_log_impl.cc(211)] [16:48:37.866] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+2월 09, 2021 16:48:37.88 [7628:7476:0209/164837.873:ERROR:device_event_log_impl.cc(211)] [16:48:37.873] USB: usb_service_win.cc:281 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+2월 09, 2021 17:30:04.05 [7628:7476:0209/173004.056:ERROR:device_event_log_impl.cc(211)] [17:30:04.056] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+2월 09, 2021 17:30:04.07 [7628:7476:0209/173004.061:ERROR:device_event_log_impl.cc(211)] [17:30:04.061] USB: usb_service_win.cc:281 SetupDiEnumDeviceInterfaces: 사용 가능한 데이터가 없습니다. (0x103)
+2월 09, 2021 18:15:43.72 [7628:7476:0209/181543.726:ERROR:event_router.cc(714)] Event dispatched while shutting down extensions browser client.
+2월 09, 2021 18:15:43.74 [7628:7476:0209/181543.726:ERROR:event_router.cc(714)] Event dispatched while shutting down extensions browser client.

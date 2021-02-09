@@ -29,6 +29,8 @@
 	<context:component-scan base-package="goods.dao"/>
 	<context:component-scan base-package="goods.service"/>
 	
+	
+	
 	<context:component-scan base-package="spring.conf"/>
 	
 	

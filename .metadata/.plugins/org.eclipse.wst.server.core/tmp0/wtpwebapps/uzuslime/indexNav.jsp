@@ -11,6 +11,7 @@
 		<!-- 비 로그인 메뉴 -->
 		<c:if test="${sessionScope.memId == null }">   
 		<li><a href="/slime/member/memberLoginForm" rel="modal:open">로그인</a></li>
+		<!-- <li id="liId"><a href="#" id="loginForm">로그인</a></li> -->
 		<li><a href="/slime/member/memberWriteForm" rel="modal:open">회원가입</a></li>    
 		</c:if>
 		  
@@ -36,3 +37,13 @@
         
     </ul>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> <!-- 위아래 순서가 바뀌면 안된다 -->
+
+<!-- <script>
+	$(document).ready(function(){
+		var url = "/slime/member/memberLoginForm";
+		$(this).load(url, function(){
+			$('#loginForm').modal('show');
+		});
+	});
+</script> -->

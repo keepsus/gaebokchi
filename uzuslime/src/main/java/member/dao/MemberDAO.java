@@ -22,4 +22,10 @@ public interface MemberDAO {
 
 	public List<MemberDTO> memberList();
 
+	public MemberDTO getId(Map<String, String> map);
+
+
+
+
+
 }

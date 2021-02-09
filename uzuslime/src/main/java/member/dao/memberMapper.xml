@@ -74,6 +74,11 @@
 				, addr1, addr2 from t_shopping_member
 	</select>
 	
+	<select id="getId" parameterType="java.util.Map" resultType="member">
+		select member_id from t_shopping_member where member_name=#{member_name}and tel1=#{tel1}and tel2=#{tel2}and tel3=#{tel3}
+	</select>
+	
+	
 </mapper> 
 
 

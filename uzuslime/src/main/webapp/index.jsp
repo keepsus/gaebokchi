@@ -21,12 +21,10 @@
     <!---------------------->
     <!--------HAEDER-------->
     <!---------------------->
-    <header>
-        <nav id="nav">       			
-       		<a href="/slime/goods/goodsIndexList"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
+    <header>      			
+       		<a href="index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
        		<!-- <a href="./index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a> -->
         	<jsp:include page="indexNav.jsp"/>           
-        </nav>
     </header>
 		
 		
@@ -492,6 +490,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script><!---->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script><!---->
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
+    <script type="text/javascript" src="../js/member.js"></script>
     
 </body>
 </html>
