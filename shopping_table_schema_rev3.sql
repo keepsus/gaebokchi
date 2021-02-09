@@ -117,7 +117,7 @@ LOGTIME	DATE					   --작성일
 --------------------------------------------------------
 CREATE TABLE T_SHOPPING_QNA
 (
-SEQ	NUMBER NOT NULL,	--글번호(seq 객체 이용)
+SEQ	NUMBER PRIMARY KEY,	--글번호(seq 객체 이용)
 MEMBER_ID VARCHAR2(20) NOT NULL,
 SUBJECT  VARCHAR2(255) NOT NULL,
 CONTENT	VARCHAR2(4000) NOT NULL,
@@ -131,6 +131,24 @@ LOGTIME	DATE DEFAULT SYSDATE
 );
 
 create sequence seq_qna nocache nocycle;
+
+-------------------------------------------------
+답변
+-------------------------------------------------
+create table qna_reply (
+    seq number not null,
+    rno number not null,-- 댓글번호
+    content varchar2(1000) not null,
+    writer varchar2(50) not null,
+    regdate date default sysdate,
+    primary key(seq, rno)
+);
+
+alter table qna_reply add constraint qna_reply_seq foreign key(seq) references T_SHOPPING_QNA(seq);
+
+create sequence qna_reply_seq start with 1 minvalue 0;
+
+commit;
 
 
 --------------------------------------------------------
@@ -162,11 +180,6 @@ ROADNAME	VARCHAR2(26 BYTE),
 BUILDINGNAME	VARCHAR2(26 BYTE)
 );
 --------------------------------------------------------
-
-
-
-
-
 
 drop sequence ORDER_SEQ_NUM;
 drop sequence SEQ_GOODS_ID;

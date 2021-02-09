@@ -44,6 +44,7 @@ $('#writeBtn').click(function(){
 	$('#idDiv').empty();
 	$('#pwdDiv').empty();
 	$('#repwdDiv').empty();
+	$('#emailDiv').empty();
 	
 	//if($('#name').val()==''){ -> 방법 1
 	//if($('input[id=member_name]').val()==''){ -> 방법 2
@@ -78,6 +79,12 @@ $('#writeBtn').click(function(){
 		$('#idDiv').css('font-size','8pt')
 		$('#idDiv').css('font-weight','bold');
 	
+	}else if($('input[name=email1]').val()==''||$('input[name=email2]').val()==''){
+		$('#emailDiv').text('이메일을 입력하세요')
+		$('#emailDiv').css('color','red')
+		$('#emailDiv').css('font-size','8pt')
+		$('#emailDiv').css('font-weight','bold');
+		
 	}else{
 		$('form[name=memberWriteForm]').submit();		
 	}
@@ -214,9 +221,62 @@ $('#modifyBtn').click(function(){
 });
 
 
+//이메일 인증 보내기
+$('#emailBtn').click(function(){
+	$('#emailDiv').empty();
+	if($('input[name=email1]').val()==''||$('input[name=email2]').val()==''){
+		$('#emailDiv').text('이메일을 입력하세요');
+		$('#emailDiv').css('color','red');
+		$('#emailDiv').css('font-size','8pt');
+		$('#emailDiv').css('font-weight','bold');
+		$('#emailDiv').css('border', '1px solid red');
+		
+	}else{
+		$.ajax({
+			type: 'post',
+			url: '/slime/member/sendEmail',
+			data: 'e_mail='+$('#email1').val()+'@'+$('#email2').val(),
+			dataType: 'json',
+			success: function(data){
+				console.log('이메일 data ='+ JSON.stringify(data));//data가 들어오는것인가?이상한게 찍힌다.
+				$('#checkEmailR').val(data.dice);//받은 인증번호를 jsp에 있는 hidden 속성에 넣어주기
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	}
+	
+});
 
 
-
+//이메일 인증번호 확인
+$('#emailCheckBtn').click(function(){
+	$('#emailDiv').empty();
+	
+	if($('input[id=checkEmail]').val()==''){
+		$('#emailDiv').text('이메일 인증번호를 입력해주세요 ')
+		$('#emailDiv').css('color','magenta')
+		$('#emailDiv').css('font-size','8pt')
+		$('#emailDiv').css('font-weight','bold');
+		
+	}else{
+		if
+		(document.getElementById('checkEmail').value == document.getElementById('checkEmailR').value){
+			$('#emailDiv').text('인증되었습니다.')
+			$('#emailDiv').css('color','magenta')
+			$('#emailDiv').css('font-size','8pt')
+			$('#emailDiv').css('font-weight','bold');
+		}else if
+		(document.getElementById('checkEmail').value != document.getElementById('checkEmailR').value){
+			$('#emailDiv').text('인증번호가 맞지 않습니다.')
+			$('#emailDiv').css('color','magenta')
+			$('#emailDiv').css('font-size','8pt')
+			$('#emailDiv').css('font-weight','bold');
+		}
+	}
+	
+});
 
 
 

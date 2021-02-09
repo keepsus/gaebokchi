@@ -31,5 +31,22 @@
 	<context:component-scan base-package="qna.service"/>
 	
 	<context:component-scan base-package="spring.conf"/>
+	
+	<!--이메일인증 관련-->
+	<!-- Gmail -->
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.gmail.com" />
+    <property name="port" value="587" />
+    <property name="username" value="jmkk0316@gmail.com" />
+    <property name="password" value="Business86!" />
+    <property name="javaMailProperties">
+    <props>
+      <prop key="mail.smtp.auth">true</prop>
+      <prop key="mail.smtp.starttls.enable">true</prop>
+    </props>
+    </property>
+  </bean>
+	
+
 		
 </beans>

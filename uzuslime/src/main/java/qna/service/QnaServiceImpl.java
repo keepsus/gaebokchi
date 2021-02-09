@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import qna.bean.BoardPaging;
 import qna.bean.QnaDTO;
+import qna.bean.ReplyDTO;
 import qna.dao.QnaDAO;
 
 @Service
@@ -115,6 +116,18 @@ public class QnaServiceImpl implements QnaService{
 		map.put("step", pDTO.getStep()+1 +""); //step = 원글step + 1
 				
 		qnaDAO.qnaReply(map);
+		
+	}
+	
+	//댓글
+	@Override
+	public List<ReplyDTO> readReply(int seq){
+		return qnaDAO.readReply(seq);
+	}
+
+	@Override
+	public void writeReply(ReplyDTO replyDTO) {
+		qnaDAO.writeReply(replyDTO);
 		
 	}
 
