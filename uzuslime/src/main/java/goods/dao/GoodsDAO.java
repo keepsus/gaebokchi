@@ -19,6 +19,8 @@ public interface GoodsDAO {
 
 	public List<GoodsDTO> getGoodsIndexList();
 
+	public GoodsDTO getGoods(String seq);
+
 
 
 }
