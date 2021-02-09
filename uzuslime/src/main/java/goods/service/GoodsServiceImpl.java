@@ -71,13 +71,28 @@ public class GoodsServiceImpl implements GoodsService {
 
 	
 	@Override
-	public void goodsDelete(String[] check) {
+	public void goodsCheckDelete(String[] check) {
 		Map<String, String[]> map = new HashMap<String, String[]>();
 		map.put("array", check);	//mapper 파일에 delete 보면 collection="array"라고 적어놓았다.
 		
-		goodsDAO.goodsDelete(map);
+		goodsDAO.goodsCheckDelete(map);
 	}
 
+	@Override
+	public void goodsViewDelete(String seq) {
+		goodsDAO.goodsViewDelete(seq);
+		
+	}
+
+	
+
+	@Override
+	public GoodsDTO getGoods(String seq) {
+		return goodsDAO.getGoods(seq);
+	}
+
+
+	
 	
 	
 	

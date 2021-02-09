@@ -1,0 +1,104 @@
+@charset "UTF-8";
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: rgba(85, 85, 85, 0.897);
+    font-family: 'Raleway','Noto Sans Korean','Apple SD Gothic Neo', 'Malgun Gothic','Nanum Gothic', 'Noto Sans','sans-serif';
+    font-weight: 300px;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    /* 반응형 웹사이트를 만드려고 기준으로 두었다. 폰트사이즈를 20px을 기본으로 주면 다른 태그에서 %를 사용해서 변경해주면 
+    폰트 사이즈를 바꿔줄때마다 웹사이트의 폰트 사이즈가 자동으로 바뀔 것이다. */
+}
+
+.searchForm{
+	margin: 0 auto;
+}
+
+.modal-header{
+    margin-bottom: 8%;
+}
+
+.searchForm{
+    text-align: center;
+}
+
+.input-text {
+    text-align: center;
+}
+
+
+.input-text input{
+    width: 90%;
+    padding: 1% 2%;
+    line-height: 1.2;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid #e0e0e0;
+    font-size: 80%;
+}
+
+.findBtn{
+    display: block;
+    margin: 0 auto;
+    background-color: #fff;
+    color: rgba(85, 85, 85, 0.897);
+    margin-top: 7%;
+    width: 90%;
+    border: 1px solid #e0e0e0;
+    padding: 2% 0;
+    cursor: pointer;
+    font-size: 80%;
+    border-radius: 3px 3px 0 0;
+}
+
+.Btn:hover{
+    transition: 0.4s;
+    background-color: rgba(78, 76, 76, 0.678);
+    color: white;
+}
+
+/* 탭메뉴 */
+
+ul{list-style:none;}
+
+.tabmenu{ 
+  max-width:800px; 
+  margin: 0 auto; 
+  position: relative; 
+}
+.tabmenu ul li{
+  display:  inline-block;
+  width:33.33%; 
+  float:left;  
+  text-align:center; 
+  background :#f9f9f9;
+}
+.tabmenu ul li a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #000;
+}
+
+.tabCon{
+  display: none;
+  width: 66.5%;
+  text-align:left; 
+  padding: 20px;
+  position:absolute; 
+  left:0; top:40px; 
+  box-sizing: border-box; 
+  border : 5px solid #f9f9f9;
+}
+.btnCon:target  {
+  background : #ccc;
+}
+.btnCon:target .tabCon{
+  display: block;
+}

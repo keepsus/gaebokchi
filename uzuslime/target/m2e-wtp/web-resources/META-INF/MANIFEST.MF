@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: cksrb
+=======
+Built-By: Yunjoo
+>>>>>>> aae29a5b8cd9a6d8e24a0066e5f6444423f7b3b4
 Build-Jdk: 1.8.0_261
 Created-By: Maven Integration for Eclipse
 

@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,7 @@ import goods.bean.GoodsDTO;
 import goods.bean.GoodsPaging;
 import goods.service.GoodsService;
 
+
 @Controller
 @RequestMapping(value="goods")
 public class GoodsController {
@@ -32,18 +35,14 @@ public class GoodsController {
 	
 	
 	
-	
-	
-	
-	//(myPage 전용)제품등록화면을 display 뿌려주는 메소드
+	//(myPage 전용)제품등록화면 폼을 display 뿌려주는 메소드
 	@RequestMapping(value="goodsWriteForm", method=RequestMethod.GET)
 	public String goodsWriteForm(Model model) {
 		model.addAttribute("display", "/goods/goodsWriteForm.jsp");
 		return "../mypage/myPageOrder";
-	}
+	}//end of goodsWitreForm method
 	
-	
-	
+
 	
 	
 	
@@ -74,7 +73,7 @@ public class GoodsController {
 		}else {
 			goodsDTO.setGoods_image0("");	
 		}
-		//서브 이미지  1번
+		//서브 이미지
 		if(img[1] != null) {
 			fileName = img[1].getOriginalFilename();
 			file = new File(filePath, fileName);
@@ -88,35 +87,21 @@ public class GoodsController {
 		}else {
 			goodsDTO.setGoods_image1("");
 		}
-		//서브이미지 2번
+		//설명
 		if(img[2] != null) {
 			fileName = img[2].getOriginalFilename();
 			file = new File(filePath, fileName);
 			try {
-				FileCopyUtils.copy(img[2].getInputStream(), new FileOutputStream(file));
+				FileCopyUtils.copy(img[1].getInputStream(), new FileOutputStream(file));
 			} catch (IOException e) {			
 				e.printStackTrace();
 			}	
 			
-			goodsDTO.setGoods_image2(fileName);			
+			goodsDTO.setGoods_image1(fileName);			
 		}else {
-			goodsDTO.setGoods_image2("");	
+			goodsDTO.setGoods_image1("");
 		}
-		//서브이미지 3번
-		if(img[3] != null) {
-			fileName = img[3].getOriginalFilename();
-			file = new File(filePath, fileName);
-			try {
-				FileCopyUtils.copy(img[3].getInputStream(), new FileOutputStream(file));
-			} catch (IOException e) {			
-				e.printStackTrace();
-			}	
-			
-			goodsDTO.setGoods_image3(fileName);			
-		}else {
-			goodsDTO.setGoods_image3("");	
-		}
-	
+		System.out.println(goodsDTO);
 		//DB
 		goodsService.goodsWrite(goodsDTO);
 	
@@ -128,29 +113,26 @@ public class GoodsController {
 	
 	
 	
-	
-	
 	//(myPage 용)제품 리스트를 display 뿌려주는 메소드
 	@RequestMapping(value="goodsList", method=RequestMethod.GET)
 	public String goodsList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {
 		//페이지 처리할때 startNum, endNum 안하고
-		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함
+		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함 -> ???? 이게 뭔말이여???
 		model.addAttribute("pg",pg);		
 		model.addAttribute("display", "/goods/goodsList.jsp");
 		
 		return "../mypage/myPageOrder";		
-	}	
+	}//end of goodsList method	
 	
 	//(index 용)제품 리스트를 display 뿌려주는 메소드
 	@RequestMapping(value="goodsIndexList", method=RequestMethod.GET)
 	public String goodsIndexList(@RequestParam(required=false, defaultValue="1") String pg,	Model model) {
 		//페이지 처리할때 startNum, endNum 안하고
-		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함
+		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함 -> ???? 이게 뭔말이여???
 		model.addAttribute("pg",pg);		
-		model.addAttribute("display", "/goods/goodsIndexList.jsp");
 				
 		return "/index";		
-	}
+	}//end of goodsIndexList method
 	
 		
 	
@@ -177,7 +159,7 @@ public class GoodsController {
 		mav.setViewName("jsonView");
 		
 		return mav;		//이거 하면 위에 3개에 대한 정보가 imageboardList.jsp 에 ajax 부분에 success 의 data 로 들어간다.
-	}	
+	}//end of getGoodsList  method	
 	
 	//(index 용) index에는 DB등록된 전체 자료를 뿌려주기 때문에 DB에 가져가는 건 없고 DTO를 가져오는 메서드-----
 	@RequestMapping(value="getGoodsIndexList", method=RequestMethod.POST)
@@ -193,7 +175,7 @@ public class GoodsController {
 		System.out.println("getGoodsIndexList - (cont) mav 작동여부 체크!!"+mav);
 		
 		return mav;		//이거 하면 위에 list에 대한 정보가 imageboardList.jsp 에 ajax 부분에 success 의 data 로 들어간다.
-	}
+	}//end of getGoodsIndexList method
 	
 	
 	
@@ -210,16 +192,15 @@ public class GoodsController {
 		model.addAttribute("pg", pg);
 		model.addAttribute("display", "/goods/goodsView.jsp");
 		return "../mypage/myPageOrder";
-	}	
+	}//end of goodsView method	
 	
 	//(index 용)제품상세 화면(DB에 있는 전체 자료를 뿌려야 하기 때문에 pg값 불필요)-----
 	@RequestMapping(value="goodsIndexView", method=RequestMethod.GET)
 	public String goodsIndexView(@RequestParam String seq,								
 								 Model model) {	
 		model.addAttribute("seq", seq);		
-		model.addAttribute("display", "/goods/goodsIndexView.jsp");
-		return "/index";
-	}
+		return "../goods/goodsIndexView";		
+	}//end of goodsIndexView method
 		
 
 	
@@ -239,7 +220,7 @@ public class GoodsController {
 		mav.addObject("goodsDTO", goodsDTO);
 		mav.setViewName("jsonView");		
 		return mav;		
-	}
+	}//end of getGoodsView method
 	
 	
 	
@@ -248,15 +229,68 @@ public class GoodsController {
 	
 	
 	//(myPage 전용)goodsDelete-----
-	@RequestMapping(value="goodsDelete", method=RequestMethod.GET)
-	public ModelAndView goodsDelete(@RequestParam String[] check) {
+	//myPage에서 제품상세보기에서 checkBox 선택하고 삭제하면 작동됨
+	@RequestMapping(value="goodsCheckDelete", method=RequestMethod.GET)
+	public ModelAndView goodsCheckDelete(@RequestParam String[] check) {
 		//imageboardList.jsp 에서 name:'check' 로 해놔서 여기에서도 check 이름으로 들어온다.
-		goodsService.goodsDelete(check);
+		goodsService.goodsCheckDelete(check);
 				
 		return new ModelAndView("redirect:/goods/goodsList");	//이러면 alert 창이 안뜬다.	//delete.jsp 거치지 않는다.
 		//dispatcher 갔다가 controller 로 바로 넘어오라
 		//jsp 를 거치지 않아서 메시지는 못 뿌린다.
+	}//end of goodsDelete method
+	
+	
+	//myPage에서 제품상세보기에서 제품상세 페이지에서 삭제 클릭 했을경우 작동됨
+	@RequestMapping(value="goodsViewDeleteForm", method=RequestMethod.POST)
+	public String goodsViewDeleteForm(@RequestParam String seq, Model model) {
+		//boardService.boardDelete(seq);	//jQuery 안써서 alert 창 떳을때 화면이동 된다. jQuery 사용해 보자.
+		
+		model.addAttribute("seq", seq);
+		model.addAttribute("display", "/goods/goodsViewDelete.jsp");
+		return "../mypage/myPageOrder";
 	}
+	
+	@RequestMapping(value="goodsViewDelete", method=RequestMethod.POST)
+	@ResponseBody
+	public void goodsViewDelete(@RequestParam String seq, Model model) {
+		goodsService.goodsViewDelete(seq);
+	}
+	
+	
+	
+	
+	//(myPage 전용)등록제품 수정 폼을 display 에 뿌려주는 메서드
+	@RequestMapping(value="goodsModifyForm", method=RequestMethod.POST)
+	public String goodsModifyForm(@RequestParam String seq,
+								  @RequestParam String pg,
+								  Model model) {
+		model.addAttribute("seq", seq);
+		model.addAttribute("pg", pg);
+		model.addAttribute("display", "/goods/goodsModifyForm.jsp");
+		return "../mypage/myPageOrder";
+	}//end of goodsModifyForm method
+	
+	
+	//
+	@RequestMapping(value="getGoods", method=RequestMethod.POST)
+	public ModelAndView getGoods(@RequestParam String seq) {
+		GoodsDTO goodsDTO = goodsService.getGoods(seq);	//순서가 중요하다, 조회수 방지하고나서 가져와야 한다.
+		System.out.println("getGoods - (cont) : seq 가져가서 DTO 가져오는지 확인!"+goodsDTO);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("goodsDTO", goodsDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }//end of imageboardController class

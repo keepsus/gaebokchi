@@ -109,13 +109,52 @@ html {
 /* ÃƒÂ¬Ã…Â¾Ã‚Â¥ÃƒÂ«Ã‚Â°Ã¢â‚¬ÂÃƒÂªÃ‚ÂµÃ‚Â¬ÃƒÂ«Ã¢â‚¬Â¹Ã‹â€ ÃƒÂ¬Ã¢â‚¬â€Ã‚Â ÃƒÂ«Ã¢â‚¬Å¾Ã‚Â£ÃƒÂ¬Ã‚ÂÃ¢â€šÂ¬ ÃƒÂ«Ã‚Â¦Ã‚Â¬ÃƒÂ¬Ã…Â Ã‚Â¤ÃƒÂ­Ã…Â Ã‚Â¸ */
 
 .item_list{
-	height: 100px;
+	height: 100%;
 	background: white;
 	font-size: 14px;
 	
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
 }
+
+.empty_cart{
+	
+    height: 300px;
+	
+}
+.empty_area{
+	
+	padding-top: 110px;
+    
+}
+.empty_cart_div{
+	
+	height: 50px;
+    text-align: center;
+    font-size: 50px;
+    color: #b3b3b3;
+    text-align: center;
+
+}
+.empty_cart_img{
+	width: 100px;
+	height: 50px;
+	filter: invert(65%);
+}
+
+.empty_info_text_div{
+	background:white;
+	height: 30px;
+	font-size: 14px;
+	font-weight: 550;
+	color: #b3b3b3;
+	padding-top: 15px;
+	text-align: center;
+
+}
+
+
+
 
 .part_checkbox{
 	padding-left: 8px;
@@ -360,10 +399,13 @@ html {
 }
 
 .final_button_div{
-	
 	margin: 0px auto;
-	
 }
+.final_button_div2{
+	margin: 30px auto;
+}
+
+
 
 .more_shopping_Btn{
 	font-size:12px; 
@@ -509,7 +551,7 @@ html {
 
 .footer_icons{
 	align: center;
-	display: inline-block
+	display: inline-block;
 }
 
 .footerArea {
