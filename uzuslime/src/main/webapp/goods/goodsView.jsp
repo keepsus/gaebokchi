@@ -24,13 +24,7 @@
 	        </td>
 	        <td rowspan="4">
 	            <img id="goods_image1" width="200" height="200">
-	        </td>
-	        <td rowspan="4">
-	            <img id="goods_image2" width="200" height="200">
-	        </td>
-	        <td rowspan="4">
-	            <img id="goods_image3" width="200" height="200">
-	        </td>
+	        </td>	
 	        <td width = "250">
 	        	상품명: <span id="goods_titleSpan"></span>
 	        	<div id="goods_titleSpanDiv" style="color: red; font-size:8pt; font-weigth:bold;"></div>
@@ -84,12 +78,12 @@ function mode(num){
 		
 	}else if(num==2){//제품정보 삭제
 		if(confirm("정말로 삭제하시겠습니까?")){
-			document.boardViewForm.method="post";
-			document.boardViewForm.action="goodsDeleteForm";
-			document.boardViewForm.submit();
+			document.goodsViewForm.method="post";
+			document.goodsViewForm.action="goodsViewDeleteForm";
+			document.goodsViewForm.submit();
 		}		
 	}
-}
+}//mode
 </script>
 
 

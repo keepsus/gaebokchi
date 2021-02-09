@@ -11,27 +11,28 @@ drop table t_shopping_qna;
 
 create table t_shopping_goods
 (
-seq                 number primary key,         --seq
-goods_id            varchar2(50),	            --상품코드
-goods_title         varchar2(100),              --상품명
-goods_country       varchar2(50),               --원산지
-goods_price         number(10,0),               --상품정가
-goods_sales_price   number(10,0),               --상품판매가격
-goods_qty           number(10,0),               --상품개수
-goods_point         number(10,0) default 500,   --상품포인트
-goods_status        varchar2(50),               --상품분류(베스트셀러, 스테디셀러 구분용도)
-goods_deli_price    number(10,0) default 1500,  --배송비
-goods_deli_extra    number(10,0) default 1000,  --산간배송비
-goods_deli_free     number(10,0) default 10000, --조건부무료배송
-goods_image0        varchar2(40),               --제품이미지
-goods_image1        varchar2(40),               --제품이미지
-goods_image2        varchar2(40),               --제품이미지
-goods_image3        varchar2(40),               --제품이미지
-goods_content       varchar2(2000),             --상품설명
-logtime             date default sysdate        --작성일
+seq               number,                      --seq
+goods_id          varchar2(50),	              --상품코드
+goods_title       varchar2(100),               --상품명
+goods_country     varchar2(40) default '한국',  --원산지
+goods_price       number(10,0),                --상품정가
+goods_sales_price number(10,0),                --상품판매가격
+goods_qty         number(10,0),                --상품개수
+goods_point       number(10,0) default 500,    --상품포인트
+goods_deli_price  number(10,0) default 1500,   --배송비
+goods_deli_extra  number(10,0) default 1000,   --산간배송비
+goods_deli_free   number(10,0) default 10000,  --조건부무료배송
+goods_image0      varchar2(40),                --제품이미지
+goods_image1      varchar2(40),                --제품이미지
+goods_content     varchar2(2000),              --상품설명
+goods_sales_yn    number(10,0) default 0,      --sale on/off
+goods_md_yn       number(10,0) default 0,      --md on/off
+goods_hot_yn      number(10,0) default 0,      --hot on/off
+goods_soldout_yn  number(10,0) default 0,      --soldout on/off
+logtime           date default sysdate         --작성일
 ) ;
 
-create sequence seq_shopping_goods nocache nocycle;
+create sequence seq_t_shopping_goods nocache nocycle;
 
 --------------------------------------------------------
 --  DDL for Table T_SHOPPING_MEMBER	--회원정보
@@ -101,17 +102,16 @@ LOGTIME	DATE					   --작성일
 --  DDL for Table T_SHOPPING_CART	--장바구니
 --------------------------------------------------------
 
-  CREATE TABLE "T_SHOPPING_CART" 
+  CREATE TABLE T_SHOPPING_CART 
    (
-   "CART_ID" NUMBER(10,0) primary key,	--장바구니번호
-	"GOODS_ID" NUMBER(20,0),			--상품번호
-	"MEMBER_ID" VARCHAR2(20 BYTE),		--회원아이디
-	--"DEL_YN" VARCHAR2(20 BYTE) DEFAULT 'N',	--회원탈퇴유무, 이게 여기 왜 있나????
-	"CREDATE" DATE DEFAULT sysdate,		--생성일자
-	"CART_GOODS_QTY" NUMBER(4,0) DEFAULT 1	--상품개수
+   CART_ID NUMBER(10,0) primary key,	--장바구니번호
+	GOODS_ID VARCHAR2(50 BYTE),		--상품번호
+	MEMBER_ID VARCHAR2(20 BYTE),		--회원아이디
+	CART_GOODS_QTY NUMBER(4,0) DEFAULT 1	--상품개수
+	CREATE TABLE T_SHOPPING_CART                  --생성일자
    ) ;
 
-
+--"DEL_YN" VARCHAR2(20 BYTE) DEFAULT 'N',	--회원탈퇴유무, 이게 여기 왜 있나????
 --------------------------------------------------------
 --  DDL for Table T_SHOPPING_QNA	--QNA
 --------------------------------------------------------

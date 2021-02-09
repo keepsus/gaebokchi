@@ -10,15 +10,16 @@ public interface GoodsService {
 	public void goodsWrite(GoodsDTO goodsDTO);
 
 	public List<GoodsDTO> getGoodsList(String pg);
-
 	public List<GoodsDTO> getGoodsIndexList();
 	
 	public GoodsDTO getGoodsView(String seq);
 
 	public GoodsPaging goodsPaging(String pg);
 
-	public void goodsDelete(String[] check);
+	public void goodsCheckDelete(String[] check);
+	public void goodsViewDelete(String seq);
 
 	public GoodsDTO getGoods(String seq);
+
 
 }

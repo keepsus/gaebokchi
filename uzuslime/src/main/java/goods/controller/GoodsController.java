@@ -35,9 +35,6 @@ public class GoodsController {
 	
 	
 	
-	
-	
-	
 	//(myPage 전용)제품등록화면 폼을 display 뿌려주는 메소드
 	@RequestMapping(value="goodsWriteForm", method=RequestMethod.GET)
 	public String goodsWriteForm(Model model) {
@@ -45,8 +42,7 @@ public class GoodsController {
 		return "../mypage/myPageOrder";
 	}//end of goodsWitreForm method
 	
-	
-	
+
 	
 	
 	
@@ -77,7 +73,7 @@ public class GoodsController {
 		}else {
 			goodsDTO.setGoods_image0("");	
 		}
-		//서브 이미지  1번
+		//서브 이미지
 		if(img[1] != null) {
 			fileName = img[1].getOriginalFilename();
 			file = new File(filePath, fileName);
@@ -91,35 +87,21 @@ public class GoodsController {
 		}else {
 			goodsDTO.setGoods_image1("");
 		}
-		//서브이미지 2번
+		//설명
 		if(img[2] != null) {
 			fileName = img[2].getOriginalFilename();
 			file = new File(filePath, fileName);
 			try {
-				FileCopyUtils.copy(img[2].getInputStream(), new FileOutputStream(file));
+				FileCopyUtils.copy(img[1].getInputStream(), new FileOutputStream(file));
 			} catch (IOException e) {			
 				e.printStackTrace();
 			}	
 			
-			goodsDTO.setGoods_image2(fileName);			
+			goodsDTO.setGoods_image1(fileName);			
 		}else {
-			goodsDTO.setGoods_image2("");	
+			goodsDTO.setGoods_image1("");
 		}
-		//서브이미지 3번
-		if(img[3] != null) {
-			fileName = img[3].getOriginalFilename();
-			file = new File(filePath, fileName);
-			try {
-				FileCopyUtils.copy(img[3].getInputStream(), new FileOutputStream(file));
-			} catch (IOException e) {			
-				e.printStackTrace();
-			}	
-			
-			goodsDTO.setGoods_image3(fileName);			
-		}else {
-			goodsDTO.setGoods_image3("");	
-		}
-	
+		System.out.println(goodsDTO);
 		//DB
 		goodsService.goodsWrite(goodsDTO);
 	
@@ -131,13 +113,11 @@ public class GoodsController {
 	
 	
 	
-	
-	
 	//(myPage 용)제품 리스트를 display 뿌려주는 메소드
 	@RequestMapping(value="goodsList", method=RequestMethod.GET)
 	public String goodsList(@RequestParam(required=false, defaultValue="1") String pg, Model model) {
 		//페이지 처리할때 startNum, endNum 안하고
-		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함
+		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함 -> ???? 이게 뭔말이여???
 		model.addAttribute("pg",pg);		
 		model.addAttribute("display", "/goods/goodsList.jsp");
 		
@@ -148,9 +128,8 @@ public class GoodsController {
 	@RequestMapping(value="goodsIndexList", method=RequestMethod.GET)
 	public String goodsIndexList(@RequestParam(required=false, defaultValue="1") String pg,	Model model) {
 		//페이지 처리할때 startNum, endNum 안하고
-		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함
+		//jQuery 로 사용할꺼임, 바로 jsp 로 가야함 -> ???? 이게 뭔말이여???
 		model.addAttribute("pg",pg);		
-		model.addAttribute("display", "/goods/goodsIndexList.jsp");
 				
 		return "/index";		
 	}//end of goodsIndexList method
@@ -220,8 +199,7 @@ public class GoodsController {
 	public String goodsIndexView(@RequestParam String seq,								
 								 Model model) {	
 		model.addAttribute("seq", seq);		
-		model.addAttribute("display", "/goods/goodsIndexView.jsp");
-		return "/index";
+		return "../goods/goodsIndexView";		
 	}//end of goodsIndexView method
 		
 
@@ -251,10 +229,11 @@ public class GoodsController {
 	
 	
 	//(myPage 전용)goodsDelete-----
-	@RequestMapping(value="goodsDelete", method=RequestMethod.GET)
-	public ModelAndView goodsDelete(@RequestParam String[] check) {
+	//myPage에서 제품상세보기에서 checkBox 선택하고 삭제하면 작동됨
+	@RequestMapping(value="goodsCheckDelete", method=RequestMethod.GET)
+	public ModelAndView goodsCheckDelete(@RequestParam String[] check) {
 		//imageboardList.jsp 에서 name:'check' 로 해놔서 여기에서도 check 이름으로 들어온다.
-		goodsService.goodsDelete(check);
+		goodsService.goodsCheckDelete(check);
 				
 		return new ModelAndView("redirect:/goods/goodsList");	//이러면 alert 창이 안뜬다.	//delete.jsp 거치지 않는다.
 		//dispatcher 갔다가 controller 로 바로 넘어오라
@@ -262,7 +241,21 @@ public class GoodsController {
 	}//end of goodsDelete method
 	
 	
+	//myPage에서 제품상세보기에서 제품상세 페이지에서 삭제 클릭 했을경우 작동됨
+	@RequestMapping(value="goodsViewDeleteForm", method=RequestMethod.POST)
+	public String goodsViewDeleteForm(@RequestParam String seq, Model model) {
+		//boardService.boardDelete(seq);	//jQuery 안써서 alert 창 떳을때 화면이동 된다. jQuery 사용해 보자.
+		
+		model.addAttribute("seq", seq);
+		model.addAttribute("display", "/goods/goodsViewDelete.jsp");
+		return "../mypage/myPageOrder";
+	}
 	
+	@RequestMapping(value="goodsViewDelete", method=RequestMethod.POST)
+	@ResponseBody
+	public void goodsViewDelete(@RequestParam String seq, Model model) {
+		goodsService.goodsViewDelete(seq);
+	}
 	
 	
 	

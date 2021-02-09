@@ -19,8 +19,8 @@
 
 
     
-<form id="goodsListForm" method="get" action="goodsDelete">
-	<table id="goodsListTable" border="1" frame="hsides" rules="rows">
+<form id="goodsListForm" method="get" action="goodsCheckDelete">
+	<table id="goodsListMypageTable" border="1" frame="hsides" rules="rows">
 		<tr>
 			<th width="100"><input type="checkbox" id="all">번호</th>
 			<th width="150">이미지</th>
@@ -74,7 +74,7 @@ $(document).ready(function(){
 					
 					}).append($('<img/>',{
 						src: '/slime/storage/'+items.goods_image0,
-						style: 'width: 70px; height: 70px; cursor: pointer;',
+						style: 'width: 100px; height: 100px; cursor: pointer;',
 						class: items.seq+''
 					}))
 							
@@ -95,7 +95,7 @@ $(document).ready(function(){
 					align: 'center',
 					text: (items.goods_price * items.goods_qty).toLocaleString()
 					
-				})).appendTo($('#goodsListTable'));
+				})).appendTo($('#goodsListMypageTable'));
 				
 				
 				//이미지 보기

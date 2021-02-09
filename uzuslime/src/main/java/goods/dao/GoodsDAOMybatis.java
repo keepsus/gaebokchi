@@ -38,10 +38,16 @@ public class GoodsDAOMybatis implements GoodsDAO {
 	}
 	
 	@Override
-	public void goodsDelete(Map<String, String[]> map) {
-		sqlSession.delete("goodsSQL.goodsDelete", map);		
+	public void goodsCheckDelete(Map<String, String[]> map) {
+		sqlSession.delete("goodsSQL.goodsCheckDelete", map);		
 	}
 
+	@Override
+	public void goodsViewDelete(String seq) {
+		sqlSession.delete("goodsSQL.goodsViewDelete", Integer.parseInt(seq));		
+		
+	}
+	
 	@Override
 	public int getGoodsTotalA() {
 		return sqlSession.selectOne("goodsSQL.getGoodsTotalA");
@@ -52,6 +58,7 @@ public class GoodsDAOMybatis implements GoodsDAO {
 		return sqlSession.selectOne("goodsSQL.getGoods", Integer.parseInt(seq));
 	}
 
+
 	
 	
-}
+}//end of GoodsDAOMybatis class

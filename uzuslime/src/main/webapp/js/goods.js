@@ -37,7 +37,7 @@ $('#goodsWriteBtn').click(function(){
 		$('#goods_contentDiv').css('font-weight','bold');
 					
 	}else{
-		let formData = new FormData($('#goodsWriteForm')[0]);
+		let formData = new FormData($('#goodsWriteForm')[0]);	                     
 		$.ajax({	
 			type: 'post',
 			enctype: 'multipart/form-data',
