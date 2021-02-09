@@ -1,5 +1,8 @@
 package order.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -74,6 +77,9 @@ public class OrderController{
 			//로그인한 회원정보를 담을 그릇 ★★★★★ 그냥 session에 담긴 내용 사용할지?
 			MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
 			ModelAndView mav = new ModelAndView();
+			OrderDTO orderDTO = new OrderDTO();
+			orderDTO.setDetail_or_cart(1);
+			mav.addObject(orderDTO);
 			mav.addObject(goodsDTO);
 			mav.addObject(memberDTO);
 			mav.setViewName("/order/order"); //"/order/order.jsp?"
@@ -92,10 +98,73 @@ public class OrderController{
 	 
 	
 	
-	//[Controller2] 결제창에서 결제하기 버튼을 누르면 해당 컨트롤이 호출되어 DB에 주문내역이 저장됨
-	@RequestMapping(value="/orderOneGoods", method=RequestMethod.POST)
-	public ModelAndView orderOneGoods(@ModelAttribute OrderDTO orderDTO) {
+	//[Controller2]장바구니에 담긴 상품 주문하기
+	public ModelAndView orderFromCartGoods(String[] cart_goods_qty, HttpServletRequest request,  HttpServletResponse response) throws Exception {
+		//장바구니 연결 후 처리할 내용
+		//1.파라미터
+		//  @RequestParam String[] cart_goods_qty(132번줄)
+		//2. for문 안 split수정(147번줄)
+		//3. 로그인한 회원정보 한번 MemberDTO객체에 저장하고 다시 session에 넣을 필요 있는 지 확인(140, 164, 174번줄)  
 		
+		//[1]DB에 저장된 내용(미리 Session에 담아둔 내용) 가져오기
+		HttpSession session = request.getSession();
+		MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO");
+		Map<String, List> cartMap = (Map<String, List>) session.getAttribute("cartMap"); //장바구니에서 저장한 cartList와 goodsList가 담겨있음
+		List<GoodsDTO> goodsList = cartMap.get("goodsList");
+		
+		//[2] [1]의 goodsList와 cart.jsp에서 가져온 내용(체크박스가 선택된 내용)을 비교하여 일치하는 goods_id를 orderDTO에 저장(주문)
+		int countOrderQty = 0; //전체 주문 상품 갯수용(결체창에서 ~외 X개)
+		List<OrderDTO> orderList = new ArrayList<OrderDTO>();
+		for(int i = 0; i < cart_goods_qty.length; i++) {
+			//★★★★★★★★★★jsp에서 전달되는 값 형태 확인 후, 수정
+			String[] cart_goods = cart_goods_qty[i].split(":");
+			
+			for(int j = 0; j < goodsList.size(); j++) {
+				GoodsDTO goodsDTO = goodsList.get(j); //goodsList에서 상품별로 꺼내와서 DTO객체에 저장
+				String goods_id = goodsDTO.getGoods_id();
+				
+				if(goods_id.equals(cart_goods[0])) { //DB에 저장된 상품번호와 jsp에서 넘어온 상품번호 비교하여 일치하면
+					++countOrderQty;
+					OrderDTO orderDTO = new OrderDTO();
+					orderDTO.setGoods_id(goods_id);
+					orderDTO.setGoods_title(goodsDTO.getGoods_title());
+					orderDTO.setGoods_sales_price(goodsDTO.getGoods_sales_price()); //실제 적용할 상품단가
+					orderDTO.setGoods_image0(goodsDTO.getGoods_image0());
+					orderDTO.setOrder_goods_qty(Integer.parseInt(cart_goods[1]));
+					orderDTO.setMember_id(memberDTO.getMember_id());
+					orderDTO.setPlural_num(countOrderQty - 1); //대표상품을 제외한 상품 종류 수 
+					orderDTO.setDetail_or_cart(2);
+					orderList.add(orderDTO);
+					break;
+				}//if
+				
+			}//for j
+			
+		}//for i
+		ModelAndView mav = new ModelAndView();
+		Map<String, List> orderMap = new HashMap<String, List>();
+		orderMap.put("orderList", orderList);
+		session.setAttribute("orderMap",orderMap);
+		//session.setAttribute("orderList", orderList); //세션에 orderList추가
+		//session.setAttribute("orderer", memberDTO); //이미 memDTO 저장되어있어 세션에 저장할 필요 없을 것 같음
+		mav.addObject(orderMap);
+		mav.setViewName("/order/order");	
+		return mav;
+	}
+
+	
+	//[Controller3] 결제창에서 결제하기 버튼을 누르면 해당 컨트롤이 호출되어 DB에 주문내역이 저장됨
+	@RequestMapping(value="/orderGoods", method=RequestMethod.POST)
+	public ModelAndView orderGoods(@ModelAttribute OrderDTO orderDTO) {
+		
+		//로그인 기능과 조합 후 하기
+		//1. 매개변수에 OrderDTO _orderDTO, HttpServletRequest request, HttpServletResponse response로그인 화면에서 로그인 후, 다시 주문페이지로 돌아오기
+		//request.setCharacterEncoding("UTF-8");
+		//HttpSession session = request.getSession(); //세션생성
+		
+		
+		//데이터 값 정상 입력 확인용(나중에 삭제)
+		//System.out.println(_orderDTO.getGoods_id());
 		orderService.orderOneGoods(orderDTO); //결체창에서 넘어온 값들이 담긴 orderDTO객체
 		System.out.println("orderController - orderDTO" + orderDTO.getOrderer_name());
 		ModelAndView mav = new ModelAndView();
@@ -110,34 +179,14 @@ public class OrderController{
 		}
 		
 		return mav;
-		
-		//로그인 기능과 조합 후 하기
-		//1. 매개변수에 OrderDTO _orderDTO, HttpServletRequest request, HttpServletResponse response로그인 화면에서 로그인 후, 다시 주문페이지로 돌아오기
-		//request.setCharacterEncoding("UTF-8");
-		//HttpSession session = request.getSession(); //세션생성
-		
-		
-		//데이터 값 정상 입력 확인용(나중에 삭제)
-		//System.out.println(_orderDTO.getGoods_id());
-		
-		
-		
 	}
+		
 	
-
-
-	//장바구니에 담긴 상품 주문하기
-	public ModelAndView orderFromCartGoods(String[] cart_goods_qty, HttpServletRequest request,  HttpServletResponse response) throws Exception {
-			
-		return null;
-	}
-
-	
-	//주문결과 표시
+	//[Controller4]결제 완료 후 주문결과 표시
 	@RequestMapping(value="/payToOrderGoods", method=RequestMethod.POST)
 	public ModelAndView payToOrderGoods(@RequestParam Map<String, String> payMap, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
