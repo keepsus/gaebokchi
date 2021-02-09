@@ -13,12 +13,16 @@ public interface GoodsDAO {
 
 	public GoodsDTO getGoodsView(String seq);
 	
-	public void goodsDelete(Map<String, String[]> map);
+	public void goodsCheckDelete(Map<String, String[]> map);
+	public void goodsViewDelete(String seq);
 
 	public int getGoodsTotalA();
 
 	public List<GoodsDTO> getGoodsIndexList();
 
+	public GoodsDTO getGoods(String seq);
 
 
-}
+
+
+}//end of goodsWrite class

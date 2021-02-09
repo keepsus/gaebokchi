@@ -8,30 +8,33 @@
  
  
  
- 	<!-- 이미지게시글 쓰기 -->
+ 	<!-- 상품등록 -->
 	<insert id="goodsWrite" parameterType="goods">
-		insert into t_shopping_goods values(seq_t_shopping_goods.nextval
-									, #{goods_id}
-									, #{goods_title}
-									, #{goods_country}
-									, #{goods_price}
-									, #{goods_sales_price}
-									, #{goods_qty}
-									, #{goods_point}
-									, #{goods_status}
-									, #{goods_deli_price}
-									, #{goods_deli_extra}
-									, #{goods_deli_free}
-									, #{goods_image0}
-									, #{goods_image1}
-									, #{goods_image2}
-									, #{goods_image3}
-									, #{goods_content}
-									, sysdate)
+		insert into t_shopping_goods(seq
+								   , goods_id
+								   , goods_title
+								   , goods_price
+								   , goods_sales_price
+								   , goods_qty
+								   , goods_image0						
+								   , goods_image1
+								   , goods_image2
+								   , goods_content
+								   , logtime) values(seq_t_shopping_goods.nextval
+															, #{goods_id}
+															, #{goods_title}												
+															, #{goods_price}
+															, #{goods_sales_price}
+															, #{goods_qty}																																		
+															, #{goods_image0}
+															, #{goods_image1}		
+															, #{goods_image2}							
+															, #{goods_content}																		
+															, sysdate)
 	</insert>
  
  	
- 	
+ 	<!-- myPage 에서 제품 리스트 보기 -->
  	<select id="getGoodsList" parameterType="java.util.Map" resultType="goods">
 		select * from
 		(select rownum rn, tt.* from
@@ -40,31 +43,49 @@
 	</select>
  
  
+	<!-- index 화면에서 제품 리스트 보기 -->
  	<select id="getGoodsIndexList" resultType="goods">
 		select * from t_shopping_goods order by seq desc
 	</select>
   
- 	
+  
+	<!-- 등록제품 전체수량 확인 -->
  	<select id="getGoodsTotalA" resultType="int">
  		select count(*) from t_shopping_goods
  	</select>
  
  
- 
+ 	<!-- 제품정보 상세확인 -->
  	<select id="getGoodsView" parameterType="int" resultType="goods">
  		select * from t_shopping_goods where seq=#{seq}
  	</select>
  
  	
- 	
- 	<delete id="goodsDelete" parameterType="java.util.Map">
+	<!-- 제품정보 list에서 checkbox 로 삭제 -->
+ 	<delete id="goodsCheckDelete" parameterType="java.util.Map">
  		delete t_shopping_goods where seq in
  			
  			<foreach collection="array" item="data" index="i" open="(" close=")" separator=",">
  				<!-- ${array[i]} -->
  				#{data}
  			</foreach>
- 		
  	</delete>
+ 	
+ 	
+ 	<!-- 제품정보 list에서 제품상세 페이지에서 삭제 -->
+	<delete id="goodsViewDelete" parameterType="int">			
+		delete from t_shopping_goods where seq=#{seq}		
+	</delete>
+ 
+ 
+ 	<!-- 작성된 제품정보 확인 -->
+	<select id="getGoods" parameterType="int" resultType="goods">
+		select * from t_shopping_goods where seq=#{seq}
+	</select>
+ 
+ 
+ 
+ 
+ 
  
  </mapper>

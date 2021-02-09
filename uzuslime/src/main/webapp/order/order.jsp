@@ -9,6 +9,7 @@
 
 
 <!-- 로그인 및 제품상세페이지 에서 받아올 데이터-->
+<c:set var="orderList" value="${orderMap.orderList}"/>
 <c:set var="member_id" value="aaaa"/><!-- 입력란이 없으므로 hidden으로 받아주기 -->
 <c:set var="goods_id" value="111"/>
 <c:set var="goods_filename" value="cccc"/> 
@@ -48,6 +49,7 @@
 <form id="form_order"><!-- ajax에서 serialize 사용하기 위해 form지정해줌 -->
 
 <!-- 입력란이 없으므로 hidden으로 받아주기 -->
+<input type="hidden" id="detail_or_cart" name="detail_or_cart" value="${orderDTO.detail_or_cart}"> <!-- 상품 상세페이지에서 온 주문인지 장바구니에서 온 주문인지 확인 -->
 <input type="hidden" id="member_id" name="member_id" value="${member_id}">
 <input type="hidden" id="order_id" name="order_id" value="${use_order_id}">
 <input type="hidden" id="goods_id" name="goods_id" value="${goods_id}">
@@ -67,7 +69,7 @@
                         <div class="order_row">
                                 <!-- 상품정보에서 상품 이미지 및 가격과 가격생성 -->
                                 <div class="productImg">
-                                        <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_filename}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 -->
+                                        <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_image0}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 -->
                                 </div>
                                 <div class="productInfo" style="float: left; padding-left: 60px;">
                                      <div class="shop_item">
@@ -227,6 +229,18 @@
 
 <!-- jQuery 사용 & order.js의 JavaScript 사용 -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script><!-- library를 가져온 것뿐, 설치는 하지 않음 -->
+	<script type="text/javascript">
+		$('#all_agreement').click(function(){
+		
+			if($('#all_agreement').prop('checked')) {
+				$('input[name=order_agreement_info]').prop('checked', true);
+				$('input[name=order_agreement_order]').prop('checked', true);
+			}else{
+				$('input[name=order_agreement_info]').prop('checked', false);
+				$('input[name=order_agreement_order]').prop('checked', false);
+			}
+		});
+	</script>
 	<script type="text/javascript" src="/slime/js/order.js"></script>
 	<script type="text/javascript" src="/slime/js/member.js"></script>
 </body>

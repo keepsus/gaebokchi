@@ -34,6 +34,7 @@ public class MemberServiceImpl implements MemberService {
 			session.setAttribute("memId", memberDTO.getMember_id());
 			session.setAttribute("memAdmin", memberDTO.getAdmin_yn());
 			session.setAttribute("memEmail", memberDTO.getEmail1()+"@"+memberDTO.getEmail2());
+			session.setAttribute("memDTO", memberDTO); //장바구니, 결제부분에서 해당 내용 사용(회원의 주소 등을 가져옴)
 			return "success";
 		}
 	}
