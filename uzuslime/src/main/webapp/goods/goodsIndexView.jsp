@@ -46,16 +46,18 @@
 		</div>   
 		
 		<div class="section">
-			상품명: <span id="goods_titleSpan"></span><br>
-			제품가격 : <span id="goods_priceSpan"></span>
-			할인가격 : <span id="goods_sales_priceSpan"></span><br>
-			<span id="goods_contentSpan"></span>
-			원산지 : <span id="goods_countrySpan"></span><br>
-			적립포인트 : <span id="goods_pointSpan"></span><br>
-			배송비 : <span id="goods_deli_priceSpan"></span>	
+			상품명: <span id="goods_titleSpan" name="goods_titleSpan"></span><br>
+			제품가격 : <span id="goods_priceSpan" name="goods_priceSpan"></span>
+			할인가격 : <span id="goods_sales_priceSpan" name="goods_sales_priceSpan"></span><br>
+			<span id="goods_contentSpan" name="goods_contentSpan"></span>
+			원산지 : <span id="goods_countrySpan" name="goods_countrySpan"></span><br>
+			적립포인트 : <span id="goods_pointSpan" name="goods_pointSpan"></span><br>
+			배송비 : <span id="goods_deli_priceSpan" name="goods_deli_priceSpan"></span>	
 		</div>
 	
 		<input type="button" value="목록" onclick="location.href='goodsIndexList?pg=${pg }'">
+		<input type="button" value="주문하기" id="goodsOrderBtn">
+		<input type="button" value="장바구니" id="goodsCartBtn">
 		
 		<div class="detailInformation">
 			<img id="goods_image2" alt="s01e 제품상세 설명">			
@@ -132,5 +134,22 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
+//주문하기 버튼
+$('#goodsOrderBtn').click(function(){	
+	$.ajax({
+		type: 'post',
+		url: '/slime/order/orderOneGoodsForm',
+		data: $('#goodsIndexViewForm').serialize(),
+		dataType: 'text',
+		success: function(data){
+			alert(data);
+		}//success
+	});//ajax
+	
+});//click
+
 </script>
+
 

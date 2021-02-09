@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: puppe
 Build-Jdk: 1.8.0_261
+=======
+Built-By: jeonghunpark
+Build-Jdk: 1.8.0_271
+>>>>>>> B4
 Created-By: Maven Integration for Eclipse
 
