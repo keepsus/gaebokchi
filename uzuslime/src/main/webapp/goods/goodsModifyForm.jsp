@@ -111,18 +111,6 @@
 				<input type="file" id="goods_image1" name="img" size="50">				
 			</td>
 		</tr>
-		<!-- 이미지 두개 올릴 때, id는 다르고, name="img" 은 같아야 한다.왜? 배열 써야 하니까. -->
-		<tr>
-			<td colspan="2">
-				<input type="file" id="goods_image2" name="img" size="50">				
-			</td>
-		</tr>
-		<!-- 이미지 두개 올릴 때, id는 다르고, name="img" 은 같아야 한다.왜? 배열 써야 하니까. -->
-		<tr>
-			<td colspan="2">
-				<input type="file" id="goods_image3" name="img" size="50">				
-			</td>
-		</tr>
 		
 		<tr>
 			<td align="center">내용</td>

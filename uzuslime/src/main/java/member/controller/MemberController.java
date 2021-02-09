@@ -36,6 +36,7 @@ public class MemberController {
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	@ResponseBody
 	public String login(@RequestParam Map<String, String> map) {
+		System.out.println(map);
 		return memberService.login(map);
 	}
 	
