@@ -12,7 +12,7 @@ public class OrderDTO {
 	private int order_seq_num;
 	private int order_id;
 	private String member_id;
-	private int goods_id;
+	private String goods_id;
 	private String goods_title;
 	private int order_goods_qty; //최종 주문  제품 수
 	private String goods_image0; //※변수명 변경 이전  : goods_filename
@@ -43,4 +43,6 @@ public class OrderDTO {
 	private String user_order_status;  //(관리자페이지용)주문 교환,반품,취소 신청현황 (exchange, refund, cancle)
 	private String order_status_reply;  //(관리자페이지용)해당 내용에 대한 관리자 응답현황 (prepared, delivery, complete...)
 	
+	private int plural_num; //장바구니에서 한가지 이상의 종류의 상품을 구매할 때 결제화면에는 ~외 X개로 표시
+	private int detail_or_cart; //1이면 제품상세에서, 2면 장바니구니에서 온 것
 }
