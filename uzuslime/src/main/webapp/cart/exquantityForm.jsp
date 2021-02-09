@@ -14,17 +14,16 @@
 </head>
 <body>
 
-
-	<c:set var="order_goods_qty" value="2"></c:set>
-	<c:set var="goods_sales_price" value="7500"></c:set>
-	<c:set var="order_goods_total_qty" value="2"></c:set>
-	<c:set var="order_goods_price" value="${goods_sales_price*2 }"></c:set>
-	<c:set var="goods_title" value="레몬아작"></c:set>
+	<c:set var="quantity" value="2"></c:set>
+	<c:set var="unit_price" value="7500"></c:set>
+	<c:set var="total_quantity" value="2"></c:set>
+	<c:set var="total_price" value="${unit_price*2 }"></c:set>
+	<c:set var="unit_name" value="레몬아작"></c:set>
 	
 	
 
 
-	<div id="whole_box" class="whole_box">
+	<div class="whole_box">
 	<!-- 헤더 -->
 	<div class="header">
 		<div class="header_title">
@@ -42,32 +41,30 @@
 				
 				<img src="/slime/image/img3.jpg" class="item_img">
 				
-				<div class="item_title" >[크리스탈 슬라임]${goods_title }</div>
-				<div class="unit_price" id="unit_price">${goods_sales_price }원</div>
+				<div class="item_title">[크리스탈 슬라임]${unit_name }</div>
+				<div class="unit_price">${unit_price }원</div>
 				
 			</div><!-- end up_part -->
 			
 			
 			<div class="down_part">
 			
-					<div class="quantity_div_area">
-						<div class="quantity_title">수량</div>
-						
-							<div class="quantity_count">
-								<div class="minus_div"><a href="javascript:change_qty2('m')" class="a_minus">-</a></div>
-									<input type="text" id="cart_qty" class="qty_number" value="${order_goods_qty }" readonly>
-								<div class="plus_div" ><a href="javascript:change_qty2('p')" class="a_plus">+</a></div>
-							</div>
-					</div><!-- quantity_div -->
-					
-					
-					<div class="quantity_price_area">
-						<div class="total_quantity">총수량 ${order_goods_total_qty }개</div>
-						<div class="total_price">${order_goods_price }원</div>
-					</div>	
+				<div class="quantity_div_area">
+					<div class="quantity_title">수량</div>
+					<div class="quantity_count">
+						<div class="minus_div"><a href="" class="a_minus">-</a></div>
+							<input type="text" class="qty_number" value="${quantity }" readonly>
+						<div class="plus_div" ><a href="" class="a_plus">+</a></div>
+					</div>
+				</div><!-- quantity_div -->
+				
+				
+				<div class="quantity_price_area">
+					<div class="total_quantity">총수량 ${total_quantity }개</div>
+					<div class="total_price">${total_price }원</div>
+				</div>	
 				
 			</div><!-- end down_part -->
-			
 		</div><!-- end container_div -->
 	</div><!-- end container  -->
 
@@ -88,6 +85,6 @@
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
-<script type="text/javascript" src="/slime/js/cart_quantity.js"></script>	
+<script type="text/javascript" src="/slime/js/cart.js"></script>	
 
 

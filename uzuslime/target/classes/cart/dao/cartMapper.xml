@@ -17,7 +17,6 @@
  
  
  <!-- 장바구니DB에 상품 추가 -->
- <!--  -->
  <insert id="addGoodsInCart" parameterType="cart">
  	<selectKey resultType="String" keyProperty="cart_id" order="BEFORE">
 	    	select nvl(max(cart_id), 0) + 1 from t_shopping_cart
@@ -34,6 +33,27 @@
  							 		#{cart_goods_qty},
  							 		sysdate)								 	
    	]]>	 
- </insert>
+  </insert>
+ 
+  <!-- 로그인한 회원아이디로 장바구니DB에 있는 상품을 꺼내기 -->
+  <select id="getListFromCart" parameterType="String" resultType="cart">
+  	 <![CDATA[
+		select cart_id, goods_id, member_id, cart_goods_qty, creDate from t_shopping_cart 
+		where member_id=#{member_id} 
+	  ]]>
+  </select>
+  
+  <!-- 위의 장바구니 리스트 안에 들은 goods_id로 상품 상세정보 꺼내오기 -->
+  <!-- 최근에 담은 상품이 위로 옴 -->
+  <select id="getListFromGoods" parameterType="cart" resultType="goods">
+  	  <![CDATA[
+  	  	select * from t_shopping_goods
+  	  	where goods_id in
+  	  ]]>
+  	  	<foreach item="item" collection="list" open="(" separator="," close=")">
+  	  		#{item.good_id}
+  	  	</foreach>
+  	  	order by goods_creDate desc
+  </select>
  
  </mapper>
