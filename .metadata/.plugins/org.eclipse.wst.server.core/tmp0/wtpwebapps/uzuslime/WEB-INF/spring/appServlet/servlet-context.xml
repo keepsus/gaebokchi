@@ -7,13 +7,14 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->	
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<context:component-scan base-package="cart.controller"/>
+	<context:component-scan base-package="goods.controller"/>
 	<context:component-scan base-package="member.controller"/>
-	<context:component-scan base-package="qna.controller"/>
 	<context:component-scan base-package="mypage.controller"/>
 	<context:component-scan base-package="order.controller"/>
-	<context:component-scan base-package="goods.controller"/>
-	
+	<context:component-scan base-package="qna.controller"/>
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />

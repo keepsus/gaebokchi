@@ -82,9 +82,9 @@
 	    </div>
 	</article>
 
-	<input type="hidden" name="email_key" value="0">	<!— 일단 0으로 처리 —>
-	<input type="hidden" name="admin_yn" value="0">		<!— 관리자는 1, 그 외는 0 —>	
+	<input type="hidden" name="email_key" value="0">	
+	<input type="hidden" name="admin_yn" value="0">		
 
 </form>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	<!— 위아래 순서가 바뀌면 안된다 —>
-<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!— 위아래 순서가 바뀌면 안된다 —>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
+<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	
