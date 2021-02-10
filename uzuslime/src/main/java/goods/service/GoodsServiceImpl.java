@@ -44,7 +44,9 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public List<GoodsDTO> getGoodsIndexList() {
 		System.out.println("getGoodsIndexList - (Impl) return 전!");
-		return goodsDAO.getGoodsIndexList();
+		List<GoodsDTO> goodsList = goodsDAO.getGoodsIndexList();
+		System.out.println("GoodsServiceImpl goodsList : " + goodsList);
+		return goodsList;
 	}
 	
 	

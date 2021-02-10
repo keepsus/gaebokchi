@@ -51,7 +51,7 @@
 	<!------------------->
 	<!-- 제품뿌려주는 위치 -->
     <div class="row">    
-    	<div id="goodsIndexList" sytle align="center">	
+    	<div id="goodsIndexList" style align="center">	
 	</div>	 	
 	<!-- 제품뿌려주는 위치 -->
 	<!------------------->
