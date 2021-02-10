@@ -551,7 +551,6 @@ $(document).ready(function(){
 });//ready
 
 </script>
-=======
     <script>
 		function openNav() {
 			document.getElementById('mySideNav').style.width = '250px';
@@ -568,4 +567,3 @@ $(document).ready(function(){
     
 </body>
 </html>
->>>>>>> B2
