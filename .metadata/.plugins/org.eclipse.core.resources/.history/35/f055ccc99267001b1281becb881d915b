@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="qnaSQL">
+ 	<!--글쓰기-->
+ 	<insert id="qnaWrite" parameterType="java.util.Map">
+ 		insert into t_shopping_qna(seq,member_id,subject,content,ref) values(seq_qna.nextval
+ 																		,#{member_id}
+ 																		,#{subject}
+ 																		,#{content}
+ 																		,seq_qna.currval)
+ 	</insert>
+ 	<!-- 목록 -->
+ 	<select id="getQnaList" parameterType="java.util.Map" resultType="qna"><!--resultType이 DTO-->
+		select * from
+		(select rownum rn, tt.* from
+		(select * from t_shopping_qna order by ref desc, step asc)tt
+		)where rn <![CDATA[ >= ]]> #{startNum} and rn <![CDATA[ <= ]]> #{endNum}
+	</select>
+	
+		<!-- 총글수 -->
+	<select id="getTotalA" resultType="int">
+		select count(*) from t_shopping_qna
+	</select>
+	
+		<!-- 검색 -->
+	<select id="getBoardSearch" parameterType="java.util.Map" resultType="qna">
+		<![CDATA[
+		select * from
+		(select rownum rn, tt.* from
+		(select * from t_shopping_qna where ${searchType} like '%'||#{keyword}||'%' order by ref desc, step asc)tt
+		)where rn>=#{startNum} and rn<=#{endNum}
+		]]>
+	</select>
+	
+		<!-- 검색한 총글수 -->
+	<select id="getBoardSearchTotalA" parameterType="java.util.Map" resultType="int">
+		select count(*) from t_shopping_qna where ${searchType} like '%'||#{keyword}||'%'
+	</select>
+	
+		<!-- 작성한 글 확인 -->
+	<select id="getBoard" parameterType="int" resultType="qna">
+		select * from t_shopping_qna where seq=#{seq}
+	</select>
+	
+		<!-- 조회수 증가 -->
+	<update id="hitUpdate" parameterType="int">
+		update t_shopping_qna set hit=hit+1 where seq=#{seq}
+	</update>
+	
+		<!-- 글수정 -->
+	<update id="qnaModify" parameterType="java.util.Map">
+		update t_shopping_qna set subject=#{subject}, content=#{content}, logtime=sysdate where seq=#{seq}
+	</update>
+	
+	<!-- 답글쓰기 -->
+	<insert id="qnaReply" parameterType="java.util.Map">
+		begin
+			update t_shopping_qna set step=step+1 where ref=#{ref} and step>#{step};
+			
+			insert into t_shopping_qna values(seq_qna.nextval
+								, #{member_id}<!--이 id값을 qnaService로부터 받나?? -->
+								, #{subject}
+								, #{content}
+								, #{ref} <!-- 원글ref -->
+								, #{lev} <!-- 원글lev+1 -->
+								, #{step} <!-- 원글step+1 -->
+								, #{pseq} <!-- 원글번호 -->
+								, 0 <!-- 답글수  -->
+								, 0 <!-- 조회수 -->
+								, sysdate);
+								
+			update t_shopping_qna set reply=reply+1 where seq=#{pseq}; <!-- 원글번호 -->							
+		end;
+	</insert>
+	
+		<!-- 글삭제 -->
+	<delete id="qnaDelete" parameterType="int">
+		begin
+			update t_shopping_qna set reply=reply-1 where seq = (select pseq from t_shopping_qna where seq=#{seq});
+			
+			update t_shopping_qna set subject=concat('[삭제된 질문의 답변]',subject) where pseq=#{seq};
+			
+			delete from t_shopping_qna where seq=#{seq};
+		end;
+	</delete>
+	
+	<!--댓글 조회-->
+	<select id="readReply" resultType="ReplyDTO"><!--타입알리아스 설정해줘야함-->
+    	SELECT
+    		  RNO, CONTENT, WRITER, REGDATE
+    	 FROM QNA_REPLY
+    	WHERE SEQ = #{SEQ}
+	</select>
+
+ </mapper>

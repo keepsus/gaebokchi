@@ -9,14 +9,12 @@
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
-	
+	<context:component-scan base-package="cart.controller"/>
+	<context:component-scan base-package="goods.controller"/>
 	<context:component-scan base-package="member.controller"/>
-	<context:component-scan base-package="imageboard.controller"/>
-	<context:component-scan base-package="qna.controller"/>
 	<context:component-scan base-package="mypage.controller"/>
 	<context:component-scan base-package="order.controller"/>
-	<context:component-scan base-package="goods.controller"/>
-	
+	<context:component-scan base-package="qna.controller"/>
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />

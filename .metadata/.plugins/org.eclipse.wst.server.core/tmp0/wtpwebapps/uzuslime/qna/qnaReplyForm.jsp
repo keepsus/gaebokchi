@@ -65,7 +65,6 @@ $('#QnaReplyBtn').click(function(){
 		$('#contentDiv').css('color','black')
 		$('#contentDiv').css('font-size','8pt')
 		$('#contentDiv').css('font-weight','bold');
-		
 	}else{
 		$.ajax({
 			type: 'post',

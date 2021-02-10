@@ -16,14 +16,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import qna.bean.BoardPaging;
 import qna.bean.QnaDTO;
+import qna.bean.ReplyDTO;
 import qna.service.QnaService;
 
 @Controller
 @RequestMapping(value="qna")
 public class QnaController {
+	
 	@Autowired
 	private QnaService qnaService;
 	
@@ -43,6 +46,10 @@ public class QnaController {
 	public String qnaView(@RequestParam String seq, @RequestParam(required=false, defaultValue="1") String pg, Model model) {
 		model.addAttribute("seq", seq);
 		model.addAttribute("pg", pg);
+		
+		//댓글
+		List<ReplyDTO> replyList = qnaService.readReply(Integer.parseInt(seq));
+		model.addAttribute("replyList", replyList);
 		return "/qna/qnaView";
 	}
 	
@@ -91,7 +98,7 @@ public class QnaController {
 		return mav;
 	}
 	
-	@RequestMapping(value="getBoard", method=RequestMethod.POST)//qnaView.jsp아래 ajax에서 호출/근데 보내주는거 seq밖에 없는데..?
+	@RequestMapping(value="getBoard", method=RequestMethod.POST)
 	public ModelAndView getBoard(@RequestParam String seq,
 								 @CookieValue(value="memHit", required=false) Cookie cookie,
 								 HttpServletResponse response,
@@ -136,6 +143,7 @@ public class QnaController {
 		return "/qna/qnaBoardList";
 	}
 	
+	//답글
 	@RequestMapping(value="qnaReplyForm", method=RequestMethod.POST)//얘는 replyForm.jsp부르기
 	public String qnaReplyForm(@RequestParam String seq, 
 							   @RequestParam String pg, 
@@ -145,11 +153,26 @@ public class QnaController {
 		return "/qna/qnaReplyForm";
 	}
 	
-	@RequestMapping(value="qnaReply", method=RequestMethod.POST)//qnaReplyForm.jsp ajax에서 부른다.(데이터뿌리기?)
+	
+	//답글
+	@RequestMapping(value="qnaReply", method=RequestMethod.POST)
 	@ResponseBody
 	public void qnaReply(@RequestParam Map<String, String> map) {
 		qnaService.qnaReply(map);
 	}
 	
+	//댓글작성
+	@RequestMapping(value="/replyWrite", method = RequestMethod.POST)
+	public String replyWrite(ReplyDTO replyDTO,RedirectAttributes rttr) throws Exception {
+		
+		qnaService.writeReply(replyDTO);
+		
+		//System.out.println("replyDTO="+replyDTO);
+		rttr.addAttribute("seq", replyDTO.getSeq());
+
+		return "redirect: /slime/qna/qnaView";
+	}
+	
+
 
 }

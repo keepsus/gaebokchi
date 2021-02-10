@@ -92,12 +92,13 @@ LOGTIME	DATE					   --작성일
    PAY_ORDERER_HP_NUM VARCHAR2(20 BYTE), 
    DELIVERY_STATE VARCHAR2(20 BYTE) DEFAULT 'delivery_prepared',
    PAY_ORDER_TIME DATE DEFAULT sysdate,
-
-   --추가사항--
    USER_ORDER_STATUS VARCHAR2(50 BYTE),	--주문자가 취소/교환/환불 신청
    ORDER_STATUS_REPLY VARCHAR2(50 BYTE), ---주문자가 취소/교환/환불 신청에 대한 관리자 응답
 
   ) ;
+
+  --하단의 USER_ORDER_STATUS, ORDER_STATUS_REPLY 추가
+
 --------------------------------------------------------
 --  DDL for Table T_SHOPPING_CART	--장바구니
 --------------------------------------------------------
@@ -117,7 +118,7 @@ LOGTIME	DATE					   --작성일
 --------------------------------------------------------
 CREATE TABLE T_SHOPPING_QNA
 (
-SEQ	NUMBER NOT NULL,	--글번호(seq 객체 이용)
+SEQ	NUMBER PRIMARY KEY,	--글번호(seq 객체 이용)
 MEMBER_ID VARCHAR2(20) NOT NULL,
 SUBJECT  VARCHAR2(255) NOT NULL,
 CONTENT	VARCHAR2(4000) NOT NULL,
@@ -131,6 +132,24 @@ LOGTIME	DATE DEFAULT SYSDATE
 );
 
 create sequence seq_qna nocache nocycle;
+
+-------------------------------------------------
+답변
+-------------------------------------------------
+create table qna_reply (
+    seq number not null,
+    rno number not null,-- 댓글번호
+    content varchar2(1000) not null,
+    writer varchar2(50) not null,
+    regdate date default sysdate,
+    primary key(seq, rno)
+);
+
+alter table qna_reply add constraint qna_reply_seq foreign key(seq) references T_SHOPPING_QNA(seq);
+
+create sequence qna_reply_seq start with 1 minvalue 0;
+
+commit;
 
 
 --------------------------------------------------------
@@ -162,11 +181,6 @@ ROADNAME	VARCHAR2(26 BYTE),
 BUILDINGNAME	VARCHAR2(26 BYTE)
 );
 --------------------------------------------------------
-
-
-
-
-
 
 drop sequence ORDER_SEQ_NUM;
 drop sequence SEQ_GOODS_ID;

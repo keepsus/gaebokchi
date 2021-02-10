@@ -41,5 +41,37 @@ input[type="button"] {
 }
 
 /* -------------*/
-/* ¸ð´Þ °ü·Ã ºÎºÐ */
+/* ëŒ“ê¸€ */
 /* ------------*/
+.reply{
+	margin-top:5%;
+	margin-left:20%;
+	margin-right:20%;
+	padding :10px;
+	opacity:0.8;
+	background-color:white;
+}
+
+.replyContent {
+	margin-top:10px;
+}
+
+.writer_reply{
+	margin-bottom:20px;
+}
+
+.content_reply {
+	width: 90%;
+	height: 10%;
+}
+
+.replyresetBtn{
+	background-color : white;
+}
+
+.replyWriteBtn{
+	background-color : white;
+}
+
+
+

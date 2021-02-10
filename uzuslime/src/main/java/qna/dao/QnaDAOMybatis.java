@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import qna.bean.QnaDTO;
+import qna.bean.ReplyDTO;
 
 @Repository
 @Transactional
@@ -67,6 +68,17 @@ public class QnaDAOMybatis implements QnaDAO {
 	public void qnaReply(Map<String, String> map) {//이 map안에 들은것은 서비스를 통해 확인
 		sqlSession.insert("qnaSQL.qnaReply", map);
 		
+	}
+
+	@Override
+	public List<ReplyDTO> readReply(int seq){
+		return sqlSession.selectList("qnaSQL.readReply", seq);
+	}
+	
+	//댓글작성
+	@Override
+	public void writeReply(ReplyDTO replyDTO) {
+		sqlSession.insert("qnaSQL.writeReply",replyDTO);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import qna.bean.BoardPaging;
 import qna.bean.QnaDTO;
+import qna.bean.ReplyDTO;
 
 public interface QnaService {
 
@@ -28,4 +29,7 @@ public interface QnaService {
 
 	public void qnaReply(Map<String, String> map);
 
+	public List<ReplyDTO> readReply(int seq);
+
+	public void writeReply(ReplyDTO replyDTO);	
 }

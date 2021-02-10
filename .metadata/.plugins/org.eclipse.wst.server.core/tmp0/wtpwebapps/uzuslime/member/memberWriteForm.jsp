@@ -14,13 +14,13 @@
 	
 	<article name="memberSignUpForm" class="signUpForm" >
 	    <div class="input-text">
-	        <input type="text" name="member_name" size="25" placeholder="이름">
+	        <input type="text" id="member_name" name="member_name" size="25" placeholder="이름" autocomplete=”off”>
 	        <div id="nameDiv"></div>
 	    </div>
 	
 	
 	    <div class="input-text">
-	        <input type="text" class="member_id" id="member_id" name="member_id" size="25" placeholder="아이디">
+	        <input type="text" class="member_id" id="member_id" name="member_id" size="25" placeholder="아이디" autocomplete=”off”>
 	        <input type="hidden" id="check" value="">
 	      <div id="idDiv"></div>
 	      
@@ -40,19 +40,20 @@
 	
 	
 	    <div class="signUp-email-form">
-	        <input type="text" class="sign-email1" name="email1" size="10">
+	        <input type="text" class="sign-email1" id="email1" name="email1" size="10">
 	        @
-	        <input type="email" class="sign-email2" name="email2" list="email2" placeholder="직접입력" size="10">
+	        <input type="email" class="sign-email2" id="email2" name="email2" list="email2" placeholder="직접입력" size="10">
 	        <datalist id="email2">
 	            <option value="gmail.com">
 	            <option value="naver.com">
 	            <option value="hanmail.net">
 	        </datalist>
-	        <input type="button" id="emailBtn" class="emailBtn" value="이메일인증"><br>
-	         <input type="text" class="checkEmail" name="checkEmail" placeholder="인증번호 입력">
+	        <input type="button" id="emailBtn" name="emailBtn" class="emailBtn" value="이메일인증"><br>
+	         <input type="text" class="checkEmail" id="checkEmail" name="checkEmail" placeholder="인증번호 입력" autocomplete=”off”>
+	         <input type="hidden" id="checkEmailR" value="">
 	        <input type="button" id="emailCheckBtn" class="emailCheckBtn" value="인증번호확인" ><br>
 	    </div>
-	
+		<div id="emailDiv"></div>
 	
 	    <div class="signUp-phone-form">
 	        <select name="tel1" class="sign-tel1" style="width: 60px;">
@@ -81,9 +82,9 @@
 	    </div>
 	</article>
 
-	<input type="hidden" name="email_key" value="0">	<!— 일단 0으로 처리 —>
-	<input type="hidden" name="admin_yn" value="0">		<!— 관리자는 1, 그 외는 0 —>	
+	<input type="hidden" name="email_key" value="0">	
+	<input type="hidden" name="admin_yn" value="0">		
 
 </form>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	<!— 위아래 순서가 바뀌면 안된다 —>
-<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	<!— 위아래 순서가 바뀌면 안된다 —>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>	
+<script type="text/javascript" src="/slime/js/member.js?ver=1"></script>	
