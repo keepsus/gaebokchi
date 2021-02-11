@@ -74,6 +74,12 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.memberList();
 	}
 	
+	@Override
+	public MemberDTO getId(Map<String, String> map) {
+		return memberDAO.getId(map);
+		
+	}
+	
 	
 }
 
