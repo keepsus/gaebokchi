@@ -161,13 +161,11 @@ $(document).ready(function(){
 			$('#goods_status').val(data.goodsDTO.goods_status);
 			$('#goods_deli_price').val(data.goodsDTO.goods_deli_price);
 			$('#goods_deli_extra').val(data.goodsDTO.goods_deli_extra);
-			$('#goods_deli_free').val(data.goodsDTO.goods_deli_free);	
-			/* 
+			$('#goods_deli_free').val(data.goodsDTO.goods_deli_free);
+			//수정버튼 누르면, 무조건 사진을 다시 넣어야함...
 			$('#goods_image0').val(data.goodsDTO.goods_image0);
 			$('#goods_image1').val(data.goodsDTO.goods_image1);
 			$('#goods_image2').val(data.goodsDTO.goods_image2);
-			$('#goods_image3').val(data.goodsDTO.goods_image3);
-			*/
 			$('#goods_content').val(data.goodsDTO.goods_content);
 			
 			
