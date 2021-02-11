@@ -1,7 +1,7 @@
 package member.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -18,7 +18,6 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import member.bean.MemberDTO;
 import member.bean.ZipcodeDTO;
 import member.service.MemberService;
+import member.service.MemberSha256;
 
 @Controller
 @RequestMapping(value="member")
@@ -49,7 +49,11 @@ public class MemberController {
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	@ResponseBody
 	public String login(@RequestParam Map<String, String> map) {
-		System.out.println(map);
+		//String encryPassword = MemberSha256.encrypt(map.);
+		String encryPassword = MemberSha256.encrypt(map.get("pwpwpw"));
+		//System.out.println("MemberController 첫번째 암호 : "+ map.get("pwpwpw"));
+		map.put("pwpwpw", encryPassword);
+		//System.out.println("MemberController 두번째 암호 : "+ map.get("pwpwpw"));
 		return memberService.login(map);
 	}
 	
@@ -69,6 +73,16 @@ public class MemberController {
 	//회원가입
 	@RequestMapping(value="write", method=RequestMethod.POST)
 	public String write(@ModelAttribute MemberDTO memberDTO, Model model) {
+		
+		//암호 확인
+		//System.out.println("첫번째 : " + memberDTO.getMember_pw());
+		
+		//비밀번호 암호화(sha256)
+		String encryPassword = MemberSha256.encrypt(memberDTO.getMember_pw());
+		memberDTO.setMember_pw(encryPassword);
+		//System.out.println("두번째 : " + memberDTO.getMember_pw());
+		
+		//회원가입
 		int su = memberService.write(memberDTO);		
 		model.addAttribute("su", su);				
 		return "/index";
@@ -117,6 +131,8 @@ public class MemberController {
 	@RequestMapping(value="modify", method=RequestMethod.POST)
 	@ResponseBody
 	public void modify(@ModelAttribute MemberDTO memberDTO) {
+		String encryPassword = MemberSha256.encrypt(memberDTO.getMember_pw());
+		memberDTO.setMember_pw(encryPassword);
 		memberService.modify(memberDTO);
 	}
 	
@@ -127,6 +143,29 @@ public class MemberController {
 		List<MemberDTO> list = memberService.memberList();
 		model.addAttribute("list", list);
 		return "/member/memberList";
+	}
+	
+	//아이디, 비밀번호 찾기
+	@RequestMapping(value="memberSearch", method=RequestMethod.GET)
+	public String memberSearch() {
+		return "/member/memberSearch";
+	}
+	
+	//아이디, 비밀번호 찾기
+	@RequestMapping(value="memberIdSearch", method=RequestMethod.POST)
+	@ResponseBody
+	public String memberIdSearch(@RequestParam String member_name,@RequestParam String tel1,
+								@RequestParam String tel2, @RequestParam String tel3) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("member_name", member_name);
+		map.put("tel1", tel1);
+		map.put("tel2", tel2);
+		map.put("tel3", tel3);
+		MemberDTO memberDTO = memberService.getId(map);
+	
+		String id = memberDTO.getMember_id();
+		return id;
+	
 	}
 
 	

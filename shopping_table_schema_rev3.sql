@@ -41,7 +41,7 @@ create sequence seq_t_shopping_goods nocache nocycle;
 CREATE TABLE T_SHOPPING_MEMBER
 (
 MEMBER_ID VARCHAR2(20 BYTE) primary key,	--회원아이디
-MEMBER_PW VARCHAR2(30 BYTE),	--비밀번호
+MEMBER_PW VARCHAR2(100 BYTE),	--비밀번호
 MEMBER_NAME VARCHAR2(50 BYTE),--회원이름
 TEL1 VARCHAR2(20 BYTE),			--유선전화번호1
 TEL2 VARCHAR2(20 BYTE),			--유선전화번호2
