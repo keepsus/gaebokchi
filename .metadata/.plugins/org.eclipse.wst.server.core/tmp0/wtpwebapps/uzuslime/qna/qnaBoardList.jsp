@@ -24,7 +24,7 @@
     <!---------------------->
     <header>
         <nav>
-        	<jsp:include page="../indexNav.jsp"/>           
+			<jsp:include page="../indexNav.jsp"/>
         </nav>
     </header>   
 
