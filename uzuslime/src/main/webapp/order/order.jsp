@@ -229,18 +229,6 @@
 
 <!-- jQuery 사용 & order.js의 JavaScript 사용 -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script><!-- library를 가져온 것뿐, 설치는 하지 않음 -->
-	<script type="text/javascript">
-		$('#all_agreement').click(function(){
-		
-			if($('#all_agreement').prop('checked')) {
-				$('input[name=order_agreement_info]').prop('checked', true);
-				$('input[name=order_agreement_order]').prop('checked', true);
-			}else{
-				$('input[name=order_agreement_info]').prop('checked', false);
-				$('input[name=order_agreement_order]').prop('checked', false);
-			}
-		});
-	</script>
 	<script type="text/javascript" src="/slime/js/order.js"></script>
 	<script type="text/javascript" src="/slime/js/member.js"></script>
 </body>

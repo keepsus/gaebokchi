@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 
 <!DOCTYPE html>
@@ -20,27 +22,36 @@
 	<title>우주슬라임</title>
 </head>
 
+<style>
+#currentPaging {
+	color: red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#paging {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+</style>
+
+
 <!-- 자체값 주기 -->
-<c:set var="order_goods_qty" value="1"></c:set>
-<c:set var="goods_sales_price" value="7500"></c:set>
+<c:set var="goods_title" value="lime"></c:set>
+<c:set var="order_goods_qty" value="5"></c:set>
+<c:set var="goods_price" value="9000"></c:set>
+<c:set var="goods_sales_price" value="9500"></c:set>
 <c:set var="goods_deli_price" value="2500"></c:set>
 <c:set var="total_order_price" value="${goods_sales_price + goods_deli_price }"></c:set>
 <c:set var="goods_point" value="-"></c:set>
-
-<c:set var="goods_price" value="9000"></c:set>
-<c:set var="goods_sales_price" value="7500"></c:set>
-<c:set var="goods_title" value="레몬아작"></c:set>
-
 
 <!--cartList : 회원아이디, 상품아이디, 주문수량, 장바구니 생성일 정보가 들어있음-->
 <c:set var="cartList" value="${cartMap.cartList}"/>
 <!-- goodsList : 상품 상세정보가 들어있음 -->
 <c:set var="goodsList" value="${cartMap.goodsList}"/>
 
-
-
-
 <body>
+
 
 	<!---------------------->
     <!--------HAEDER-------->
@@ -89,12 +100,11 @@
 
 
 
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
 <!-- 장바구니 -->
 <!-- 장바구니 -->
-<form id="cartForm" method="get" action="cartDelete">
+
 <div class="content">
 <div class="cart_box">
 
@@ -108,132 +118,64 @@
 				
 			</div><!-- cart_title_content -->
 		</div><!-- end cart_title_box -->
-		
-	<!-- 장바구니 항목 테이블 -->	
-	<div class="item_table">
-	
-		<table >
-					<tr>
-							<th class="whole_checkbox_info"><input type="checkbox" id="check_all"></th>
-							<th class="item_info"><span class="hidden-sm hidden-xs">item</span>
-							<th class="wish_info"><span class="hidden-sm hidden-xs">위시</span></th>
-							<th class="quantity_info"><span class="hidden-sm hidden-xs">수량</span></th>
-							<th class="deliv_way_info"><span class="hidden-sm hidden-xs">배송수단</span></th>
-							<th class="deliv_fee_info"><span class="hidden-sm hidden-xs">배송비</span></th>
-							<th class="price_info"><span class="hidden-sm hidden-xs">가격</span></th>
-							<th ></th>
-					</tr>
-					
-					
-		</table>
-	</div><!-- end item_table -->
-	
-	
-	<!-- -------------------------------------------------------------------------------------------- -->
-	
-	
-	<!-- 장바구니 담긴 테이블 -->	
-	<div class="item_list">
-	
+
+<form id="imageboardListForm" method="get" action="imageboardDelete">
+
+<!-- 장바구니 항목 테이블 -->	
+<div class="item_table">
+
+<table id="cart_title_table" >
+	 <!-- <tr>
+	  	<th width="100"><input type="checkbox" id="all">번호</th>
+	 	<th width="150">이미지</th>
+	 	<th width="150">상품명</th>
+	 	<th width="100">단가</th>
+	 	<th width="100">개수</th>
+	 	<th width="100">합계</th>
+	 </tr> -->
+	 
+	 <tr>
+			<th class="whole_checkbox_info"><input type="checkbox" id="check_all"></th>
+			<th class="item_info"><span class="hidden-sm hidden-xs">item</span>
+			<th class="wish_info"><span class="hidden-sm hidden-xs">위시</span></th>
+			<th class="quantity_info"><span class="hidden-sm hidden-xs">수량</span></th>
+			<th class="deliv_way_info"><span class="hidden-sm hidden-xs">배송수단</span></th>
+			<th class="deliv_fee_info"><span class="hidden-sm hidden-xs">배송비</span></th>
+			<th class="price_info"><span class="hidden-sm hidden-xs">가격</span></th>
+			<th ></th>
+	</tr>
+ 
+</table>
+</div><!-- end item_table -->
+
+
+
+
+
+<!-- 장바구니 테이블 -->	
+<div class="item_list">
+
 	<!-- 장바구니 없을때 -->
-	<!--
-	<c:if test="${empty display }">	
-		 <div class="empty_cart">
-			
-			<div class="empty_area">
-					<div class="empty_cart_div">
-						<i class="fas fa-shopping-cart"></i>
-						<img class="empty_cart_img" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik01MDkuODY3LDg5LjZjLTIuMTMzLTIuMTMzLTQuMjY3LTQuMjY3LTguNTMzLTQuMjY3SDk2TDg1LjMzMywyOS44NjdjMC00LjI2Ny02LjQtOC41MzMtMTAuNjY3LTguNTMzaC02NA0KCQkJQzQuMjY3LDIxLjMzMywwLDI1LjYsMCwzMmMwLDYuNCw0LjI2NywxMC42NjcsMTAuNjY3LDEwLjY2N2g1NS40NjdsNTEuMiwyNjAuMjY3YzYuNCwzNC4xMzMsMzguNCw1OS43MzMsNzIuNTMzLDU5LjczM0g0MzUuMg0KCQkJYzYuNCwwLDEwLjY2Ny00LjI2NywxMC42NjctMTAuNjY3YzAtNi40LTQuMjY3LTEwLjY2Ny0xMC42NjctMTAuNjY3SDE5MmMtMTcuMDY3LDAtMzQuMTMzLTguNTMzLTQyLjY2Ny0yMy40NjdMNDYwLjgsMjc1LjINCgkJCWM0LjI2NywwLDguNTMzLTQuMjY3LDguNTMzLTguNTMzTDUxMiw5NkM1MTIsOTYsNTEyLDkxLjczMyw1MDkuODY3LDg5LjZ6IE00NTAuMTMzLDI1NmwtMzExLjQ2Nyw0MC41MzNsLTM4LjQtMTkySDQ4Ni40DQoJCQlMNDUwLjEzMywyNTZ6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xODEuMzMzLDM4NEMxNTEuNDY3LDM4NCwxMjgsNDA3LjQ2NywxMjgsNDM3LjMzM2MwLDI5Ljg2NywyMy40NjcsNTMuMzMzLDUzLjMzMyw1My4zMzMNCgkJCWMyOS44NjcsMCw1My4zMzMtMjMuNDY3LDUzLjMzMy01My4zMzNDMjM0LjY2Nyw0MDcuNDY3LDIxMS4yLDM4NCwxODEuMzMzLDM4NHogTTE4MS4zMzMsNDY5LjMzM2MtMTcuMDY3LDAtMzItMTQuOTM0LTMyLTMyDQoJCQlzMTQuOTMzLTMyLDMyLTMyYzE3LjA2NywwLDMyLDE0LjkzNCwzMiwzMlMxOTguNCw0NjkuMzMzLDE4MS4zMzMsNDY5LjMzM3oiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTM5NC42NjcsMzg0Yy0yOS44NjcsMC01My4zMzMsMjMuNDY3LTUzLjMzMyw1My4zMzNjMCwyOS44NjcsMjMuNDY3LDUzLjMzMyw1My4zMzMsNTMuMzMzDQoJCQljMjkuODY3LDAsNTMuMzMzLTIzLjQ2Nyw1My4zMzMtNTMuMzMzQzQ0OCw0MDcuNDY3LDQyNC41MzMsMzg0LDM5NC42NjcsMzg0eiBNMzk0LjY2Nyw0NjkuMzMzYy0xNy4wNjcsMC0zMi0xNC45MzQtMzItMzINCgkJCXMxNC45MzMtMzIsMzItMzJjMTcuMDY3LDAsMzIsMTQuOTM0LDMyLDMyUzQxMS43MzMsNDY5LjMzMywzOTQuNjY3LDQ2OS4zMzN6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
-					</div>
-					<div class="empty_info_text_div">
-							장바구니가 비어있습니다		
-					</div>
-			</div>
-		</div> end empty_cart
-		</c:if>	 
-		end 장바구니 없을때  
-		
-		
-		
-	<!-- 장바구니 담겼을때 -->
-	 <table id="cart_List_table">
-				<tr>
-						<td class="part_checkbox"><input type="checkbox" class="part_checkbox_click" id="part_check"></td>
-						
-						<td class="item_info_detail">
-							<a class="cart_selected_item">
-								<img src="/slime/image/img3.jpg" class="cart_item_img"  onClick="location.href='/slime/detailpage/detailPage.jsp'">
-							</a>
-							<div class="item_view_name_div">
-								<a class="item_view_name">[크리스탈 슬라임]${goods_title }</a>
-							</div>
-						</td>
-						
-						<td class="wish_icon">
-							<!-- 하트 누르기전 -->
-							<c:if test="${sessionScope.heart_check == 0 }">	
-								<a href="" class="a_wish_icon" id="a_wish_icon">
-									<i class="far fa-heart"></i>
-								</a>
-							</c:if>	 
-							<!-- 하트 누른후 -->
-							<c:if test="${sessionScope.heart_check == 1 }">	
-								<a href="" class="a_wish_icon" id="a_wish_icon">
-									<i class="fas fa-heart"></i>
-								</a>
-							</c:if>	
-						</td>
-						
-						<td class="quantity_detail">
-							<div class="quantity_kind" >
-								<div >${order_goods_qty }개</div>
-								<!-- <a href="/slime/cart/quantityForm.jsp" rel="modal:open" class="quantity_change_Btn" >변경</a> -->
-								<a id="quantity_change_Btn" data-toggle="modal" data-target="#modal" role="button" class="quantity_change_Btn" >변경</a>
-									
-									<div id="modal" class="modal fade" tabindex="-1" role="dialog">
-										<div class="modal-dialog">
-											<div class="modal-content">
-											
-											</div>
-										</div>
-									</div>
-									
-							</div><!-- end quantity_kind -->
-						</td>
-						<td class="deliv_way">
-							<div class="deliv_way_text">택배</div>
-						</td>
-						<td class="deliv_fee_direction">
-							
-								<div class="deliv_fee_detail">${goods_deli_price }원<br>
-									<a href="" class="a_deliv_fee_info" id="a_deliv_fee_info">
-										<i class="far fa-question-circle"></i>
-									</a>
-								</div>
-								
-							
-						</td>
-						<td class="price">
-							<div class="price_div">
-								${goods_sales_price }원
-							</div>
-						</td>
-						<td class="order_delete_Btn_area">
-							<div class="order_and_delete">
-								<a type="button" class="order_Btn" id="order_Btn">주문</a>
-								<a type="button" class="delete_Btn" id="delete_Btn">삭제</a>
-							</div>
-						</td>
-				</tr>
-	</table>	 
-	</div><!-- end item_list -->
+		<!--  <div class="empty_cart">
+			<td class="empty_area">
+				<div class="empty_cart_div">
+					<i class="fas fa-shopping-cart"></i>
+				</div>
+				<div class="empty_info_text_div">
+						장바구니가 비어있습니다		
+				</div>
+			</td>
+		</div>  -->
+
+
+	<table class="cart_List_table" id="cart_List_table" ><!-- ajax로 들어온다 -->
+	</table>	
 	
-	
-	<!-- -------------------------------------------------------------------------------------------- -->
-	
-	
-		<!-- 합계된 내역 -->
-		 <div class="calculated_price_list">
+</div><!-- end item_list -->
+
+
+<!-- 합계된 내역 -->
+		<div class="calculated_price_list">
 			<table>
 				<tr>
 					<td class="calculated_price_part1"></td>
@@ -253,8 +195,7 @@
 				</tr>
 			</table>
 		</div><!-- end calculated_price_list -->
-		
-		
+
 		<!-- 합계내역 -->
 		<div class="total_price_area">
 			<table style="width: 100%; margin: auto 0;">
@@ -275,30 +216,15 @@
 					<td></td>
 				</tr>
 			</table>
-		</div> 
-		<!--end total_price area-->
-		
-		
-		
-		
-		
-		<!-- 2개의 쇼핑 버튼 -->
-	 	<div class="final_button_area" >
-			<div class="final_button_div" align="center">
-				 <a type="button" class="more_shopping_Btn" onClick="location.href='/slime/index.jsp'">계속 쇼핑하기</a>
-				 <a type="button" class="item_order_Btn">주문하기</a>
-			</div>
-		</div><!-- button_div -->
-		<!-- end 장바구니 담겼을때 -->
-		
-		<!-- 1개의 쇼핑 버튼 -->
-		<!-- <div class="final_button_area" >
-			<div class="final_button_div2" align="center">
-				 <a type="button" class="more_shopping_Btn" onClick="location.href='/slime/index.jsp'">계속 쇼핑하기</a>
-			</div>
-		</div> -->
-		<!-- end 장바구니 안담겼을때 -->
-		
+		</div><!-- total_price area-->
+
+			<!-- 2개의 쇼핑 버튼 -->
+			<div class="final_button_area" >
+				<div class="final_button_div" align="center">
+					 <a type="button" class="more_shopping_Btn" onClick="location.href='/slime/index.jsp'">계속 쇼핑하기</a>
+					 <a type="button" class="item_order_Btn">주문하기</a>
+				</div>
+			</div><!-- button_div -->
 		
 		<!-- 위시리스트 -->
 		<div class="wishlist_area">
@@ -313,64 +239,280 @@
 				
 				<!-- 선택한 위시리스트 상품 -->
 				<div class="selected_item">
+				
+				
+				
+				
 					<div class="wishlist_item_form">
+					
 							<img class="wishlist_item_img" src="/slime/image/img4.jpg" />
+							
 						<div class="item_explain_form">
+						
 							<div class="item_name">[크리스탈 슬라임]${goods_title }</div>
 							<div class="item_present_price"><del>${goods_price }원</del><b> ${goods_sales_price }원</b></div>
 							<div class="item_status">sale MD HOT</div>
+							
 						</div><!-- end item_explain_form -->
+						
+						
 					</div><!-- end wishlist_item_form -->
+					
 				</div><!-- end selected_item -->
-			
-		</div><!-- end wishlist -->
+				
+		</div><!-- end wishlist area-->
 		
 		
 	</div><!-- end cart_content -->
 
 </div><!-- end cart_box -->
-</div><!-- end content -->
+</div><!-- end content -->		
+
+
+		
+<!-- <div style="float: left;">
+	<input type="button" value="선택삭제" id="choiceDeleteBtn">
+</div>
+
+<div id="imageboardPagingDiv" style="float: left; width: 600px; text-align: center;"></div>
+ -->
+
 </form>
-
-
-  <!-- footer Start -->
-
-   <div class="footer">
-   
-   		<div class="footerArea" align="center">
-   		
-	   		<div class="footer_icons">
-	              <ul class="social-links">
-	                  <li><a href="#"><ion-icon class="ion-social-facebook" name="logo-facebook"></ion-icon></a></li>
-	                  <li><a href="#"><ion-icon class="ion-social-instagram" name="logo-instagram"></ion-icon></a></li>
-	                  <li><a href="#"><ion-icon class="ion-social-twitter" name="logo-twitter"></ion-icon></a></li>
-	              </ul>
-	         </div>
-	         
-   			 <div class="site_info_div">
-			     <p> Copyright 2018. <b>우주슬라임</b> All rights reserved</p>
-			     <a class="terms_and_conditions">이용약관</a> <b><a class="personal_information_policy">개인정보처리방침</a></b>
-		     </div>
-     </div> <!-- end footerArea-->
-   </div><!-- footer  -->
- 
-
-
-
 </body>
 </html>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="/slime/js/cart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type: 'post',
+		url: '/spring/imageboard/getImageboardList',
+		data: 'pg=${pg}',
+		dataType: 'json',
+		success : function(data){
+			console.log(data);
+			
+			$.each(data.list, function(index, items){
+				
+				$('<tr/>').append($('<td/>',{ //체크박스 div
+					class: 'part_checkbox'
+					
+					}).append($('<input/>',{ 
+						type: 'checkbox',
+						class: 'part_checkbox_click',
+						id: 'part_check'
+					}))
+					
+					
+				).append($('<td/>',{ // 상품 이미지 + 상품 타이틀 div
+						class: 'item_info_detail'
+					
+					}).append($('<a/>', {
+						class:'cart_selected_item' 
+						}
+					
+					).append($('<img/>',{
+						src: '/spring/storage/'+items.image1,
+						class: 'cart_item_img'
+					}))
+					).append($('<div/>',{
+						class: 'item_view_name_div'
+						}).append($('<a/>',{
+							class: 'item_view_name',
+							text: "[크리스탈 슬라임]레몬아작" //추후에 값 변경해줘야함 (문자열 안먹힘)
+							
+						})))//end div 
+					
+					
+					
+				).append($('<td/>',{
+					class: 'wish_icon'
+					}).append($('<a/>',{
+						class: 'a_wish_icon',
+						id: 'a_wish_icon'}
+					).append($('<i/>',{
+						id: 'far',
+						class: 'far fa-heart'}))) 
+						
+				).append($('<td/>',{//수량
+					class: 'quantity_detail'
+					}).append($('<div/>',{
+						class: 'quantity_kind'
+						
+					}).append($('<div/>',{
+								text: ${order_goods_qty}
+						})).append($('<a/>',{ 
+							id: 'quantity_change_Btn',
+							class: 'quantity_change_Btn',
+							href: '/spring/imageboard/quantityForm.jsp',
+							rel: 'modal:open',
+							//data-toggle: 'modal',
+							//data-target: '#modal',
+							role: 'button',
+							text: '변경'
+						
+					})).append($('<div/>',{
+						class: 'modal-dialog'
+					}).append($('<div/>',{
+						class: 'modal-content'
+					})))
+						
+						)
+						
+				).append($('<td/>',{ //배송수단
+					class: 'deliv_way'
+					
+					}).append($('<div/>',{ 
+							class: 'deliv_way_text',
+							text: '택배'
+					}))
+					
+				).append($('<td/>',{//배송비
+					class: 'deliv_fee_direction'
+					
+					}).append($('<div/>',{ 
+							class: 'deliv_fee_detail',
+							text: ${goods_deli_price}
+						
+					}).append($('<br>')
+					).append($('<a/>',{
+							class: 'a_deliv_fee_info',
+							id: 'a_deliv_fee_info',
+							style: 'cursor:pointer;',
+							//onclick: //onClick안먹음
+							
+					}).append($('<i/>',{
+							class: 'far fa-question-circle'
+							})))
+				
+				)).append($('<td/>',{//가격 
+					class: 'price'
+					
+					}).append($('<div/>',{ 
+							class: 'price_div',
+							text: ${goods_sales_price}
+					}))
+				
+				
+				).append($('<td/>',{// 주문/삭제 버튼 
+					class: 'order_delete_Btn_area'
+					
+					}).append($('<div/>',{ 
+							class: 'order_and_delete'
+						
+					}).append($('<a/>',{
+							type: 'button',
+							class: 'order_Btn',
+							id: 'order_Btn',
+							text: '주문'
+							})
+					 ).append($('<a/>',{
+						 	type: 'button',
+						 	class: 'delete_Btn',
+						 	id: 'delete_Btn',
+						 	text: '삭제'
+						 }))
+				
+				)).appendTo($('#cart_List_table'));  
+				
+				
+					$('#a_wish_icon').on('click', function(){
+					    
+					    
+					    if($('#far').attr('class') == 'fas fa-heart' ){//검정하트면 흰 하트로
+					  	    console.log("데이터가 있어요!" );
+					    	$('#far').attr('class', 'far fa-heart'); //흰색 하트
+					    	console.log("데이터가 없애야한다" );
+					    	
+					    }else if($('#far').attr('class') == 'far fa-heart' ){//흰하트면 검정하트로
+					    	console.log("데이터가 없어요" );
+					    	 $('#far').attr('class', 'fas fa-heart'); //검정 하트
+					    	 console.log("데이터를 넣어야한다!!" );
+					    	 
+					    }
+					  
+					});
+				
+				
+				//이미지 보기
+				$('.'+items.seq).click(function(){
+					location.href = '/spring/imageboard/imageboardView?seq='+items.seq+'&pg='+data.pg;            
+				});
+				
+			});//each
+			
+			//패이징 처리
+			$('#imageboardPagingDiv').html(data.imageboardPaging.pagingHTML);
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
+
+
+
+
+function imageboardPaging(pg){
+	location.href="imageboardList?pg="+pg;
+}
+
+//전체 선택 또는 해제
+$('#check_all').click(function(){
+	//alert($('#all').attr('checked')); - checked 속성이 없어서 undefind으로 나온다
+	//alert($('#all').prop('checked')); - true, false
+	
+	if($('#check_all').prop('checked'))
+		$('input[id=part_check]').prop('checked', true);
+	else
+		$('input[id=part_check]').prop('checked', false);
+});
+
+//선택 삭제
+$('#delete_Btn').click(function(){
+	let count = $('input[id=part_check]:checked').length;
+	
+	if(count == 0)
+		alert('삭제할 항목을 선택하세요');
+	else{
+		if(confirm('정말로 삭제하시겠습니까?')){
+			$('#imageboardListForm').submit();
+		}
+	}
+});
+
+
+
+</script>
+
+<%--
+attr()
+- HTML에 작성된 속성값을 문자열로 받아온다
+
+prop()
+- 자바스크립트의 프로퍼티를 가져온다
+- 자바스크립트의 프로퍼티 값이 넘어오므로 boolean, date, function등을 가져올 수 있다
+
+[형식]
+prop(key)          -> 속성값을 가져온다
+prop(key, value)   -> 속성값을 추가한다
+
+[실습] exam04.html
+ --%>
+
+
+
+
+
+
+
+
+
+
+
+
+

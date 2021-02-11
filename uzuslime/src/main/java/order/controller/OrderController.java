@@ -30,11 +30,9 @@ public class OrderController{
 	@Autowired
 	private OrderService orderService;
 	
-	
-	
 	//[Controller1] 상품 상세 페이지에서 한 개의 상품을 주문하는 경우 주문페이지 표시
 	@RequestMapping(value="/orderOneGoodsForm", method=RequestMethod.POST)
-	public ModelAndView orderOneGoodsForm(@ModelAttribute GoodsDTO goodsDTO, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView orderOneGoodsForm(@RequestParam Map map, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		//로그인 시 session에 담은 회원아이디를 가지고 로그아웃상태인지 로그인 상태인지 확인
 		//로그아웃 상태면 제품 정보를 담아 로그인 화면으로 이동
@@ -48,45 +46,38 @@ public class OrderController{
 		
 		
 		
-		if(memId == null | memId == "") {//로그인 되어있지 않은 경우
-			session.setAttribute("goodsOrderInfo", goodsDTO);//제품 상세페이지에서 구매하려한 제품의 정보를 담음
-			session.setAttribute("action", "/order/orderOneGoodsForm");//로그인 후 다시 결제하기 페이지로 갈 수 있도록 함
-			return new ModelAndView("redirect:/member/memberLoginForm"); //로그인 할 수 있게 로그인폼으로 연결
-		}else { //로그인 되어있는 경우
-			if(action != null && action.equals("/order/orderOneGoodsForm")) { //로그인 페이지로 갔다가 다시 돌아온 경우 여기로 이동
-				session.removeAttribute("action"); //본 컨트롤러로 다시 오지 못하도록 해당 세션 삭제
-				goodsDTO = (GoodsDTO) session.getAttribute("goodsOrderInfo"); //로그인 화면으로 가기전에 session에 담아두었던 제품 정보를 다시 DTO에 저장(ArrayList에 담아주기 위해)
-
-				//강사님께 질문
-//				OrderDTO orderDTO = new OrderDTO();
-//				orderDTO.setMember_id(memberDTO.getMember_id());
-//				orderDTO.setGoods_id(goodsDTO.getGoods_id()); //★★★★★Goods | getter명 확인
-//				orderDTO.setGoods_title(goodsDTO.getGoods_title()); //★★★★★Goods | getter명 확인
-//				orderDTO.setOrder_goods_qty(goodsDTO.getOrder_goods_qty); //★★★★★Goods | getter명 확인
-//				orderDTO.setGoods_filename(goodsDTO.getGoods_filename); //★★★★★Goods | getter명 확인
-//				orderDTO.set
-			}	
-			
-			//결제하기 폼으로 상품상세정보와 회원정보를 담을 그릇
-//			Map<String, Object> map = new HashMap<String, Object>();
-//			map.put("goodsDTO", goodsDTO);
-//			map.put("memberDTO", memberDTO);
-//			mav.addObject(map);
-			
-			
-			//로그인한 회원정보를 담을 그릇 ★★★★★ 그냥 session에 담긴 내용 사용할지?
-			MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
-			ModelAndView mav = new ModelAndView();
-			OrderDTO orderDTO = new OrderDTO();
-			orderDTO.setDetail_or_cart(1);
-			mav.addObject(orderDTO);
-			mav.addObject(goodsDTO);
-			mav.addObject(memberDTO);
-			mav.setViewName("/order/order"); //"/order/order.jsp?"
-			return mav;
-		}
+//		if(memId == null | memId == "") {//로그인 되어있지 않은 경우
+//			session.setAttribute("goodsOrderInfo", goodsDTO);//제품 상세페이지에서 구매하려한 제품의 정보를 담음
+//			session.setAttribute("action", "/order/orderOneGoodsForm");//로그인 후 다시 결제하기 페이지로 갈 수 있도록 함
+//			return new ModelAndView("redirect:/member/memberLoginForm"); //로그인 할 수 있게 로그인폼으로 연결
+//		}else { //로그인 되어있는 경우
+//			if(action != null && action.equals("/order/orderOneGoodsForm")) { //로그인 페이지로 갔다가 다시 돌아온 경우 여기로 이동
+//				session.removeAttribute("action"); //본 컨트롤러로 다시 오지 못하도록 해당 세션 삭제
+//				goodsDTO = (GoodsDTO) session.getAttribute("goodsOrderInfo"); //로그인 화면으로 가기전에 session에 담아두었던 제품 정보를 다시 DTO에 저장(ArrayList에 담아주기 위해)
+//
+//				
+//			}	
+//			
+//			//결제하기 폼으로 상품상세정보와 회원정보를 담을 그릇
+////			Map<String, Object> map = new HashMap<String, Object>();
+////			map.put("goodsDTO", goodsDTO);
+////			map.put("memberDTO", memberDTO);
+////			mav.addObject(map);
+//			
+//			
+//			//로그인한 회원정보를 담을 그릇 ★★★★★ 그냥 session에 담긴 내용 사용할지?
+//			MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
+//			ModelAndView mav = new ModelAndView();
+//			OrderDTO orderDTO = new OrderDTO();
+//			orderDTO.setDetail_or_cart(1);
+//			mav.addObject(orderDTO);
+//			mav.addObject(goodsDTO);
+//			mav.addObject(memberDTO);
+//			mav.setViewName("/order/order"); //"/order/order.jsp?"
+//			return mav;
+//		}
 		
-		
+		return null;
 
 		//로그인 기능과 조합 후 하기(로그아웃 상태일때 로그인 화면으로 이동, 로그인 상태면 폼으로 이동)
 		//1. GoodsDTO 매개변수 추가 및 @ModelAttribute 선언 - 주문하는 상품 정보 받기
@@ -94,7 +85,7 @@ public class OrderController{
 		//3. 매개변수에 HttpSession 추가
 		//HttpSession session = request.getSession();
 		
-	}
+	}//[Controller1]orderOneGoodsForm
 	 
 	
 	
@@ -162,32 +153,58 @@ public class OrderController{
 		//request.setCharacterEncoding("UTF-8");
 		//HttpSession session = request.getSession(); //세션생성
 		
+		//결제 방법에 따라 다른 곳으로 이동
+		//1. 176~182번줄 jQuery에서 if문으로 처리, 안되는 경우 주석지우기
 		
 		//데이터 값 정상 입력 확인용(나중에 삭제)
 		//System.out.println(_orderDTO.getGoods_id());
 		orderService.orderOneGoods(orderDTO); //결체창에서 넘어온 값들이 담긴 orderDTO객체
 		System.out.println("orderController - orderDTO" + orderDTO.getOrderer_name());
 		ModelAndView mav = new ModelAndView();
+		mav.addObject(orderDTO);
 		
-		if(orderDTO.getPay_method().equals("kakao")) {
-			mav.addObject(orderDTO);
-			mav.setViewName("/order/kakao");
-			
-		}else if(orderDTO.getPay_method().equals("iche")){
-			
-			
-		}
+		
+//		if(orderDTO.getPay_method().equals("kakao")) { //결제수단으로 카카오페이가 선택되어있으면 카카오페이로 연결
+//			mav.setViewName("/order/kakao");
+//			
+//		}else{ //결제수단으로 무통장입금이 선택되어 있으면 주문확인 화면으로 이동
+//			//★★★★★★★추후, 계좌이체/신용카드는 별도 구현예정
+//			mav.setViewName("/order/payToOrderGoods");
+//		}
 		
 		return mav;
 	}
 		
 	
-	//[Controller4]결제 완료 후 주문결과 표시
+	//----------------------------------------------카카오 페이----------------------------------------------------
+	//[Controller4] 결제방법으로 카카오페이를 선택한 경우 카카오페이 API로 연결
+	@RequestMapping(value="/kakaoPayReady", method=RequestMethod.POST)
+	public void kakaoPayReady(Map<String,String> map, HttpServletRequest request, HttpServletResponse response) {
+		
+		//확인사항
+		//1. 파라미터
+		//결제버튼 클릭 후 DB에 저장된 내용을 orderDTO로 받아오기
+		//2. 반환값
+		//mav.setViewName 확인하기
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject(orderDTO);
+//		mav.setViewName("/order/kakaopay.jsp");
+//		return mav;
+		
+		orderService.kakaoPayReady(map);
+		
+	}
+	
+	
+	//----------------------------------------------카카오 페이 끝----------------------------------------------------
+	
+	//[Controller5] 결제 완료 후 주문결과 표시
 	@RequestMapping(value="/payToOrderGoods", method=RequestMethod.POST)
 	public ModelAndView payToOrderGoods(@RequestParam Map<String, String> payMap, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
-		return null;
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/order/orderPayResult");
+		return mav;
 	}
 
 

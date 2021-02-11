@@ -1,3 +1,4 @@
+//제품등록 - goodsWireForm 의 value="이미지등록" id="goodsWriteBtn"
 $('#goodsWriteBtn').click(function(){
 	$('#goods_idDiv').empty();
 	$('#goods_titleDiv').empty();
@@ -36,45 +37,106 @@ $('#goodsWriteBtn').click(function(){
 		$('#goods_contentDiv').css('font-weight','bold');
 					
 	}else{
-		//1/2번
-		//goodsForm 에서 method='post', enctype='multipart/form-data' 추가
-		//servlet-context.xml 에서 resolver 추가
-		//$('#goodsWriteForm').submit();
-		
-		//2/2번
-		let formData = new FormData($('#goodsWriteForm')[0]);	//form 안에 있는모든 data 를 읽어라
-		$.ajax({
+		let formData = new FormData($('#goodsWriteForm')[0]);	                     
+		$.ajax({	
 			type: 'post',
 			enctype: 'multipart/form-data',
-			processData: false,	//데이터를 컨텐트 타입에 맞게 변환 여부
-			contentType: false, //요청 컨텐트 타입	//multipart 이용할수 있도록 contentType을 무시하라는 뜻.
-			url: '/slime/goods/goodsWrite',	//controller 를 거치겠지~!
-			//form들이 여러개 있을 때, forms 사용.
-			//제일위에 있는 form 은 forms의 0번째방처럼 배열로 인식됨.
-			//forms[0], forms[1], forms[2]....
+			processData: false,
+			contentType: false,
+			url: '/slime/goods/goodsWrite',
 			data: formData,			
 			success: function(data){
 				alert("이미지 등록 완료");
 				location.href='/slime/goods/goodsList';				
-			},
+			},//success
 			error: function(err){
 				console.log(err);
-			}
-		});
-	}		
-});
+			}//error
+		});//ajax
+	}//else		
+});//click
 
-/*
-* processData
-- 기본값은 true
-- 기본적으로 query String 으로 변환해서 보내진다.('변수=값&변수=값' : processData 가 true 인 형식)
-그런데 파일전송은 이런식으로 보내지면 안된다.
-파일전송시에는 반드시 processData 값을 false 로 바꿔주어야 한다.(formData 가 문자열로 변환되지 않아야 한다.)
 
-* contentType
-- 기본적으로 "application/x-www-from-urlencode; charset=UTF-8
-- 파일전송시에는 'multipart/form-data' 로 전송이 될 수 있도록 contectType을 false 로 설정한다.
 
-이 두 설정이 안되면 ajax 통신이 안된다.
+//제품정보 수정 - goodsView 의 value="제품정보 수정" id="goodsModifyBtn"
+$('#goodsModifyBtn').click(function(){
+	$('#goods_titleSpanDiv').empty();
+	$('#goods_contentSpanDiv').empty();
 
-*/
+	if($('#goods_titleSpan').val()==''){
+		$('#goods_titleSpanDivDiv').text('제목을 입력하세요');
+		$('#goods_titleSpanDivDiv').css('color','red');
+		$('#goods_titleSpanDivDiv').css('font-size','8pt');
+		$('#goods_titleSpanDivDiv').css('font-weight','bold');
+		
+	}else if($('#goods_contentSpan').val()==''){
+		$('#goods_contentSpanDivDiv').text('내용을 입력하세요')
+		$('#goods_contentSpanDivDiv').css('color','red')
+		$('#goods_contentSpanDivDiv').css('font-size','8pt')
+		$('#goods_contentSpanDivDiv').css('font-weight','bold');
+		
+	}else {
+		$.ajax({
+			type: 'post',
+			url: '/slime/goods/goodsModify',
+			data: $('#goodsModifyForm').serialize(),
+			success: function(){
+				alert('제품정보 수정 완료');
+				location.href='/slime/goods/goodsList?pg='+$('#pg').val();
+			},//success
+			error: function(err){
+				console.log(err);
+			}//error
+		});//ajax
+	}//else		
+});//click
+
+
+//주문수량 버튼
+//+ 버튼을 누르면 수량이 증가하되, 상품의 전체 수량보다 커지지 않음
+$(".plus").click(function(){
+	//alert($('.numbox').val());
+	var num = $('.numbox').val();
+	var plusNum = Number(num) + 1;
+	var stock = $('#stock').val();
+	
+	if(plusNum > stock) {
+		$(".numbox").val(num);
+	} else {
+		$(".numbox").val(plusNum);										
+	}
+});//plus clickBtn
+
+
+// - 버튼을 누르면 수량이 감소하되, 1보다 밑으로 감소하지 않음
+$(".minus").click(function(){
+	//alert($('.numbox').val());
+	var num = $(".numbox").val();
+	var minusNum = Number(num) - 1; 
+	
+	if(minusNum <= 0) {
+		$(".numbox").val(num);
+	} else {
+		$(".numbox").val(minusNum);										
+	}
+});//minus clickBtn
+
+
+
+//주문하기 버튼
+$('#goodsOrderBtn').click(function(){	
+	//alert($('.numbox').val());	//input tag 안에 id 속성의 값
+	//alert($('input[name=numbox]').val());	//input tag 의 name 속성의 값, 만능
+	$.ajax({
+		type: 'post',
+		url: '/slime/order/orderOneGoodsForm',
+		//data: 'kkk='+$('#goods_titleSpan').text(), //여기에 적은에 map
+		data: {'kkk':$('#goods_titleSpan').text(),
+				'aaa':$('input[name=numbox]').val()},
+		dataType: 'json',
+		success: function(data){
+			alert(JSON.stringify(data));
+			console.log(data);
+		}//success
+	});//ajax
+});//click
