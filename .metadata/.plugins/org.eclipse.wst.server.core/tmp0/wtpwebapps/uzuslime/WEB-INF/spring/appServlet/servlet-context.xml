@@ -25,6 +25,7 @@
 	<resources mapping="/image/**" location="/image/" />
 	<resources mapping="/js/**" location="/js/" />	<!-- Dispatcher로 가지말고 바로 .jsp 로 가라고 설정함!! -->
 	<resources mapping="/storage/**" location="/storage/" />
+	<resources mapping="/videos/**" location="/videos/" />
 
    
    <!-- Resolves views -->
