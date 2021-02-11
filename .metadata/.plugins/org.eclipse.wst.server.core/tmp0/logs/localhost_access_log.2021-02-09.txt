@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 127.0.0.1 - - [09/Feb/2021:20:15:18 +0900] "GET / HTTP/1.1" 404 807
 0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:15:19 +0900] "GET /slime/ HTTP/1.1" 200 20852
 0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:15:20 +0900] "GET /image/hero.jpg HTTP/1.1" 404 825
@@ -29,3 +30,45 @@
 0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:16:16 +0900] "POST /slime/goods/getGoodsIndexList HTTP/1.1" 200 21
 0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:16:17 +0900] "GET /slime/member/memberWriteForm HTTP/1.1" 200 3663
 0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:16:40 +0900] "POST /slime/member/sendEmail HTTP/1.1" 200 27
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:17:48 +0900] "GET /slime/index.jsp HTTP/1.1" 200 20852
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:17:48 +0900] "GET /image/hero.jpg HTTP/1.1" 404 825
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:17:48 +0900] "POST /slime/goods/getGoodsIndexList HTTP/1.1" 200 21
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:17:51 +0900] "GET /slime/index.jsp HTTP/1.1" 200 20852
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:17:51 +0900] "GET /image/hero.jpg HTTP/1.1" 404 825
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:17:51 +0900] "POST /slime/goods/getGoodsIndexList HTTP/1.1" 200 21
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:53 +0900] "GET /slime/index.jsp HTTP/1.1" 200 20852
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:53 +0900] "GET /image/hero.jpg HTTP/1.1" 404 825
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:53 +0900] "POST /slime/goods/getGoodsIndexList HTTP/1.1" 200 714
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:53 +0900] "GET /slime/storage/s01m HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:55 +0900] "GET /slime/goods/goodsIndexView?seq=1&pg=undefined HTTP/1.1" 200 5857
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:56 +0900] "GET /slime/css/myPageOrder.css HTTP/1.1" 200 5012
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:56 +0900] "POST /slime/goods/getGoodsView HTTP/1.1" 200 716
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:56 +0900] "GET /slime/storage/s01m HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:56 +0900] "GET /slime/storage/s01s HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:21:56 +0900] "GET /slime/storage/s01e HTTP/1.1" 404 721
+=======
+127.0.0.1 - - [09/Feb/2021:20:37:30 +0900] "GET / HTTP/1.1" 404 807
+127.0.0.1 - - [09/Feb/2021:20:39:15 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:17 +0900] "GET /slime/ HTTP/1.1" 200 20852
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:17 +0900] "GET /image/hero.jpg HTTP/1.1" 404 825
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:17 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:18 +0900] "POST /slime/goods/getGoodsIndexList HTTP/1.1" 200 714
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:18 +0900] "GET /slime/storage/s01m HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:22 +0900] "GET /slime/member/memberLoginForm HTTP/1.1" 200 2270
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:22 +0900] "GET /slime/js/member.js?ver=1 HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:26 +0900] "POST /slime/member/login HTTP/1.1" 200 7
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:26 +0900] "GET /slime/index.jsp HTTP/1.1" 200 20884
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:26 +0900] "POST /slime/goods/getGoodsIndexList HTTP/1.1" 200 714
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:26 +0900] "GET /slime/storage/s01m HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:26 +0900] "GET /image/hero.jpg HTTP/1.1" 404 825
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:28 +0900] "GET /slime/qna/qnaBoardList HTTP/1.1" 200 4418
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:28 +0900] "POST /slime/qna/getBoardList HTTP/1.1" 200 800
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:31 +0900] "GET /slime/qna/qnaView?seq=26&pg=1 HTTP/1.1" 200 7589
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:31 +0900] "GET /slime/css/qnaView.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:31 +0900] "POST /slime/qna/getBoard HTTP/1.1" 200 172
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:39 +0900] "GET /slime/qna/qnaBoardList HTTP/1.1" 200 4418
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:39 +0900] "POST /slime/qna/getBoardList HTTP/1.1" 200 800
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:41 +0900] "GET /slime/member/logout HTTP/1.1" 200 20852
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:41 +0900] "POST /slime/goods/getGoodsIndexList HTTP/1.1" 200 714
+0:0:0:0:0:0:0:1 - - [09/Feb/2021:20:39:41 +0900] "GET /slime/storage/s01m HTTP/1.1" 404 721
+>>>>>>> gaeB

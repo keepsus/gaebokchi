@@ -84,6 +84,14 @@
 	</select>
  
  
+ 	
+	<!--
+	goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것
+ 	<select id="getGdsView" parameterType="int" resultType="goods">
+		select * from t_shopping_goods where seq=#{seq}
+	</select>
+ 	-->
+ 
  
  
  

@@ -62,6 +62,15 @@ public class GoodsDAOMybatis implements GoodsDAO {
 		return sqlSession.selectOne("goodsSQL.getGoods", Integer.parseInt(seq));
 	}
 
+	
+	
+	/* goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것
+	@Override
+	public GoodsDTO getGdsView(String seq) {
+		return sqlSession.selectOne("goodsSql.getGdsView", Integer.parseInt(seq));
+	}
+	*/
+
 
 	
 	
