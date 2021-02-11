@@ -34,8 +34,8 @@ public class OrderController{
 	
 	//[Controller1] 상품 상세 페이지에서 한 개의 상품을 주문하는 경우 주문페이지 표시
 	@RequestMapping(value="/orderOneGoodsForm", method=RequestMethod.POST)
-	public ModelAndView orderOneGoodsForm(@ModelAttribute GoodsDTO goodsDTO, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+	public ModelAndView orderOneGoodsForm(@RequestParam Map map,  HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println(map);
 		//로그인 시 session에 담은 회원아이디를 가지고 로그아웃상태인지 로그인 상태인지 확인
 		//로그아웃 상태면 제품 정보를 담아 로그인 화면으로 이동
 		//로그인이 되면 결제하기 폼으로 이동
@@ -48,24 +48,24 @@ public class OrderController{
 		
 		
 		
-		if(memId == null | memId == "") {//로그인 되어있지 않은 경우
-			session.setAttribute("goodsOrderInfo", goodsDTO);//제품 상세페이지에서 구매하려한 제품의 정보를 담음
-			session.setAttribute("action", "/order/orderOneGoodsForm");//로그인 후 다시 결제하기 페이지로 갈 수 있도록 함
-			return new ModelAndView("redirect:/member/memberLoginForm"); //로그인 할 수 있게 로그인폼으로 연결
-		}else { //로그인 되어있는 경우
-			if(action != null && action.equals("/order/orderOneGoodsForm")) { //로그인 페이지로 갔다가 다시 돌아온 경우 여기로 이동
-				session.removeAttribute("action"); //본 컨트롤러로 다시 오지 못하도록 해당 세션 삭제
-				goodsDTO = (GoodsDTO) session.getAttribute("goodsOrderInfo"); //로그인 화면으로 가기전에 session에 담아두었던 제품 정보를 다시 DTO에 저장(ArrayList에 담아주기 위해)
-
-				//강사님께 질문
-//				OrderDTO orderDTO = new OrderDTO();
-//				orderDTO.setMember_id(memberDTO.getMember_id());
-//				orderDTO.setGoods_id(goodsDTO.getGoods_id()); //★★★★★Goods | getter명 확인
-//				orderDTO.setGoods_title(goodsDTO.getGoods_title()); //★★★★★Goods | getter명 확인
-//				orderDTO.setOrder_goods_qty(goodsDTO.getOrder_goods_qty); //★★★★★Goods | getter명 확인
-//				orderDTO.setGoods_filename(goodsDTO.getGoods_filename); //★★★★★Goods | getter명 확인
-//				orderDTO.set
-			}	
+//		if(memId == null | memId == "") {//로그인 되어있지 않은 경우
+//			session.setAttribute("goodsOrderInfo", goodsDTO);//제품 상세페이지에서 구매하려한 제품의 정보를 담음
+//			session.setAttribute("action", "/order/orderOneGoodsForm");//로그인 후 다시 결제하기 페이지로 갈 수 있도록 함
+//			return new ModelAndView("redirect:/member/memberLoginForm"); //로그인 할 수 있게 로그인폼으로 연결
+//		}else { //로그인 되어있는 경우
+//			if(action != null && action.equals("/order/orderOneGoodsForm")) { //로그인 페이지로 갔다가 다시 돌아온 경우 여기로 이동
+//				session.removeAttribute("action"); //본 컨트롤러로 다시 오지 못하도록 해당 세션 삭제
+//				goodsDTO = (GoodsDTO) session.getAttribute("goodsOrderInfo"); //로그인 화면으로 가기전에 session에 담아두었던 제품 정보를 다시 DTO에 저장(ArrayList에 담아주기 위해)
+//
+//				//강사님께 질문
+////				OrderDTO orderDTO = new OrderDTO();
+////				orderDTO.setMember_id(memberDTO.getMember_id());
+////				orderDTO.setGoods_id(goodsDTO.getGoods_id()); //★★★★★Goods | getter명 확인
+////				orderDTO.setGoods_title(goodsDTO.getGoods_title()); //★★★★★Goods | getter명 확인
+////				orderDTO.setOrder_goods_qty(goodsDTO.getOrder_goods_qty); //★★★★★Goods | getter명 확인
+////				orderDTO.setGoods_filename(goodsDTO.getGoods_filename); //★★★★★Goods | getter명 확인
+////				orderDTO.set
+//			}	
 			
 			//결제하기 폼으로 상품상세정보와 회원정보를 담을 그릇
 //			Map<String, Object> map = new HashMap<String, Object>();
@@ -74,18 +74,18 @@ public class OrderController{
 //			mav.addObject(map);
 			
 			
-			//로그인한 회원정보를 담을 그릇 ★★★★★ 그냥 session에 담긴 내용 사용할지?
-			MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
-			ModelAndView mav = new ModelAndView();
-			OrderDTO orderDTO = new OrderDTO();
-			orderDTO.setDetail_or_cart(1);
-			mav.addObject(orderDTO);
-			mav.addObject(goodsDTO);
-			mav.addObject(memberDTO);
-			mav.setViewName("/order/order"); //"/order/order.jsp?"
-			return mav;
+//			//로그인한 회원정보를 담을 그릇 ★★★★★ 그냥 session에 담긴 내용 사용할지?
+//			MemberDTO memberDTO = (MemberDTO) session.getAttribute("memDTO"); //★★★★★이 부분 Login담당자와 협의 후 담아달라고 해야함, Session에 있는 내용을 사용하는게 좋을지 MemberDTO에 담아 Map을 사용할지?
+//			ModelAndView mav = new ModelAndView();
+//			OrderDTO orderDTO = new OrderDTO();
+//			orderDTO.setDetail_or_cart(1);
+//			mav.addObject(orderDTO);
+//			mav.addObject(goodsDTO);
+//			mav.addObject(memberDTO);
+//			mav.setViewName("/order/order"); //"/order/order.jsp?"
+			return null;
 		}
-		
+//		
 		
 
 		//로그인 기능과 조합 후 하기(로그아웃 상태일때 로그인 화면으로 이동, 로그인 상태면 폼으로 이동)
@@ -94,7 +94,7 @@ public class OrderController{
 		//3. 매개변수에 HttpSession 추가
 		//HttpSession session = request.getSession();
 		
-	}
+	
 	 
 	
 	
