@@ -33,7 +33,7 @@ public class OrderController{
 	//[Controller1] 상품 상세 페이지에서 한 개의 상품을 주문하는 경우 주문페이지 표시
 	@RequestMapping(value="/orderOneGoodsForm", method=RequestMethod.POST)
 	public ModelAndView orderOneGoodsForm(@RequestParam Map map, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+		System.out.println(map);
 		//로그인 시 session에 담은 회원아이디를 가지고 로그아웃상태인지 로그인 상태인지 확인
 		//로그아웃 상태면 제품 정보를 담아 로그인 화면으로 이동
 		//로그인이 되면 결제하기 폼으로 이동

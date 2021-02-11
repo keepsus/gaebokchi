@@ -118,7 +118,7 @@ function closeNav() {
 <!-- ↑↑↑↑↑side menu 모달창으로 쓰려면 필요↑↑↑↑↑ -->
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src= "../js/goods.js"></script>
+<script type="text/javascript" src= "/slime/js/goods.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({

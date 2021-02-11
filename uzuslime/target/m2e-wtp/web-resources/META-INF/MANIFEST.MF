@@ -1,13 +1,5 @@
-<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: Yunjoo
 Build-Jdk: 1.8.0_261
 Created-By: Maven Integration for Eclipse
 
-=======
-Manifest-Version: 1.0
-Built-By: puppe
-Build-Jdk: 1.8.0_261
-Created-By: Maven Integration for Eclipse
-
->>>>>>> f688acd568daadf21cbd16fbf2f9a5f286f865a9
