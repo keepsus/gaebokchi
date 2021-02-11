@@ -41,18 +41,30 @@
 	<div class="row">
 	
 		<div class="nav">
-			<img id="goods_image0" width="200" height="200">
-			<img id="goods_image1" width="200" height="200"> 	
+			<img id="goods_image0" alt="제품 메인 이미지" width="200" height="200">
+			<img id="goods_image1" alt="제품 서브 이미지"width="200" height="200"> 	
 		</div>   
 		
 		<div class="section">
 			상품명: <span id="goods_titleSpan" name="goods_titleSpan"></span><br>
-			제품가격 : <span id="goods_priceSpan" name="goods_priceSpan"></span>
-			할인가격 : <span id="goods_sales_priceSpan" name="goods_sales_priceSpan"></span><br>
-			<span id="goods_contentSpan" name="goods_contentSpan"></span>
+			제품가격 : <span id="goods_priceSpan" name="goods_priceSpan"></span> 원<br>
+			할인가격 : <span id="goods_sales_priceSpan" name="goods_sales_priceSpan"></span> 원<br>
+			제품설명 : <span id="goods_contentSpan" name="goods_contentSpan"></span><br>
 			원산지 : <span id="goods_countrySpan" name="goods_countrySpan"></span><br>
-			적립포인트 : <span id="goods_pointSpan" name="goods_pointSpan"></span><br>
-			배송비 : <span id="goods_deli_priceSpan" name="goods_deli_priceSpan"></span>	
+			적립포인트 : <span id="goods_pointSpan" name="goods_pointSpan"></span> 포인트<br>
+			배송비 : <span id="goods_deli_priceSpan" name="goods_deli_priceSpan"></span> 원<br>
+			재고수량 : <span id="goods_qtySpan" name="goods_qtySpan" pattern="#,###"></span> EA<br>
+			재고수량 : <span id="goods_qtySpan" name="goods_qtySpan" pattern="#,###"></span> EA<br>
+			<!-- 강사님 알려주신 소스, max 확인용 코드 -->
+			<input type="hidden" id="stock" value="">
+			
+			<!-- 참고소스 시작부분 -->								
+			<p class="cartStock">
+				<span>구입 수량</span>
+				<button type="button" class="plus">+</button>
+				<span id="numboxSpan" name="numbox"></span>
+				<button type="button" class="minus">-</button>
+			</p>	
 		</div>
 	
 		<input type="button" value="목록" onclick="location.href='goodsIndexList?pg=${pg }'">
@@ -60,7 +72,7 @@
 		<input type="button" value="장바구니" id="goodsCartBtn">
 		
 		<div class="detailInformation">
-			<img id="goods_image2" alt="s01e 제품상세 설명">			
+			<img id="goods_image2" alt="제품상세 설명">			
 		</div>
 	</div>
 
@@ -90,7 +102,7 @@
 </footer>
 
 
-<!-- side menu 모달창으로 쓰려면 필요 -->
+<!-- ↓↓↓↓↓side menu 모달창으로 쓰려면 필요↓↓↓↓↓  -->
 <script>
 function openNav() {
 	document.getElementById('mySideNav').style.width = '250px';
@@ -100,13 +112,13 @@ function closeNav() {
 }
 </script>
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script><!---->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script><!---->
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
+<!-- ↑↑↑↑↑side menu 모달창으로 쓰려면 필요↑↑↑↑↑ -->
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src= "../js/goods.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
@@ -115,8 +127,13 @@ $(document).ready(function(){
 		data: 'seq=${seq}',
 		dataType: 'json',
 		success: function(data){			
-			console.log(data);
-						
+			//console.log(data);
+			
+			/* --id에 한 곳에만 값이 입력됨, 만약 goods_qty 값을 여러곳에 쓰고 싶으면 받는 곳의 id 값을 각각 다르게 잡아 줘야 한다.
+			$('#goods_qtySpan').text(data.goodsDTO.goods_qty);
+			$('#goods_qtySpanAA').text(data.goodsDTO.goods_qty);
+			*/
+			
 			$('#goods_image0').attr('src', '../storage/'+data.goodsDTO.goods_image0);
 			$('#goods_image1').attr('src', '../storage/'+data.goodsDTO.goods_image1);
 			$('#goods_image2').attr('src', '../storage/'+data.goodsDTO.goods_image2);
@@ -127,27 +144,27 @@ $(document).ready(function(){
 			$('#goods_countrySpan').text(data.goodsDTO.goods_country);
 			$('#goods_pointSpan').text(data.goodsDTO.goods_point);
 			$('#goods_deli_priceSpan').text(data.goodsDTO.goods_deli_price);
+			$('#goods_qtySpan').text(data.goodsDTO.goods_qty);
 			
-		},
+			$('#stock').val(data.goodsDTO.goods_qty); //max 확인용 코드
+		
+			/*
+			구매수량 부분 - 
+			-. json 으로 작업을 하면 방법이 없어서, 지저분하지만 html 에다가 소스를 모두 넣음. -> 구동은 됨
+			-. https://kuzuro.blogspot.com/2018/10/15_13.html-> 얘 처럼하면 json 사용하지 않고 java_ee 때 처럼 객체로 받아오는 거임.
+			-. spaceBar 도 모두 인식함. 다 붙여서 코드작성 할 것!!!
+			-. 이렇게 하면 'goods_qty' 사용할 때마다 아래 처럼 써야한다... 
+			*/
+			if(data.goodsDTO.goods_qty == 0) {
+				$('#numboxSpan').text("재고가 없습니다.");
+			}else{
+				$('#numboxSpan').html('<input type="number" name="numbox" class="numbox" min="1" value="1" max="'+data.goodsDTO.goods_qty+'" readonly>');
+			}
+		},//success
+		
 		error: function(err){
 			console.log(err);
-		}
-	});
-});
-
-
-//주문하기 버튼
-$('#goodsOrderBtn').click(function(){	
-	$.ajax({
-		type: 'post',
-		url: '/slime/order/orderOneGoodsForm',
-		data: $('#goodsIndexViewForm').serialize(),
-		dataType: 'text',
-		success: function(data){
-			alert(data);
-		}//success
-	});//ajax
-	
-});//click
-
+		}//error
+	});//ajax	
+});//ready
 </script>

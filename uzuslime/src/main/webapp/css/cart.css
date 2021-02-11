@@ -75,35 +75,38 @@ html {
 }
 .item_info{
 	padding-left: 10px;
-	width: 500px;
+	width: 450px;
 	height: 50px;
 	text-align: left;
 	margin: 25px 8px;
 }
 .wish_info{
 	width: 70px;
-	text-align: left;
+	text-align: center;
 	margin-top: 10px;
+
 }
 .quantity_info{
 	width: 70px;
-	text-align: left;
+	text-align: center;
 	margin-top: 10px;
 }
 .deliv_way_info{
-	width: 100px;
-	text-align: left;
+	width: 120px;
+	text-align: center;
 	margin-top: 10px;
 }
 .deliv_fee_info{
-	width: 150px;
-	text-align: left;
+	width: 120px;
+	text-align: center;
 	margin-top: 10px;
+	
 }
 .price_info{
 	width: 150px;
-	text-align: left;
 	margin-top: 10px;
+	text-align: center;
+	
 }
 /* ****************************************************** */
 /* ÃƒÂ¬Ã…Â¾Ã‚Â¥ÃƒÂ«Ã‚Â°Ã¢â‚¬ÂÃƒÂªÃ‚ÂµÃ‚Â¬ÃƒÂ«Ã¢â‚¬Â¹Ã‹â€ ÃƒÂ¬Ã¢â‚¬â€Ã‚Â ÃƒÂ«Ã¢â‚¬Å¾Ã‚Â£ÃƒÂ¬Ã‚ÂÃ¢â€šÂ¬ ÃƒÂ«Ã‚Â¦Ã‚Â¬ÃƒÂ¬Ã…Â Ã‚Â¤ÃƒÂ­Ã…Â Ã‚Â¸ */
@@ -116,6 +119,9 @@ html {
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
 }
+
+
+
 
 .empty_cart{
 	
@@ -157,7 +163,7 @@ html {
 
 
 .part_checkbox{
-	padding-left: 8px;
+	padding-left: 20px;
 	align: center;
 	width: 30px;
 	height: 100px;
@@ -168,10 +174,8 @@ html {
 }
 
 .item_info_detail{
-	width: 480px;
+	width: 450px;
 	height: 100px;
-
-	
 }
 .cart_selected_item{
 	margin: 10px 5px;
@@ -183,7 +187,7 @@ html {
 	cursor: pointer;
 }
 .item_view_name_div{
-	margin-top: 20px;
+	width: 300px;
 	float: left;
 }
 
@@ -206,6 +210,7 @@ html {
 .a_wish_icon{
 	font-size:20px;
 	color: black;
+	cursor: pointer;
 }
 
 
@@ -244,7 +249,7 @@ html {
 	
 }
 .deliv_way_text{
-	padding-left: 40px;
+	padding-left: 50px;
 	
 }
 .deliv_fee{
@@ -253,37 +258,40 @@ html {
 	text-align: center;
 	
 }
-.deliv_fee_detail_direction{
-	text-align: left;
+.deliv_fee_direction{
+	width: 120px;
+	text-align: center;
 }
 
 .deliv_fee_detail{
-	padding-right: 70px;
+
 	text-align: center;
 	
 }
 .a_deliv_fee_info{
 	color: black;	
+	cursor: pointer;
 }
 .price{
-	width: 120px;
+	width: 150px;
 	height: 100px;
-	text-align: left;
+	text-align: center;
 	
 }
 .price_div{
-	padding-left: 30px;
+	text-align:center;
 	
 }
 .order_delete_Btn_area{
 	width: 120px;
 	height: 80px;
-	align: right;
+	text-alignalign: right;
 
 }
 .order_Btn{
 	font-size:12px; 
 	font-weight: 550;
+	margin-right: 2px;
 	padding:6px 9px;
 	background: white;
 	border: 0.5px solid lightgrey;
@@ -296,6 +304,7 @@ html {
 .delete_Btn{
 	font-size:12px; 
 	font-weight: 550;
+	margin-left:2px;
 	padding:6px 9px;
 	background: white;
 	border: 0.5px solid lightgrey;
