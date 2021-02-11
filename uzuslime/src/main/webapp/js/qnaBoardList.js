@@ -79,6 +79,15 @@ $(document).ready(function(){ //window.onload 와 같음
 			
 			//페이징 처리
 			$('#boardPagingDiv').html(data.boardPaging.pagingHTML);
+			
+			//작성하기
+			$('#writeFormBtn').click(function(){
+				if(data.memId == null){
+					alert('먼저 로그인하세요');
+				}else{
+					location.href ='/slime/qna/qnaWriteForm.jsp';
+				}
+			});
 		},
 		error: function(err){
 			console.log(err);
@@ -147,3 +156,4 @@ $('#boardSearchBtn').click(function(event, str){
 		});
 	}
 });
+

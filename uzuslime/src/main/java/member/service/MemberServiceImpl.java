@@ -23,8 +23,7 @@ public class MemberServiceImpl implements MemberService {
 	public String login(Map<String, String> map) {
 		MemberDTO memberDTO = memberDAO.login(map);
 		
-		System.out.println(memberDTO);
-		
+		System.out.println("memberService : "+ memberDTO);		
 		if(memberDTO == null) {
 			return "fail";
 			
@@ -72,6 +71,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<MemberDTO> memberList() {
 		return memberDAO.memberList();
+	}
+	
+	@Override
+	public MemberDTO getId(Map<String, String> map) {
+		return memberDAO.getId(map);
+		
 	}
 	
 	

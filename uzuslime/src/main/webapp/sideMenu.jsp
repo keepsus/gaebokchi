@@ -18,7 +18,7 @@
 <!---------------------->
 <div id="mySideNav" class="sideNav">
     <a href="" class="closeBtn" onclick="closeNav()">X</a>
-    <a href="#" style="margin-top: 20px; font-size: 150%;"><ion-icon name="rocket-outline"></ion-icon></a>
+    <a href="/slime/map/location.jsp" style="margin-top: 20px; font-size: 150%;"><ion-icon name="rocket-outline"></ion-icon></a>
     <a href="/slime/index.jsp" style="margin-top: 20px;">크리스탈 슬라임</a>
     <a href="/slime/qna/qnaBoardList" style="margin-top: 20px;">Q & A</a>
 </div>

@@ -90,3 +90,53 @@ $('#goodsModifyBtn').click(function(){
 		});//ajax
 	}//else		
 });//click
+
+
+//주문수량 버튼
+//+ 버튼을 누르면 수량이 증가하되, 상품의 전체 수량보다 커지지 않음
+$(".plus").click(function(){
+	//alert($('.numbox').val());
+	var num = $('.numbox').val();
+	var plusNum = Number(num) + 1;
+	var stock = $('#stock').val();
+	
+	if(plusNum > stock) {
+		$(".numbox").val(num);
+	} else {
+		$(".numbox").val(plusNum);										
+	}
+});//plus clickBtn
+
+
+// - 버튼을 누르면 수량이 감소하되, 1보다 밑으로 감소하지 않음
+$(".minus").click(function(){
+	//alert($('.numbox').val());
+	var num = $(".numbox").val();
+	var minusNum = Number(num) - 1; 
+	
+	if(minusNum <= 0) {
+		$(".numbox").val(num);
+	} else {
+		$(".numbox").val(minusNum);										
+	}
+});//minus clickBtn
+
+
+
+//주문하기 버튼
+$('#goodsOrderBtn').click(function(){	
+	//alert($('.numbox').val());	//input tag 안에 id 속성의 값
+	//alert($('input[name=numbox]').val());	//input tag 의 name 속성의 값, 만능
+	$.ajax({
+		type: 'post',
+		url: '/slime/order/orderOneGoodsForm',
+		//data: 'kkk='+$('#goods_titleSpan').text(), //여기에 적은에 map
+		data: {'kkk':$('#goods_titleSpan').text(),
+				'aaa':$('input[name=numbox]').val()},
+		dataType: 'json',
+		success: function(data){
+			alert(JSON.stringify(data));
+			console.log(data);
+		}//success
+	});//ajax
+});//click

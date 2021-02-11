@@ -53,7 +53,7 @@
     <!------글쓰기 버튼------->
     <!---------------------->
     <div id="QnaWriteBtn">
-        <a href="/slime/qna/qnaWriteForm.jsp" role="button" class="writeFormBtn">작성하기</a> 
+	<input type="button" id="writeFormBtn" class="writeFormBtn" value="작성하기">
     </div>
     
     <!---------------------->

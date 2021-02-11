@@ -23,7 +23,8 @@
     <!---------------------->
     <header>
         <nav>
-        	<jsp:include page="../indexNav.jsp"/>           
+        	<jsp:include page="../indexNav.jsp"/>
+			<a href="/slime/index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>           
         </nav>
     </header>
 

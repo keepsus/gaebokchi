@@ -220,6 +220,24 @@ $('#modifyBtn').click(function(){
 	}
 });
 
+//아이디 찾기
+$('#searchBtn').click(function(){
+	$.ajax({
+		type: 'post',
+		url: '/slime/member/memberIdSearch',
+		data: $('#memberSearch').serialize(),
+		dataType: 'text',
+		success: function(data){
+			alert("회원님의 ID는 "+data+" 입니다");
+			location.href='/slime/index.jsp';
+		},
+		error: function(err){
+			alert("틀린 정보입니다. 다시 확인해주세요.")
+			console.log(err);
+		}
+	});
+});
+
 
 //이메일 인증 보내기
 $('#emailBtn').click(function(){
