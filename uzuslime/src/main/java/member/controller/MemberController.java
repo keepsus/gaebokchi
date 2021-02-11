@@ -49,6 +49,7 @@ public class MemberController {
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	@ResponseBody
 	public String login(@RequestParam Map<String, String> map) {
+		System.out.println("memberController: "+map);
 		//String encryPassword = MemberSha256.encrypt(map.);
 		String encryPassword = MemberSha256.encrypt(map.get("pwpwpw"));
 		//System.out.println("MemberController 첫번째 암호 : "+ map.get("pwpwpw"));
