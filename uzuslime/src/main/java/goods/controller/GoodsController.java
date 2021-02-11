@@ -54,7 +54,7 @@ public class GoodsController {
 						   @RequestParam MultipartFile[] img) {
 		
 		//storage : 가상폴더
-		String filePath = "/Users/jeonghunpark/Desktop/workspace/gaebokchi/uzuslime/src/main/webapp/storage";	//가상폴더 위치 가져온다.
+		String filePath = "D:\\project_git\\gaebokchi\\uzuslime\\src\\main\\webapp\\storage";//가상폴더 위치 가져온다.
 		String fileName;	//원래 이름으로 바꾸어줌!
 		File file;			//파일 생성!
 		
@@ -92,14 +92,14 @@ public class GoodsController {
 			fileName = img[2].getOriginalFilename();
 			file = new File(filePath, fileName);
 			try {
-				FileCopyUtils.copy(img[1].getInputStream(), new FileOutputStream(file));
+				FileCopyUtils.copy(img[2].getInputStream(), new FileOutputStream(file));
 			} catch (IOException e) {			
 				e.printStackTrace();
 			}	
 			
-			goodsDTO.setGoods_image1(fileName);			
+			goodsDTO.setGoods_image2(fileName);			
 		}else {
-			goodsDTO.setGoods_image1("");
+			goodsDTO.setGoods_image2("");
 		}
 		System.out.println(goodsDTO);
 		//DB
@@ -223,6 +223,16 @@ public class GoodsController {
 	}//end of getGoodsView method
 	
 	
+	/* goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것
+	@RequestMapping(value = "getGdsView", method = RequestMethod.POST)
+	@ResponseBody
+	public void getGdsView(@RequestParam String seq, Model model) {	
+		GoodsDTO goodsDTO = goodsService.getGdsView(seq);
+		System.out.println(goodsDTO);
+		model.addAttribute("goodsDTO", goodsDTO);	
+	}
+	*/
+	
 	
 	
 	
@@ -272,7 +282,7 @@ public class GoodsController {
 	}//end of goodsModifyForm method
 	
 	
-	//
+	//goodsModify.jsp - seq 들고가서 goodsDTO 가져와서 mav 로 뿌려주는 메소드
 	@RequestMapping(value="getGoods", method=RequestMethod.POST)
 	public ModelAndView getGoods(@RequestParam String seq) {
 		GoodsDTO goodsDTO = goodsService.getGoods(seq);	//순서가 중요하다, 조회수 방지하고나서 가져와야 한다.
@@ -284,14 +294,7 @@ public class GoodsController {
 		return mav;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }//end of imageboardController class
 	

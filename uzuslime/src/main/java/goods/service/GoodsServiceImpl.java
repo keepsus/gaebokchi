@@ -44,7 +44,9 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public List<GoodsDTO> getGoodsIndexList() {
 		System.out.println("getGoodsIndexList - (Impl) return 전!");
-		return goodsDAO.getGoodsIndexList();
+		List<GoodsDTO> goodsList = goodsDAO.getGoodsIndexList();
+		System.out.println("GoodsServiceImpl goodsList : " + goodsList);
+		return goodsList;
 	}
 	
 	
@@ -90,6 +92,16 @@ public class GoodsServiceImpl implements GoodsService {
 	public GoodsDTO getGoods(String seq) {
 		return goodsDAO.getGoods(seq);
 	}
+
+
+	
+	
+	/* goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것
+	@Override
+	public GoodsDTO getGdsView(String seq) {
+		return goodsDAO.getGdsView(seq);
+	}
+	*/
 
 
 	

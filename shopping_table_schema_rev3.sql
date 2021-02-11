@@ -92,12 +92,13 @@ LOGTIME	DATE					   --작성일
    PAY_ORDERER_HP_NUM VARCHAR2(20 BYTE), 
    DELIVERY_STATE VARCHAR2(20 BYTE) DEFAULT 'delivery_prepared',
    PAY_ORDER_TIME DATE DEFAULT sysdate,
-
-   --추가사항--
    USER_ORDER_STATUS VARCHAR2(50 BYTE),	--주문자가 취소/교환/환불 신청
    ORDER_STATUS_REPLY VARCHAR2(50 BYTE), ---주문자가 취소/교환/환불 신청에 대한 관리자 응답
 
   ) ;
+
+  --하단의 USER_ORDER_STATUS, ORDER_STATUS_REPLY 추가
+
 --------------------------------------------------------
 --  DDL for Table T_SHOPPING_CART	--장바구니
 --------------------------------------------------------
