@@ -51,7 +51,7 @@
 	<!------------------->
 	<!-- 제품뿌려주는 위치 -->
     <div class="row">    
-    	<div id="goodsIndexList" sytle align="center">	
+    	<div id="goodsIndexList" align="center">	
 	</div>	 	
 	<!-- 제품뿌려주는 위치 -->
 	<!------------------->
@@ -63,11 +63,7 @@
    <div class="md-wrap">
        <div class="md-item-wrapper">
            <a href="/slime/detailpage/detailPage.jsp">
-<<<<<<< HEAD
-               <div>
-=======
                <div class="imgTransform">
->>>>>>> gaeB
                    <img src="/slime/image/img1.jpg" alt="img1" class="md-item-img">
                </div>
            </a>
@@ -87,11 +83,7 @@
         </div>
         
         <div class="md-item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img2.jpg" alt="img2" class="md-item-img">
             </div>
             <div>
@@ -108,11 +100,7 @@
         </div>
 
         <div class="md-item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img3.jpg" alt="img3" class="md-item-img">
             </div>
             <div>
@@ -129,11 +117,7 @@
         </div>
 
         <div class="md-item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img4.jpg" alt="img4" class="md-item-img">
             </div>
             <div>
@@ -179,11 +163,7 @@
 
     <div class="wrap">
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img4.jpg" alt="img4" class="item-img">
             </div>
             <div>
@@ -200,11 +180,7 @@
         </div>
         
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img5.jpg" alt="img5" class="item-img">
             </div>
             <div>
@@ -221,11 +197,7 @@
         </div>
 
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img6.jpg" alt="img6" class="item-img">
             </div>
             <div>
@@ -244,11 +216,7 @@
 
     <div class="wrap">
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img7.jpg" alt="img7" class="item-img">
             </div>
             <div>
@@ -265,11 +233,7 @@
         </div>
         
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img8.jpg" alt="img8" class="item-img">
             </div>
             <div>
@@ -286,11 +250,7 @@
         </div>
 
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img9.jpg" alt="img9" class="item-img">
             </div>
             <div>
@@ -309,11 +269,7 @@
 
     <div class="wrap">
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img10.jpg" alt="img10" class="item-img">
             </div>
             <div>
@@ -330,11 +286,7 @@
         </div>
         
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img11.jpg" alt="img11" class="item-img">
             </div>
             <div>
@@ -351,11 +303,7 @@
         </div>
 
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img12.jpg" alt="img12" class="item-img">
             </div>
             <div>
@@ -374,11 +322,7 @@
 
     <div class="wrap">
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img13.jpg" alt="img13" class="item-img">
             </div>
             <div>
@@ -395,11 +339,7 @@
         </div>
         
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img14.jpg" alt="img14" class="item-img">
             </div>
             <div>
@@ -416,11 +356,7 @@
         </div>
 
         <div class="item-wrapper">
-<<<<<<< HEAD
-            <div>
-=======
             <div class="imgTransform">
->>>>>>> gaeB
                 <img src="/slime/image/img15.jpg" alt="img15" class="item-img">
             </div>
             <div>

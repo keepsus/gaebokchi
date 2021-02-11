@@ -1,5 +1,5 @@
 @charset "UTF-8";
- 
+
 * {
     margin: 0px;
     padding: 0px;
@@ -143,10 +143,12 @@ html {
 }
 
 .a_minus{
+	color: black;
 	text-decoration: none;
 }
 
 .a_plus{
+	color: black;
 	text-decoration: none;
 }
 

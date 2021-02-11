@@ -1,7 +1,6 @@
 #Tomcat publish data
-<<<<<<< HEAD
-#Tue Feb 09 20:15:12 KST 2021
-=======
-#Wed Feb 10 18:03:28 KST 2021
->>>>>>> gaeB
+#Thu Feb 11 16:58:23 KST 2021
 org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\puppe\\.m2\\repository\\org\\springframework\\spring-web\\5.2.8.RELEASE\\spring-web-5.2.8.RELEASE.jar=WEB-INF/lib/spring-web-5.2.8.RELEASE.jar
+>>>>>>>=gaeB
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
