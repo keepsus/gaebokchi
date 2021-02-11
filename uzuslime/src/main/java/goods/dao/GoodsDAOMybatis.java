@@ -29,7 +29,11 @@ public class GoodsDAOMybatis implements GoodsDAO {
 
 	@Override
 	public List<GoodsDTO> getGoodsIndexList() {
-		return sqlSession.selectList("goodsSQL.getGoodsIndexList");
+		
+		List<GoodsDTO> goodsList = sqlSession.selectList("goodsSQL.getGoodsIndexList");
+		System.out.println("GoodsDAOMybatis goodsList : " + goodsList);
+		return goodsList;
+				
 	}
 	
 	@Override

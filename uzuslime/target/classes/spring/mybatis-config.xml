@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="cart.bean.CartDTO" alias="cart"/>
+		<typeAlias type="goods.bean.GoodsDTO" alias="goods"/>
+		<typeAlias type="member.bean.MemberDTO" alias="member"/>
+		<typeAlias type="member.bean.ZipcodeDTO" alias="zipcode"/>
+		<typeAlias type="order.bean.OrderDTO" alias="order"/>
+		<typeAlias type="qna.bean.QnaDTO" alias="qna"/>
+	</typeAliases>
+</configuration>
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
@@ -13,3 +27,4 @@
 		<typeAlias type="qna.bean.QnaDTO" alias="qna"/>
 	</typeAliases>
 </configuration>
+>>>>>>> f688acd568daadf21cbd16fbf2f9a5f286f865a9
