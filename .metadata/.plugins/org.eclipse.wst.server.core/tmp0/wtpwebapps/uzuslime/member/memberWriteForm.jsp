@@ -8,9 +8,8 @@
 
 <form name="memberWriteForm" method="post" action="/slime/member/write">
 	<div>
-	    <h2 class="modal-header">회원가입</h2>
+	    <h3 class="modal-header" style="text-align:center; color:rgba(63, 62, 62, 0.774); margin-botton:30px;">회원가입</h3>
 	</div>
-	
 	
 	<article name="memberSignUpForm" class="signUpForm" >
 	    <div class="input-text">
@@ -39,11 +38,12 @@
 	    </div>
 	
 	
-	    <div class="signUp-email-form">
+	    <div class="signUp-email-form" style="margin-top:10px;">
+<!-- 	    	    <h2 style="margin-bottom:5px;">email </h2> -->
 	        <input type="text" class="sign-email1" id="email1" name="email1" size="10">
 	        @
-	        <input type="email" class="sign-email2" id="email2" name="email2" list="email2" placeholder="직접입력" size="10">
-	        <datalist id="email2">
+	        <input type="email" class="sign-email2" list="email3" id="email2" name="email2"  placeholder="직접입력" size="10">
+	        <datalist id="email3">
 	            <option value="gmail.com">
 	            <option value="naver.com">
 	            <option value="hanmail.net">
@@ -55,7 +55,8 @@
 	    </div>
 		<div id="emailDiv"></div>
 	
-	    <div class="signUp-phone-form">
+	    <div class="signUp-phone-form" style="margin-top:10px;">
+<!-- 	    <h2 style="margin-top:5px;">phone number </h2> -->
 	        <select name="tel1" class="sign-tel1" style="width: 60px;">
 	            <option value="010">010
 	            <option value="011">011
@@ -68,7 +69,7 @@
 	    </div>
 	
 	
-	    <div class="signUp-address-form">
+	    <div class="signUp-address-form" style="margin-top:10px;">
 	        <input type="text" class="sign-post" id="postcode" name="zipcode" size="5" readonly>
 	        <input type="button" id="checkPostBtn" class="checkPostBtn" value="우편번호검색"><br>
 	        <input type="text" class="sign-address" id="address" name="addr1" size="40"  readonly placeholder="주소"><br>
@@ -76,9 +77,9 @@
 	    </div>
 	
 	
-	    <div class="signUp-btn-box">
-	        <input type="button" id="writeBtn" class="writeBtn" value="회원가입">
-	        <input type="reset" value="다시작성">
+	    <div class="signUp-btn-box" style="margin-top:20px; margin-bottom:10px;">
+	        <input type="button" id="writeBtn" value="회원가입">
+	        <input type="reset"  value="다시작성">
 	    </div>
 	</article>
 

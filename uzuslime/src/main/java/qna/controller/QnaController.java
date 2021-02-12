@@ -113,7 +113,6 @@ public class QnaController {
 		
 		QnaDTO qnaDTO = qnaService.getBoard(seq);
 		String memId = (String)session.getAttribute("memId");
-
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("qnaDTO", qnaDTO);
 		mav.addObject("memId", memId);

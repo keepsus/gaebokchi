@@ -45,6 +45,9 @@ $('#writeBtn').click(function(){
 	$('#pwdDiv').empty();
 	$('#repwdDiv').empty();
 	$('#emailDiv').empty();
+	var idReg = /^[A-za-z0-9]/g; 
+	//아이디 한글못넣게 하는 것
+	//[영문 대문자 또는 소문자로 시작하는 아이디, 끝날때 제한 없음]
 	
 	//if($('#name').val()==''){ -> 방법 1
 	//if($('input[id=member_name]').val()==''){ -> 방법 2
@@ -56,11 +59,15 @@ $('#writeBtn').click(function(){
 		$('#nameDiv').css('font-weight','bold');
 		
 	}else if($('#member_id').val()==''){	//id 속성이용
-		$('#idDiv').text('아이디를 입력하세요')
-		$('#idDiv').css('color','red')
-		$('#idDiv').css('font-size','8pt')
+		$('#idDiv').text('아이디를 입력하세요');
+		$('#idDiv').css('color','red');
+		$('#idDiv').css('font-size','8pt');
+		$('#idDiv').css('font-weight','bold');	
+	}else if( !idReg.test( $("input[id=member_id]").val() ) ){
+		$('#idDiv').text('아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.');
+		$('#idDiv').css('color','red');
+		$('#idDiv').css('font-size','8pt');
 		$('#idDiv').css('font-weight','bold');
-		
 	}else if($('input[name=member_pw]').val()==''){
 		$('#pwdDiv').text('비밀번호를 입력하세요')
 		$('#pwdDiv').css('color','red')
@@ -247,7 +254,6 @@ $('#emailBtn').click(function(){
 		$('#emailDiv').css('color','red');
 		$('#emailDiv').css('font-size','8pt');
 		$('#emailDiv').css('font-weight','bold');
-		$('#emailDiv').css('border', '1px solid red');
 		
 	}else{
 		$.ajax({
@@ -256,6 +262,10 @@ $('#emailBtn').click(function(){
 			data: 'e_mail='+$('#email1').val()+'@'+$('#email2').val(),
 			dataType: 'json',
 			success: function(data){
+				$('#emailDiv').text('이메일이 발송되었습니다. 인증번호를 입력헤주세요');
+				$('#emailDiv').css('color','red');
+				$('#emailDiv').css('font-size','8pt');
+				$('#emailDiv').css('font-weight','bold');
 				console.log('이메일 data ='+ JSON.stringify(data));//data가 들어오는것인가?이상한게 찍힌다.
 				$('#checkEmailR').val(data.dice);//받은 인증번호를 jsp에 있는 hidden 속성에 넣어주기
 			},
