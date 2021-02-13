@@ -54,7 +54,7 @@
 			적립포인트 : <span id="goods_pointSpan" name="goods_pointSpan"></span> 포인트<br>
 			배송비 : <span id="goods_deli_priceSpan" name="goods_deli_priceSpan"></span> 원<br>
 			재고수량 : <span id="goods_qtySpan" name="goods_qtySpan" pattern="#,###"></span> EA<br>
-			재고수량 : <span id="goods_qtySpan" name="goods_qtySpan" pattern="#,###"></span> EA<br>
+			
 			<!-- 강사님 알려주신 소스, max 확인용 코드 -->
 			<input type="hidden" id="stock" value="">
 			
@@ -139,7 +139,7 @@ $(document).ready(function(){
 			$('#goods_image2').attr('src', '../storage/'+data.goodsDTO.goods_image2);
 			$('#goods_titleSpan').text(data.goodsDTO.goods_title);			
 			$('#goods_priceSpan').text(data.goodsDTO.goods_price.toLocaleString());
-			$('#goods_sales_priceSpan').text(data.goodsDTO.goods_sales_price.toLocaleString());
+			$('#goods_sales_priceSpan').text(data.goodsDTO.goods_sales_price); //.toLocaleString()
 			$('#goods_contentSpan').text(data.goodsDTO.goods_content);
 			$('#goods_countrySpan').text(data.goodsDTO.goods_country);
 			$('#goods_pointSpan').text(data.goodsDTO.goods_point);

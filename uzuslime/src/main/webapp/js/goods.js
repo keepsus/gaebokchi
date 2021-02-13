@@ -131,12 +131,19 @@ $('#goodsOrderBtn').click(function(){
 		type: 'post',
 		url: '/slime/order/orderOneGoodsForm',
 		//data: 'kkk='+$('#goods_titleSpan').text(), //여기에 적은에 map
-		data: {'kkk':$('#goods_titleSpan').text(),
-				'aaa':$('input[name=numbox]').val()},
+		data: {	'goods_title':$('#goods_titleSpan').text(),
+				'order_goods_qty':$('input[name=numbox]').val(),
+				'goods_sales_price':$('#goods_sales_priceSpan').text(),
+				'goods_deli_price':$('#goods_deli_priceSpan').text()
+				//'goods_id':$('#goods_id').text()
+				//'goods_image0': $('#goods_image0').attr('src', '../storage/'+data.goodsDTO.goods_image0),
+				},
 		dataType: 'json',
-		success: function(data){
-			alert(JSON.stringify(data));
-			console.log(data);
+		success: function(){
+//			alert(JSON.stringify(data));
+//			console.log(data);
+			const encoded = encodeURI('/slime/order/orderForm.jsp');
+			location.href= encoded;
 		}//success
 	});//ajax
 });//click
