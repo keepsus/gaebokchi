@@ -3,20 +3,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
+
+<jsp:useBean id="memberDTO" class="member.bean.MemberDTO" scope="page" />
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate value="${now}" pattern="yyyyMMddHHmmss" var="use_order_id_String" />
 <fmt:parseNumber value="${use_order_id_String}" var="use_order_id" />
 
 
 <!-- 로그인 및 제품상세페이지 에서 받아올 데이터-->
-<c:set var="orderList" value="${orderMap.orderList}"/>
-<c:set var="member_id" value="aaaa"/><!-- 입력란이 없으므로 hidden으로 받아주기 -->
+<%-- <c:set var="member_id" value="aaaa"/><!-- 입력란이 없으므로 hidden으로 받아주기 -->
 <c:set var="goods_id" value="111"/>
 <c:set var="goods_filename" value="cccc"/> 
 <c:set var="goods_title" value="버터슬라임"/>
 <c:set var="order_goods_gty" value="1"/>
 <c:set var="goods_price" value="7500"/>
-<%-- <c:set var="order_goods_price" value=""/> --%>
+<c:set var="order_goods_price" value=""/>
 <c:set var="order_delivery_price" value="2500"/>
 <c:set var="order_sales_price" value="2500"/>
 
@@ -25,7 +27,7 @@
 <c:set var="gift_wrapping" value="1"/>
 <c:set var="card_com_name" value="1"/>
 <c:set var="card_pay_month" value="1"/>
-<c:set var="pay_orderer_hp_num" value="1"/>
+<c:set var="pay_orderer_hp_num" value="1"/> --%>
 
 <!-- <!DOCTYPE html>
 <html> -->
@@ -49,16 +51,18 @@
 <form id="form_order"><!-- ajax에서 serialize 사용하기 위해 form지정해줌 -->
 
 <!-- 입력란이 없으므로 hidden으로 받아주기 -->
+
 <input type="hidden" id="detail_or_cart" name="detail_or_cart" value="${orderDTO.detail_or_cart}"> <!-- 상품 상세페이지에서 온 주문인지 장바구니에서 온 주문인지 확인 -->
-<input type="hidden" id="member_id" name="member_id" value="${member_id}">
+<input type="hidden" id="member_id" name="member_id" value="${memberDTO.member_id}">
 <input type="hidden" id="order_id" name="order_id" value="${use_order_id}">
-<input type="hidden" id="goods_id" name="goods_id" value="${goods_id}">
-<input type="hidden" id="order_sales_price" name="order_sales_price" value="${order_sales_price}">
+<input type="hidden" id="goods_id" name="goods_id" value="${goodsMap['goods_id']}">
+<input type="hidden" id="goods_title" name="goods_title" value="${goodsMap['goods_title']}">
+<input type="hidden" id="order_goods_qty" name="order_goods_qty" value="${goodsMap['order_goods_qty']}">
+<input type="hidden" id="goods_sales_price" name="goods_sales_price" value="${goodsMap['goods_sales_price']}">
+<input type="hidden" id="order_deli_price" name="order_deli_price" value="${goodsMap['goods_deli_price']}">
 <input type="hidden" id="gift_wrapping" name="gift_wrapping" value="${gift_wrapping}">
 <input type="hidden" id="delivery_method" name="delivery_method" value="${delivery_method}">
-<input type="hidden" id="card_com_name" name="card_com_name" value="${card_com_name}">
-<input type="hidden" id="card_pay_month" name="card_pay_month" value="${card_pay_month}">
-<input type="hidden" id="pay_orderer_hp_num" name="pay_orderer_hp_num" value="${pay_orderer_hp_num}">
+
 
 <div id="orderAll">
   <div class="paymentAll">
@@ -69,20 +73,21 @@
                         <div class="order_row">
                                 <!-- 상품정보에서 상품 이미지 및 가격과 가격생성 -->
                                 <div class="productImg">
-                                        <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_image0}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 -->
-                                </div>
+									<img id="goods_image0Span" name="goods_image0Span" alt="제품 메인 이미지" width="90" height="90">
+   								</div>
+								
                                 <div class="productInfo" style="float: left; padding-left: 60px;">
                                      <div class="shop_item">
-                                         <span class="goods_title">${goods_title}</span>
-                                         <input type="hidden" id="goods_title" name="goods_title" value="${goods_title}">
+                                         <span class="goods_title">${goodsMap['goods_title']}</span>
+                                         <%-- <input type="hidden" id="goods_title" name="goods_title" value="${goodsMap['goods_title']}"> --%>
                                             <div class="itm_number">
                                                 <!-- 이부분 디비에서 넘어와서 값이 바뀜 -->
-                                                <p class="order_goods_gty">${order_goods_gty}개(개수)</p>
-                                                <input type="hidden" id="order_goods_gty" name="order_goods_gty" value="${order_goods_gty}">
+                                                <p class="order_goods_gty">${goodsMap['order_goods_qty']}개(개수)</p>
+                                                <%-- <input type="hidden" id="order_goods_qty" name="order_goods_qty" value="${goodsMap['order_goods_qty']}"> --%>
                                             </div>
                                             <div class="item_pay">
-                                                <span class="goods_price">${goods_price}원</span>
-                                                <input type="hidden" id="goods_price" name="goods_price" value="${goods_price}">
+                                                <span class="goods_sales_price">${goodsMap['goods_sales_price']}원</span>
+                                                <%-- <input type="hidden" id="goods_sales_price" name="goods_sales_price" value="${goodsMap['goods_sales_price']}"> --%>
                                             </div>
                                      </div>    
                                 </div>
@@ -93,13 +98,13 @@
                 <div class="userDetail">
                     <h3>주문자 정보</h3>
                     <div class="order_name" style="padding-bottom : 15px;">
-                        <input class="orderer_name" id="orderer_name" name="orderer_name" type="text" placeholder="이름">
+                        <input class="orderer_name" id="orderer_name" name="orderer_name" type="text" placeholder="이름" value="${memName}">
                         <div id="orderer_nameDiv"></div>
-                        <input class="orderer_hp" id="orderer_hp" name="orderer_hp" type="text" placeholder="연락처" style="width:43%">
+                        <input class="orderer_hp" id="orderer_hp" name="orderer_hp" type="text" placeholder="연락처" style="width:43%" value="${memHp}">
                         <div id="orderer_hpDiv"></div>
                     </div>
                     <div class="order_email">
-                        <input class="orderer_email" id="orderer_email" name="orderer_email" type="text" placeholder="이메일" style="width:80%">
+                        <input class="orderer_email" id="orderer_email" name="orderer_email" type="text" placeholder="이메일" style="width:80%" value="${memEmail}">
                         <div id="orderer_emailDiv"></div>
                     </div>
                 </div>
@@ -128,11 +133,11 @@
                         </div>
                         <div class="delivery_addr1" style="padding-bottom : 15px;">
                             <input class="delivery_addr1" id="delivery_addr1" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
-                        	<div id="delivery_addr1Div"></div>
+                           <div id="delivery_addr1Div"></div>
                         </div>
                         <div class="delivery_addr2">
                             <input class="delivery_addr2" id="delivery_addr2" name="delivery_addr2" type="text" placeholder="상세주소" style="width:80%">
-                        	<div id="delivery_addr2Div"></div>
+                           <div id="delivery_addr2Div"></div>
                         </div>
                         
                     </div>
@@ -156,19 +161,19 @@
                     <div class="pay_row">
                         <div class="totalInfo">
                             <div class="goods_gty"><p>상품가격</p></div>
-                            <div class="order_price"><p>${goods_price}원</p></div>
-                            <input type="hidden" id="order_goods_price" name="order_goods_price" value="${goods_price}">
+                            <div class="order_price"><p>${goodsMap['goods_sales_price']}원</p></div>
+                            <input type="hidden" id="order_goods_price" name="order_goods_price" value="${goodsMap['goods_sales_price']}">
                         </div><br>
                         <div class="totalInfo">
                             <div class="goods_gty"><p>배송비</p></div>
-                            <div class="order_price"><p>${order_delivery_price}원</p></div>
-                            <input type="hidden" id="order_delivery_price" name="order_delivery_price" value="${order_delivery_price}" >
+                            <div class="order_price"><p>${goodsMap['goods_deli_price']}원</p></div>
+                            <input type="hidden" id="order_delivery_price" name="order_delivery_price" value="${goodsMap['goods_deli_price']}" >
                         </div>
                     </div>
                     <hr>
                     <div class="totalInfo2">
                         <div class="goods_gty"><strong><p>총 결재금액(${order_goods_gty}개)</p></strong></div>
-                        <div class="order_price"><p> ${total_order_price = goods_price + order_delivery_price}원</p></div>
+                        <div class="order_price"><p> ${total_order_price = goodsMap['goods_sales_price'] + goodsMap['goods_deli_price']}원</p></div>
                         <input type="hidden" id="total_order_price" name="total_order_price" value="${total_order_price}">
                     </div>
                 </div>
@@ -229,7 +234,26 @@
 
 <!-- jQuery 사용 & order.js의 JavaScript 사용 -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script><!-- library를 가져온 것뿐, 설치는 하지 않음 -->
-	<script type="text/javascript" src="/slime/js/order.js"></script>
-	<script type="text/javascript" src="/slime/js/member.js"></script>
+    
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$.ajax({
+			type: 'post',
+			url: '/slime/goods/getOrderImageView',
+			dataType: 'json',
+			success: function(data){
+				alert(data);
+				console.log(data);
+				//$('#goods_image0Span').attr('src', '../storage/'+data.goodsDTO.goods_image0);
+			},
+		});//ajax	
+	});//ready
+	</script>
+    
+   <script type="text/javascript" src="/slime/js/order.js"></script>
+   <script type="text/javascript" src="/slime/js/member.js"></script>
+   
+	
+   
 </body>
 <!-- </html> -->

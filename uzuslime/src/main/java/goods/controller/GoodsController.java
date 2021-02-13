@@ -165,14 +165,12 @@ public class GoodsController {
 	@RequestMapping(value="getGoodsIndexList", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView getGoodsIndexList() {
+		
 		List<GoodsDTO> list = goodsService.getGoodsIndexList();
-		System.out.println("getGoodsIndexList - (cont) list 작동여부 체크!!"+list);
-				
-		ModelAndView mav = new ModelAndView();
+		
+		ModelAndView mav = new ModelAndView();		
 		mav.addObject("list", list);		
 		mav.setViewName("jsonView");
-		
-		System.out.println("getGoodsIndexList - (cont) mav 작동여부 체크!!"+mav);
 		
 		return mav;		//이거 하면 위에 list에 대한 정보가 imageboardList.jsp 에 ajax 부분에 success 의 data 로 들어간다.
 	}//end of getGoodsIndexList method
@@ -214,13 +212,37 @@ public class GoodsController {
 	@ResponseBody
 	public ModelAndView getGoodsView(@RequestParam String seq) {
 		GoodsDTO goodsDTO = goodsService.getGoodsView(seq);
-		System.out.println("getGoodsView - (cont) : goodsDTO 작동여부 확인!!"+goodsDTO);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("goodsDTO", goodsDTO);
 		mav.setViewName("jsonView");		
 		return mav;		
 	}//end of getGoodsView method
+	
+	
+	
+	
+	
+	
+	
+	
+	//(myPage, index 공용)제품상세화면에 뿌려 정보 가져오는 메소드, seq 들고가서 goodsDTO 들고 나옴-----
+	@RequestMapping(value="getOrderImageView", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView getOrderImageView(@RequestParam String goods_idSpan) {
+		System.out.println("goods_id"+goods_idSpan);
+		GoodsDTO goodsDTO = goodsService.getOrderImageView(goods_idSpan);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("goodsDTO", goodsDTO);
+		mav.setViewName("jsonView");		
+		return mav;		
+	}//end of getGoodsView method
+	
+	
+	
+	
+	
 	
 	
 	/* goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것
@@ -286,7 +308,6 @@ public class GoodsController {
 	@RequestMapping(value="getGoods", method=RequestMethod.POST)
 	public ModelAndView getGoods(@RequestParam String seq) {
 		GoodsDTO goodsDTO = goodsService.getGoods(seq);	//순서가 중요하다, 조회수 방지하고나서 가져와야 한다.
-		System.out.println("getGoods - (cont) : seq 가져가서 DTO 가져오는지 확인!"+goodsDTO);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("goodsDTO", goodsDTO);

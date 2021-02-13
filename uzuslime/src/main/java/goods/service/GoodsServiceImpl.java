@@ -43,9 +43,7 @@ public class GoodsServiceImpl implements GoodsService {
 	//index.jsp 에 DB에 등록된 모든 제품 뿌림.
 	@Override
 	public List<GoodsDTO> getGoodsIndexList() {
-		System.out.println("getGoodsIndexList - (Impl) return 전!");
 		List<GoodsDTO> goodsList = goodsDAO.getGoodsIndexList();
-		System.out.println("GoodsServiceImpl goodsList : " + goodsList);
 		return goodsList;
 	}
 	
@@ -91,6 +89,12 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public GoodsDTO getGoods(String seq) {
 		return goodsDAO.getGoods(seq);
+	}
+
+
+	@Override
+	public GoodsDTO getOrderImageView(String goods_idSpan) {
+		return goodsDAO.getOrderImageView(goods_idSpan);
 	}
 
 
