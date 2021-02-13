@@ -13,7 +13,7 @@ public class KakaoPayApprovalDTO {
 
 	//결제승인에 대한 응답정보를 response로 받음
 	private String aid;
-	private String tid;
+	private String tid; //Transaction ID, 거래일련번호
 	private String cid; //가맹점 코드
 	private String sid;
 	private String partner_order_id; //가맹점 주문번호, order_id 사용예장
