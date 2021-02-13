@@ -59,6 +59,12 @@
  	<select id="getGoodsView" parameterType="int" resultType="goods">
  		select * from t_shopping_goods where seq=#{seq}
  	</select>
+ 	
+ 	<!-- 주문하기 이미지 파일 가져오기 -->
+ 	<select id="getOrderImageView" parameterType="String" resultType="goods">
+ 		select * from t_shopping_goods where goods_id=#{goods_idSpan}
+ 	</select>
+ 	
  
  	
 	<!-- 제품정보 list에서 checkbox 로 삭제 -->

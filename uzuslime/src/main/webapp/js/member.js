@@ -29,14 +29,14 @@ $('#loginBtn').click(function(){
 					
 					alert('로그인 실패');
 				}
-			},
+			},//success
 			error: function(err){
 				console.log(err);
-			}
+			}//error
 			
-		});
-	}
-});
+		});//ajax
+	}//else
+});//click
 
 //회원가입
 $('#writeBtn').click(function(){

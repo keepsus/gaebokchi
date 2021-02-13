@@ -540,9 +540,10 @@ $(document).ready(function(){
  			});//each
  			
 		},//success
+		
 		error: function(err){
 			console.log(err);
-		}		
+		}//error		
 		
 	});//ajax
 });//ready

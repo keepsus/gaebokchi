@@ -21,6 +21,8 @@ public interface GoodsService {
 
 	public GoodsDTO getGoods(String seq);
 
+	public GoodsDTO getOrderImageView(String goods_idSpan);
+
 	
 	
 	

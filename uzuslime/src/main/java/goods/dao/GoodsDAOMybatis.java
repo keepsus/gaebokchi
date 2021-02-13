@@ -31,7 +31,6 @@ public class GoodsDAOMybatis implements GoodsDAO {
 	public List<GoodsDTO> getGoodsIndexList() {
 		
 		List<GoodsDTO> goodsList = sqlSession.selectList("goodsSQL.getGoodsIndexList");
-		System.out.println("GoodsDAOMybatis goodsList : " + goodsList);
 		return goodsList;
 				
 	}
@@ -60,6 +59,11 @@ public class GoodsDAOMybatis implements GoodsDAO {
 	@Override
 	public GoodsDTO getGoods(String seq) {
 		return sqlSession.selectOne("goodsSQL.getGoods", Integer.parseInt(seq));
+	}
+
+	@Override
+	public GoodsDTO getOrderImageView(String goods_idSpan) {
+		return sqlSession.selectOne("goodsSQL.getOrderImageView", goods_idSpan);
 	}
 
 	
