@@ -41,13 +41,13 @@
 			</select>
 	</td>
 	<td align="center" width="100">시.군.구</td>
-	<td><input type="text" name="sigungu" id="sigungu"></td>
+	<td><input type="text" name="sigungu" id="sigungu" autocomplete="off"></td>
 </tr>
 
 <tr>
 	<td align="center">도로명</td>
 	<td colspan="3">
-		<input type="text" name="roadname" id="roadname" size="35">
+		<input type="text" name="roadname" id="roadname" size="35" autocomplete="off">
 		<input type="button" id="checkPostSearchBtn" class="checkPostSearchBtn" value="검색">
 	</td>
 </tr>

@@ -1,0 +1,7 @@
+.nav {
+	float :left;
+}
+
+.section {
+	float :left;
+}

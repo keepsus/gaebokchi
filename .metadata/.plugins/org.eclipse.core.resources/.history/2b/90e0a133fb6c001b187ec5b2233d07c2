@@ -1,0 +1,25 @@
+$(document).ready(function(){
+	$.ajax({
+		type: 'post',
+		url: '/slime/qna/getBoard',//이 주소로 데이터를 보낸다.-> 컨트롤러로 연결
+		data: 'seq='+$('#seq').val(),
+		dataType : 'json',//컨트롤러에서 돌아오는 데이터는 json타입이다
+		success : function(data){
+			//alert(JSON.stringify(data));
+			//console.log("여기는 qnaView"+data);//이거는 f12번 눌러서의 console
+			$('#subjectSpan').text(data.qnaDTO.subject);
+/* 			$('#seqSpan').text(data.boardDTO.seq); */
+			$('#idSpan').text(data.qnaDTO.member_id);
+/* 			$('#hitSpan').text(data.boardDTO.hit); */
+			$('#contentSpan').text(data.qnaDTO.content);
+			
+			if(data.memId == data.qnaDTO.member_id)
+				$('#qnaModify').show();
+			else
+				$('#qnaModify').hide();
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});

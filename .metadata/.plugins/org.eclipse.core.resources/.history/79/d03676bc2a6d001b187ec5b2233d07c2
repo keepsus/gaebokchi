@@ -1,0 +1,7 @@
+.checkPost {
+	padding : 10%;
+}
+
+h2 {
+	text-align : center;
+}

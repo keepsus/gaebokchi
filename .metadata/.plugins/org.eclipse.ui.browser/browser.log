@@ -118,3 +118,6 @@
 >>>>>>> gaeC
 =======
 >>>>>>> 7db3c4aa25482f7db39d7e3eb1ece88c1b3fd593
+
+2월 13, 2021 14:50:42.33 NEW SESSION
+2월 13, 2021 14:50:42.33 [14632:12404:0213/145042.332:ERROR:device_event_log_impl.cc(211)] [14:50:42.332] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)

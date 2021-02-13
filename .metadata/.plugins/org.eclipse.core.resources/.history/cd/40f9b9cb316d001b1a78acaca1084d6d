@@ -1,0 +1,11 @@
+.nav {
+	float :left;
+}
+
+.section {
+	float :right;
+}
+
+.detailInformation {
+	position: relative;
+}

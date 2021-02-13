@@ -13,14 +13,13 @@
 	
 	<article name="memberSignUpForm" class="signUpForm" >
 	    <div class="input-text">
-	        <input type="text" id="member_name" name="member_name" size="25" placeholder="이름" autocomplete=”off”>
+	        <input type="text" id="member_name" name="member_name" size="25" placeholder="이름" autocomplete="off">
 	        <div id="nameDiv"></div>
 	    </div>
 	
 	
 	    <div class="input-text">
-	        <input type="text" class="member_id" id="member_id" name="member_id" size="25" placeholder="아이디" autocomplete=”off”>
-	        <input type="hidden" id="check" value="">
+	        <input type="text" class="member_id" id="member_id" name="member_id" size="25" placeholder="아이디" autocomplete="off">
 	      <div id="idDiv"></div>
 	      
 	    </div>
@@ -40,16 +39,16 @@
 	
 	    <div class="signUp-email-form" style="margin-top:10px;">
 <!-- 	    	    <h2 style="margin-bottom:5px;">email </h2> -->
-	        <input type="text" class="sign-email1" id="email1" name="email1" size="10">
+	        <input type="text" class="sign-email1" id="email1" name="email1" size="10" autocomplete=”off”>
 	        @
-	        <input type="email" class="sign-email2" list="email3" id="email2" name="email2"  placeholder="직접입력" size="10">
+	        <input type="email" class="sign-email2" list="email3" id="email2" name="email2"  placeholder="직접입력" size="10" autocomplete="off">
 	        <datalist id="email3">
 	            <option value="gmail.com">
 	            <option value="naver.com">
 	            <option value="hanmail.net">
 	        </datalist>
 	        <input type="button" id="emailBtn" name="emailBtn" class="emailBtn" value="이메일인증"><br>
-	         <input type="text" class="checkEmail" id="checkEmail" name="checkEmail" placeholder="인증번호 입력" autocomplete=”off”>
+	         <input type="text" class="checkEmail" id="checkEmail" name="checkEmail" placeholder="인증번호 입력" autocomplete="off">
 	         <input type="hidden" id="checkEmailR" value="">
 	        <input type="button" id="emailCheckBtn" class="emailCheckBtn" value="인증번호확인" ><br>
 	    </div>
@@ -63,9 +62,9 @@
 	            <option value="019">019
 	        </select>
 	         -
-	         <input type="text" class="sign-tel2" name="tel2" size="5">
+	         <input type="text" class="sign-tel2" name="tel2" size="5" autocomplete="off">
 	         -
-	         <input type="text" class="sign-tel3" name="tel3" size="5">
+	         <input type="text" class="sign-tel3" name="tel3" size="5" autocomplete="off">
 	    </div>
 	
 	

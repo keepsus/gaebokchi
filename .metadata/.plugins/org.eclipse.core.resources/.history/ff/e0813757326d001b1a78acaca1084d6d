@@ -1,0 +1,11 @@
+.nav {
+	float :left; width: 30%;
+}
+
+.section {
+	float :left; width: 60%;
+}
+
+.detailInformation {
+	position: relative;
+}
