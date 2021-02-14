@@ -156,4 +156,3 @@ $('#boardSearchBtn').click(function(event, str){
 		});
 	}
 });
-

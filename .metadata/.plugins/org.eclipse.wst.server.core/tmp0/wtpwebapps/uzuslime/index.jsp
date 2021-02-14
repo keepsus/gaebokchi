@@ -494,16 +494,15 @@ $(document).ready(function(){
 			//alert(JSON.stringify(data)); 
  			//console.log(data);			
  			$.each(data.list, function(index, items){
- 				$('<div class="item-wrapper imgTransform1"/>',{
- 					
- 				}).append($('<img/>',{
- 					src: '/slime/storage/'+items.goods_image0,
- 					//style: 'width: 400px; cursor: pointer;',
- 					class: items.seq+''
- 					
- 				})).append($('<td/>',{
+ 				$('<div class="item-wrapper"/>').append($('<div class="imgTransform">',{
+ 	 				}).append($('<img/>',{
+	 					src: '/slime/storage/'+items.goods_image0,
+	 					style: 'width: 400px; cursor: pointer;',
+	 					class: items.seq+''
+	 					}))					
+ 				).append($('<td/>',{
  					align: 'center',
- 					text: items.goods_title
+ 					text: items.goods_title,
  					
  				})).append($('<span/>',{
  					align: 'center',

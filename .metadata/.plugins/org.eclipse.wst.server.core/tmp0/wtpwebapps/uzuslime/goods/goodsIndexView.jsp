@@ -36,16 +36,15 @@
 
 
 <!-- SECTION -->
-<section>
 <form name="goodsIndexViewForm" id="goodsIndexViewForm">
+
 	<div class="row">
-	
-		<div class="nav">
+		<div class="col span-1-of-2" >
 			<img id="goods_image0Span" name="goods_image0Span" alt="제품 메인 이미지" width="200" height="200">
 			<img id="goods_image1Span" name="goods_image1Span" alt="제품 서브 이미지"width="200" height="200"> 	
 		</div>   
 		
-		<div class="section">
+		<div class="col span-1-of-2">
 			상품번호: <span id="goods_idSpan"></span><br>
 			상품명: <span id="goods_titleSpan"></span><br>
 			제품가격 : <span id="goods_priceSpan"></span> 원<br>
@@ -66,11 +65,13 @@
 				<span id="numboxSpan"></span>
 				<button type="button" class="minus">-</button>					
 			</p>	
+			
+			<input type="button" value="목록" onclick="location.href='goodsIndexList?pg=${pg }'">
+			<input type="button" value="주문하기" id="goodsOrderBtn">
+			<input type="button" value="장바구니" id="goodsCartBtn">
+			
 		</div>
 	
-		<input type="button" value="목록" onclick="location.href='goodsIndexList?pg=${pg }'">
-		<input type="button" value="주문하기" id="goodsOrderBtn">
-		<input type="button" value="장바구니" id="goodsCartBtn">
 		
 		<div class="detailInformation">
 			<img id="goods_image2Span" alt="제품상세 설명">			
@@ -78,7 +79,7 @@
 	</div>
 
 </form>
-</section>
+
 
 
 <!-- FOOTER -->
