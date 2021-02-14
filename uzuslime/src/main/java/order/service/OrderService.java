@@ -2,6 +2,7 @@ package order.service;
 
 import java.util.Map;
 
+import order.bean.KakaoPayApprovalDTO;
 import order.bean.OrderDTO;
 
 public interface OrderService {
@@ -15,5 +16,5 @@ public interface OrderService {
 	
 	public String kakaoPayReady(Map<String, String> map);
 	
-
+	public KakaoPayApprovalDTO kakaoPayInfo(Map<String, String> map);
 }
