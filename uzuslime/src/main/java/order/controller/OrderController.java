@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -81,7 +81,7 @@ public class OrderController{
 			mav.addObject(memberDTO);
 			System.out.println("orderContoller memberDTO : " + memberDTO.getMember_id());
 			session.setAttribute("goodsMap",map);
-			session.setAttribute("memDTO", memberDTO);
+			request.setAttribute("memDTO", memberDTO);
 			mav.setViewName("jsonView"); 
 			return mav;
 //		}
@@ -185,43 +185,47 @@ public class OrderController{
 	}
 
 	
-	//[Controller3] 결제창에서 결제하기 버튼을 누르면 해당 컨트롤이 호출되어 DB에 주문내역이 저장됨
-	@RequestMapping(value="/orderGoods", method=RequestMethod.POST)
-	public ModelAndView orderGoods(@ModelAttribute OrderDTO orderDTO) {
-		
-		//로그인 기능과 조합 후 하기
-		//1. 매개변수에 OrderDTO _orderDTO, HttpServletRequest request, HttpServletResponse response로그인 화면에서 로그인 후, 다시 주문페이지로 돌아오기
-		//request.setCharacterEncoding("UTF-8");
-		//HttpSession session = request.getSession(); //세션생성
-		
-		//결제 방법에 따라 다른 곳으로 이동
-		//1. 176~182번줄 jQuery에서 if문으로 처리, 안되는 경우 주석지우기
-		
-		//데이터 값 정상 입력 확인용(나중에 삭제)
-		//System.out.println(_orderDTO.getGoods_id());
-		orderService.orderOneGoods(orderDTO); //결체창에서 넘어온 값들이 담긴 orderDTO객체
-		System.out.println("orderController - orderDTO" + orderDTO.getOrderer_name());
-		ModelAndView mav = new ModelAndView();
-		mav.addObject(orderDTO);
-		
-		
-//		if(orderDTO.getPay_method().equals("kakao")) { //결제수단으로 카카오페이가 선택되어있으면 카카오페이로 연결
-//			mav.setViewName("/order/kakao");
-//			
-//		}else{ //결제수단으로 무통장입금이 선택되어 있으면 주문확인 화면으로 이동
-//			//★★★★★★★추후, 계좌이체/신용카드는 별도 구현예정
-//			mav.setViewName("/order/payToOrderGoods");
-//		}
-		
-		return mav;
-	}
+//	//[Controller3] 결제창에서 결제하기 버튼을 누르면 해당 컨트롤이 호출되어 DB에 주문내역이 저장됨
+//	@RequestMapping(value="/orderGoods", method=RequestMethod.POST)
+//	public ModelAndView orderGoods(@ModelAttribute OrderDTO orderDTO) {
+//		
+//		//로그인 기능과 조합 후 하기
+//		//1. 매개변수에 OrderDTO _orderDTO, HttpServletRequest request, HttpServletResponse response로그인 화면에서 로그인 후, 다시 주문페이지로 돌아오기
+//		//request.setCharacterEncoding("UTF-8");
+//		//HttpSession session = request.getSession(); //세션생성
+//		
+//		//결제 방법에 따라 다른 곳으로 이동
+//		//1. 176~182번줄 jQuery에서 if문으로 처리, 안되는 경우 주석지우기
+//		
+//		//데이터 값 정상 입력 확인용(나중에 삭제)
+//		//System.out.println(_orderDTO.getGoods_id());
+//		orderService.orderOneGoods(orderDTO); //결체창에서 넘어온 값들이 담긴 orderDTO객체
+//		System.out.println("orderController - orderDTO" + orderDTO.getOrderer_name());
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject(orderDTO);
+//		
+//		
+////		if(orderDTO.getPay_method().equals("kakao")) { //결제수단으로 카카오페이가 선택되어있으면 카카오페이로 연결
+////			mav.setViewName("/order/kakao");
+////			
+////		}else{ //결제수단으로 무통장입금이 선택되어 있으면 주문확인 화면으로 이동
+////			//★★★★★★★추후, 계좌이체/신용카드는 별도 구현예정
+////			mav.setViewName("/order/payToOrderGoods");
+////		}
+//		
+//		return mav;
+//	}
 		
 	
 	//----------------------------------------------카카오 페이----------------------------------------------------
+	
+	
+	
 	//[Controller4-1] 결제방법으로 카카오페이를 선택한 경우 카카오페이 API로 연결
-	@RequestMapping(value="/kakaoPayReady", method=RequestMethod.POST)
-	public String kakaoPayReady(@RequestParam Map<String,String> map, HttpServletRequest request, HttpServletResponse response) {
-		
+	@CrossOrigin
+	@RequestMapping(value="/kakaoPay", method=RequestMethod.POST)
+	@ResponseBody
+	public String kakaoPayReady(@RequestParam Map<String,String> map, HttpServletRequest request, HttpServletResponse response, Model model) {
 		//확인사항
 		//1. 파라미터
 		//결제버튼 클릭 후 DB에 저장된 내용을 orderDTO로 받아오기
@@ -231,22 +235,44 @@ public class OrderController{
 //		mav.addObject(orderDTO);
 //		mav.setViewName("/order/kakaopay.jsp");
 //		return mav;
+//		HttpSession session = request.getSession();
 		System.out.println("OrderController.java kakaoPayReady map : " + map);
 		String url = orderService.kakaoPayReady(map);
 		System.out.println("OrderController.java url : " + url);
-		return "redirect:"+url;
-		
+		//return  "redirect:" + orderService.kakaoPayReady(map);
+		return url;
 	}
-	
-	
 	
 	//[Controller4-3] 카카오페이 결제 요청 성공 시 연결
+	@CrossOrigin
 	@RequestMapping(value="/kakaoPaySuccess", method=RequestMethod.GET)
-	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, @RequestParam Map map, Model model) {
+	public void kakaoPaySuccess(@RequestParam("pg_token") String pg_token, @RequestParam Map<String, String> payMap, Model model) {
 		System.out.println("OrderController.java kakaoPaySuccess() pg_token : " + pg_token);
-		System.out.println("OrderController.java kakaoPaySuccess() map : " + map);
-		model.addAttribute("info", orderService.kakaoPayInfo(map));
+		model.addAttribute("info", orderService.kakaoPayInfo(pg_token));
+		//System.out.println("OrderController.java kakaoPaySuccess() map : " + map);
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject(pg_token);
+//		mav.setViewName("jsonView");
+//		return mav;
 	}
+	
+//	//[Controller4-3] 카카오페이 결제 요청 성공 시 연결
+//	@RequestMapping(value="/kakaoPaySuccess", method=RequestMethod.GET)
+//	@ResponseBody
+//	public String kakaoPaySuccess(@RequestParam("pg_token")String pg_token, @RequestParam Map<String, String> map, Model model) {
+//		System.out.println("OrderController.java kakaoPaySuccess() pg_token : " + pg_token);
+//		System.out.println("OrderController.java kakaoPaySuccess() map : " + map);
+////		ModelAndView mav = new ModelAndView();
+////		mav.addObject("info", orderService.kakaoPayInfo(map));
+////		mav.addObject("orderMap", map);
+////		mav.setViewName("jsonView");
+////		return mav;
+//		KakaoPayApprovalDTO kakaoPayApprovalDTO = orderService.kakaoPayInfo(map);
+//		System.out.println("OrderController.java kakaoPayApprovalDTO : " + kakaoPayApprovalDTO);
+//		model.addAttribute("info",orderService.kakaoPayInfo(map));
+//		System.out.print("컨트롤러왔음");
+//		return "/slime/order/kakaoPaySuccess.jsp";
+//	}
 	
 	//[Controller4-4] 카카오페이 결제 요청 실패 시 연결
 	@RequestMapping(value="kakaoPayFail", method=RequestMethod.GET)
@@ -261,11 +287,44 @@ public class OrderController{
 	//----------------------------------------------카카오 페이 끝----------------------------------------------------
 	
 	//[Controller5] 결제 완료 후 주문결과 표시
-	@RequestMapping(value="/payToOrderGoods", method=RequestMethod.POST)
+	@RequestMapping(value="/payToOrderGoods", method={RequestMethod.GET, RequestMethod.POST})
+	//@ResponseBody
 	public ModelAndView payToOrderGoods(@RequestParam Map<String, String> payMap, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		String member_id = (String) session.getAttribute("memId");
+		String orderer_email = (String) session.getAttribute("memEmail");
+		OrderDTO orderDTO = new OrderDTO();
+		orderDTO.setOrder_id(payMap.get("order_id"));
+		orderDTO.setMember_id(member_id);
+		
+		orderDTO.setGoods_id(payMap.get("goods_id"));
+		orderDTO.setGoods_title(payMap.get("goods_title"));
+		orderDTO.setOrder_goods_qty(Integer.parseInt(payMap.get("order_goods_qty")));
+		orderDTO.setGoods_image0("goods_image0");
+		orderDTO.setOrderer_name(payMap.get("orderer_name"));
+		orderDTO.setOrderer_hp(payMap.get("orderer_hp"));
+		orderDTO.setOrderer_email(orderer_email);
+		orderDTO.setReceiver_name(payMap.get("receiver_name"));
+		orderDTO.setReceiver_hp(payMap.get("receiver_hp"));
+		orderDTO.setDelivery_zipcode(payMap.get("delivery_zipcode"));
+		orderDTO.setDelivery_addr1(payMap.get("delivery_addr1"));
+		orderDTO.setDelivery_addr2(payMap.get("delivery_addr2"));
+		orderDTO.setDelivery_message(payMap.get("delivery_message"));
+		orderDTO.setOrder_goods_price(0);
+		orderDTO.setGoods_sales_price(Integer.parseInt(payMap.get("goods_sales_price")));
+		orderDTO.setOrder_deli_price(Integer.parseInt(payMap.get("order_deli_price")));
+		orderDTO.setTotal_order_price(Integer.parseInt(payMap.get("total_order_price")));
+		orderDTO.setOrder_agreement_info(Integer.parseInt(payMap.get("order_goods_qty")));
+		orderDTO.setOrder_agreement_order(Integer.parseInt(payMap.get("order_agreement_order")));
+		orderDTO.setPay_method(payMap.get("pay_method"));
+		orderDTO.setDelivery_method("택배");
+		
+		orderService.orderOneGoods(orderDTO);
+		System.out.println("OrderController.java payToOrderGoods : " + payMap);
+		session.setAttribute("payMap", payMap);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/order/orderPayResult");
+		mav.setViewName("jsonView");
 		return mav;
 	}
 

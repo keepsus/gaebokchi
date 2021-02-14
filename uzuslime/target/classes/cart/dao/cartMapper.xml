@@ -45,15 +45,15 @@
   
   <!-- 위의 장바구니 리스트 안에 들은 goods_id로 상품 상세정보 꺼내오기 -->
   <!-- 최근에 담은 상품이 위로 옴 -->
-  <select id="getListFromGoods" parameterType="cart" resultType="goods">
+  <select id="getListFromGoods" parameterType="java.util.Map" resultType="goods">
   	  <![CDATA[
   	  	select * from t_shopping_goods
   	  	where goods_id in
   	  ]]>
   	  	<foreach item="item" collection="list" open="(" separator="," close=")">
-  	  		#{item.good_id}
+  	  		#{item.goods_id}
   	  	</foreach>
-  	  	order by goods_creDate desc
+  	  	order by goods_id desc
   </select>
  
  </mapper>

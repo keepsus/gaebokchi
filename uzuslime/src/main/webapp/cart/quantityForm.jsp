@@ -17,11 +17,11 @@
 <body>
 
 
-	<c:set var="order_goods_qty" value="2"></c:set>
+	<%-- <c:set var="order_goods_qty" value="2"></c:set>
 	<c:set var="goods_sales_price" value="7500"></c:set>
 	<c:set var="order_goods_total_qty" value="2"></c:set>
 	<c:set var="order_goods_price" value="${goods_sales_price*2 }"></c:set>
-	<c:set var="goods_title" value="레몬아작"></c:set>
+	<c:set var="goods_title" value="레몬아작"></c:set> --%>
 
 
 

@@ -16,5 +16,5 @@ public interface OrderService {
 	
 	public String kakaoPayReady(Map<String, String> map);
 	
-	public KakaoPayApprovalDTO kakaoPayInfo(Map<String, String> map);
+	public KakaoPayApprovalDTO kakaoPayInfo(String pg_token);
 }
