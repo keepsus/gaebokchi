@@ -21,7 +21,7 @@
 	    <div class="input-text">
 	        <input type="text" class="member_id" id="member_id" name="member_id" size="25" placeholder="아이디" autocomplete="off">
 	      <div id="idDiv"></div>
-	      
+	      <input type="hidden" id="check" value="">
 	    </div>
 	
 	

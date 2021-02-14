@@ -38,14 +38,12 @@
 						                card_com_name,
 						                card_pay_month,
 						                pay_orderer_hp_num,
-						                pay_order_time,
-						                delivery_state,
 						                user_order_status,
 						                order_status_reply)
 							     values(#{order_seq_num},
 							            #{order_id},
 									    #{member_id, jdbcType=VARCHAR},
-									    #{goods_id},
+									    #{goods_id, jdbcType=VARCHAR},
 									    #{goods_title, jdbcType=VARCHAR},
 									    #{order_goods_qty},
 									    #{goods_image0, jdbcType=VARCHAR},
@@ -70,8 +68,6 @@
 						                #{card_com_name, jdbcType=VARCHAR},
 						                #{card_pay_month, jdbcType=VARCHAR },
 						                #{pay_orderer_hp_num, jdbcType=VARCHAR},
-						                sysdate,
-						                #{delivery_state},
 						                #{user_order_status, jdbcType=VARCHAR},
 						                #{order_status_reply, jdbcType=VARCHAR})
     	]]>

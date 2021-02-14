@@ -27,7 +27,7 @@ $('#loginBtn').click(function(){
 					
 				}else if(data == 'fail'){
 					
-					alert('로그인 실패');
+					alert('잘못된 정보입니다. 다시 입력해주세요.');
 				}
 			},//success
 			error: function(err){
@@ -63,11 +63,13 @@ $('#writeBtn').click(function(){
 		$('#idDiv').css('color','red');
 		$('#idDiv').css('font-size','8pt');
 		$('#idDiv').css('font-weight','bold');	
+		
 	}else if( !idReg.test( $("input[id=member_id]").val() ) ){
 		$('#idDiv').text('아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.');
 		$('#idDiv').css('color','red');
 		$('#idDiv').css('font-size','8pt');
 		$('#idDiv').css('font-weight','bold');
+		
 	}else if($('input[name=member_pw]').val()==''){
 		$('#pwdDiv').text('비밀번호를 입력하세요')
 		$('#pwdDiv').css('color','red')

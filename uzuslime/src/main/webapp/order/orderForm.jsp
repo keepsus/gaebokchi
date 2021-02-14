@@ -5,6 +5,7 @@
 
 
 
+
 <jsp:useBean id="memberDTO" class="member.bean.MemberDTO" scope="page" />
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate value="${now}" pattern="yyyyMMddHHmmss" var="use_order_id_String" />
@@ -34,9 +35,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="vendors/css/grid.css"> -->
-    <link rel="stylesheet" href="/slime/css/order.css">
-    <!-- <link rel="stylesheet" href="resources/css/index.css"> -->
+    <link rel="stylesheet" href="vendors/css/grid.css">
+    <link rel="stylesheet" href="/slime/css/normalize.css">
+    <link rel="stylesheet" href="/slime/css/orderForm.css">
+    <link rel="stylesheet" href="resources/css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
@@ -61,8 +63,10 @@
 <input type="hidden" id="goods_sales_price" name="goods_sales_price" value="${goodsMap['goods_sales_price']}">
 <input type="hidden" id="order_deli_price" name="order_deli_price" value="${goodsMap['goods_deli_price']}">
 <input type="hidden" id="gift_wrapping" name="gift_wrapping" value="${gift_wrapping}">
-<input type="hidden" id="delivery_method" name="delivery_method" value="${delivery_method}">
-
+<input type="hidden" id="delivery_method" name="delivery_method" value="택배">
+<input type="hidden" id="orderer_zipcode" value="${memDTO.zipcode}">
+<input type="hidden" id="orderer_addr1" value="${memDTO.addr1}">
+<input type="hidden" id="orderer_addr2" value="${memDTO.addr2}">
 
 <div id="orderAll">
   <div class="paymentAll">
@@ -126,16 +130,16 @@
                         </div>
                     
                         <div class="delivery_zipcode"style="padding-bottom : 15px;">
-                            <input class="delivery_zipcode" id="delivery_zipcode" name="delivery_zipcode" type="text" placeholder="우편번호" >
+                            <input class="delivery_zipcode" id="postcode" name="delivery_zipcode" type="text" placeholder="우편번호" readonly>
                             <div id="delivery_zipcodeDiv"></div>
-                            <input type="button" value="주소찾기" id="zipcodeBtn"><br>
+                            <input type="button" value="주소찾기" id="checkPostBtn"><br>
                         </div>
-                        <div class="delivery_addr1" style="padding-bottom : 15px;">
-                            <input class="delivery_addr1" id="delivery_addr1" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
+                       <div class="delivery_addr1" style="padding-bottom : 15px;">
+                            <input class="delivery_addr1" id="address" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
                         	<div id="delivery_addr1Div"></div>
                         </div>
                         <div class="delivery_addr2">
-                            <input class="delivery_addr2" id="delivery_addr2" name="delivery_addr2" type="text" placeholder="상세주소" style="width:80%">
+                            <input class="delivery_addr2" id="detailAddress" name="delivery_addr2" type="text" placeholder="상세주소" style="width:80%">
                         	<div id="delivery_addr2Div"></div>
                         </div>
                         
@@ -143,10 +147,10 @@
                     <div class="delivery_message">
                         <h4>배송메모</h4>
                         <select class="delivery_message" id="delivery_message" name="delivery_message">
-                            <option value="0" disabled>배송 메모를 선택해 주세요</option>
-                            <option value="1">배송 전에 미리 연락 바랍니다.</option>
-                            <option value="2">부재시 경비실에 맡겨주세요</option>
-                            <option value="3" >부재시 전화나 문자를 남겨주세요</option>
+                            <option value="없음" disabled>배송 메모를 선택해 주세요</option>
+                            <option value="배송 전에 미리 연락 바랍니다">배송 전에 미리 연락 바랍니다.</option>
+                            <option value="부재시 경비실에 맡겨주세요">부재시 경비실에 맡겨주세요</option>
+                            <option value="부재시 전화나 문자를 남겨주세요" >부재시 전화나 문자를 남겨주세요</option>
                             <!-- <option value="4">직접입력</option> --> <!-- ★★★★★ 직접입력 클릭 시 입력창 생성하기 -->
                         </select>
                     </div>
@@ -193,7 +197,7 @@
                                 <input type="radio" name="pay_method" value="cash" >
                                 <span class="type_text">무통장 입금</span>
                                 <input type="radio" name="pay_method" value="kakao" style="margin-left: 39px;" >
-                                <span class="type_text">KakaoPay</span>
+                                <span class="type_text"><img src="/slime/image/kakaoPay.png" width="60px" height="25px"></span>
                             </label>
                         </div>
                     </div>

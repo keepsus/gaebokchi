@@ -173,7 +173,6 @@ h1 {
 .md-item-img{
 	cursor:pointer;
     width: 300px;
-
      
 }
 
@@ -259,21 +258,14 @@ hr{
 .item-wrapper{
     display: inline-block;
     text-align: center;
-    margin: 0 15px;
+    margin: 15px 15px;
 }
 
 .item-img{
     width: 400px;
+    height: 400px;
     cursor:pointer;
     overflow:hidden;
-}
-
-.imgTransform :hover img {
-	transform : scale(1.4);
-}
-
-.imgTransform img{
-	transition : all 0.2s linear;
 }
 
 

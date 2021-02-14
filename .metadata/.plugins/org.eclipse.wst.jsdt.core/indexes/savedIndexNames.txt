@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.4+D:\SlimeProject2\gaebokchi\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 1623737451.index
 175929560.index
@@ -6,5 +7,12 @@ INDEX VERSION 1.4+D:\SlimeProject2\gaebokchi\.metadata\.plugins\org.eclipse.wst.
 3748854144.index
 1032779297.index
 3257508889.index
+=======
+INDEX VERSION 1.4+D:\work\main\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1713166294.index
+>>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
 514449861.index
-3757586385.index
+1083719414.index
+3203891923.index
+3275779856.index
+1364008981.index

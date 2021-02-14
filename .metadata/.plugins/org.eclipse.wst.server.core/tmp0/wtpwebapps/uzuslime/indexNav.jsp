@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
- 
-
 <div class="row">
 
 	<ul class="main-nav">
    
 		<!-- 비 로그인 메뉴 -->
 		<c:if test="${sessionScope.memId == null }">   
-		<li><a href="/slime/member/memberLoginForm" rel="modal:open">로그인</a></li>
-		<li><a href="/slime/member/memberWriteForm" rel="modal:open">회원가입</a></li>    
+		<li><a href="/slime/member/memberLoginForm" class="login-btn" rel="modal:open">로그인</a></li>
+		<li><a href="/slime/member/memberWriteForm" class="write-btn" rel="modal:open">회원가입</a></li>    
 		</c:if>
 		  
 		<!-- 로그인 메뉴 -->

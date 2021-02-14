@@ -16,8 +16,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
 <title>우주슬라임</title>   
+<<<<<<< HEAD
  
 
+=======
+>>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
 <!---------------------->
 <!--------HAEDER-------->
 <!---------------------->
@@ -52,9 +55,9 @@
 	
 	<!------------------->
 	<!-- 제품뿌려주는 위치 -->
-    <div class="row">    
-    	<div id="goodsIndexList" align="center">	
-	</div>	 	
+    <div class="wrap">    
+    	<div id="goodsIndexList" align="center">	    	
+	</div>
 	<!-- 제품뿌려주는 위치 -->
 	<!------------------->
 	
@@ -494,18 +497,20 @@ $(document).ready(function(){
 		type: 'post',
 		url: '/slime/goods/getGoodsIndexList',
 		dataType: 'json',
-		success: function(data){			
+		success: function(data){
+ 			//$('#goodsIndexList').html("<div style='color:red; font-weight:bold'>css 먹히나여?</div>");
 			//alert(JSON.stringify(data)); 
- 			//console.log(data); 			
+ 			//console.log(data);			
  			$.each(data.list, function(index, items){
- 				$('<div/>').append($('<img/>',{
- 					src: '/slime/storage/'+items.goods_image0,
- 					style: 'width: 300px; height: 300px; cursor: pointer;',
- 					class: items.seq+''
- 					
- 				})).append($('<td/>',{
+ 				$('<div class="item-wrapper"/>').append($('<div class="imgTransform">',{
+ 	 				}).append($('<img/>',{
+	 					src: '/slime/storage/'+items.goods_image0,
+	 					style: 'width: 400px; cursor: pointer;',
+	 					class: items.seq+''
+	 					}))					
+ 				).append($('<td/>',{
  					align: 'center',
- 					text: items.goods_title
+ 					text: items.goods_title,
  					
  				})).append($('<span/>',{
  					align: 'center',
