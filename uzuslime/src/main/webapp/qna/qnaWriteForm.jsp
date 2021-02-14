@@ -37,7 +37,7 @@
                             </div>
                             <div class="qnaBody" style="padding-top: 15px;">
                                 <div class="txt_wrapper">
-                                    <input type="text" class="qna_content" id="content" name="content" placeholder="문의글을 입력해주세요">
+                                    <textarea style="resize: none;" class="qna_content" id="content" name="content" placeholder="문의글을 입력해주세요"></textarea>
                                      <div id="contentDiv"></div>
                                 </div>
                             </div>
