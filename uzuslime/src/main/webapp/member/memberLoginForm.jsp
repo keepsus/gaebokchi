@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.security.SecureRandom" %>
+<%@ page import="java.math.BigInteger" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,18 +45,38 @@
 	            </div>
 	            
 	            <div>
-	                <input type="button" id="loginBtn" class="loginBtn" value="로그인">
+	                <input type="button" id="loginBtn" class="loginBtn" value="로그인" sytle="margin-bottom:10px;">
 	            </div>
+	            <div style="margin-top:10px;">
+					                	            <!--네이버 로그인-->
+								<%
+						    String clientId = "bpePMEMFqUEtjH5x7Ira";//애플리케이션 클라이언트 아이디값";
+						    String redirectURI = URLEncoder.encode("http://localhost:8080/slime/", "UTF-8");
+						    SecureRandom random = new SecureRandom();
+						    String state = new BigInteger(130, random).toString();
+						    String apiURL = "https://nid.naver.com/oauth2.0/authorize?response_type=code";
+						    apiURL += "&client_id=" + clientId;
+						    apiURL += "&redirect_uri=" + redirectURI;
+						    apiURL += "&state=" + state;
+						    session.setAttribute("state", state);
+						 %>
+					  <a href="<%=apiURL%>">
+					  <img height="40" width="308" src="/slime/image/naver.jpg"/>
+						 </a>
+					</div> 
 	            
-	            <div class="login-append">
+
+	          	            
+	            <div class="login-append" style="margin-left:10px;">
 	                <div class="inp-chk">
 	                    <input type="checkbox" id="keepLogin" class="inp-radio" name="keepLogin">
-	                    <span class="txt-lab">로그인 상태 유지</span>
+	                    <span class="txt-lab">로그인 상태 유지</span>                 
 	                </div>
 	                <span>
 	                    <a data-dismiss="modal" href="/slime/member/memberSearch" rel="modal:open" class="link-find">아이디·비밀번호 찾기</a>
 	                </span>
 	            </div>
+	            
 	        </form>
         </div>
         

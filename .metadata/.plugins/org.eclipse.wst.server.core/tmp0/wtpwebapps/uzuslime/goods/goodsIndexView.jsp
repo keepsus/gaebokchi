@@ -36,15 +36,27 @@
 
 
 <!-- SECTION -->
+<<<<<<< HEAD
+<section>
+<form name="goodsIndexViewForm" id="goodsIndexViewForm">
+	<div class="row">
+	
+		<div class="nav">
+=======
 <form name="goodsIndexViewForm" id="goodsIndexViewForm">
 
 	<div class="row">
 		<div class="col span-1-of-2" >
+>>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
 			<img id="goods_image0Span" name="goods_image0Span" alt="제품 메인 이미지" width="200" height="200">
 			<img id="goods_image1Span" name="goods_image1Span" alt="제품 서브 이미지"width="200" height="200"> 	
 		</div>   
 		
+<<<<<<< HEAD
+		<div class="section">
+=======
 		<div class="col span-1-of-2">
+>>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
 			상품번호: <span id="goods_idSpan"></span><br>
 			상품명: <span id="goods_titleSpan"></span><br>
 			제품가격 : <span id="goods_priceSpan"></span> 원<br>

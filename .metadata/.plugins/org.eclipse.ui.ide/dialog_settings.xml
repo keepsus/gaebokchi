@@ -111,7 +111,11 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+<<<<<<< HEAD
+			<item value="D:\SlimeProject2\gaebokchi\uzuslime"/>
+=======
 			<item value="D:\work\main\uzuslime"/>
+>>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
 			<item value="D:\SlimeProject\gaebokchi\uzuslime"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
