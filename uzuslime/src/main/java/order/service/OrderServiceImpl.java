@@ -14,12 +14,13 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import lombok.extern.java.Log;
 import order.bean.KakaoPayApprovalDTO;
 import order.bean.KakaoPayReadyDTO;
 import order.bean.OrderDTO;
 import order.dao.OrderDAO;
 
-
+@Log
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -98,12 +99,13 @@ public class OrderServiceImpl implements OrderService {
             e.printStackTrace();
         }
         
-        return "/order/orderForm"; 
+        //return "/order/kakaoPayFail"; 
+        return "/pay";
 	}
 	
 	
 	//카카오 페이 결제 승인
-	public KakaoPayApprovalDTO kakaoPayInfo(Map<String, String> map) {
+	public KakaoPayApprovalDTO kakaoPayInfo(String pg_token) {
 		RestTemplate restTemplate = new RestTemplate();//Http서버와 통신
 		
 		//서버로 요청할 Header
@@ -116,16 +118,20 @@ public class OrderServiceImpl implements OrderService {
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("cid", "TC0ONETIME"); //테스트 결제용 가맹점 코드
 		params.add("tid", kakaoPayReadyDTO.getTid()); //거래일련번호
-		params.add("partner_order_id", map.get("order_id"));
-        params.add("partner_user_id", map.get("member_id"));
-        params.add("pg_token", map.get("pg_token"));
-        params.add("total_amount", map.get("total_order_price"));
+//		params.add("partner_order_id", map.get("order_id"));
+//        params.add("partner_user_id", map.get("member_id"));
+//        params.add("pg_token", pg_token);
+//        params.add("total_amount", map.get("total_order_price"));
+		params.add("partner_order_id", "0");
+        params.add("partner_user_id", "0");
+        params.add("pg_token", pg_token);
+        params.add("total_amount", "0");
         
         //값 확인
-        System.out.println("OrderServiceImpl.java kakaoPayInfo() partner_order_id : " + map.get("order_id"));
-        System.out.println("OrderServiceImpl.java kakaoPayInfo() partner_user_id : " + map.get("member_id"));
-        System.out.println("OrderServiceImpl.java kakaoPayInfo() pg_token : " + map.get("pg_token"));
-        System.out.println("OrderServiceImpl.java kakaoPayInfo() total_amount : " + map.get("total_order_price"));
+//        System.out.println("OrderServiceImpl.java kakaoPayInfo() partner_order_id : " + map.get("order_id"));
+//        System.out.println("OrderServiceImpl.java kakaoPayInfo() partner_user_id : " + map.get("member_id"));
+//        System.out.println("OrderServiceImpl.java kakaoPayInfo() pg_token : " + map.get("pg_token"));
+//        System.out.println("OrderServiceImpl.java kakaoPayInfo() total_amount : " + map.get("total_order_price"));
 
         HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 	

@@ -3,7 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
+<!--cartList : 회원아이디, 상품아이디, 주문수량, 장바구니 생성일 정보가 들어있음-->
+<c:set var="cartList" value="${cartMap['cartList']}"/>
+<!-- goodsList : 상품 상세정보가 들어있음 -->
+<c:set var="goodsList" value="${cartMap['goodsList']}"/>
 
 <!DOCTYPE html>
 <html>
@@ -45,10 +48,7 @@
 <c:set var="total_order_price" value="${goods_sales_price + goods_deli_price }"></c:set>
 <c:set var="goods_point" value="-"></c:set>
 
-<!--cartList : 회원아이디, 상품아이디, 주문수량, 장바구니 생성일 정보가 들어있음-->
-<c:set var="cartList" value="${cartMap.cartList}"/>
-<!-- goodsList : 상품 상세정보가 들어있음 -->
-<c:set var="goodsList" value="${cartMap.goodsList}"/>
+
 
 <body>
 
@@ -119,7 +119,7 @@
 			</div><!-- cart_title_content -->
 		</div><!-- end cart_title_box -->
 
-<form id="imageboardListForm" method="get" action="imageboardDelete">
+<form id="cartListForm" name="cartListForm" method="get" action="imageboardDelete">
 
 <!-- 장바구니 항목 테이블 -->	
 <div class="item_table">
@@ -149,7 +149,8 @@
 </div><!-- end item_table -->
 
 
-
+<input type="hidden" id="cartList" name="cartList" value="${cartMap['cartList']}"/>
+<input type="hidden" id="goodsList" name="goodsList" value="${cartMap['goodsList']}"/>
 
 
 <!-- 장바구니 테이블 -->	
@@ -167,10 +168,80 @@
 			</td>
 		</div>  -->
 
-
 	<table class="cart_List_table" id="cart_List_table" ><!-- ajax로 들어온다 -->
+ 	<%--  <c:forEach var="item" items="${cartMap['goodsList']}" varStatus="cnt">
+  	 	<c:set var="cart_goods_qty" value="${cartList[cnt.count-1].cart_goods_qty}"/>
+  	 	<c:set var="coart_id" value="${cartList[cnt.count-1].cart_id}"/> --%>
+		<tr>
+			<td class="part_checkbox"><input type="checkbox" class="part_checkbox_click" id="part_check" checked></td>
+			
+			<td class="item_info_detail">
+				<a class="cart_selected_item">
+					<img src="/slime/image/img3.jpg" class="cart_item_img"  onClick="location.href='/slime/detailpage/detailPage.jsp'">
+				</a>
+				<div class="item_view_name_div">
+					<a class="item_view_name">${goodsList.GoodsDTO.goods_title }</a>
+				</div>
+			</td>
+			
+			<td class="wish_icon">
+				<!-- 하트 누르기전 -->
+				<c:if test="${sessionScope.heart_check == 0 }">	
+					<a href="" class="a_wish_icon" id="a_wish_icon">
+						<i class="far fa-heart"></i>
+					</a>
+				</c:if>	 
+				<!-- 하트 누른후 -->
+				<c:if test="${sessionScope.heart_check == 1 }">	
+					<a href="" class="a_wish_icon" id="a_wish_icon">
+						<i class="fas fa-heart"></i>
+					</a>
+				</c:if>	
+			</td>
+			
+			<td class="quantity_detail">
+				<div class="quantity_kind" >
+					<div >${items.order_goods_qty }개</div>
+					<!-- <a href="/slime/cart/quantityForm.jsp" rel="modal:open" class="quantity_change_Btn" >변경</a> -->
+					<a id="quantity_change_Btn" data-toggle="modal" data-target="#modal" role="button" class="quantity_change_Btn" >변경</a>
+						
+						<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+							<div class="modal-dialog">
+								<div class="modal-content">
+								
+								</div>
+							</div>
+						</div>
+						
+				</div><!-- end quantity_kind -->
+			</td>
+			<td class="deliv_way">
+				<div class="deliv_way_text">택배</div>
+			</td>
+			<td class="deliv_fee_direction">
+				
+					<div class="deliv_fee_detail">${items.goods_deli_price }원<br>
+						<a href="" class="a_deliv_fee_info" id="a_deliv_fee_info">
+							<i class="far fa-question-circle"></i>
+						</a>
+					</div>
+					
+				
+			</td>
+			<td class="price">
+				<div class="price_div">
+					${items.goods_sales_price }원
+				</div>
+			</td>
+			<td class="order_delete_Btn_area">
+				<div class="order_and_delete">
+					<a type="button" class="order_Btn" id="order_Btn">주문</a>
+					<a type="button" class="delete_Btn" id="delete_Btn">삭제</a>
+				</div>
+			</td>
+		</tr>
+<%--  	 </c:forEach>		 --%>	
 	</table>	
-	
 </div><!-- end item_list -->
 
 
@@ -276,12 +347,7 @@
 
 <div id="imageboardPagingDiv" style="float: left; width: 600px; text-align: center;"></div>
  -->
-
 </form>
-</body>
-</html>
-
-
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -289,8 +355,8 @@
 $(document).ready(function(){
 	$.ajax({
 		type: 'post',
-		url: '/spring/imageboard/getImageboardList',
-		data: 'pg=${pg}',
+		url: '/slime/cart/getListFromCartAndGoods',
+		data: {'cartMap':$(cartMap),
 		dataType: 'json',
 		success : function(data){
 			console.log(data);
@@ -503,6 +569,11 @@ prop(key, value)   -> 속성값을 추가한다
 
 [실습] exam04.html
  --%>
+
+</body>
+</html>
+
+
 
 
 

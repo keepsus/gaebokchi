@@ -43,13 +43,15 @@
 		</init-param>
 	</filter>
 	
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+	<!-- CORS setting -->
+	<filter>
+		<filter-name>filterName</filter-name> 
+		<filter-class>etc.OrderOrigin</filter-class> 
+	</filter>
+	<filter-mapping> 
+		<filter-name>filterName</filter-name> 
+		<url-pattern>/*</url-pattern>  <!-- 필터가 적용될 대상: url 패턴-->
 	</filter-mapping>
-	<!-- 스프링 파라메터로 한글을 넘길 때, 끝 -->
- 
-
 
 
 

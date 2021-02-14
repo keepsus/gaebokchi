@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,10 @@
 </head>
 <body>
 <script>
-$(document).ready(function(data){
-	alert(data);
-	let url = data.url;
-	location.href="url";
-}); 
+window.onload=function(){
+	alert("카카오페이 결제 성공");
+	location.href="/order/payToOrderGoods";
+}
 </script>
 </body>
 </html>

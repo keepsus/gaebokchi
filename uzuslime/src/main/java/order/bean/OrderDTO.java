@@ -10,7 +10,7 @@ import lombok.Data;
 public class OrderDTO {
 	
 	private int order_seq_num;
-	private int order_id;
+	private String order_id;
 	private String member_id;
 	private String goods_id;
 	private String goods_title;

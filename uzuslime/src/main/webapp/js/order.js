@@ -15,10 +15,17 @@ $('#all_agreement').click(function(){
 //주문자 정보와 동일 체크
 $('#orderer_reciver_same').click(function(){
 	var name = $('#orderer_name').val();
-	var hp = $('#orderer_hp').val()
+	var hp = $('#orderer_hp').val();
+	var zipcode = $('#orderer_zipcode').val();
+	var addr1 = $('#orderer_addr1').val();
+	var addr2 = $('#orderer_addr2').val();
 	
 	$('#receiver_name').val(name);
 	$('#receiver_hp').val(hp);
+	$('#postcode').val(zipcode);
+	$('#address').val(addr1);
+	$('#detailAddress').val(addr2);
+	
 	
 });
 
@@ -113,18 +120,20 @@ $('#order_payBtn').click(function(){
 		if(radioVal == 'kakao'){
 			$.ajax({
 				type: 'post',
-				url: '/slime/order/kakaoPayReady',
+				url: '/slime/order/kakaoPay',
 				data: $('#form_order').serialize(),
 //				{
-//					
-//					
 //					'goods_title':$('#goods_titleSpan').text(),
 //					'order_goods_qty':$('input[name=numbox]').val(),
-//					'goods_salse_price':$('#goods_sales_priceSpan').text(),
-//					
+//					'goods_salse_price':$('#goods_sales_priceSpan').text(),	
 //				},
-				success: function(){
+				
+				success: function(data){
 					alert('카카오페이 결제창으로 넘어갑니다');
+					alert(data);
+					location.href=data;
+					//var pg_token = location.href=data;
+					//alert(pg_token);
 					
 				},
 				error : function(err){
@@ -132,14 +141,30 @@ $('#order_payBtn').click(function(){
 				}
 				
 			});//ajax(kakao)
-		}else{
+			
+//			$.ajax({
+//				type:'get',
+//				url: '/slime/order/kakaoPaySuccess',
+//				data : pg_token,
+//				dataType : 'json',
+//				success: function(){
+//
+//					location.href='/slime/order/orderPayResult.jsp';
+//				},
+//				error : function(err){
+//					console.log(err);
+//				}
+//			
+//		});
+		}else if(radioVal == 'cash'){
 			$.ajax({
 				type: 'post',
 				url: '/slime/order/payToOrderGoods',
 				data: $('#form_order').serialize(),
+				dataType : 'json',
 				success: function(){
-					alert('주문 완료');
-					location.href='/slime/order/payToOrderGoods';
+					//alert('주문 완료');
+					location.href='/slime/order/orderPayResult.jsp';
 				},
 				error : function(err){
 					console.log(err);
@@ -147,5 +172,16 @@ $('#order_payBtn').click(function(){
 				
 			});//ajax(else)
 		}
+		
+
+		
 	}
 });//$('#order_payBtn').click
+
+
+//orderPayResult.jsp
+//홈버튼 누르면 메인으로 이동하기
+$('#go_homeBtn').click(function(){
+	location.href="/slime/index.jsp";
+});
+
