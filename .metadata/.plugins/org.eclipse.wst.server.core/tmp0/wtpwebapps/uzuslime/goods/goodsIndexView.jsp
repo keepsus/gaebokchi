@@ -37,33 +37,34 @@
 
 <!-- SECTION -->
 <section>
-<form name="goodsIndexViewForm">
+<form name="goodsIndexViewForm" id="goodsIndexViewForm">
 	<div class="row">
 	
 		<div class="nav">
-			<img id="goods_image0" alt="제품 메인 이미지" width="200" height="200">
-			<img id="goods_image1" alt="제품 서브 이미지"width="200" height="200"> 	
+			<img id="goods_image0Span" name="goods_image0Span" alt="제품 메인 이미지" width="200" height="200">
+			<img id="goods_image1Span" name="goods_image1Span" alt="제품 서브 이미지"width="200" height="200"> 	
 		</div>   
 		
 		<div class="section">
-			상품명: <span id="goods_titleSpan" name="goods_titleSpan"></span><br>
-			제품가격 : <span id="goods_priceSpan" name="goods_priceSpan"></span> 원<br>
-			할인가격 : <span id="goods_sales_priceSpan" name="goods_sales_priceSpan"></span> 원<br>
-			제품설명 : <span id="goods_contentSpan" name="goods_contentSpan"></span><br>
-			원산지 : <span id="goods_countrySpan" name="goods_countrySpan"></span><br>
-			적립포인트 : <span id="goods_pointSpan" name="goods_pointSpan"></span> 포인트<br>
-			배송비 : <span id="goods_deli_priceSpan" name="goods_deli_priceSpan"></span> 원<br>
-			재고수량 : <span id="goods_qtySpan" name="goods_qtySpan" pattern="#,###"></span> EA<br>
-			재고수량 : <span id="goods_qtySpan" name="goods_qtySpan" pattern="#,###"></span> EA<br>
+			상품번호: <span id="goods_idSpan"></span><br>
+			상품명: <span id="goods_titleSpan"></span><br>
+			제품가격 : <span id="goods_priceSpan"></span> 원<br>
+			할인가격 : <span id="goods_sales_priceSpan"></span> 원<br>
+			제품설명 : <span id="goods_contentSpan"></span><br>
+			원산지 : <span id="goods_countrySpan"></span><br>
+			적립포인트 : <span id="goods_pointSpan"></span> 포인트<br>
+			배송비 : <span id="goods_deli_priceSpan"></span> 원<br>
+			재고수량 : <span id="goods_qtySpan"></span> EA<br>
+			
 			<!-- 강사님 알려주신 소스, max 확인용 코드 -->
 			<input type="hidden" id="stock" value="">
 			
 			<!-- 참고소스 시작부분 -->								
-			<p class="cartStock">
-				<span>구입 수량</span>
+			<p class="cartStock">		
+				구입수량 : 				
 				<button type="button" class="plus">+</button>
-				<span id="numboxSpan" name="numbox"></span>
-				<button type="button" class="minus">-</button>
+				<span id="numboxSpan"></span>
+				<button type="button" class="minus">-</button>					
 			</p>	
 		</div>
 	
@@ -72,7 +73,7 @@
 		<input type="button" value="장바구니" id="goodsCartBtn">
 		
 		<div class="detailInformation">
-			<img id="goods_image2" alt="제품상세 설명">			
+			<img id="goods_image2Span" alt="제품상세 설명">			
 		</div>
 	</div>
 
@@ -127,25 +128,24 @@ $(document).ready(function(){
 		data: 'seq=${seq}',
 		dataType: 'json',
 		success: function(data){			
-			//console.log(data);
+			console.log(data);
 			
 			/* --id에 한 곳에만 값이 입력됨, 만약 goods_qty 값을 여러곳에 쓰고 싶으면 받는 곳의 id 값을 각각 다르게 잡아 줘야 한다.
 			$('#goods_qtySpan').text(data.goodsDTO.goods_qty);
 			$('#goods_qtySpanAA').text(data.goodsDTO.goods_qty);
 			*/
-			
-			$('#goods_image0').attr('src', '../storage/'+data.goodsDTO.goods_image0);
-			$('#goods_image1').attr('src', '../storage/'+data.goodsDTO.goods_image1);
-			$('#goods_image2').attr('src', '../storage/'+data.goodsDTO.goods_image2);
+			$('#goods_idSpan').text(data.goodsDTO.goods_id);
+			$('#goods_image0Span').attr('src', '../storage/'+data.goodsDTO.goods_image0);
+			$('#goods_image1Span').attr('src', '../storage/'+data.goodsDTO.goods_image1);
+			$('#goods_image2Span').attr('src', '../storage/'+data.goodsDTO.goods_image2);
 			$('#goods_titleSpan').text(data.goodsDTO.goods_title);			
-			$('#goods_priceSpan').text(data.goodsDTO.goods_price.toLocaleString());
-			$('#goods_sales_priceSpan').text(data.goodsDTO.goods_sales_price.toLocaleString());
+			$('#goods_priceSpan').text(data.goodsDTO.goods_price);
+			$('#goods_sales_priceSpan').text(data.goodsDTO.goods_sales_price);
 			$('#goods_contentSpan').text(data.goodsDTO.goods_content);
 			$('#goods_countrySpan').text(data.goodsDTO.goods_country);
 			$('#goods_pointSpan').text(data.goodsDTO.goods_point);
 			$('#goods_deli_priceSpan').text(data.goodsDTO.goods_deli_price);
 			$('#goods_qtySpan').text(data.goodsDTO.goods_qty);
-			
 			$('#stock').val(data.goodsDTO.goods_qty); //max 확인용 코드
 		
 			/*

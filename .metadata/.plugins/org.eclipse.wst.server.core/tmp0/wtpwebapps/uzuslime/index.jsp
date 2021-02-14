@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="java.net.URLEncoder" %>
+<%@ page import="java.net.URL" %>
+<%@ page import="java.net.HttpURLConnection" %>
+<%@ page import="java.io.BufferedReader" %>
+<%@ page import="java.io.InputStreamReader" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -14,7 +18,6 @@
 <title>우주슬라임</title>   
  
 
-
 <!---------------------->
 <!--------HAEDER-------->
 <!---------------------->
@@ -24,7 +27,6 @@
 		<a href="/slime/index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
 	</nav>
 </header>  
-
 
 <!--------------------------->
 <!--------SIDEBAR-MENU------->
@@ -540,9 +542,10 @@ $(document).ready(function(){
  			});//each
  			
 		},//success
+		
 		error: function(err){
 			console.log(err);
-		}		
+		}//error		
 		
 	});//ajax
 });//ready
