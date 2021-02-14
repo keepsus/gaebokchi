@@ -18,8 +18,8 @@
 					closeExisting: false
 				})
 			});   			
-   		$(function() {
-   		});
+/*    		$(function() {
+   		}); */
 	</script>
 </head>
 
@@ -52,9 +52,7 @@
 	                    <span class="txt-lab">로그인 상태 유지</span>
 	                </div>
 	                <span>
-	                    <a data-dismiss="modal" href="/slime/member/memberSearch" rel="modal:open" class="link-find">아이디</a>
-	                    · 
-	                    <a href="" class="link-find">비밀번호 찾기</a> 
+	                    <a data-dismiss="modal" href="/slime/member/memberSearch" rel="modal:open" class="link-find">아이디·비밀번호 찾기</a>
 	                </span>
 	            </div>
 	        </form>

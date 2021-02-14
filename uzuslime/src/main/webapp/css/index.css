@@ -173,7 +173,6 @@ h1 {
 .md-item-img{
 	cursor:pointer;
     width: 300px;
-
      
 }
 
@@ -268,14 +267,25 @@ hr{
     overflow:hidden;
 }
 
-.imgTransform :hover img {
-	transform : scale(1.4);
+.imgTransform1 img{
+	cursor: pointer;
+	width: 400px; 
 }
 
-.imgTransform img{
-	transition : all 0.2s linear;
+.imgTransform1:hover img {
+	transform: scale(1.4);	
+	
 }
 
+.imgTransform1 img{
+	transition: all 0.2s linear;
+	
+}
+
+.imgTransform1{
+	position: relative;
+	overflow: hidden;
+}
 
 /* -------------------------------------- */
 /* SECTION 5 */ 
