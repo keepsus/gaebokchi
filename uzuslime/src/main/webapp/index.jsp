@@ -16,11 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
 <title>우주슬라임</title>   
-<<<<<<< HEAD
- 
 
-=======
->>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
 <!---------------------->
 <!--------HAEDER-------->
 <!---------------------->
