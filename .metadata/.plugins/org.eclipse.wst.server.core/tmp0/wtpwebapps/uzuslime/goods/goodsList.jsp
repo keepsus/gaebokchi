@@ -46,9 +46,9 @@
 				<th width="100"><input type="checkbox" id="all">번호</th>
 				<th width="150">이미지</th>
 				<th width="150">상품명</th>
-				<th width="100">단가</th>
-				<th width="100">개수</th>
-				<th width="100">합계</th>		
+				<th width="100">정상가</th>
+				<th width="100">세일가</th>
+				<th width="100">재고</th>		
 			</tr>	
 		</table>
 	</div>
@@ -110,14 +110,14 @@ $(document).ready(function(){
 				})).append($('<td/>',{
 					align: 'center',
 					text: items.goods_price.toLocaleString()
+										
+				})).append($('<td/>',{
+					align: 'center',
+					text: (items.goods_sales_price).toLocaleString()
 					
 				})).append($('<td/>',{
 					align: 'center',
 					text: items.goods_qty
-					
-				})).append($('<td/>',{
-					align: 'center',
-					text: (items.goods_price * items.goods_qty).toLocaleString()
 					
 				})).appendTo($('#goodsListMypageTable'));
 				
