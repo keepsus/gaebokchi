@@ -77,9 +77,10 @@ public class CartController {
 		String memId = (String) session.getAttribute("memId"); //로그인 시 세션에 저장한 회원아이디를 가져옴
 		Map<String, List> cartMap = cartService.getListFromCartAndGoods(memId); //회원아이디를 가지고 DB에 저장되어있는 장바구니 리스트(상품 정보)를 가져옴
 		session.setAttribute("cartMap", cartMap);
-		List<GoodsDTO> goodsList = cartMap.get("goodsList");
-		GoodsDTO sampleGoodsDTO = goodsList.get(3);
-		session.setAttribute("sampleGoodsDTO", sampleGoodsDTO);
+		//List<GoodsDTO> goodsList = cartMap.get("goodsList");
+		//GoodsDTO sampleGoodsDTO = goodsList.get(3);
+		//System.out.println("goodsList.get(3)" + goodsList.get(3));
+		//session.setAttribute("sampleGoodsDTO", sampleGoodsDTO);
 		System.out.println("CartController.java cartMap : " + cartMap);
 //		ModelAndView mav = new ModelAndView();
 //		mav.setViewName("/cart/cart");
