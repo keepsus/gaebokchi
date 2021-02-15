@@ -105,7 +105,7 @@ LOGTIME	DATE					   --작성일
 
   CREATE TABLE T_SHOPPING_CART 
    (
-   CART_ID NUMBER(10,0) primary key,	--장바구니번호
+  	CART_ID NUMBER(10,0) primary key,	--장바구니번호
 	GOODS_ID VARCHAR2(50 BYTE),		--상품번호
 	MEMBER_ID VARCHAR2(20 BYTE),		--회원아이디
 	CART_GOODS_QTY NUMBER(4,0) DEFAULT 1,	--상품개수
