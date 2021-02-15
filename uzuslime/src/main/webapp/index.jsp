@@ -504,35 +504,19 @@ $(document).ready(function(){
 	 					style: 'width: 400px; cursor: pointer;',
 	 					class: items.seq+''
 	 					}))					
- 				).append($('<td/>',{
+ 				).append($('<div/>',{
  					align: 'center',
  					text: items.goods_title,
  					
  				})).append($('<span/>',{
  					align: 'center',
-					text: items.goods_sales_price
+					text: "정상가 : "+items.goods_sales_price
 					
- 				})).append($('<span/>',{
+ 				})).append($('<br>')).append($('<span/>',{
  	 				align: 'center',
- 					text: items.goods_price
+ 					text: "세일가 : "+items.goods_price
  						
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_sales_yn 					 	 			
- 				
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_md_yn
- 					 					
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_hot_yn
- 				
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_soldout_yn
- 					 						
- 	 			})).appendTo($('#goodsIndexList'));
+  	 			})).appendTo($('#goodsIndexList'));
  				
  												
  				//이미지 보기
