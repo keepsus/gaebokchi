@@ -1,0 +1,49 @@
+/* -------------------------------------- */
+/* BASIC SETUP (기본 설정) */
+/* -------------------------------------- */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: rgba(85, 85, 85, 0.897);
+    font-family: 'Raleway','Noto Sans Korean','Apple SD Gothic Neo', 'Malgun Gothic','Nanum Gothic', 'Noto Sans','sans-serif';
+    font-weight: 300px;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    /* 반응형 웹사이트를 만드려고 기준으로 두었다. 폰트사이즈를 20px을 기본으로 주면 다른 태그에서 %를 사용해서 변경해주면 
+    폰트 사이즈를 바꿔줄때마다 웹사이트의 폰트 사이즈가 자동으로 바뀔 것이다. */
+}
+
+th {
+  background-color: #f7f1e3;
+}
+
+td {
+  background-color: #F6F6F8;
+  text-align: center;
+  background-color: #F6F6F8;
+  font-size: 70%;
+}
+
+h2{
+	
+}
+
+.name {
+	width: 10%;
+}
+
+.addr {
+	width: 30%;
+}
+
+.list-box {
+	display: inline-block;
+	margin-left: 25%;
+	margin-top: 10%;
+}
+

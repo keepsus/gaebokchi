@@ -1,0 +1,473 @@
+/* -------------------------------------- */
+/* BASIC SETUP (기본 설정) */
+/* -------------------------------------- */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #fff;
+    color: rgba(85, 85, 85, 0.897);
+    font-family: 'Raleway','Noto Sans Korean','Apple SD Gothic Neo', 'Malgun Gothic','Nanum Gothic', 'Noto Sans','sans-serif';
+    font-weight: 300px;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    /* 반응형 웹사이트를 만드려고 기준으로 두었다. 폰트사이즈를 20px을 기본으로 주면 다른 태그에서 %를 사용해서 변경해주면 
+    폰트 사이즈를 바꿔줄때마다 웹사이트의 폰트 사이즈가 자동으로 바뀔 것이다. */
+}
+
+
+/* -------------------------------------- */
+/* REUSABLE COMPONENTS (재사용 컴포넌트) */ 
+/* -------------------------------------- */
+.row {
+    max-width: 1140px;
+    margin: 0 auto; /* 모든 행이 중앙에 오도록 한다. */
+}
+
+section {
+    padding: 40px 0;
+}
+
+/* -------------------------------------- */
+/*  HEADER */
+/* -------------------------------------- */
+.logo {
+    margin-left: 45%;
+    margin-top: 10px;
+    
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 60px;
+}
+
+.main-nav li{
+    display: inline-block;
+    margin-left: 30px;
+    
+    
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    text-decoration: none;
+    font-size: 80%;
+    font-weight: bold;
+    color:rgba(63, 62, 62, 0.774);
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.4s;
+    padding: 4px 0;
+}
+
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid rgba(63, 62, 62, 0.774);
+}
+
+
+/* -------------------------------------- */
+/*  Login Modal */
+/* -------------------------------------- */
+.login-header{
+    font-size: 130%;
+    text-align: center;
+}
+
+
+
+
+/* -------------------------------------- */
+/* sidebar-section */ 
+/* -------------------------------------- */
+.sidebar-section{
+    border-top: 1px solid rgba(177, 174, 174, 0.26);
+    border-bottom: 1px solid rgba(177, 174, 174, 0.26);
+    padding: 10px 15px;
+    top: 1px;
+    position: sticky;
+    background-color: #fff;
+}
+
+.sidebar-section div{
+    display: inline-block;
+}
+
+.menu-left a,
+.menu-center a{
+    text-decoration: none;
+    color: #888;
+}
+
+.menu-left{
+    font-size: 150%;
+}
+
+
+.menu-center{
+    margin-left: 42.5%;
+    font-size: 100%;
+}
+
+
+
+/* -------------------------------------- */
+/* SECTION 1 */ 
+/* -------------------------------------- */
+.section-features1 {
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.705)), url(image/hero.jpg); */
+    background-image: url(../image/hero.jpg);
+    height: 100vh; /* 이미지가 화면에 100% 보이게 하기 */
+    background-size: cover; /* 확대된 이미지가 아닌 원래의 이미지를 보이게 한다. */
+    background-position: center; /* 배경 이미지가 중앙에 있게 한다. */
+}
+
+.hero-text-box {
+    position: absolute;
+    width: 1140px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*레이아웃을 중앙에 배치하는 방법*/
+}
+
+h1 {
+    color: hsl(22, 54%, 33%);
+    font-size: 240%;
+    font-weight: 400;
+    text-transform: uppercase;  /* 대문자로 변환 */
+    letter-spacing: 1px;    /* 글자 사이 간격 */
+    word-spacing: 4px;  /* 단어 사이 간격 */
+}
+
+/* -------------------------------------- */
+/* SECTION 2 */ 
+/* -------------------------------------- */
+.md-choice{
+    font-size: 130%;
+    text-align: center;
+    margin: 35px 0;
+}
+
+.md-wrap{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.md-item-wrapper{
+    display: inline-block;
+    text-align: center;
+    margin: 0 15px;
+}
+
+.md-item-wrapper a{
+    text-decoration: none;
+    color: rgba(85, 85, 85, 0.897);
+
+}
+
+.md-item-img{
+	cursor:pointer;
+    width: 300px;
+     
+}
+
+.imgTransform:hover img{
+	 transform: scale(1.4);
+}
+
+.imgTransform img{
+    transition: all 0.2s linear;/*이미지확대*/
+
+}
+
+.imgTransform {
+ overflow: hidden;
+}
+
+h2{
+    font-size: 70%;
+}
+
+
+
+/* -------------------------------------- */
+/*  COMMON */
+/* -------------------------------------- */
+.sale-price,.normal-price{
+    display: inline-block;
+    font-size: 65%;
+}
+
+.sale-icon,.md-icon{
+    display: inline-block;
+    font-size: 65%;
+}
+
+
+
+/* -------------------------------------- */
+/* SECTION 3 */ 
+/* -------------------------------------- */
+.icon{
+    text-align: center;
+    font-size: 400%;
+}
+
+.icon-text{
+    text-align: center;
+    font-weight: 500;
+}
+
+.dash {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.product {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 500;
+}
+
+.product-text{
+    margin-top: 30px;
+    text-align: center;
+}
+
+hr{
+    margin-top: 80px;
+    background-color: rgba(85, 85, 85, 0.897);
+}
+
+
+
+/* -------------------------------------- */
+/* SECTION 4 */ 
+/* -------------------------------------- */
+
+.wrap{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.item-wrapper{
+    display: inline-block;
+    text-align: center;
+    margin: 15px 15px;
+}
+
+.item-img{
+    width: 400px;
+    height: 400px;
+    cursor:pointer;
+    overflow:hidden;
+}
+
+
+/* -------------------------------------- */
+/* SECTION 5 */ 
+/* -------------------------------------- */
+.produce-item{
+    text-align: center;
+}
+
+.produce-text1{
+    font-size: 400%;
+    margin-bottom: 20px;
+}
+.produce-text2{
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.produce-text3{
+    font-size: 70%;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.produce-img{
+    width: 100%;
+}
+
+.section-row{
+    margin-bottom: 80px 0;
+}
+
+.section-row .row{
+    margin-bottom: 100px;
+}
+
+.section-row h4{
+    font-size: 150%;
+    margin-bottom: 5%;
+    font-weight: 900;
+}
+
+.section-row p{
+    font-size: 70%;
+    line-height: 2;
+    font-weight: 500;
+}
+
+/* -------------------------------------- */
+/* SECTION 6 */ 
+/* -------------------------------------- */
+
+
+footer {
+    border-top: 1px solid gainsboro;
+    background-color: #fff;
+    padding: 50px;
+    font-size: 80%;
+}
+
+.footer-nav {
+    text-align: left;
+}
+
+.footer-nav h3{
+    font-size: 100%;
+    color: black;
+}
+
+.social-links {
+    list-style: none;
+    float: right;
+}
+
+.footer-nav p,
+.social-links p {
+    display: block;
+    margin-right: 20px;
+    font-size: 90%;
+    color: #212123;
+    text-align: left;
+}
+
+.footer-nav p:last-child,
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+
+.social-links li a:link,
+.social-links li a:visited {
+    font-size: 160%;
+}
+
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram {
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+.ion-social-facebook:hover {
+    color: #3b5998;
+}
+
+.ion-social-twitter:hover {
+    color: #00aced;
+}
+
+.ion-social-googleplus:hover {
+    color: #dd4b39;
+}
+
+.ion-social-instagram:hover {
+    color: #517fa4;
+}
+
+h3{
+    margin-bottom: 10px;
+}
+
+#row{
+    margin-top: 3%;
+}
+
+
+footer p {
+    color: #888;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 2%;
+}
+
+
+/* -------------------------------------- */
+/* SIDEBAR */ 
+/* -------------------------------------- */
+
+.sideNav{
+    height:100%;
+    width: 0;
+    position: fixed;
+    z-index:1;
+    top: 0;
+    left: 0;
+    background-color: #212121E3;
+    overflow-x: hidden;
+    transition:0.5s ease-in-out;
+    padding-top: 60px;
+}
+
+.sideNav a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 90%;
+    color: #FFFFFF80;
+    display: block;
+    transition: 0.2s ease-in-out;
+}
+
+.sideNav a:hover{
+    color: #fff;
+}
+
+.closeBtn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 130% !important;
+    margin-left: 50px;
+}
+
+.openMenu:hover {
+    color:rgb(0,154,200);
+    transition:0.5s ease-in-out;
+}
+.openMenu {
+    font-size: 25px;
+    cursor:pointer;
+    transition:0.5s ease-in-out;
+}
+
+/* 미디어쿼리 */
+@media screen and (max-height:450px) {
+.sideNav {
+    padding-top:15px;
+}
+.sideNav a {
+    font-size: 18px;
+}
+
+span{
+	margin-left: 
+}
