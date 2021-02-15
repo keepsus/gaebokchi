@@ -15,30 +15,54 @@
 		text-decoration: none;
 		cursor: pointer;
 	}
+	
+	.table-box{
+		margin-top: 5%;
+		margin-left: 19%;
+		position: relative;
+		bottom: 190px;
+	}
+	
+	.table-sub-box{
+		position: relative;
+		bottom: 100px;
+		}
+	
+ 	#goodsPagingDiv{
+		display: inline-block;
+		margin-left: 25%;
+		margin-top: 3%;
+	}
+	
+	
 </style>
 
 
     
 <form id="goodsListForm" method="get" action="goodsCheckDelete">
-	<table id="goodsListMypageTable" border="1" frame="hsides" rules="rows">
-		<tr>
-			<th width="100"><input type="checkbox" id="all">번호</th>
-			<th width="150">이미지</th>
-			<th width="150">상품명</th>
-			<th width="100">단가</th>
-			<th width="100">개수</th>
-			<th width="100">합계</th>		
-		</tr>	
-	</table>
-	
-	
-	<div style="float: left;"> 
-		<input type="button" value="선택삭제" id="choiceDeleteBtn">
+	<div class="table-box">
+		<table id="goodsListMypageTable" border="1" frame="hsides" rules="rows">
+			<tr>
+				<th width="100"><input type="checkbox" id="all">번호</th>
+				<th width="150">이미지</th>
+				<th width="150">상품명</th>
+				<th width="100">단가</th>
+				<th width="100">개수</th>
+				<th width="100">합계</th>		
+			</tr>	
+		</table>
 	</div>
+	
+	<div class="table-sub-box">
+		<div style="margin-left: 52%; width: 90px;"> 
+			<input type="button" value="선택삭제" id="choiceDeleteBtn">
+		</div>
+	
 	
 	
 	<!-- 페이징 처리 -->
-	<div id="goodsPagingDiv" style="float: left; width: 700px; text-align: center;"></div> 
+		<div id="goodsPagingDiv" style="float: left; width: 700px; text-align: center;"></div> 
+	</div>
 </form>
 
 

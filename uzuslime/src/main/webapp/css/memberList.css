@@ -19,14 +19,34 @@ html {
 }
 
 th {
-  background-color: #bbdefb;
-  
+  background-color: #d8d8da;
 }
 
 td {
-  background-color: #e3f2fd;
+  background-color: #F6F6F8;
   text-align: center;
+  font-size: 80%;
+  padding: 10px 0;
 }
 
+h2{
+	font-size: 150%;
+}
 
+.name {
+	width: 10%;
+}
+
+.addr {
+	width: 35%;
+}
+
+.list-box {
+	display: inline-block;
+	margin-left: 25%;
+	margin-top: 5%;
+	position: relative;
+	bottom: 70px;
+	right: 50px;
+}
 

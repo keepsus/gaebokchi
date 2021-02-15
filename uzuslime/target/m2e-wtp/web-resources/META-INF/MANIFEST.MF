@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
-Built-By: puppe
-=======
 Built-By: cksrb
->>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
 Build-Jdk: 1.8.0_261
 Created-By: Maven Integration for Eclipse
 

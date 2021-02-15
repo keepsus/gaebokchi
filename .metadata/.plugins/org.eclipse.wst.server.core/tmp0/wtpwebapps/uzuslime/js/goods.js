@@ -135,6 +135,7 @@ $('#goodsOrderBtn').click(function(){
     	     'goods_title':$('#goods_titleSpan').text(),
              'order_goods_qty':$('input[name=numbox]').val(),
              'goods_sales_price':$('#goods_sales_priceSpan').text(),
+             'goods_price':$('#goods_priceSpan').text(),
              'goods_deli_price':$('#goods_deli_priceSpan').text()  
             },
       dataType: 'json',
@@ -142,4 +143,30 @@ $('#goodsOrderBtn').click(function(){
          location.href= '/slime/order/orderForm.jsp';
       }//success
    });//aJax
+});//click
+
+
+//장바구니 버튼
+$('#goodsCartBtn').click(function(){
+	$.ajax({
+	      type: 'GET',
+	      url: '/slime/cart/addGoodsInCart',
+	      data: {'goods_id':$('#goods_idSpan').text()},
+	      dataType: 'text',
+	      success: function(data){ //data에 add_success 또는 already_existed가 담겨옴
+	    	  /*var dataString = data
+	    	  var result = dataString.split(',');
+	    	  for(var i in result){
+	    		  console.log(result[i]);
+	    	  }
+	    	  var goods_id = result[1].trim();
+	    	  alert(goods_id);*/
+	    	  if(data.trim() == 'add_success'){
+	    		alert('해당 상품을 장바구니에 담았습니다');
+	    	  }else if(data.trim() == 'already_existed'){
+	    		alert('해당 상품이 이미 장바구니에 담겨있습니다');  
+	    	  }
+	    	  location.href= '/slime/cart/getListFromCartAndGoods';
+	      }//success
+	   });//aJax
 });//click

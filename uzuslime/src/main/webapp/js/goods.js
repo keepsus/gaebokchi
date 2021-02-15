@@ -135,6 +135,7 @@ $('#goodsOrderBtn').click(function(){
     	     'goods_title':$('#goods_titleSpan').text(),
              'order_goods_qty':$('input[name=numbox]').val(),
              'goods_sales_price':$('#goods_sales_priceSpan').text(),
+             'goods_price':$('#goods_priceSpan').text(),
              'goods_deli_price':$('#goods_deli_priceSpan').text()  
             },
       dataType: 'json',

@@ -23,7 +23,7 @@
 	
 	<!-- 관리자 -->
 	<c:if test="${memId != '' && memAdmin == 1 }">
-		<img src="https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/BX0/image/r2yH7FOsCiEKMHcYAZE9ZAaHGPo.jpg" width="1000";>
+		<!-- <img src="https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/BX0/image/r2yH7FOsCiEKMHcYAZE9ZAaHGPo.jpg" width="1000";> -->
 <%-- 	
         <div class="member-box">
 	        <!-- 일반회원 -->

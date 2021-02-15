@@ -41,7 +41,25 @@
 				<jsp:include page="myPageBox.jsp"/>	<!-- myPageMenu 불러오기 -->  
             </div>
             <div class="cancel-history">
-                <div>[]취소 내역이 없습니다.</div>
+                	<h2>회원 목록</h2>
+						<table border="1" width="700px">
+							<tr>
+								<th class="id">아이디</th>
+								<th class="name">이름</th>
+								<th class="email">이메일</th>
+								<th class="phone">번호</th>
+								<th class="addr">주소</th>
+							</tr>
+								<c:forEach var="row" items="${list}">
+							<tr>
+									<td class="id">${row.member_id }</td>
+									<td class="name">${row.member_name }</td>
+									<td class="email">${row.email1 }@${row.email2 } </td>
+									<td class="phone">${row.tel1 }-${row.tel2 }-${row.tel3 }</td>
+									<td class="addr">${row.addr1} ${row.addr2 }</td>
+							</tr>
+								</c:forEach>
+						</table>
             </div>
         </div>
     </section>

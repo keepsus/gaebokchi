@@ -125,3 +125,8 @@
 2월 14, 2021 13:11:08.26 NEW SESSION
 2월 14, 2021 13:11:08.26 [10708:5144:0214/131108.260:ERROR:device_event_log_impl.cc(211)] [13:11:08.260] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 2월 14, 2021 16:24:35.96 [10708:5144:0214/162435.966:ERROR:account_info_fetcher.cc(60)] OnGetTokenFailure: Invalid credentials (credentials rejected by client).
+
+2월 14, 2021 22:07:13.76 NEW SESSION
+2월 14, 2021 22:07:13.77 [17968:13300:0214/220713.763:ERROR:device_event_log_impl.cc(211)] [22:07:13.762] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 14, 2021 22:07:13.78 [17968:13300:0214/220713.763:ERROR:device_event_log_impl.cc(211)] [22:07:13.762] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+2월 14, 2021 22:07:13.78 [17968:13300:0214/220713.763:ERROR:device_event_log_impl.cc(211)] [22:07:13.762] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
