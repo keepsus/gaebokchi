@@ -90,26 +90,26 @@ $('#order_payBtn').click(function(){
 		$('#receiver_hpDiv').css('font-weight','bold');
 		$('#receiver_hp').css('border-color','red');
 	}
-	if($('#delivery_zipcode').val() == ''){
+	if($('#postcode').val() == ''){
 		$('#delivery_zipcodeDiv').text('우편번호를 입력하여 주십시오');
 		$('#delivery_zipcodeDiv').css('color','red');
 		$('#delivery_zipcodeDiv').css('font-size','8pt');
 		$('#delivery_zipcodeDiv').css('font-weight','bold');
-		$('#delivery_zipcode').css('border-color','red');
+		$('#postcode').css('border-color','red');
 	}
-	if($('#delivery_addr1').val() == ''){
+	if($('#address').val() == ''){
 		$('#delivery_addr1Div').text('우편번호 찾기를 통해 주소를 입력하여 주십시오');
 		$('#delivery_addr1Div').css('color','red');
 		$('#delivery_addr1Div').css('font-size','8pt');
 		$('#delivery_addr1Div').css('font-weight','bold');
-		$('#delivery_addr1').css('border-color','red');
+		$('#address').css('border-color','red');
 	}
-	if($('#delivery_addr2').val() == ''){
+	if($('#detailAddress').val() == ''){
 		$('#delivery_addr2Div').text('상세주소를 입력하여 주십시오');
 		$('#delivery_addr2Div').css('color','red');
 		$('#delivery_addr2Div').css('font-size','8pt');
 		$('#delivery_addr2Div').css('font-weight','bold');
-		$('#delivery_addr2').css('border-color','red');
+		$('#detailAddress').css('border-color','red');
 		
 	}else if($('input[name=order_agreement_info]').prop('checked') == false){
 		alert('개인정보 수집 및 이용 동의에 체크하여 주십시오');
