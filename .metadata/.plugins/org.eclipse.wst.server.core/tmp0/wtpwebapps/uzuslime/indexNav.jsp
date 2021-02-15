@@ -1,8 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="row">
 
+<style>
+	.main-nav{
+		margin-bottom: 10px;
+	}
+	
+	.row{
+		position: relative;
+		bottom: 20px;
+		}
+</style>
+
+
+<div class="row">
 	<ul class="main-nav">
    
 		<!-- 비 로그인 메뉴 -->
@@ -30,6 +42,5 @@
     
      	<!-- 비 로그인, 로그인 공통 메뉴 -->    
         <li><a href="#"><ion-icon name="search-outline"></ion-icon></a></li>
-        
     </ul>
 </div>

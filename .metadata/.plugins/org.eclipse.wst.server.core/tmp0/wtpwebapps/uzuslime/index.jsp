@@ -17,13 +17,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
 <title>우주슬라임</title>   
 
+<style>
+	.logo{
+		margin-top: 20px;
+	}
+</style>
+
 <!---------------------->
 <!--------HAEDER-------->
 <!---------------------->
 <header>
 	<nav id="nav">       			
-		<jsp:include page="indexNav.jsp"/>           
 		<a href="/slime/index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
+		<jsp:include page="indexNav.jsp"/>           
 	</nav>
 </header>  
 
