@@ -77,7 +77,8 @@
                         <div class="order_row">
                                 <!-- 상품정보에서 상품 이미지 및 가격과 가격생성 -->
                                 <div class="productImg">
-                                        <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_image0}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 -->
+                                		<img src="/slime/image/img3.jpg" class="cart_item_img" width="90" height="90"onClick="location.href='/slime/detailpage/detailPage.jsp'">
+                                        <%-- <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_image0}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 --> --%>
                                 </div>
                                 <div class="productInfo" style="float: left; padding-left: 60px;">
                                      <div class="shop_item">
@@ -102,9 +103,8 @@
                     <h3>주문자 정보</h3>
                     <div class="order_name" style="padding-bottom : 15px;">
                         <input class="orderer_name" id="orderer_name" name="orderer_name" type="text" placeholder="이름" value="${memName}">
-                        <div id="orderer_nameDiv"></div>
                         <input class="orderer_hp" id="orderer_hp" name="orderer_hp" type="text" placeholder="연락처" style="width:43%" value="${memHp}">
-                        <div id="orderer_hpDiv"></div>
+                        <div id="orderer_nameDiv"></div><div id="orderer_hpDiv"></div>
                     </div>
                     <div class="order_email">
                         <input class="orderer_email" id="orderer_email" name="orderer_email" type="text" placeholder="이메일" style="width:80%" value="${memEmail}">
@@ -124,15 +124,14 @@
                         <!-- 수령인 -->
                         <div class="receiver_name" style="padding-bottom : 15px;">
                             <input class="receiver_name" id="receiver_name" name="receiver_name" type="text" placeholder="수령인">
-                            <div id="receiver_nameDiv"></div>
                             <input class="receiver_hp"  id="receiver_hp" name="receiver_hp" type="text" placeholder="연락처" style="width:43%">
-                            <div id="receiver_hpDiv"></div>
+                            <div id="receiver_nameDiv"></div><div id="receiver_hpDiv"></div>
                         </div>
                     
                         <div class="delivery_zipcode"style="padding-bottom : 15px;">
                             <input class="delivery_zipcode" id="postcode" name="delivery_zipcode" type="text" placeholder="우편번호" readonly>
+                            <input type="button" value="주소찾기" id="checkPostBtn">
                             <div id="delivery_zipcodeDiv"></div>
-                            <input type="button" value="주소찾기" id="checkPostBtn"><br>
                         </div>
                        <div class="delivery_addr1" style="padding-bottom : 15px;">
                             <input class="delivery_addr1" id="address" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
@@ -163,20 +162,20 @@
                     <h3>최종 결제금액</h3>
                     <div class="pay_row">
                         <div class="totalInfo">
-                            <div class="goods_gty"><p>상품가격</p></div>
-                            <div class="order_price"><p>${goodsMap['goods_sales_price'] * goodsMap['order_goods_qty']}원</p></div>
+                            <span class="goods_gty">상품가격</span>
+                            <span class="order_price">${goodsMap['goods_sales_price'] * goodsMap['order_goods_qty']}원</span>
                             <%-- <input type="hidden" id="order_goods_price" name="order_goods_price" value="${goodsMap['goods_sales_price']}"> --%>
                         </div><br>
                         <div class="totalInfo">
-                            <div class="goods_gty"><p>배송비</p></div>
-                            <div class="order_price"><p>${goodsMap['goods_deli_price']}원</p></div>
+                            <span class="goods_gty">배송비</span>
+                            <span class="order_price2">${goodsMap['goods_deli_price']}원</span>
                             <input type="hidden" id="order_delivery_price" name="order_delivery_price" value="${goodsMap['goods_deli_price']}" >
                         </div>
                     </div>
                     <hr>
                     <div class="totalInfo2">
-                        <div class="goods_gty"><strong><p>총 결재금액(${order_goods_gty}개)</p></strong></div>
-                        <div class="order_price"><p> ${total_order_price = goodsMap['goods_sales_price'] * goodsMap['order_goods_qty'] + goodsMap['goods_deli_price']}원</p></div>
+                        <span class="goods_gty"><strong>총 결재금액(${order_goods_gty}개)</strong></span>
+                        <span class="order_price3">${total_order_price = goodsMap['goods_sales_price'] * goodsMap['order_goods_qty'] + goodsMap['goods_deli_price']}원</span>
                         <input type="hidden" id="total_order_price" name="total_order_price" value="${total_order_price}">
                     </div>
                 </div>
