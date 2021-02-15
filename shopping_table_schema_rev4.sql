@@ -109,7 +109,7 @@ LOGTIME	DATE					   --작성일
 	GOODS_ID VARCHAR2(50 BYTE),		--상품번호
 	MEMBER_ID VARCHAR2(20 BYTE),		--회원아이디
 	CART_GOODS_QTY NUMBER(4,0) DEFAULT 1	--상품개수
-	CREATE TABLE T_SHOPPING_CART                  --생성일자
+	creDate DATE DEFAULT SYSDATE               --생성일자
    ) ;
 
 --"DEL_YN" VARCHAR2(20 BYTE) DEFAULT 'N',	--회원탈퇴유무, 이게 여기 왜 있나????
