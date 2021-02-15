@@ -5,6 +5,7 @@
 
 
 
+
 <jsp:useBean id="memberDTO" class="member.bean.MemberDTO" scope="page" />
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate value="${now}" pattern="yyyyMMddHHmmss" var="use_order_id_String" />
@@ -34,9 +35,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="vendors/css/grid.css"> -->
-    <link rel="stylesheet" href="/slime/css/order.css">
-    <!-- <link rel="stylesheet" href="resources/css/index.css"> -->
+    <link rel="stylesheet" href="vendors/css/grid.css">
+    <link rel="stylesheet" href="/slime/css/normalize.css">
+    <link rel="stylesheet" href="/slime/css/orderForm.css">
+    <link rel="stylesheet" href="resources/css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
@@ -61,8 +63,10 @@
 <input type="hidden" id="goods_sales_price" name="goods_sales_price" value="${goodsMap['goods_sales_price']}">
 <input type="hidden" id="order_deli_price" name="order_deli_price" value="${goodsMap['goods_deli_price']}">
 <input type="hidden" id="gift_wrapping" name="gift_wrapping" value="${gift_wrapping}">
-<input type="hidden" id="delivery_method" name="delivery_method" value="${delivery_method}">
-
+<input type="hidden" id="delivery_method" name="delivery_method" value="택배">
+<input type="hidden" id="orderer_zipcode" value="${memDTO.zipcode}">
+<input type="hidden" id="orderer_addr1" value="${memDTO.addr1}">
+<input type="hidden" id="orderer_addr2" value="${memDTO.addr2}">
 
 <div id="orderAll">
   <div class="paymentAll">
@@ -73,7 +77,8 @@
                         <div class="order_row">
                                 <!-- 상품정보에서 상품 이미지 및 가격과 가격생성 -->
                                 <div class="productImg">
-                                        <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_image0}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 -->
+                                		<img src="/slime/image/img3.jpg" class="cart_item_img" width="90" height="90"onClick="location.href='/slime/detailpage/detailPage.jsp'">
+                                        <%-- <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_image0}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 --> --%>
                                 </div>
                                 <div class="productInfo" style="float: left; padding-left: 60px;">
                                      <div class="shop_item">
@@ -98,9 +103,8 @@
                     <h3>주문자 정보</h3>
                     <div class="order_name" style="padding-bottom : 15px;">
                         <input class="orderer_name" id="orderer_name" name="orderer_name" type="text" placeholder="이름" value="${memName}">
-                        <div id="orderer_nameDiv"></div>
                         <input class="orderer_hp" id="orderer_hp" name="orderer_hp" type="text" placeholder="연락처" style="width:43%" value="${memHp}">
-                        <div id="orderer_hpDiv"></div>
+                        <div id="orderer_nameDiv"></div><div id="orderer_hpDiv"></div>
                     </div>
                     <div class="order_email">
                         <input class="orderer_email" id="orderer_email" name="orderer_email" type="text" placeholder="이메일" style="width:80%" value="${memEmail}">
@@ -120,22 +124,21 @@
                         <!-- 수령인 -->
                         <div class="receiver_name" style="padding-bottom : 15px;">
                             <input class="receiver_name" id="receiver_name" name="receiver_name" type="text" placeholder="수령인">
-                            <div id="receiver_nameDiv"></div>
                             <input class="receiver_hp"  id="receiver_hp" name="receiver_hp" type="text" placeholder="연락처" style="width:43%">
-                            <div id="receiver_hpDiv"></div>
+                            <div id="receiver_nameDiv"></div><div id="receiver_hpDiv"></div>
                         </div>
                     
                         <div class="delivery_zipcode"style="padding-bottom : 15px;">
-                            <input class="delivery_zipcode" id="delivery_zipcode" name="delivery_zipcode" type="text" placeholder="우편번호" >
+                            <input class="delivery_zipcode" id="postcode" name="delivery_zipcode" type="text" placeholder="우편번호" readonly>
+                            <input type="button" value="주소찾기" id="checkPostBtn">
                             <div id="delivery_zipcodeDiv"></div>
-                            <input type="button" value="주소찾기" id="zipcodeBtn"><br>
                         </div>
-                        <div class="delivery_addr1" style="padding-bottom : 15px;">
-                            <input class="delivery_addr1" id="delivery_addr1" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
+                       <div class="delivery_addr1" style="padding-bottom : 15px;">
+                            <input class="delivery_addr1" id="address" name="delivery_addr1" type="text" placeholder="주소" style="width:80%">
                         	<div id="delivery_addr1Div"></div>
                         </div>
                         <div class="delivery_addr2">
-                            <input class="delivery_addr2" id="delivery_addr2" name="delivery_addr2" type="text" placeholder="상세주소" style="width:80%">
+                            <input class="delivery_addr2" id="detailAddress" name="delivery_addr2" type="text" placeholder="상세주소" style="width:80%">
                         	<div id="delivery_addr2Div"></div>
                         </div>
                         
@@ -143,10 +146,10 @@
                     <div class="delivery_message">
                         <h4>배송메모</h4>
                         <select class="delivery_message" id="delivery_message" name="delivery_message">
-                            <option value="0" disabled>배송 메모를 선택해 주세요</option>
-                            <option value="1">배송 전에 미리 연락 바랍니다.</option>
-                            <option value="2">부재시 경비실에 맡겨주세요</option>
-                            <option value="3" >부재시 전화나 문자를 남겨주세요</option>
+                            <option value="없음" disabled>배송 메모를 선택해 주세요</option>
+                            <option value="배송 전에 미리 연락 바랍니다">배송 전에 미리 연락 바랍니다.</option>
+                            <option value="부재시 경비실에 맡겨주세요">부재시 경비실에 맡겨주세요</option>
+                            <option value="부재시 전화나 문자를 남겨주세요" >부재시 전화나 문자를 남겨주세요</option>
                             <!-- <option value="4">직접입력</option> --> <!-- ★★★★★ 직접입력 클릭 시 입력창 생성하기 -->
                         </select>
                     </div>
@@ -159,20 +162,20 @@
                     <h3>최종 결제금액</h3>
                     <div class="pay_row">
                         <div class="totalInfo">
-                            <div class="goods_gty"><p>상품가격</p></div>
-                            <div class="order_price"><p>${goodsMap['goods_sales_price'] * goodsMap['order_goods_qty']}원</p></div>
+                            <span class="goods_gty">상품가격</span>
+                            <span class="order_price">${goodsMap['goods_sales_price'] * goodsMap['order_goods_qty']}원</span>
                             <%-- <input type="hidden" id="order_goods_price" name="order_goods_price" value="${goodsMap['goods_sales_price']}"> --%>
                         </div><br>
                         <div class="totalInfo">
-                            <div class="goods_gty"><p>배송비</p></div>
-                            <div class="order_price"><p>${goodsMap['goods_deli_price']}원</p></div>
+                            <span class="goods_gty">배송비</span>
+                            <span class="order_price2">${goodsMap['goods_deli_price']}원</span>
                             <input type="hidden" id="order_delivery_price" name="order_delivery_price" value="${goodsMap['goods_deli_price']}" >
                         </div>
                     </div>
                     <hr>
                     <div class="totalInfo2">
-                        <div class="goods_gty"><strong><p>총 결재금액(${order_goods_gty}개)</p></strong></div>
-                        <div class="order_price"><p> ${total_order_price = goodsMap['goods_sales_price'] * goodsMap['order_goods_qty'] + goodsMap['goods_deli_price']}원</p></div>
+                        <span class="goods_gty"><strong>총 결재금액(${order_goods_gty}개)</strong></span>
+                        <span class="order_price3">${total_order_price = goodsMap['goods_sales_price'] * goodsMap['order_goods_qty'] + goodsMap['goods_deli_price']}원</span>
                         <input type="hidden" id="total_order_price" name="total_order_price" value="${total_order_price}">
                     </div>
                 </div>
@@ -193,7 +196,7 @@
                                 <input type="radio" name="pay_method" value="cash" >
                                 <span class="type_text">무통장 입금</span>
                                 <input type="radio" name="pay_method" value="kakao" style="margin-left: 39px;" >
-                                <span class="type_text">KakaoPay</span>
+                                <span class="type_text"><img src="/slime/image/kakaoPay.png" width="60px" height="25px"></span>
                             </label>
                         </div>
                     </div>

@@ -10,60 +10,68 @@
     word-break: break-all;
     width: 450px;
 }
+
+.goods-item-box{
+	margin-left: 20%;
+	position: relative;
+	bottom: 130px;
+}
 </style>
 
+<div class="goods-item-box">
 
-<form name="goodsViewForm">
-	<input type="hidden" name="seq" id="seq" value="${seq }">
-	<input type="hidden" name="pg" id="pg" value="${pg }">
+	<form name="goodsViewForm">
+		<input type="hidden" name="seq" id="seq" value="${seq }">
+		<input type="hidden" name="pg" id="pg" value="${pg }">
+			
+		<table id="goodsViewTable" cellpadding="5" frame="hsides" rules="rows">
+		    <tr>
+		        <td rowspan="4">
+		            <img id="goods_image0" width="200" height="200">
+		        </td>
+		        <td rowspan="4">
+		            <img id="goods_image1" width="200" height="200">
+		        </td>	
+		        <td width = "250">
+		        	상품명: <span id="goods_titleSpan"></span>
+		        	<div id="goods_titleSpanDiv" style="color: red; font-size:8pt; font-weigth:bold;"></div>
+		        </td>
+			</tr>
+			
+		    <tr> 
+		        <td width="250">
+					정상가 : <span id="goods_priceSpan"></span>
+		        </td>
+		    </tr>
+		    
+		    <tr>
+		        <td width="250">
+					세일가 : <span id="goods_sales_priceSpan"></span>
+		        </td>
+		    </tr>
+		    
+		    <tr>
+		        <td width="250">
+					재고 : <span id="goods_qtySpan"></span>
+		        </td>
+		    </tr>
+		    
+		    <tr>
+		        <td colspan="3" height="200" valign="top">
+		            <pre class="contents"><span id="goods_contentSpan"></span></pre>
+		            <div id="goods_contentSpanDiv" style="color: red; font-size:8pt; font-weigth:bold;"></div>
+		        </td>
+		    </tr>
+		    
+		</table>
 		
-	<table id="goodsViewTable" cellpadding="5" frame="hsides" rules="rows">
-	    <tr>
-	        <td rowspan="4">
-	            <img id="goods_image0" width="200" height="200">
-	        </td>
-	        <td rowspan="4">
-	            <img id="goods_image1" width="200" height="200">
-	        </td>	
-	        <td width = "250">
-	        	상품명: <span id="goods_titleSpan"></span>
-	        	<div id="goods_titleSpanDiv" style="color: red; font-size:8pt; font-weigth:bold;"></div>
-	        </td>
-		</tr>
-		
-	    <tr> 
-	        <td width="250">
-				단가 : <span id="goods_priceSpan"></span>
-	        </td>
-	    </tr>
-	    
-	    <tr>
-	        <td width="250">
-				개수 : <span id="goods_qtySpan"></span>
-	        </td>
-	    </tr>
-	    
-	    <tr>
-	        <td width="250">
-				합계 : <span id="totalSpan"></span>
-	        </td>
-	    </tr>
-	    
-	    <tr>
-	        <td colspan="3" height="200" valign="top">
-	            <pre class="contents"><span id="goods_contentSpan"></span></pre>
-	            <div id="goods_contentSpanDiv" style="color: red; font-size:8pt; font-weigth:bold;"></div>
-	        </td>
-	    </tr>
-	    
-	</table>
-	
-	<input type="button" value="목록" onclick="location.href='goodsList?pg=${pg }'">
-	<span id="goodsViewSpan">
-		<input type="button" value="제품정보 수정" onclick="mode(1)">
-		<input type="button" value="제품정보 삭제" onclick="mode(2)">
-	</span>
-</form>
+		<input type="button" value="목록" onclick="location.href='goodsList?pg=${pg }'">
+		<span id="goodsViewSpan">
+			<input type="button" value="제품정보 수정" onclick="mode(1)">
+			<input type="button" value="제품정보 삭제" onclick="mode(2)">
+		</span>
+	</form>
+</div>
 
 
 
@@ -104,6 +112,7 @@ $(document).ready(function(){
 			$('#goods_image3').attr('src', '../storage/'+data.goodsDTO.goods_image3);
 			$('#goods_titleSpan').text(data.goodsDTO.goods_title);			
 			$('#goods_priceSpan').text(data.goodsDTO.goods_price.toLocaleString());
+			$('#goods_sales_priceSpan').text(data.goodsDTO.goods_sales_price.toLocaleString());
 			$('#goods_qtySpan').text(data.goodsDTO.goods_qty);
 			$('#totalSpan').text(total.toLocaleString());
 			$('#goods_contentSpan').text(data.goodsDTO.goods_content);

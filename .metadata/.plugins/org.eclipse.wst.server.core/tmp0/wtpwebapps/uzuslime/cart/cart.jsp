@@ -37,12 +37,12 @@
 
 
 <!-- 자체값 주기 -->
-<c:set var="goods_title" value="lime"></c:set>
-<c:set var="order_goods_qty" value="5"></c:set>
-<c:set var="goods_price" value="9000"></c:set>
-<c:set var="goods_sales_price" value="9500"></c:set>
-<c:set var="goods_deli_price" value="2500"></c:set>
-<c:set var="total_order_price" value="${goods_sales_price + goods_deli_price }"></c:set>
+<c:set var="goods_title" value="[크리스탈 슬라임] 네온시드"></c:set>
+<c:set var="order_goods_qty" value="4"></c:set>
+<c:set var="goods_price" value="8000"></c:set>
+<c:set var="goods_sales_price" value="7500"></c:set>
+<c:set var="goods_deli_price" value="1500"></c:set>
+<c:set var="total_order_price" value="${goods_sales_price * order_goods_qty + goods_deli_price }"></c:set>
 <c:set var="goods_point" value="-"></c:set>
 
 <!--cartList : 회원아이디, 상품아이디, 주문수량, 장바구니 생성일 정보가 들어있음-->
@@ -169,6 +169,73 @@
 
 
 	<table class="cart_List_table" id="cart_List_table" ><!-- ajax로 들어온다 -->
+		<tr>
+						<td class="part_checkbox"><input type="checkbox" class="part_checkbox_click" id="part_check"></td>
+						
+						<td class="item_info_detail">
+							<a class="cart_selected_item">
+								<img src="/slime/image/img3.jpg" class="cart_item_img"  onClick="location.href='/slime/detailpage/detailPage.jsp'">
+							</a>
+							<div class="item_view_name_div">
+								<span class="item_view_name" id="goods_title" name="goods_title">${goods_title }</span>
+							</div>
+						</td>
+						
+						<td class="wish_icon">
+							<!-- 하트 누르기전 -->
+							<c:if test="${sessionScope.heart_check == 0 }">	
+								<a href="" class="a_wish_icon" id="a_wish_icon">
+									<i class="far fa-heart"></i>
+								</a>
+							</c:if>	 
+							<!-- 하트 누른후 -->
+							<c:if test="${sessionScope.heart_check == 1 }">	
+								<a href="" class="a_wish_icon" id="a_wish_icon">
+									<i class="fas fa-heart"></i>
+								</a>
+							</c:if>	
+						</td>
+						
+						<td class="quantity_detail">
+							<div class="quantity_kind" >
+								<span id="order_goods_qty" name="order_goods_qty">${order_goods_qty }</span>개
+								<br>
+								<!-- <a href="/slime/cart/quantityForm.jsp" rel="modal:open" class="quantity_change_Btn" >변경</a> -->
+								<span id="quantity_change_Btn" data-toggle="modal" data-target="#modal" role="button" class="quantity_change_Btn" >변경</span>
+									
+									<div id="modal" class="modal fade" tabindex="-1" role="dialog">
+										<div class="modal-dialog">
+											<div class="modal-content">
+											
+											</div>
+										</div>
+									</div>
+									
+							</div><!-- end quantity_kind -->
+						</td>
+						<td class="deliv_way">
+							<div class="deliv_way_text">택배</div>
+						</td>
+						<td class="deliv_fee_direction">
+							
+								<span class="deliv_fee_detail" id="goods_deli_price" name="goods_deli_price">${goods_deli_price }</span>원<br>
+									<a href="" class="a_deliv_fee_info" id="a_deliv_fee_info">
+										<i class="far fa-question-circle"></i>
+									</a>
+								
+								
+							
+						</td>
+						<td class="price">
+							<div class="price_div" id="goods_sales_price" name="goods_sales_price">${goods_sales_price }</div>원
+						</td>
+						<td class="order_delete_Btn_area">
+							<div class="order_and_delete">
+								<a type="button" class="order_Btn" id="order_Btn">주문</a>
+								<a type="button" class="delete_Btn" id="delete_Btn">삭제</a>
+							</div>
+						</td>
+				</tr>
 	</table>	
 	
 </div><!-- end item_list -->
@@ -222,7 +289,7 @@
 			<div class="final_button_area" >
 				<div class="final_button_div" align="center">
 					 <a type="button" class="more_shopping_Btn" onClick="location.href='/slime/index.jsp'">계속 쇼핑하기</a>
-					 <a type="button" class="item_order_Btn">주문하기</a>
+					 <input type="button" class="item_order_Btn" id="item_order_Btn" value="주문하기">
 				</div>
 			</div><!-- button_div -->
 		
@@ -249,7 +316,7 @@
 							
 						<div class="item_explain_form">
 						
-							<div class="item_name">[크리스탈 슬라임]${goods_title }</div>
+							<div class="item_name">${goods_title }</div>
 							<div class="item_present_price"><del>${goods_price }원</del><b> ${goods_sales_price }원</b></div>
 							<div class="item_status">sale MD HOT</div>
 							
@@ -278,14 +345,34 @@
  -->
 
 </form>
-</body>
-</html>
-
-
 <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"> </script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script type="text/javascript">
+$('#item_order_Btn').click(function(){
+	$.ajax({
+		type:'post',
+		url: '/slime/order/orderOneGoodsForm',
+		data: {'goods_id':$('#goods_id').text(),
+   	     'goods_title':$('#goods_title').text(),
+         'order_goods_qty':$('#order_goods_qty').text(),
+         'goods_sales_price':$('#goods_sales_price').text(),
+         'goods_deli_price':$('#goods_deli_price').text()  
+        },
+        dataType:'json',
+        success:function(){
+        	location.href= '/slime/order/orderForm.jsp';
+        }
+	});
+});
+</script>
+</body>
+</html>
+
+
+
+
+<!-- <script type="text/javascript">
 $(document).ready(function(){
 	$.ajax({
 		type: 'post',
@@ -487,7 +574,7 @@ $('#delete_Btn').click(function(){
 
 
 
-</script>
+</script> -->
 
 <%--
 attr()

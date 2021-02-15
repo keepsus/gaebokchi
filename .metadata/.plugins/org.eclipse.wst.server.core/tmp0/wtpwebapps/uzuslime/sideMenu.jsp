@@ -23,4 +23,3 @@
     <a href="/slime/qna/qnaBoardList" style="margin-top: 20px;">Q & A</a>
 </div>
 
-

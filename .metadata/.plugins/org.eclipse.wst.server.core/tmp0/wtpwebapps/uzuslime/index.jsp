@@ -16,18 +16,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /><!---->
 <title>우주슬라임</title>   
-<<<<<<< HEAD
- 
 
-=======
->>>>>>> 058b45082f1bb841cd962c14f76ac9be08aaaf82
+<style>
+	.logo{
+		margin-top: 20px;
+	}
+</style>
+
 <!---------------------->
 <!--------HAEDER-------->
 <!---------------------->
 <header>
 	<nav id="nav">       			
-		<jsp:include page="indexNav.jsp"/>           
 		<a href="/slime/index.jsp"><img src="/slime/image/logo.jpg" alt="slime logo" class="logo"></a>
+		<jsp:include page="indexNav.jsp"/>           
 	</nav>
 </header>  
 
@@ -508,35 +510,19 @@ $(document).ready(function(){
 	 					style: 'width: 400px; cursor: pointer;',
 	 					class: items.seq+''
 	 					}))					
- 				).append($('<td/>',{
+ 				).append($('<div/>',{
  					align: 'center',
  					text: items.goods_title,
  					
  				})).append($('<span/>',{
  					align: 'center',
-					text: items.goods_sales_price
+					text: "정상가 : "+items.goods_sales_price
 					
- 				})).append($('<span/>',{
+ 				})).append($('<br>')).append($('<span/>',{
  	 				align: 'center',
- 					text: items.goods_price
+ 					text: "세일가 : "+items.goods_price
  						
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_sales_yn 					 	 			
- 				
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_md_yn
- 					 					
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_hot_yn
- 				
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_soldout_yn
- 					 						
- 	 			})).appendTo($('#goodsIndexList'));
+  	 			})).appendTo($('#goodsIndexList'));
  				
  												
  				//이미지 보기
