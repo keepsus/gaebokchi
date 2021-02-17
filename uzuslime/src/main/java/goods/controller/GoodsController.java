@@ -5,8 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -304,6 +303,77 @@ public class GoodsController {
 	}//end of goodsModifyForm method
 	
 	
+	
+	@RequestMapping(value="goodsModify", method=RequestMethod.POST)
+	public String goodsModfiy(@RequestParam Map<String,String> map,
+						   @RequestParam MultipartFile[] img) {
+		
+		System.out.println("GoodsController.java goodsModify map" + map);
+		
+		
+		//storage : 가상폴더
+		String filePath = "D:\\SlimeProject2\\gaebokchi\\uzuslime\\src\\main\\webapp\\storage";//가상폴더 위치 가져온다.
+		String fileName;	//원래 이름으로 바꾸어줌!
+		File file;			//파일 생성!
+		
+		//파일복사
+		//메인 이미지
+		if(img[0] != null) {
+			fileName = img[0].getOriginalFilename();
+			file = new File(filePath, fileName);
+			try {
+				FileCopyUtils.copy(img[0].getInputStream(), new FileOutputStream(file));
+			} catch (IOException e) {			
+				e.printStackTrace();
+			}
+		
+			//goodsDTO.setGoods_image0(fileName);
+			map.put("goods_image0", fileName);
+		}else {
+			//goodsDTO.setGoods_image0("");	
+			map.put("goods_image0", "");
+		}
+		//서브 이미지
+		if(img[1] != null) {
+			fileName = img[1].getOriginalFilename();
+			file = new File(filePath, fileName);
+			try {
+				FileCopyUtils.copy(img[1].getInputStream(), new FileOutputStream(file));
+			} catch (IOException e) {			
+				e.printStackTrace();
+			}	
+			
+			//goodsDTO.setGoods_image1(fileName);
+			map.put("goods_image1", fileName);
+		}else {
+			//goodsDTO.setGoods_image1("");
+			map.put("goods_image1", "");
+		}
+		//설명
+		if(img[2] != null) {
+			fileName = img[2].getOriginalFilename();
+			file = new File(filePath, fileName);
+			try {
+				FileCopyUtils.copy(img[2].getInputStream(), new FileOutputStream(file));
+			} catch (IOException e) {			
+				e.printStackTrace();
+			}	
+			
+			//goodsDTO.setGoods_image2(fileName);
+			map.put("goods_image2", fileName);
+		}else {
+			//goodsDTO.setGoods_image2("");
+			map.put("goods_image2", "");
+		}
+		System.out.println(map);
+		//DB
+		goodsService.goodsModify(map);
+				
+		return "/goods/goodsList";
+		
+	}
+	
+	
 	//goodsModify.jsp - seq 들고가서 goodsDTO 가져와서 mav 로 뿌려주는 메소드
 	@RequestMapping(value="getGoods", method=RequestMethod.POST)
 	public ModelAndView getGoods(@RequestParam String seq) {
@@ -315,7 +385,6 @@ public class GoodsController {
 		return mav;
 	}
 	
-
 	
 }//end of imageboardController class
 	

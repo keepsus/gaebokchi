@@ -93,11 +93,23 @@ public class GoodsServiceImpl implements GoodsService {
 
 
 	@Override
+<<<<<<< HEAD
 	public GoodsDTO getOrderImageView(String goods_idSpan) {
 		return goodsDAO.getOrderImageView(goods_idSpan);
 	}
 
 
+=======
+	public void goodsModify(Map<String, String> map) {
+		goodsDAO.goodsModify(map);
+		
+	}
+
+
+	
+
+
+>>>>>>> chobranch
 	
 	
 	/* goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것

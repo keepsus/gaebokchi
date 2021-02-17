@@ -11,7 +11,7 @@
    
    
    
-<form id="goodsModifyForm" name="goodsModifyForm">
+<form id="goodsModifyForm" name="goodsModifyForm" enctype="multipart/form-data">
 
 <input type="hidden" name="seq" id="seq" value="${seq }">
 <input type="hidden" name="pg" id="pg" value="${pg }">
@@ -186,7 +186,6 @@ $(document).ready(function(){
 		}//error
 	});//ajax		
 });//ready
-
 
 </script>
 

@@ -22,7 +22,11 @@ public interface GoodsDAO {
 
 	public GoodsDTO getGoods(String seq);
 
+<<<<<<< HEAD
 	public GoodsDTO getOrderImageView(String goods_idSpan);
+=======
+	public void goodsModify(Map<String, String> map);
+>>>>>>> chobranch
 
 	
 	/* goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것

@@ -64,7 +64,7 @@ $('#goodsModifyBtn').click(function(){
    $('#goods_contentSpanDiv').empty();
 
    if($('#goods_titleSpan').val()==''){
-      $('#goods_titleSpanDivDiv').text('제목을 입력하세요');
+      $('#goods_titleSpanDivDiv').text('상품명을 입력하세요');
       $('#goods_titleSpanDivDiv').css('color','red');
       $('#goods_titleSpanDivDiv').css('font-size','8pt');
       $('#goods_titleSpanDivDiv').css('font-weight','bold');
@@ -76,11 +76,15 @@ $('#goodsModifyBtn').click(function(){
       $('#goods_contentSpanDivDiv').css('font-weight','bold');
       
    }else {
+	  let formData = new FormData($('#goodsModifyForm')[0]);
       $.ajax({
-         type: 'post',
+    	 type: 'post',
+         enctype: 'multipart/form-data',
+         processData: false,
+         contentType: false,
          url: '/slime/goods/goodsModify',
-         data: $('#goodsModifyForm').serialize(),
-         success: function(){
+         data: formData,
+         success: function(data){
             alert('제품정보 수정 완료');
             location.href='/slime/goods/goodsList?pg='+$('#pg').val();
          },//success

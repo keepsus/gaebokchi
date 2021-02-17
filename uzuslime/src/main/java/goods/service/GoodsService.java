@@ -1,6 +1,7 @@
 package goods.service;
 
 import java.util.List;
+import java.util.Map;
 
 import goods.bean.GoodsDTO;
 import goods.bean.GoodsPaging;
@@ -21,7 +22,11 @@ public interface GoodsService {
 
 	public GoodsDTO getGoods(String seq);
 
+<<<<<<< HEAD
 	public GoodsDTO getOrderImageView(String goods_idSpan);
+=======
+	public void goodsModify(Map<String, String> map);
+>>>>>>> chobranch
 
 	
 	

@@ -130,7 +130,7 @@ $('#order_payBtn').click(function(){
 				
 				success: function(data){
 					alert('카카오페이 결제창으로 넘어갑니다');
-					alert(data);
+					//alert(data);
 					location.href=data;
 					//var pg_token = location.href=data;
 					//alert(pg_token);

@@ -89,7 +89,19 @@
 		select * from t_shopping_goods where seq=#{seq}
 	</select>
  
- 
+ 	<!-- 등록된 제품 수정 -->
+	<update id="goodsModify" parameterType="java.util.Map">
+		update t_shopping_goods set goods_id=#{goods_id}
+								  , goods_title=#{goods_title}
+								  , goods_price= #{goods_price}
+								  , goods_sales_price=#{goods_sales_price}
+								  , goods_qty=#{goods_qty}
+								  , goods_image0=#{goods_image0}						
+								  , goods_image1=#{goods_image1}
+								  , goods_image2=#{goods_image2}
+								  , goods_content=#{goods_content}
+								  , logtime=sysdate where seq=#{seq}
+	</update>
  	
 	<!--
 	goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것

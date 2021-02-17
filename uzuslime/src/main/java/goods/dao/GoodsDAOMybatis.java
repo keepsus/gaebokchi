@@ -62,8 +62,14 @@ public class GoodsDAOMybatis implements GoodsDAO {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public GoodsDTO getOrderImageView(String goods_idSpan) {
 		return sqlSession.selectOne("goodsSQL.getOrderImageView", goods_idSpan);
+=======
+	public void goodsModify(Map<String, String> map) {
+		sqlSession.update("goodsSQL.goodsModify", map);
+		
+>>>>>>> chobranch
 	}
 
 	
