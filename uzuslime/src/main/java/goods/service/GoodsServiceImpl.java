@@ -94,6 +94,16 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 
+	@Override
+	public void goodsModify(Map<String, String> map) {
+		goodsDAO.goodsModify(map);
+		
+	}
+
+
+	
+
+
 	
 	
 	/* goodsIndexView.jsp 에서 goodsDTO 값들을 객체형으로 받는 것

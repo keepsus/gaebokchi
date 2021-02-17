@@ -1,6 +1,7 @@
 package goods.service;
 
 import java.util.List;
+import java.util.Map;
 
 import goods.bean.GoodsDTO;
 import goods.bean.GoodsPaging;
@@ -20,6 +21,8 @@ public interface GoodsService {
 	public void goodsViewDelete(String seq);
 
 	public GoodsDTO getGoods(String seq);
+
+	public void goodsModify(Map<String, String> map);
 
 	
 	

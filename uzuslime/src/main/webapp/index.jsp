@@ -492,44 +492,30 @@ $(document).ready(function(){
 		type: 'post',
 		url: '/slime/goods/getGoodsIndexList',
 		dataType: 'json',
-		success: function(data){			
+		success: function(data){
+ 			//$('#goodsIndexList').html("<div style='color:red; font-weight:bold'>css 먹히나여?</div>");
 			//alert(JSON.stringify(data)); 
- 			//console.log(data); 			
+ 			//console.log(data);			
  			$.each(data.list, function(index, items){
- 				$('<div/>').append($('<img/>',{
- 					src: '/slime/storage/'+items.goods_image0,
- 					style: 'width: 300px; height: 300px; cursor: pointer;',
- 					class: items.seq+''
- 					
- 				})).append($('<td/>',{
+ 				$('<div class="item-wrapper"/>').append($('<div class="imgTransform">',{
+ 	 				}).append($('<img/>',{
+	 					src: '/slime/storage/'+items.goods_image0,
+	 					style: 'width: 400px; cursor: pointer;',
+	 					class: items.seq+''
+	 					}))					
+ 				).append($('<div/>',{
  					align: 'center',
- 					text: items.goods_title
+ 					text: items.goods_title,
  					
  				})).append($('<span/>',{
  					align: 'center',
-					text: items.goods_sales_price
+					text: "정상가 : "+items.goods_sales_price
 					
- 				})).append($('<span/>',{
+ 				})).append($('<br>')).append($('<span/>',{
  	 				align: 'center',
- 					text: items.goods_price
+ 					text: "세일가 : "+items.goods_price
  						
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_sales_yn 					 	 			
- 				
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_md_yn
- 					 					
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_hot_yn
- 				
- 	 			})).append($('<span/>',{
- 	 				align: 'center',
- 					text: items.goods_soldout_yn
- 					 						
- 	 			})).appendTo($('#goodsIndexList'));
+  	 			})).appendTo($('#goodsIndexList'));
  				
  												
  				//이미지 보기

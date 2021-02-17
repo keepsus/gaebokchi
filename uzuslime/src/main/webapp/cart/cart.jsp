@@ -39,8 +39,8 @@
 <!-- 자체값 주기 -->
 <c:set var="goods_title" value="[크리스탈 슬라임] 네온시드"></c:set>
 <c:set var="order_goods_qty" value="4"></c:set>
-<c:set var="goods_price" value="8000"></c:set>
-<c:set var="goods_sales_price" value="7500"></c:set>
+<c:set var="goods_price" value="7500"></c:set>
+<c:set var="goods_sales_price" value="8000"></c:set>
 <c:set var="goods_deli_price" value="1500"></c:set>
 <c:set var="total_order_price" value="${goods_sales_price * order_goods_qty + goods_deli_price }"></c:set>
 <c:set var="goods_point" value="-"></c:set>
@@ -174,7 +174,7 @@
 						
 						<td class="item_info_detail">
 							<a class="cart_selected_item">
-								<img src="/slime/image/img3.jpg" class="cart_item_img"  onClick="location.href='/slime/detailpage/detailPage.jsp'">
+								<img src="/slime/storage/s01m.jpg" class="cart_item_img"  onClick="location.href='/slime/detailpage/detailPage.jsp'">
 							</a>
 							<div class="item_view_name_div">
 								<span class="item_view_name" id="goods_title" name="goods_title">${goods_title }</span>
@@ -254,7 +254,7 @@
 					</td>	
 					
 					<td class="calculated_price_part3">
-						<p>${goods_sales_price }원</p>
+						<p>${goods_sales_price * order_goods_qty }원</p>
 						<p>${goods_deli_price }원</p>
 						<p>${goods_point }</p>
 					</td>			

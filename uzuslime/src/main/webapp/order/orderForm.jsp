@@ -77,7 +77,7 @@
                         <div class="order_row">
                                 <!-- 상품정보에서 상품 이미지 및 가격과 가격생성 -->
                                 <div class="productImg">
-                                		<img src="/slime/image/img3.jpg" class="cart_item_img" width="90" height="90"onClick="location.href='/slime/detailpage/detailPage.jsp'">
+                                		<img src="/slime/storage/s01m.jpg" class="cart_item_img" width="90" height="90"onClick="location.href='/slime/detailpage/detailPage.jsp'">
                                         <%-- <img src="" width="90" height="90" alt="주문상품 이미지" value="${goods_image0}"><!-- id="goods_filename" name="goods_filename" ★★★★★ 이미지 파일 데이터값 넣는 부분 추가하기, value빼기 --> --%>
                                 </div>
                                 <div class="productInfo" style="float: left; padding-left: 60px;">
